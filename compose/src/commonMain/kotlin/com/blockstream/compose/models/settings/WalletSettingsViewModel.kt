@@ -450,7 +450,7 @@ class WalletSettingsViewModel(
             list += WalletSetting.Text(getString(Res.string.id_about))
             list += listOf(
                 WalletSetting.Version(appInfo.versionFlavorDebug),
-                WalletSetting.SupportId,
+                // zeni: no Blockstream support ID; GetSupport now draws the house About line.
                 WalletSetting.GetSupport
             )
         }

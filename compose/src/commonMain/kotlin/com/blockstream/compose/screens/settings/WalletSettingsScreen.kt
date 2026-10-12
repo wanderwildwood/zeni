@@ -1,5 +1,14 @@
 package com.blockstream.compose.screens.settings
 
+import com.blockstream.compose.theme.labelMedium
+import blockstream_green.common.generated.resources.zeni_feed_the_llamas
+import blockstream_green.common.generated.resources.llama
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.Row
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.clickable
@@ -712,19 +721,36 @@ fun WalletSettingsScreen(
                     }
 
                     WalletSetting.GetSupport -> {
-                        Setting(
-                            title = stringResource(Res.string.id_get_support),
-                            imageVector = PhosphorIcons.Regular.CaretRight,
-                            modifier = Modifier.clickable {
-                                viewModel.postEvent(
-                                    Support(
-                                        type = SupportType.INCIDENT,
-                                        supportData = SupportData.create(session = viewModel.sessionOrNull),
-                                        greenWalletOrNull = viewModel.greenWalletOrNull
-                                    )
+                        // zeni: the house About line in place of Blockstream's help desk —
+                        // the address opens the site, the llama and its words the donate page.
+                        val uriHandler = LocalUriHandler.current
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.fillMaxWidth().padding(vertical = 12.dp, horizontal = 4.dp)
+                        ) {
+                            Text(
+                                text = "wanderthe.dev",
+                                style = labelMedium,
+                                modifier = Modifier
+                                    .clickable { runCatching { uriHandler.openUri("https://wanderthe.dev") } }
+                                    .padding(vertical = 4.dp)
+                            )
+                            Spacer(Modifier.width(6.dp))
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                modifier = Modifier
+                                    .clickable { runCatching { uriHandler.openUri("https://square.link/u/AGu8oT10") } }
+                                    .padding(vertical = 4.dp)
+                            ) {
+                                Image(
+                                    painter = painterResource(Res.drawable.llama),
+                                    contentDescription = null,
+                                    modifier = Modifier.size(22.dp)
                                 )
+                                Spacer(Modifier.width(6.dp))
+                                Text(text = stringResource(Res.string.zeni_feed_the_llamas), style = labelMedium)
                             }
-                        )
+                        }
                     }
 
                     is WalletSetting.RenameWallet -> {

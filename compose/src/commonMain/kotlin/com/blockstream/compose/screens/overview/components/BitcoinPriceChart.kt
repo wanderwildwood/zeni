@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.overview.components
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -289,16 +290,19 @@ private fun ChartPeriodSelectorItem(
         whiteLow
     }
 
+    // zeni: five labels fit 480 px only with tighter padding; "5Y" was wrapping onto two lines.
     TextButton(
         modifier = Modifier.appTestTag(period.label),
         onClick = { onChangePeriod(period) },
+        contentPadding = PaddingValues(horizontal = 10.dp, vertical = 6.dp),
         colors = ButtonDefaults.textButtonColors()
             .copy(containerColor = containerColor, contentColor = contentColor)
     ) {
         Text(
-            modifier = Modifier.padding(horizontal = 8.dp),
             text = period.label,
-            style = MaterialTheme.typography.bodyMedium
+            style = MaterialTheme.typography.bodyMedium,
+            maxLines = 1,
+            softWrap = false
         )
     }
 

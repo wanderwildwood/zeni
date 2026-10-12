@@ -210,8 +210,10 @@ fun WalletOverviewScreen(
                         }
                     }
 
+                    // zeni: Bitcoin is the only asset, so no "Assets" heading over its one row;
+                    // the row stays as the way into the accounts.
                     item(key = "AssetsHeader") {
-                        ListHeader(title = stringResource(Res.string.id_assets))
+                        GreenSpacer(16)
                     }
                     
                     if (assets.isLoading()) {
