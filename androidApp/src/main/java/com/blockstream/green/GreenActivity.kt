@@ -1,6 +1,11 @@
 package com.blockstream.green
 
+import android.app.PendingIntent
 import android.content.Intent
+import android.content.IntentFilter
+import android.nfc.NdefMessage
+import android.nfc.NfcAdapter
+import android.os.Build
 import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Base64
@@ -194,6 +199,38 @@ class GreenActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         bluetoothManager.permissionsGranted()
+        enableNfcTap()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        runCatching { NfcAdapter.getDefaultAdapter(this)?.disableForegroundDispatch(this) }
+    }
+
+    // zeni: while the app is in front, a tapped bitcoin: request comes straight here rather than
+    // through Android's app chooser. Foreground dispatch, not reader mode, so this phone can
+    // still be tapped itself while showing a Receive address.
+    private fun enableNfcTap() {
+        val adapter = NfcAdapter.getDefaultAdapter(this) ?: return
+        val flags = PendingIntent.FLAG_UPDATE_CURRENT or
+                (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) PendingIntent.FLAG_MUTABLE else 0)
+        val pendingIntent = PendingIntent.getActivity(
+            this, 0, Intent(this, javaClass).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), flags
+        )
+        val filter = IntentFilter(NfcAdapter.ACTION_NDEF_DISCOVERED).apply { addDataScheme("bitcoin") }
+        runCatching { adapter.enableForegroundDispatch(this, pendingIntent, arrayOf(filter), null) }
+    }
+
+    // The first bitcoin: URI record of a tapped tag. Only a payment request is taken; the Send
+    // screen it opens still waits for the payer to confirm.
+    private fun nfcPaymentUri(intent: Intent): String? {
+        intent.data?.takeIf { it.scheme.equals("bitcoin", ignoreCase = true) }?.let { return it.toString() }
+        @Suppress("DEPRECATION")
+        val messages = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES) ?: return null
+        return messages.filterIsInstance<NdefMessage>()
+            .flatMap { it.records.toList() }
+            .firstNotNullOfOrNull { record -> record.toUri()?.takeIf { it.scheme.equals("bitcoin", ignoreCase = true) } }
+            ?.toString()
     }
 
     override fun onStop() {
@@ -235,6 +272,8 @@ class GreenActivity : AppCompatActivity() {
                     wallet = wallet, deviceId = intent.getStringExtra(DEVICE_ID)
                 )
             }
+        } else if (intent?.action == NfcAdapter.ACTION_NDEF_DISCOVERED) {
+            nfcPaymentUri(intent)?.let { sessionManager.pendingUri.value = it }
         } else if (intent?.action == HIDE_AMOUNTS) {
             settingsManager.saveApplicationSettings(
                 settingsManager.getApplicationSettings().copy(hideAmounts = true)

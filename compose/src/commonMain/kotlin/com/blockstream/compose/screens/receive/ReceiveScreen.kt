@@ -88,6 +88,9 @@ import com.blockstream.compose.components.GreenCard
 import com.blockstream.compose.components.GreenColumn
 import com.blockstream.compose.components.GreenGradient
 import com.blockstream.compose.components.GreenQR
+import com.blockstream.compose.nfc.NfcShareWhileShown
+import com.blockstream.compose.nfc.nfcShareAvailable
+import blockstream_green.common.generated.resources.zeni_hold_another_phone
 import com.blockstream.compose.components.GreenRow
 import com.blockstream.compose.components.OnProgressStyle
 import com.blockstream.compose.events.Events
@@ -506,6 +509,17 @@ fun ReceiveScreen(
                                                 viewModel.postEvent(ReceiveViewModel.LocalEvents.CopyAddress)
                                             }
                                         )
+
+                                        // zeni: tap-to-pay, offered only while this address is on screen.
+                                        NfcShareWhileShown(receiveAddressUri)
+                                        if (nfcShareAvailable() && !receiveAddressUri.isNullOrBlank()) {
+                                            Text(
+                                                text = stringResource(Res.string.zeni_hold_another_phone),
+                                                textAlign = TextAlign.Center,
+                                                style = bodyMedium,
+                                                modifier = Modifier.fillMaxWidth()
+                                            )
+                                        }
 
                                         val showVerifyOnDevice by viewModel.showVerifyOnDevice.collectAsStateWithLifecycle()
                                         AnimatedVisibility(visible = showVerifyOnDevice) {
