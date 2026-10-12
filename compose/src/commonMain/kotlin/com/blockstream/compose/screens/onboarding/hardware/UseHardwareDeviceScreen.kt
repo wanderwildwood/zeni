@@ -181,30 +181,7 @@ fun UseHardwareDeviceScreen(
                 viewModel.postEvent(UseHardwareDeviceViewModel.LocalEvents.ConnectDifferentHardwareDevice)
             }
 
-            GreenRow(
-                padding = 0, space = 4, modifier = Modifier
-                    .noRippleClickable {
-                        viewModel.postEvent(UseHardwareDeviceViewModel.LocalEvents.JadeStore)
-                    }
-                    .padding(8.dp)) {
-                Text(
-                    text = stringResource(Res.string.id_dont_have_a_jade), style = bodyLarge
-                )
-
-                Text(
-                    text = stringResource(Res.string.id_check_our_store), style = labelLarge,
-                    color = green,
-                )
-
-                Image(
-                    painter = painterResource(Res.drawable.arrow_square_out),
-                    contentDescription = null,
-                    modifier = Modifier.size(18.dp),
-                    colorFilter = ColorFilter.tint(
-                        green
-                    )
-                )
-            }
+            // zeni: no shop link.
         }
     }
 }

@@ -21,6 +21,13 @@ val signingProperties = Properties().apply {
     if (signingPropertiesFile.isFile) signingPropertiesFile.inputStream().use(::load)
 }
 
+// Load local.properties
+val localPropertiesFile = rootProject.file("local.properties")
+val localProperties = Properties()
+if (localPropertiesFile.exists()) {
+    localProperties.load(FileInputStream(localPropertiesFile))
+}
+
 val appKeys = rootProject.file("app_keys.txt").takeIf { it.exists() }?.readText() ?: ""
 
 android {
@@ -55,7 +62,7 @@ android {
     productFlavors {
         create("development") {
             applicationId = "com.greenaddress.greenbits_android_wallet.dev"
-            versionNameSuffix  = "-dev" + appendGdkCommitHash(rootProject, true)
+            versionNameSuffix  = "-dev" + appendGdkCommitHash(rootProject, false)
             resValue("string", "app_name", "Blockstream App Dev")
             resValue("string", "application_id", applicationId!!)
             resValue("bool", "feature_lightning", "true")
@@ -103,8 +110,9 @@ android {
             buildConfigField("String", "DEV_PIN_CODE", "null")
             buildConfigField("String", "APP_KEYS", """"$appKeys"""")
 
+            // zeni: the Kompakt is 64-bit ARM only; -PabiFilter=x86_64 builds for the emulator.
             ndk {
-                abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a"))
+                abiFilters.add(providers.gradleProperty("abiFilter").getOrElse("arm64-v8a"))
             }
         }
     }

@@ -11,20 +11,24 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import blockstream_green.common.generated.resources.Res
-import blockstream_green.common.generated.resources.inter_bold
-import blockstream_green.common.generated.resources.inter_extra_light
-import blockstream_green.common.generated.resources.inter_regular
-import blockstream_green.common.generated.resources.inter_thin
+import blockstream_green.common.generated.resources.lato_bold
+import blockstream_green.common.generated.resources.lato_regular
+import blockstream_green.common.generated.resources.lato_semi_bold
 import blockstream_green.common.generated.resources.monospace_bold
 import blockstream_green.common.generated.resources.monospace_regular
 import org.jetbrains.compose.resources.Font
 
 @Composable
+// MMD's Lato in place of Inter. Thin and extra-light map to regular: the e-ink panel loses
+// the thin end of every stroke, so nothing on this screen is set lighter than regular.
 fun InterFont() = FontFamily(
-    Font(Res.font.inter_regular, FontWeight.Normal),
-    Font(Res.font.inter_thin, FontWeight.Thin),
-    Font(Res.font.inter_extra_light, FontWeight.ExtraLight),
-    Font(Res.font.inter_bold, FontWeight.Bold),
+    Font(Res.font.lato_regular, FontWeight.Normal),
+    Font(Res.font.lato_regular, FontWeight.Thin),
+    Font(Res.font.lato_regular, FontWeight.ExtraLight),
+    Font(Res.font.lato_regular, FontWeight.Light),
+    Font(Res.font.lato_semi_bold, FontWeight.Medium),
+    Font(Res.font.lato_semi_bold, FontWeight.SemiBold),
+    Font(Res.font.lato_bold, FontWeight.Bold),
 )
 
 @Composable
@@ -139,8 +143,8 @@ val textHigh
 
 val textMedium
     @Composable
-    get() = LocalContentColor.current.copy(alpha = 0.8f)
+    get() = LocalContentColor.current
 
 val textLow
     @Composable
-    get() = LocalContentColor.current.copy(alpha = 0.6f)
+    get() = LocalContentColor.current

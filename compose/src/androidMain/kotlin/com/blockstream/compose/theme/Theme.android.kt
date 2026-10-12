@@ -40,8 +40,8 @@ actual fun GreenChrome(isLight: Boolean) {
 //            }
 
             WindowCompat.getInsetsController(window, view).also {
-                it.isAppearanceLightStatusBars = false
-                it.isAppearanceLightNavigationBars = false
+                it.isAppearanceLightStatusBars = true
+                it.isAppearanceLightNavigationBars = true
             }
         }
     }

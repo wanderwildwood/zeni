@@ -131,23 +131,7 @@ fun HomeScreen(
                                     viewModel.postEvent(HomeViewModel.LocalEvents.ConnectJade)
                                 }
 
-                                val annotatedString = linkText(
-                                    text = stringResource(Res.string.id_by_using_blockstream_app_you_agree),
-                                    linkTexts = listOf(
-                                        stringResource(Res.string.id_terms_of_service) to {
-                                            viewModel.postEvent(HomeViewModel.LocalEvents.ClickTermsOfService())
-                                        }, stringResource(Res.string.id_privacy_policy) to {
-                                            viewModel.postEvent(HomeViewModel.LocalEvents.ClickPrivacyPolicy())
-                                        }
-                                    )
-                                )
-
-                                Text(
-                                    text = annotatedString,
-                                    modifier = Modifier.padding(top = 14.dp)
-                                        .padding(horizontal = 16.dp),
-                                    style = bodyMedium.copy(textAlign = TextAlign.Center)
-                                )
+                                // zeni: no Blockstream terms line; this is not their app.
                             }
                         }
 

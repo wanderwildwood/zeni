@@ -69,20 +69,7 @@ actual fun Rive(riveAnimation: RiveAnimation, previewContent: @Composable (() ->
                 Text(text = "Rive Preview", modifier = Modifier.align(Alignment.Center))
             }
         }
-    } else {
-        AndroidView(factory = {
-            RiveAnimationView(context = it).also {
-                // For some reason if you don't init here rive with a resource, setRiveBytes is not working
-                it.setRiveResource(R.raw.rive_empty)
-            }
-        }, update = {
-            bytes?.also { bytes ->
-                it.setRiveBytes(bytes = bytes, autoplay = true)
-            }
-        })
-
-        LaunchedEffect(path) {
-            bytes = path?.let { Res.readBytes(it) }
-        }
     }
+    // zeni: no Rive at all. Its art is drawn in navy and cyan for a dark screen, and even a
+    // still frame of it is a smudge on white e-ink. The screens read fine without it.
 }

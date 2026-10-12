@@ -18,6 +18,7 @@ import com.blockstream.compose.models.MainViewModel
 import com.blockstream.compose.navigation.NavigateDestinations
 import com.blockstream.compose.theme.GreenChrome
 import com.blockstream.compose.theme.GreenTheme
+import com.blockstream.compose.theme.stillMotion
 import com.blockstream.compose.utils.compatTestTagsAsResourceId
 import com.blockstream.data.config.AppInfo
 import com.blockstream.data.data.CredentialType
@@ -61,6 +62,7 @@ class GreenActivity : AppCompatActivity() {
         FileKit.init(this)
 
         enableEdgeToEdge()
+        stillMotion()
         setContent {
             GreenChrome()
             GreenTheme {
