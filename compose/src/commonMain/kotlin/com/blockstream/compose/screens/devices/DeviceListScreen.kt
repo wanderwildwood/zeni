@@ -165,16 +165,7 @@ fun DeviceListScreen(
                         ) {
 
                             if (isJade) {
-                                val pagerState = rememberPagerState(pageCount = { 3 })
-
-                                LaunchedEffect(Unit) {
-                                    while (true) {
-                                        delay(3000L)
-                                        pagerState.animateScrollToPage((pagerState.currentPage + 1).takeIf { it < 3 }
-                                            ?: 0)
-                                    }
-                                }
-
+                                // zeni: one still picture and one line, not a rotating three-step card.
                                 Box(modifier = Modifier.weight(1f)) {
                                     Image(
                                         painter = painterResource(Res.drawable.blockstream_devices),
@@ -183,73 +174,13 @@ fun DeviceListScreen(
                                     )
                                 }
 
-                                HorizontalPager(
-                                    state = pagerState,
-                                    modifier = Modifier.weight(1f)
-                                ) { page ->
-                                    val title: String
-                                    val subtitle: String
-
-                                    when (page) {
-                                        0 -> {
-                                            title = stringResource(Res.string.id_power_on_jade)
-                                            subtitle =
-                                                stringResource(Res.string.id_plug_in_the_provided_usb_c_cable_or)
-                                        }
-
-                                        1 -> {
-                                            title =
-                                                stringResource(Res.string.id_follow_the_instructions_on_jade)
-                                            subtitle =
-                                                stringResource(Res.string.id_select_initialize_and_choose_to)
-                                        }
-
-                                        else -> {
-                                            title =
-                                                stringResource(Res.string.id_connect_using_usb_or_bluetooth)
-                                            subtitle =
-                                                stringResource(Res.string.id_choose_a_usb_or_bluetooth)
-                                        }
-                                    }
-
-                                    GreenColumn(
-                                        space = 0,
-                                        horizontalAlignment = Alignment.CenterHorizontally
-                                    ) {
-
-                                        GreenCard {
-                                            GreenColumn(
-                                                padding = 0,
-                                                space = 4,
-                                                horizontalAlignment = Alignment.CenterHorizontally,
-                                                modifier = Modifier.fillMaxWidth()
-                                            ) {
-                                                Text(
-                                                    text = stringResource(
-                                                        Res.string.id_step_1s,
-                                                        (page + 1).toString()
-                                                    ),
-                                                    color = green,
-                                                    style = labelMedium
-                                                )
-
-                                                Text(
-                                                    text = title,
-                                                    color = whiteHigh,
-                                                    style = labelLarge,
-                                                    textAlign = TextAlign.Center
-                                                )
-
-                                                Text(
-                                                    text = subtitle,
-                                                    color = whiteMedium,
-                                                    style = bodyMedium,
-                                                    textAlign = TextAlign.Center
-                                                )
-                                            }
-                                        }
-                                    }
-                                }
+                                Text(
+                                    text = stringResource(Res.string.id_power_on_jade),
+                                    color = whiteHigh,
+                                    style = titleMedium,
+                                    textAlign = TextAlign.Center,
+                                    modifier = Modifier.padding(horizontal = 32.dp, vertical = 16.dp)
+                                )
                             } else {
 
                                 Box(modifier = Modifier.weight(1f)) {
@@ -308,26 +239,7 @@ fun DeviceListScreen(
                                 )
                             }
 
-                            if (bluetoothState == BluetoothState.LOCATION_SERVICES_DISABLED || bluetoothState == BluetoothState.PERMISSIONS_NOT_GRANTED) {
-
-                                Text(
-                                    stringResource(Res.string.id_blockstream_needs_access_to),
-                                    color = whiteMedium,
-                                    style = bodySmall,
-                                    textAlign = TextAlign.Center
-                                )
-
-
-                                GreenButton(
-                                    text = stringResource(Res.string.id_more_info),
-                                    color = GreenButtonColor.GREEN,
-                                    type = GreenButtonType.TEXT,
-                                    size = GreenButtonSize.SMALL,
-                                    onClick = {
-                                        viewModel.postEvent(AbstractDeviceViewModel.LocalEvents.LocationServiceMoreInfo)
-                                    }
-                                )
-                            }
+                            // zeni: no permission blurb or More Info; the button says what it does.
 
 
                             if (bluetoothState == BluetoothState.ON) {

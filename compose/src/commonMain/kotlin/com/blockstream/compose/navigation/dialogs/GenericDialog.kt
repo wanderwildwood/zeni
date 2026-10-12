@@ -1,5 +1,11 @@
 package com.blockstream.compose.navigation.dialogs
 
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.graphics.Color
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.border
+import com.blockstream.compose.theme.NoDialogDim
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Text
@@ -59,6 +65,9 @@ fun GenericDialog(
     }
 
     AlertDialog(
+        // zeni: MMD dialog — white, a 2 dp black rim, 12 dp corners, no dim.
+        shape = RoundedCornerShape(12.dp),
+        modifier = Modifier.border(2.dp, Color.Black, RoundedCornerShape(12.dp)),
         title = dialog.title?.let {
             {
                 Text(text = it)
@@ -75,6 +84,7 @@ fun GenericDialog(
             onDismiss(DialogState.CANCELLED)
         },
         confirmButton = {
+                NoDialogDim()
             TextButton(
                 onClick = {
                     onDismiss(DialogState.CONFIRMED)

@@ -14,9 +14,9 @@
           android:centerY="224.5"
           android:gradientRadius="165.25"
           android:type="radial">
-        <item android:offset="0" android:color="#FF00BCFF"/>
-        <item android:offset="0.65" android:color="#1900BCFF"/>
-        <item android:offset="1" android:color="#0000BCFF"/>
+        <item android:offset="0" android:color="#FF000000"/>
+        <item android:offset="0.65" android:color="#19000000"/>
+        <item android:offset="1" android:color="#00000000"/>
       </gradient>
     </aapt:attr>
   </path>

@@ -3,7 +3,9 @@ package com.blockstream.compose.components
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.ButtonDefaults
@@ -72,7 +74,13 @@ fun PopupMenu(modifier: Modifier = Modifier, state: PopupState, entries: List<Me
         onDismissRequest = {
             state.isContextMenuVisible.value = false
         },
-        offset = state.offset.value
+        offset = state.offset.value,
+        // zeni: MMD's menu — white, a black rim, no shadow.
+        shape = RoundedCornerShape(12.dp),
+        containerColor = Color.White,
+        tonalElevation = 0.dp,
+        shadowElevation = 0.dp,
+        border = BorderStroke(2.dp, Color.Black),
     ) {
         entries.forEach {
             DropdownMenuItem(

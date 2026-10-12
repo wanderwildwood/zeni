@@ -102,16 +102,7 @@ fun AboutScreen(
                         start.linkTo(parent.start)
                         end.linkTo(parent.end)
                     }) {
-                Image(
-                    painter = painterResource(Res.drawable.brand),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .heightIn(80.dp, 120.dp)
-                        .align(Alignment.Center)
-                        .noRippleClickable {
-                            viewModel.postEvent(AboutViewModel.LocalEvents.ClickLogo)
-                        }
-                )
+                // zeni: no Blockstream logo.
 
                 PopupMenu(
                     state = popupState,

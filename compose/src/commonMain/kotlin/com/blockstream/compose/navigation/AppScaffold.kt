@@ -1,5 +1,10 @@
 package com.blockstream.compose.navigation
 
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.graphics.Color
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -168,9 +173,21 @@ fun AppScaffold(
                     enter = fadeIn() + slideInVertically(initialOffsetY = { it }),
                     exit = fadeOut() + slideOutVertically(targetOffsetY = { it })
                 ) {
-                    NavigationBar {
+                    // zeni: a rule above the bar, and every tab keeps its label in black; the
+                    // selected one is the black pill with a white icon.
+                    Column {
+                    HorizontalDivider(thickness = 1.dp, color = Color.Black)
+                    NavigationBar(containerColor = Color.White, tonalElevation = 0.dp) {
                         TopLevelRoutes.forEach { topLevelRoute ->
                             NavigationBarItem(
+                                colors = NavigationBarItemDefaults.colors(
+                                    selectedIconColor = Color.White,
+                                    selectedTextColor = Color.Black,
+                                    indicatorColor = Color.Black,
+                                    unselectedIconColor = Color.Black,
+                                    unselectedTextColor = Color.Black,
+                                ),
+                                alwaysShowLabel = true,
                                 icon = {
                                     BadgedBox(
                                         badge = {
@@ -222,6 +239,7 @@ fun AppScaffold(
                                 }
                             )
                         }
+                    }
                     }
                 }
             }

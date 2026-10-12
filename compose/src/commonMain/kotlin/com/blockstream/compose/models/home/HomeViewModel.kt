@@ -2,7 +2,7 @@ package com.blockstream.compose.models.home
 
 import androidx.lifecycle.viewModelScope
 import blockstream_green.common.generated.resources.Res
-import blockstream_green.common.generated.resources.blockstream_logo
+import blockstream_green.common.generated.resources.info
 import blockstream_green.common.generated.resources.id_about
 import blockstream_green.common.generated.resources.id_app_settings
 import com.adamglin.PhosphorIcons
@@ -126,7 +126,7 @@ class HomeViewModel(isGetStarted: Boolean = false) : HomeViewModelAbstract(isGet
                     },
                     NavAction(
                         titleRes = Res.string.id_about,
-                        icon = Res.drawable.blockstream_logo,
+                        icon = Res.drawable.info,
                         isMenuEntry = true,
                     ) {
                         postSideEffect(SideEffects.NavigateTo(NavigateDestinations.About))

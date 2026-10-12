@@ -1,5 +1,9 @@
 package com.blockstream.compose.sideeffects
 
+import androidx.compose.ui.graphics.Color
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.border
+import com.blockstream.compose.theme.NoDialogDim
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material3.AlertDialog
@@ -132,6 +136,9 @@ fun DialogHost(state: DialogState) {
 
             else -> {
                 AlertDialog(
+        // zeni: MMD dialog — white, a 2 dp black rim, 12 dp corners, no dim.
+        shape = RoundedCornerShape(12.dp),
+        modifier = Modifier.border(2.dp, Color.Black, RoundedCornerShape(12.dp)),
                     title = data.title?.let {
                         {
                             Text(text = it.string())
@@ -160,6 +167,7 @@ fun DialogHost(state: DialogState) {
                         state.clear()
                     },
                     confirmButton = {
+                NoDialogDim()
                         TextButton(
                             onClick = {
                                 data.onPrimary.invoke()

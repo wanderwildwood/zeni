@@ -63,15 +63,7 @@ fun LockScreen(
                 // Catch all clicks
             }) {
 
-        Image(
-            painter = painterResource(Res.drawable.brand),
-            contentDescription = "Blockstream",
-            modifier = Modifier
-                .height(70.dp)
-                .align(
-                    Alignment.Center
-                )
-        )
+        // zeni: a blank screen while locked, no Blockstream logo.
 
         GreenButton(
             text = stringResource(Res.string.id_unlock),

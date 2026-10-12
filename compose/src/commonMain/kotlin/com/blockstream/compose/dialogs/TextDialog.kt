@@ -1,5 +1,6 @@
 package com.blockstream.compose.dialogs
 
+import com.blockstream.compose.theme.NoDialogDim
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -66,6 +67,7 @@ fun TextDialog(
             onDismissRequest(null)
         }
     ) {
+        NoDialogDim()
         GreenCard(modifier = Modifier.fillMaxWidth()) {
             GreenColumn(padding = 8, space = 16) {
                 Text(

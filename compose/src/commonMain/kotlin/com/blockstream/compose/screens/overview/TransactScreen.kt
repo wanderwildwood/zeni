@@ -108,23 +108,7 @@ fun TransactScreen(viewModel: TransactViewModelAbstract) {
                     .plus(PaddingValues(bottom = 80.dp + 16.dp)),
             ) {
 
-                item(key = "WalletBalance") {
-                    WalletBalance(viewModel = viewModel)
-                }
-
-                item(key = "ButtonsRow") {
-                    TransactionActionButtons(
-                        modifier = Modifier.padding(top = 16.dp),
-                        showBuyButton = isMainnet,
-                        showSwapButton = isSwapAvailable,
-                        isSendEnabled = SendActionAvailability.isEnabled(isMultisigWatchOnly = isMultisigWatchOnly),
-                        onBuy = viewModel::onBuy,
-                        onSend = viewModel::onSend,
-                        onReceive = viewModel::onReceive,
-                        onSwap = viewModel::onSwap
-                    )
-                }
-
+                // zeni: the balance and Send/Receive live on Home; this tab is the transactions.
                 item(key = "TransactionsHeader") {
                     ListHeader(title = stringResource(Res.string.id_latest_transactions))
 

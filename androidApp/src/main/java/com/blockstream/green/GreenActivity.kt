@@ -29,6 +29,7 @@ import com.blockstream.data.gdk.Gdk
 import com.blockstream.data.gdk.GreenJson
 import com.blockstream.data.gdk.data.Network
 import com.blockstream.data.gdk.data.PinData
+import com.blockstream.data.managers.BluetoothManager
 import com.blockstream.data.managers.SessionManager
 import com.blockstream.data.managers.SettingsManager
 import com.blockstream.green.data.CountlyAndroid
@@ -51,6 +52,7 @@ class GreenActivity : AppCompatActivity() {
     private val database: Database by inject()
     private val sessionManager: SessionManager by inject()
     private val settingsManager by inject<SettingsManager>()
+    private val bluetoothManager by inject<BluetoothManager>()
 
     private val mainViewModel: MainViewModel by viewModel()
 
@@ -185,6 +187,13 @@ class GreenActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         countly.onStart(this)
+    }
+
+    // zeni: permissions granted elsewhere (Android Settings, or after a "Don't ask again")
+    // were only noticed on the next launch, so look again whenever the app comes back.
+    override fun onResume() {
+        super.onResume()
+        bluetoothManager.permissionsGranted()
     }
 
     override fun onStop() {

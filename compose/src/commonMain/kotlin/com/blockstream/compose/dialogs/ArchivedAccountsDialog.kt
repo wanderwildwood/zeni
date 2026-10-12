@@ -1,5 +1,6 @@
 package com.blockstream.compose.dialogs
 
+import com.blockstream.compose.theme.NoDialogDim
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -41,6 +42,7 @@ fun ArchivedAccountsDialog(
             onDismissRequest()
         }
     ) {
+        NoDialogDim()
 
         HandleSideEffectDialog(viewModel, onDismiss = {
             onDismissRequest()

@@ -34,11 +34,11 @@
                   
             <gradient android:endX="100.29" android:endY="118.85" android:startX="116.78" android:startY="1.51" android:type="linear">
                         
-                <item android:color="#0000BCFF" android:offset="0"/>
+                <item android:color="#00000000" android:offset="0"/>
                         
-                <item android:color="#3300BCFF" android:offset="0.27"/>
+                <item android:color="#33000000" android:offset="0.27"/>
                         
-                <item android:color="#7F00BCFF" android:offset="1"/>
+                <item android:color="#7F000000" android:offset="1"/>
                       
             </gradient>
                 

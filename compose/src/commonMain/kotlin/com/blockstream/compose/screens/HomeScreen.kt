@@ -24,6 +24,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.brand
 import blockstream_green.common.generated.resources.id_by_using_blockstream_app_you_agree
+import blockstream_green.common.generated.resources.id_connect_hardware_wallet
 import blockstream_green.common.generated.resources.id_connect_jade
 import blockstream_green.common.generated.resources.id_everything_you_need_to_take
 import blockstream_green.common.generated.resources.id_get_started
@@ -72,11 +73,7 @@ fun HomeScreen(
         Box(modifier = Modifier.fillMaxSize()) {
 
             Column {
-                Image(
-                    painter = painterResource(Res.drawable.brand),
-                    contentDescription = null,
-                    modifier = Modifier.height(70.dp).padding(bottom = 24.dp)
-                )
+                // zeni: no Blockstream logo.
 
                 Banner(viewModel = viewModel, withTopPadding = true)
 
@@ -120,8 +117,9 @@ fun HomeScreen(
                                     viewModel.postEvent(HomeViewModel.LocalEvents.GetStarted)
                                 }
 
+                                // zeni: for any hardware wallet, not only a Jade.
                                 GreenButton(
-                                    stringResource(Res.string.id_connect_jade),
+                                    stringResource(Res.string.id_connect_hardware_wallet),
                                     modifier = Modifier.fillMaxWidth().appTestTag("connect_jade"),
                                     size = GreenButtonSize.BIG,
                                     type = GreenButtonType.OUTLINE,

@@ -662,22 +662,18 @@ class GdkSession constructor(
         return ephemeralWallet == null && appConfig.lightningFeatureEnabled && !isWatchOnly && (device == null || device.deviceModel?.supportsLightningMnemonicDerivation == true) && lightningManager.isAvailable
     }
 
+    // zeni: Bitcoin only. Liquid, AMP and their assets are not part of this app; Green's
+    // Bitcoin multisig stays so an old Green 2FA wallet still restores.
     fun networks(isTestnet: Boolean, isWatchOnly: Boolean, device: GreenDevice?): List<Network> {
         return if (isTestnet) {
             listOfNotNull(
                 networks.testnetBitcoinElectrum,
                 networks.testnetBitcoinGreen,
-                networks.testnetLiquidElectrum,
-                networks.testnetLiquidGreen,
-                networks.liquidTestnetAmp2.takeIf { device == null && !isWatchOnly }
             )
         } else {
             listOfNotNull(
                 networks.bitcoinElectrum,
                 networks.bitcoinGreen,
-                networks.liquidElectrum,
-                networks.liquidGreen,
-                networks.liquidAmp2.takeIf { device == null && !isWatchOnly }
             )
         }
     }

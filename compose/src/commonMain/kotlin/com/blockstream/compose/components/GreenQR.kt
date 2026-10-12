@@ -1,5 +1,6 @@
 package com.blockstream.compose.components
 
+import com.blockstream.compose.theme.NoDialogDim
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -256,6 +257,8 @@ private fun QrFullscreenDialog(
         onDismissRequest = onDismiss,
         properties = DialogProperties(usePlatformDefaultWidth = false)
     ) {
+
+        NoDialogDim()
         Box(
             modifier = Modifier
                 .fillMaxSize()

@@ -145,41 +145,7 @@ fun SecurityScreen(viewModel: SecurityViewModelAbstract) {
                 .plus(PaddingValues(bottom = 80.dp + 24.dp))
         ) {
 
-            if (!isWatchOnly) {
-                item {
-                    GreenColumn(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Icon(
-                            imageVector = PhosphorIcons.Regular.ShieldChevron,
-                            contentDescription = null,
-                            modifier = Modifier.size(32.dp)
-                        )
-                        Text(
-                            text = stringResource(
-                                Res.string.id_security_level_,
-                                if (isHardware) "2" else "1"
-                            ), color = whiteMedium
-                        )
-                        Text(
-                            text = stringResource(if (isHardware) Res.string.id_hardware else Res.string.id_mobile),
-                            style = displaySmall
-                        )
-
-                        if (!isHardware) {
-                            GreenButton(
-                                text = stringResource(Res.string.id_compare_security_levels),
-                                type = GreenButtonType.OUTLINE,
-                                size = GreenButtonSize.BIG,
-                                color = GreenButtonColor.GREENER
-                            ) {
-                                viewModel.postEvent(NavigateDestinations.SecurityLevel(greenWallet = viewModel.greenWallet))
-                            }
-                        }
-                    }
-                }
-            }
+            // zeni: no "Security Level 1/2" banner or level-comparison upsell.
 
             if (isHardware && !isQrWatchOnly) {
 

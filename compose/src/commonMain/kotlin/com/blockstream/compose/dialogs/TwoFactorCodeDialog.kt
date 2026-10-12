@@ -1,5 +1,6 @@
 package com.blockstream.compose.dialogs
 
+import com.blockstream.compose.theme.NoDialogDim
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -50,6 +51,7 @@ fun TwoFactorCodeDialog(
         },
         properties = DialogProperties(dismissOnClickOutside = false, usePlatformDefaultWidth = false),
     ) {
+        NoDialogDim()
         Card(
             modifier = Modifier
                 .widthIn(max = 400.dp)

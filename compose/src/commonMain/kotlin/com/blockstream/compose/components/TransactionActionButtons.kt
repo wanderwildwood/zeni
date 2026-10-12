@@ -32,7 +32,8 @@ fun TransactionActionButtons(
         padding = 0,
         modifier = modifier
     ) {
-        if (showBuyButton) {
+        // zeni: no Buy (a third-party shop) and no Swap (Liquid/Lightning only). Send and Receive.
+        if (false && showBuyButton) {
             GreenActionButton(
                 text = Res.string.id_buy,
                 icon = PhosphorIcons.Regular.ShoppingCart,
@@ -53,7 +54,7 @@ fun TransactionActionButtons(
             onClick = onReceive
         )
 
-        if (showSwapButton) {
+        if (false && showSwapButton) {
             GreenActionButton(
                 text = Res.string.id_swap,
                 icon = PhosphorIcons.Regular.ArrowsDownUp,

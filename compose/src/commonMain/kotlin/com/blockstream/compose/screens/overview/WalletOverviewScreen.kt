@@ -200,7 +200,8 @@ fun WalletOverviewScreen(
                         )
                     }
 
-                    if (promos.isNotEmpty()) {
+                    // zeni: no promos.
+                    if (false && promos.isNotEmpty()) {
                         item(key = "Promo") {
                             Promo(
                                 viewModel = viewModel,
@@ -256,7 +257,8 @@ fun WalletOverviewScreen(
                         BitcoinPriceChart(
                             viewModel.bitcoinChartData,
                             onClickRetry = { viewModel.refetchBitcoinPriceHistory() },
-                            onClickBuyNow = { viewModel.onBuy() }
+                            // zeni: no Buy now button under the chart.
+                            onClickBuyNow = null
                         )
                     }
 

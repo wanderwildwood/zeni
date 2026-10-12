@@ -1,5 +1,6 @@
 package com.blockstream.compose.dialogs
 
+import com.blockstream.compose.theme.NoDialogDim
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -39,6 +40,7 @@ fun HwWatchOnlyDialog(
     Dialog(onDismissRequest = {
         // Empty onDismissRequest: dialog is non-dismissable, user must choose an option
     }) {
+        NoDialogDim()
         GreenCard(modifier = Modifier.fillMaxWidth()) {
             GreenColumn(
                 padding = 0, space = 16, horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.padding(vertical = 24.dp)

@@ -1,5 +1,7 @@
 package com.blockstream.compose.screens.settings
 
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
@@ -339,7 +341,7 @@ fun WalletSettingsScreen(
             contentPadding = innerPadding.bottom()
                 .plus(PaddingValues(horizontal = 16.dp))
                 .plus(PaddingValues(bottom = (if (viewModel.section == WalletSettingsSection.General) 80.dp else 0.dp) + 16.dp)),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(0.dp),
         ) {
 
             items(items) { item ->
@@ -814,7 +816,8 @@ fun Setting(
     trailingLabel: String? = null,
     onCheckedChange: ((Boolean) -> Unit) = {},
 ) {
-    OutlinedCard(
+    // zeni: a plain row with a rule under it, as in the other apps; no boxed card.
+    Column(
         modifier = Modifier
             .then(modifier)
             .appTestTag(testTag)
@@ -823,8 +826,8 @@ fun Setting(
             GreenColumn(
                 padding = 0, space = 4,
                 modifier = Modifier
-                    .padding(vertical = 24.dp)
-                    .padding(start = 16.dp)
+                    .padding(vertical = 14.dp)
+                    .padding(start = 4.dp)
                     .ifTrue(imageVector == null && painter == null && checked == null) {
                         it.padding(end = 16.dp)
                     }
@@ -909,5 +912,6 @@ fun Setting(
                 )
             }
         }
+        HorizontalDivider(thickness = 1.dp, color = Color.Black)
     }
 }

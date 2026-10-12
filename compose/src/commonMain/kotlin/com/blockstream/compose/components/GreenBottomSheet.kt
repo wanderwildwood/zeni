@@ -2,6 +2,8 @@
 
 package com.blockstream.compose.components
 
+import androidx.compose.foundation.border
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
@@ -74,7 +76,11 @@ fun GreenBottomSheet(
         onDismissRequest = onDismissRequest,
         containerColor = MaterialTheme.colorScheme.background,
         sheetState = sheetState,
-        scrimColor = Color.Black.copy(alpha = 0.65f),
+        // zeni: MMD panels don't dim what's behind them; a black rim marks the edge instead.
+        scrimColor = Color.Transparent,
+        shape = RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp),
+        tonalElevation = 0.dp,
+        modifier = Modifier.border(2.dp, Color.Black, RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp)),
         properties = properties
     ) {
         GreenColumn(

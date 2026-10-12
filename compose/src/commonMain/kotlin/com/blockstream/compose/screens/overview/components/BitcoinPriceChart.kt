@@ -241,19 +241,11 @@ private fun XYChartLayout(chartPrices: List<Pair<Long, Float>>) {
                 data = data,
                 lineStyle = LineStyle(
                     brush = SolidColor(MaterialTheme.colorScheme.primary),
-                    strokeWidth = 1.dp,
+                    // zeni: a plain 2 px line; no shaded gradient under it on e-ink.
+                    strokeWidth = 2.dp,
                     pathEffect = PathEffect.cornerPathEffect(20f)
                 ),
-                areaStyle = AreaStyle(
-                    brush = Brush.linearGradient(
-                        colors = listOf(0f, 0.05f, 0.075f, 0.1f, 0.2f, 0.3f).map {
-                            MaterialTheme.colorScheme.primary.copy(alpha = it)
-                        },
-                        start = Offset(0f, Float.POSITIVE_INFINITY),
-                        end = Offset(0f, 0f),
-                        tileMode = TileMode.Clamp
-                    )
-                ),
+                areaStyle = AreaStyle(brush = SolidColor(Color.Transparent)),
                 areaBaseline = AreaBaseline.HorizontalLine(0f),
             )
         }
