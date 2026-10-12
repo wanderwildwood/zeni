@@ -3,4 +3,6 @@
   <!-- Static -->
   <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
   <string name="default_notification_channel_name" translatable="true">Notifications</string>
+  <!-- zeni: the line under the price on Glance's lock-screen panel, e.g. "+1.2%" -->
+  <string name="zeni_lock_price_change">Bitcoin  %1$s in a day</string>
 </resources>

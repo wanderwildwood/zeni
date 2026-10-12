@@ -1,5 +1,6 @@
 package com.blockstream.compose.models.overview
 
+import com.blockstream.compose.glance.rememberLockScreenCurrency
 import androidx.lifecycle.viewModelScope
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.id_home
@@ -111,6 +112,8 @@ class WalletOverviewViewModel(
             combine(refreshBitcoinPriceState, session.settings()) { _: Int, settings: Settings? ->
                 settings?.pricing?.currency
             }.filterNotNull().collectLatest { currency ->
+                // zeni: the lock-screen price (if switched on) follows the wallet's currency.
+                rememberLockScreenCurrency(currency)
                 observeBitcoinPriceHistory(
                     ObserveBitcoinPriceHistory.Params(
                         currency

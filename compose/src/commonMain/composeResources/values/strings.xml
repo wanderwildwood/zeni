@@ -1180,6 +1180,8 @@
     <string name="id_please_wait_until_your_ledger">Please wait until your Ledger displays the address to validate it. This could take up to 20 seconds.</string>
     <string name="id_power_on_jade">Power on Jade</string>
     <string name="zeni_hold_another_phone">Or hold another phone to the back of this one</string>
+    <string name="zeni_price_on_lock_screen">The bitcoin price on the lock screen</string>
+    <string name="zeni_price_on_lock_screen_detail">For Glance. Only the price, never a balance; none while Tor or a proxy is on.</string>
     <string name="zeni_feed_the_llamas">feed the llamas</string>
     <string name="zeni_turn_on_your_hardware_wallet">Turn on your hardware wallet and unlock it</string>
     <string name="id_precision">Precision</string>

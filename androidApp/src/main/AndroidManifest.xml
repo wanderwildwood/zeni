@@ -195,6 +195,13 @@
 
         <service android:name=".services.TaskService"/>
 
+        <!-- zeni: the bitcoin price for Glance's lock-screen panel, off until switched on;
+             it answers Glance alone. -->
+        <provider
+            android:name=".glance.PriceOnLockScreen"
+            android:authorities="${applicationId}.glance"
+            android:exported="true" />
+
         <!-- zeni: tap-to-pay; answers as an NFC tag only while a Receive screen is in front -->
         <service
             android:name=".services.NfcTagService"
