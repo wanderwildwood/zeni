@@ -50,3 +50,5 @@ captures
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
 report.xml
+signing/signing.properties
+signing/signing.keystore

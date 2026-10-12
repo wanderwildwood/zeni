@@ -14,24 +14,11 @@ plugins {
 // https://developer.android.com/studio/publish/app-signing#secure-key
 // Create a variable called keystorePropertiesFile, and initialize it to your
 // keystore.properties file, in the rootProject folder.
-val keystorePropertiesFile = rootProject.file("keystore.properties")
-// Initialize a new Properties() object called keystoreProperties.
-val keystoreProperties = Properties()
-// Load your keystore.properties file into the keystoreProperties object.
-if (keystorePropertiesFile.exists()){
-    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
-} else { // or if not exists get them from env variables
-    keystoreProperties["storeFile"] = System.getenv("KEYSTORE_FILE") ?: ""
-    keystoreProperties["storePassword"] = System.getenv("KEYSTORE_PASSWORD") ?: ""
-    keystoreProperties["keyAlias"] = System.getenv("KEY_ALIAS") ?: ""
-    keystoreProperties["keyPassword"] = System.getenv("KEY_PASSWORD") ?: ""
-}
-
-// Load local.properties
-val localPropertiesFile = rootProject.file("local.properties")
-val localProperties = Properties()
-if (localPropertiesFile.exists()) {
-    localProperties.load(FileInputStream(localPropertiesFile))
+// The house rule: a real key in signing/ (gitignored) signs release builds; without it a
+// release comes out unsigned. No fallback key.
+val signingPropertiesFile = rootProject.file("signing/signing.properties")
+val signingProperties = Properties().apply {
+    if (signingPropertiesFile.isFile) signingPropertiesFile.inputStream().use(::load)
 }
 
 val appKeys = rootProject.file("app_keys.txt").takeIf { it.exists() }?.readText() ?: ""
@@ -43,10 +30,10 @@ android {
     defaultConfig {
         minSdk = libs.versions.androidMinSdk.get().toInt()
         targetSdk = libs.versions.androidTargetSdk.get().toInt()
-        versionCode = 528
-        versionName = "5.7.0"
+        versionCode = 1
+        versionName = "0.1.0"
 
-        base.archivesName = "BlockstreamGreen-v$versionName"
+        base.archivesName = "zeni-v$versionName"
         proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
 
         testApplicationId = "com.blockstream.green.test"
@@ -55,11 +42,12 @@ android {
 
     signingConfigs {
         create("release") {
-            val keystoreFile = (keystoreProperties["storeFile"] as? String)?.takeIf { it.isNotBlank() }?.let { rootProject.file(it) }
-            keyAlias = keystoreProperties["keyAlias"] as? String
-            keyPassword = keystoreProperties["keyPassword"] as? String
-            storeFile = if(keystoreFile != null && keystoreFile.exists() ) keystoreFile else null
-            storePassword = keystoreProperties["storePassword"] as? String
+            if (signingPropertiesFile.isFile) {
+                storeFile = rootProject.file("signing/signing.keystore")
+                storePassword = signingProperties.getProperty("STORE_PASSWORD")
+                keyAlias = signingProperties.getProperty("KEY_ALIAS")
+                keyPassword = signingProperties.getProperty("KEY_PASSWORD")
+            }
         }
     }
 
@@ -102,9 +90,8 @@ android {
         }
 
         create("productionFDroid") {
-            applicationId = "com.greenaddress.greenbits_android_wallet"
-            versionNameSuffix = appendGdkCommitHash(rootProject, false)
-            resValue("string", "app_name", "Blockstream App (Green)")
+            applicationId = "com.wanderwildwood.zeni"
+            resValue("string", "app_name", "Bitcoin")
             resValue("string", "application_id", applicationId!!)
             resValue("bool", "feature_lightning", "false")
             resValue("bool", "feature_analytics", "false")
@@ -159,13 +146,6 @@ android {
     }
 }
 
-androidComponents {
-    onVariants { variant ->
-        variant.outputs.forEach { output ->
-            output.versionCode.set(22000000 + (android.defaultConfig.versionCode ?: 0))
-        }
-    }
-}
 
 // For KSP, configure using KSP extension:
 ksp {
