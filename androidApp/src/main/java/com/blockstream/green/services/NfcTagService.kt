@@ -7,9 +7,14 @@ import android.os.Bundle
 import com.blockstream.compose.nfc.NfcShare
 
 // zeni: tap-to-pay, the receiving side. While a Receive screen is in front (see NfcShare), this
-// phone answers as an NFC Forum Type 4 tag whose one NDEF record is the bitcoin: payment URI.
-// Any phone that reads NDEF can tap it: zeni opens Send with it, other Androids offer their
-// bitcoin wallet. The tag is read-only, and with no address on screen it answers nothing.
+// phone answers with the bitcoin: payment URI, two ways:
+// - zeni's own application (ZENI_AID): one SELECT, and the URI comes back whole. This is what
+//   another zeni asks for first, and the only way that works on the Mudita Kompakt, whose NFC
+//   chip keeps the standard NDEF application for a tag of its own (NXP_T4T_NFCEE_ENABLE) and
+//   never passes it to apps.
+// - an NFC Forum Type 4 tag whose one NDEF record is the URI, for phones whose chip does pass
+//   it on: any phone that reads NDEF can tap those, and other Androids offer their wallet.
+// Read-only either way, and with no address on screen it answers nothing.
 class NfcTagService : HostApduService() {
 
     private enum class File { NONE, CC, NDEF }
@@ -23,11 +28,20 @@ class NfcTagService : HostApduService() {
         val p1 = apdu[2].toInt() and 0xFF
 
         return when {
+            ins == 0xA4 && p1 == 0x04 && apdu.dataField()?.contentEquals(ZENI_AID) == true -> selectZeni()
             ins == 0xA4 && p1 == 0x04 -> selectApplication(apdu)
             ins == 0xA4 && p1 == 0x00 -> selectFile(apdu)
             ins == 0xB0 -> readBinary(apdu)
             else -> SW_NOT_SUPPORTED
         }
+    }
+
+    private fun selectZeni(): ByteArray {
+        ndefFile = null
+        val uri = NfcShare.uri.value?.toByteArray(Charsets.UTF_8) ?: return SW_FILE_NOT_FOUND
+        // A short APDU's answer holds 256 bytes; a BIP21 request is far shorter.
+        if (uri.size > MAX_URI) return SW_FILE_NOT_FOUND
+        return uri + SW_OK
     }
 
     private fun selectApplication(apdu: ByteArray): ByteArray {
@@ -80,6 +94,10 @@ class NfcTagService : HostApduService() {
     }
 
     companion object {
+        /** zeni's own application: F0 (proprietary), "zeni", version 1. Also in nfc_tag_service.xml. */
+        val ZENI_AID = hex("F07A656E6901")
+        const val MAX_URI = 250
+
         private val NDEF_AID = hex("D2760000850101")
         private val CC_FILE_ID = hex("E103")
         private val NDEF_FILE_ID = hex("E104")

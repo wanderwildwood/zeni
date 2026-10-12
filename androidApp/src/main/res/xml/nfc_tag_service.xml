@@ -3,6 +3,8 @@
     android:description="@string/app_name"
     android:requireDeviceUnlock="true">
     <aid-group android:category="other">
+        <!-- zeni's own application (F0 "zeni" 01); see NfcTagService -->
+        <aid-filter android:name="F07A656E6901" />
         <!-- NFC Forum Type 4 Tag (NDEF) application -->
         <aid-filter android:name="D2760000850101" />
     </aid-group>

@@ -103,8 +103,8 @@ android {
             resValue("bool", "feature_lightning", "false")
             resValue("bool", "feature_analytics", "false")
             resValue("bool", "feature_rate_google_play", "false")
-            manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher"
-            manifestPlaceholders["appIconRound"] = "@mipmap/ic_launcher_round"
+            manifestPlaceholders["appIcon"] = "@drawable/ic_launcher_zeni"
+            manifestPlaceholders["appIconRound"] = "@drawable/ic_launcher_zeni"
 
             // No development PIN for production
             buildConfigField("String", "DEV_PIN_CODE", "null")
