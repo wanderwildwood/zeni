@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.devices
 
+import com.blockstream.compose.components.NoPicture
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -79,7 +80,7 @@ fun ImportPubKeyScreen(
         ) {
 
             Box(modifier = Modifier.weight(1f).fillMaxWidth()) {
-                Image(
+                NoPicture(
                     painter = painterResource(deviceModel.icon()),
                     contentDescription = null,
                     modifier = Modifier.align(Alignment.Center)

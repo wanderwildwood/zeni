@@ -1179,6 +1179,7 @@
     <string name="id_please_verify_that_this_address">Please verify that this address matches the one displayed on your hardware device.</string>
     <string name="id_please_wait_until_your_ledger">Please wait until your Ledger displays the address to validate it. This could take up to 20 seconds.</string>
     <string name="id_power_on_jade">Power on Jade</string>
+    <string name="zeni_turn_on_your_hardware_wallet">Turn on your hardware wallet and unlock it</string>
     <string name="id_precision">Precision</string>
     <string name="id_previous_addresses">Previous Addresses</string>
     <string name="id_previous_fee">Previous fee</string>

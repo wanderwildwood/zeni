@@ -1,5 +1,7 @@
 package com.blockstream.compose.screens.devices
 
+import blockstream_green.common.generated.resources.zeni_turn_on_your_hardware_wallet
+import com.blockstream.compose.components.NoPicture
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -83,7 +85,7 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun DeviceListItem(device: GreenDevice, modifier: Modifier, onClick: () -> Unit) {
     GreenCard(onClick = onClick, padding = 0, modifier = modifier) {
-        Image(
+        NoPicture(
             painter = painterResource(device.icon()),
             modifier = Modifier.align(Alignment.CenterEnd).alpha(0.75f).height(120.dp)
                 .aspectRatio(1f, matchHeightConstraintsFirst = true).padding(end = 8.dp),
@@ -165,9 +167,9 @@ fun DeviceListScreen(
                         ) {
 
                             if (isJade) {
-                                // zeni: one still picture and one line, not a rotating three-step card.
+                                // zeni: one line, no pictures and no rotating three-step card.
                                 Box(modifier = Modifier.weight(1f)) {
-                                    Image(
+                                    NoPicture(
                                         painter = painterResource(Res.drawable.blockstream_devices),
                                         contentDescription = null,
                                         modifier = Modifier.fillMaxSize()
@@ -175,7 +177,7 @@ fun DeviceListScreen(
                                 }
 
                                 Text(
-                                    text = stringResource(Res.string.id_power_on_jade),
+                                    text = stringResource(Res.string.zeni_turn_on_your_hardware_wallet),
                                     color = whiteHigh,
                                     style = titleMedium,
                                     textAlign = TextAlign.Center,
@@ -184,7 +186,7 @@ fun DeviceListScreen(
                             } else {
 
                                 Box(modifier = Modifier.weight(1f)) {
-                                    Image(
+                                    NoPicture(
                                         painter = painterResource(Res.drawable.ledger_trezor),
                                         contentDescription = null
                                     )

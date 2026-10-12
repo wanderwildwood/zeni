@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.devices
 
+import com.blockstream.compose.components.NoPicture
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -134,7 +135,7 @@ fun DeviceInfoScreen(
         ) {
 
             Box(modifier = Modifier.weight(1f)) {
-                Image(
+                NoPicture(
                     painter = painterResource(device.icon()),
                     contentDescription = null,
                     contentScale = ContentScale.Fit,

@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.devices
 
+import com.blockstream.compose.components.NoPicture
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -80,7 +81,7 @@ fun JadeGenuineCheckScreen(
     }) {
 
         Box(modifier = Modifier.weight(4f).fillMaxWidth()) {
-            Image(
+            NoPicture(
                 painter = painterResource(device.icon()),
                 contentDescription = null,
                 contentScale = ContentScale.Fit,

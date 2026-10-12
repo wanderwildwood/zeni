@@ -1,5 +1,8 @@
 package com.blockstream.compose.screens.onboarding.hardware
 
+import com.blockstream.compose.theme.displaySmall
+import blockstream_green.common.generated.resources.id_connect_hardware_wallet
+import com.blockstream.compose.components.NoPicture
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -71,90 +74,17 @@ fun UseHardwareDeviceScreen(
         verticalArrangement = Arrangement.SpaceEvenly
     ) {
 
-        val pagerState = rememberPagerState(pageCount = { 4 })
-
-        Column(modifier = Modifier.weight(1f)) {
-            // Display 10 items
-
-            HorizontalPager(state = pagerState, modifier = Modifier.weight(1f)) { page ->
-
-                val title = when (page) {
-                    0 -> stringResource(Res.string.id_welcome_to_blockstream_jade)
-                    1 -> stringResource(Res.string.id_hardware_security)
-                    2 -> stringResource(Res.string.id_offline_key_storage)
-                    else -> stringResource(Res.string.id_fully_airgapped_with_qr)
-                }
-                val message = when (page) {
-                    0 -> stringResource(Res.string.id_jade_is_a_specialized_device)
-                    1 -> stringResource(Res.string.id_your_bitcoin_and_liquid_assets)
-                    2 -> stringResource(Res.string.id_jade_is_an_isolated_device_not)
-                    else -> stringResource(Res.string.id_qr_mode_allows_you_to)
-                }
-                val image = when (page) {
-                    0 -> painterResource(Res.drawable.blockstream_devices)
-                    1 -> painterResource(Res.drawable.hardware_security)
-                    2 -> painterResource(Res.drawable.offline_key_storage)
-                    else -> painterResource(Res.drawable.qr_airgapped)
-                }
-
-                Column {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .weight(1f)
-                            .padding(horizontal = 24.dp),
-                    ) {
-
-                        Image(
-                            painter = image,
-                            contentDescription = null,
-                            contentScale = ContentScale.Fit,
-                            modifier = Modifier
-                                .align(Alignment.Center)
-                        )
-                    }
-
-                    GreenColumn(
-                        space = 8,
-                        padding = 32,
-                        modifier = Modifier
-                            .padding(horizontal = 0.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text(
-                            text = title,
-                            style = displayMedium,
-                            textAlign = TextAlign.Center
-                        )
-
-                        Text(
-                            text = message,
-                            textAlign = TextAlign.Center,
-                            color = whiteMedium
-                        )
-                    }
-                }
-            }
-
-            Row(
-                Modifier
-                    .wrapContentHeight()
-                    .fillMaxWidth()
-                    .padding(bottom = 8.dp),
-                horizontalArrangement = Arrangement.Center
-            ) {
-                repeat(pagerState.pageCount) { iteration ->
-                    val color =
-                        if (pagerState.currentPage == iteration) green else md_theme_surfaceCircle
-                    Box(
-                        modifier = Modifier
-                            .padding(4.dp)
-                            .clip(CircleShape)
-                            .background(color)
-                            .size(8.dp)
-                    )
-                }
-            }
+        // zeni: one heading, no four-page pitch or pictures; the buttons below do the work.
+        Column(
+            modifier = Modifier.weight(1f).fillMaxWidth().padding(horizontal = 32.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = stringResource(Res.string.id_connect_hardware_wallet),
+                style = displaySmall,
+                textAlign = TextAlign.Center
+            )
         }
 
         GreenColumn(

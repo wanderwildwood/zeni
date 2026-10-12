@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.devices
 
+import com.blockstream.compose.components.NoPicture
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -83,7 +84,7 @@ fun DeviceScanScreen(
     }) {
 
         Box(modifier = Modifier.weight(1f)) {
-            Image(
+            NoPicture(
                 painter = painterResource(
                     viewModel.greenWallet.deviceIdentifiers?.firstOrNull()?.let {
                         it.model?.icon() ?: it.brand?.deviceBrandIcon()
