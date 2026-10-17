@@ -96,7 +96,8 @@ It talks to:
 
 - **Blockstream's Electrum servers**, to read your wallet's history and send what you sign —
   unless you set your own server under Settings. Tor can carry this if you turn it on.
-- **Blockstream's price service**, for the fiat value shown beside amounts, and the price chart.
+- **A price source**, for the fiat value beside amounts (GDK's exchange-rate source, CoinGecko by
+  default) and Blockstream's chart service for the price chart.
 - **Blockstream's firmware server**, to check a connected Jade's firmware.
 - **The other phone**, over NFC, only while zeni's Receive screen is open or zeni is reading
   a tap. What passes is the payment request — an address and an amount — and nothing else.
