@@ -1,101 +1,116 @@
-# Blockstream App — a native Bitcoin wallet for Android
+# 銭 zeni — Bitcoin
 
-[Blockstream App](https://blockstream.com/app/) is a non-custodial Bitcoin
-wallet that lets you safely store, send, and receive your Bitcoin, guiding you
-from your first bitcoin purchase to full self-custody.
+A Bitcoin wallet for an E Ink phone. Black on white, Lato, nothing that slides.
 
-It is available for Android and [iOS](https://github.com/Blockstream/green_ios),
-and is built on [GDK](https://github.com/blockstream/gdk), our cross-platform
-wallet library.
+*Zeni* is the old word for a coin: small money, the kind you hand across.
 
-## Features
+Built for the [Mudita Kompakt](https://mudita.com/products/kompakt/), whose 4.3" panel has
+sixteen greys and a slow redraw, and used with a
+[Blockstream Jade](https://blockstream.com/jade/) over Bluetooth.
 
-* **Bitcoin full stack** — on-chain Bitcoin, Lightning, and Liquid assets in
-  one unified view.
-* **Hardware wallet support** — keep your keys in cold storage with
-  [Blockstream Jade](https://blockstream.com/jade/), our open-source hardware
-  wallet.
-* **Privacy** — no mandatory documents or personal data; connect to your own
-  node and route traffic through Tor with a single tap.
-* **Advanced security** — spending limits, watch-only access, and our multisig
-  security model, all described in the
-  [Blockstream Help Center](https://help.blockstream.com/hc/en-us/categories/900000056183-Blockstream-Green).
-* **Multilingual** — available in more than a dozen languages.
+## Screenshots
 
-<a href="https://play.google.com/store/apps/details?id=com.greenaddress.greenbits_android_wallet">
-<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height="50"/></a>
-<a href="https://f-droid.org/packages/com.greenaddress.greenbits_android_wallet/">
-<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="50"/></a>
+| | | | |
+|---|---|---|---|
+| ![Start](screenshots/1-start.png) | ![Hardware wallet](screenshots/2-hardware.png) | ![Settings](screenshots/3-settings.png) | ![About](screenshots/4-about.png) |
 
-## Build
+## What it is
 
-See [BUILD.md](BUILD.md).
+Blockstream's [Green](https://github.com/Blockstream/green_android) (now *Blockstream App*),
+dressed for E Ink. Everything that makes it a good wallet is theirs and unchanged: GDK, the
+wallet library underneath; hardware wallet signing; watch-only wallets from an xpub or a
+descriptor; wallets kept on the phone, created or restored from a recovery phrase; coin
+control, fees, Tor, and your own Electrum server if you have one.
 
-## Contributing
+What is mine is how it looks on this screen, and what it leaves out.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+## What changed for E Ink
 
-## Translations
+**Bitcoin only.** Liquid, Lightning, AMP, swaps, buying and the promotions are hidden. What is
+left is an on-chain wallet.
 
-Help translate the app on
-[Transifex](https://www.transifex.com/blockstream/blockstream-green/).
+**One appearance.** Black and white, Lato in place of Inter, solid text, a plain price chart.
+No animations: every transition and every Rive drawing is gone, because a moving picture on
+this panel is a smear.
 
-## Support
+**No pictures in setup.** The device drawings and the Jade pitch are gone from setup, from
+signing in and from the device sheets. The words stay: *Turn on your hardware wallet and
+unlock it.*
 
-Visit the [Blockstream Help Center](https://help.blockstream.com/).
+**Settings as ruled rows,** tab labels always shown, dialogs with a black rim instead of a dim
+behind them, and only real hardware wallets in the Bluetooth list.
 
-## Security
+## Tap to pay
 
-To report a security vulnerability, see [SECURITY.md](SECURITY.md).
+Two phones held back to back can hand a payment request across over NFC.
 
-## License
+The one being paid opens **Receive**, sets an amount if it wants one, and holds the other phone
+to its back. The phone paying, with zeni open, reads the request and opens **Send** with the
+address and amount filled in. Then it is an ordinary send: you check it, and you sign it on your
+hardware wallet or with your PIN.
 
-Blockstream App is released under the terms of the
-[GNU General Public License v3.0](LICENSE).
+**A tap only proposes, never sends.** Nothing leaves either wallet until the payer confirms.
 
-## Verifying release authenticity
+Both phones need zeni. A Kompakt's NFC chip keeps the standard tag address for itself, so zeni
+answers on an address of its own, and a payer running zeni asks there. The QR code stays on the
+Receive screen for everyone else.
 
-Verifying the APK signing certificate is important for your own security.
-Follow these steps to confirm the APK you downloaded is authentic.
+## On the lock screen
 
-Unzip the APK, extract `/META-INF/GREENADD.RSA`, and run:
+For anyone who uses [Glance](https://github.com/wanderwildwood/hitome), zeni can put the bitcoin
+price on the lock screen: Settings → *The bitcoin price on the lock screen*. Off until you
+switch it on. Only the price, never a balance, and none while Tor or a proxy is on.
 
-```
-keytool -printcert -file GREENADD.RSA
-```
+## Getting it, and keeping it
 
-Verify the certificate fingerprints match:
+Download <https://github.com/wanderwildwood/zeni/releases/latest/download/zeni.apk> and
+sideload it. That address always points at the newest release, and every release publishes a
+`.sha256` beside the APK.
 
-```
-Certificate fingerprints:
-	 SHA1: 7F:05:E3:DC:29:CB:E6:76:F5:0A:56:A2:80:1A:FD:37:91:96:8F:7A
-	 SHA256: 32:F9:CC:00:B1:3F:BE:AC:E5:1E:2F:B5:1D:F4:82:04:4E:42:AD:34:A9:BD:91:2F:17:9F:ED:B1:6A:42:97:0E
-Signature algorithm name: SHA256withRSA
-Subject Public Key Algorithm: 2048-bit RSA key
-Version: 3
-```
+For updates, add this repository to [Obtainium](https://github.com/ImranR98/Obtainium):
 
-Download `SHA256SUMS.asc` from the
-[release page](https://github.com/Blockstream/green_android/releases) and
-verify that the checksum of your release file is listed:
+    https://github.com/wanderwildwood/zeni
+
+It installs beside Blockstream App rather than over it. A wallet in one is not in the other:
+add it again, from your hardware wallet or your recovery phrase.
+
+## Building
 
 ```
-shasum -a 256 --check SHA256SUMS.asc
+./gradlew :androidApp:assembleProductionFDroidRelease
 ```
 
-The output must list `OK` after the name of the file you downloaded.
+The APK is built for 64-bit ARM only; add `-PabiFilter=x86_64` for an emulator.
 
-Import our GPG key:
+A release is signed by a keystore in `signing/`, which is not in this repository. Without it
+the release APK builds **unsigned** and will not install anywhere — there is no fallback key
+by design.
 
-```
-gpg --keyserver keyserver.ubuntu.com --recv-keys 04BEBF2E35A2AF2FFDF1FA5DE7F054AA2E76E792
-```
+## Privacy
 
-Verify that the checksums file is signed by our key:
+zeni is the F-Droid build of Green: no Google services, no analytics, no crash reports.
 
-```
-gpg --verify SHA256SUMS.asc
-```
+It talks to:
 
-The output must contain a line starting with `gpg: Good signature` and the
-line `Primary key fingerprint: 04BE BF2E 35A2 AF2F FDF1  FA5D E7F0 54AA 2E76 E792`.
+- **Blockstream's Electrum servers**, to read your wallet's history and send what you sign —
+  unless you set your own server under Settings. Tor can carry this if you turn it on.
+- **Blockstream's price service**, for the fiat value shown beside amounts, and the price chart.
+- **Blockstream's firmware server**, to check a connected Jade's firmware.
+- **The other phone**, over NFC, only while zeni's Receive screen is open or zeni is reading
+  a tap. What passes is the payment request — an address and an amount — and nothing else.
+- **Your hardware wallet**, over Bluetooth or USB.
+
+Its permissions: internet, Bluetooth (to find and talk to a hardware wallet), camera (to scan
+a QR code, asked for when you scan), NFC, and notifications.
+
+Your keys stay on your hardware wallet, or encrypted on the phone for a wallet kept there. Your
+balance never goes to Glance.
+
+## Licence
+
+**GNU General Public License v3.0**, as Blockstream publishes Green. See [LICENSE](LICENSE).
+
+Green is © Blockstream; zeni is a fork of it, and their copyright and licence stay with every
+part that is theirs. Lato is © Łukasz Dziedzic, SIL Open Font License 1.1 ([LICENSES/OFL-1.1.txt](LICENSES/OFL-1.1.txt)).
+
+Copyright © wander wildwood for the parts that are mine.
