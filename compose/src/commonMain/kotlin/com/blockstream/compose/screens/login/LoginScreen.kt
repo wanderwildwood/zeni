@@ -1,6 +1,7 @@
 package com.blockstream.compose.screens.login
 
 import androidx.compose.foundation.Image
+import com.blockstream.compose.components.NoPicture
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -208,7 +209,7 @@ fun LoginScreen(
                         }
 
                         viewModel.deviceOrNull?.also {
-                            Image(
+                            NoPicture(
                                 painter = painterResource(it.icon()),
                                 contentDescription = it.deviceBrand.toString(),
                                 modifier = Modifier
@@ -314,7 +315,7 @@ fun LoginScreen(
                                 ) {
 
                                     if (isHwWatchOnly) {
-                                        Image(
+                                        NoPicture(
                                             painter = painterResource(viewModel.greenWallet.deviceIdentifiers.icon()),
                                             contentDescription = "",
                                             modifier = Modifier

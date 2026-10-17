@@ -1,6 +1,7 @@
 package com.blockstream.compose.sheets
 
 import androidx.compose.foundation.Image
+import com.blockstream.compose.components.NoPicture
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -48,7 +49,7 @@ fun JadeFirmwareUpdateBottomSheet(
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
-            Image(
+            NoPicture(
                 painter = painterResource(Res.drawable.blockstream_jade_device),
                 contentDescription = null
             )

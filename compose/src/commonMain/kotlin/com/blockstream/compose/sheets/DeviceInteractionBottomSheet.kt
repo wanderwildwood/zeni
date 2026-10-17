@@ -1,6 +1,7 @@
 package com.blockstream.compose.sheets
 
 import androidx.compose.foundation.Image
+import com.blockstream.compose.components.NoPicture
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -92,7 +93,7 @@ fun DeviceInteractionBottomSheet(
 
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
-            Image(
+            NoPicture(
                 painter = painterResource(deviceIcon ?: Res.drawable.blockstream_devices),
                 contentDescription = null,
                 modifier = Modifier

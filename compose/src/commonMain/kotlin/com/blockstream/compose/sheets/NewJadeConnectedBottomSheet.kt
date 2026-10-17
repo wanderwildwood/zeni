@@ -1,6 +1,7 @@
 package com.blockstream.compose.sheets
 
 import androidx.compose.foundation.Image
+import com.blockstream.compose.components.NoPicture
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -84,7 +85,7 @@ fun NewJadeConnectedBottomSheet(
 
             Box(modifier = Modifier.heightIn(max = 200.dp).fillMaxWidth()) {
 
-                Image(
+                NoPicture(
                     painter = painterResource(Res.drawable.blockstream_jade_plus_device),
                     contentDescription = null,
                     contentScale = ContentScale.Fit,

@@ -1,6 +1,7 @@
 package com.blockstream.compose.sheets
 
 import androidx.compose.foundation.Image
+import com.blockstream.compose.components.NoPicture
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.rememberScrollState
@@ -59,7 +60,7 @@ fun AskJadeUnlockBottomSheet(
 
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
-            Image(
+            NoPicture(
                 painter = painterResource(Res.drawable.blockstream_jade_plus_device),
                 contentDescription = null,
                 modifier = Modifier
