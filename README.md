@@ -12,7 +12,9 @@ sixteen greys and a slow redraw, and used with a
 
 | | | | |
 |---|---|---|---|
-| ![Start](screenshots/1-start.png) | ![Hardware wallet](screenshots/2-hardware.png) | ![Settings](screenshots/3-settings.png) | ![About](screenshots/4-about.png) |
+| ![Transactions](screenshots/1-transactions.png) | ![Receive with an amount](screenshots/2-receive.png) | ![Confirm a send](screenshots/3-confirm.png) | ![Settings](screenshots/4-settings.png) |
+
+*A testnet wallet from the public BIP39 test phrase; testnet coins have no value.*
 
 ## What it is
 
@@ -101,7 +103,9 @@ It talks to:
 - **Your hardware wallet**, over Bluetooth or USB.
 
 Its permissions: internet, Bluetooth (to find and talk to a hardware wallet), camera (to scan
-a QR code, asked for when you scan), NFC, and notifications.
+a QR code, asked for when you scan), NFC, notifications, and fingerprint (only if you choose to
+unlock with it). Green and its libraries also declare storage, keep-awake and start-at-boot
+permissions; zeni adds none of those.
 
 Your keys stay on your hardware wallet, or encrypted on the phone for a wallet kept there. Your
 balance never goes to Glance.

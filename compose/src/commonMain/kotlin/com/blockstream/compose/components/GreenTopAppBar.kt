@@ -73,7 +73,7 @@ fun GreenTopAppBar(
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = Color.Transparent,
             scrolledContainerColor = Color.Transparent,
-            titleContentColor = Color.White,
+            titleContentColor = Color.Black,
         ),
         navigationIcon = {
             AnimatedVisibility(
