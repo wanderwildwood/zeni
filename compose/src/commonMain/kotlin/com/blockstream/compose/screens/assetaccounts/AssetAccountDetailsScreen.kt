@@ -87,9 +87,7 @@ fun AssetAccountDetailsScreen(
             val transactions by viewModel.transactions.collectAsStateWithLifecycle()
             val totalBalance by viewModel.totalBalance.collectAsStateWithLifecycle()
             val totalBalanceFiat by viewModel.totalBalanceFiat.collectAsStateWithLifecycle()
-            val showBuyButton = viewModel.showBuyButton
             val isSendEnabled by viewModel.isSendEnabled.collectAsStateWithLifecycle()
-            val isSwapAvailable = viewModel.isSwapAvailable
             val hasMoreTransactions by viewModel.hasMoreTransactions.collectAsStateWithLifecycle()
             val isLoadingMore by viewModel.isLoadingMore.collectAsStateWithLifecycle()
             val lightningInfo by viewModel.lightningInfo.collectAsStateWithLifecycle()
@@ -124,13 +122,9 @@ fun AssetAccountDetailsScreen(
 
                 item(key = "ButtonsRow") {
                     TransactionActionButtons(
-                        showBuyButton = showBuyButton,
                         isSendEnabled = isSendEnabled,
-                        showSwapButton = isSwapAvailable,
-                        onBuy = viewModel::onBuy,
                         onSend = viewModel::onSend,
-                        onReceive = viewModel::onReceive,
-                        onSwap = viewModel::onSwap
+                        onReceive = viewModel::onReceive
                     )
                 }
 

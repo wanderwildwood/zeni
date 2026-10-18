@@ -29,10 +29,6 @@ abstract class TransactionActionsViewModel(greenWallet: GreenWallet) : WalletBal
         )
     } ?: MutableStateFlow(false)
 
-    fun onBuy() {
-        postEvent(NavigateDestinations.Buy(greenWallet = greenWallet))
-    }
-
     fun onSend() {
         postEvent(NavigateDestinations.SendAddress(greenWallet = greenWallet))
     }

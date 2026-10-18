@@ -28,8 +28,8 @@ What is mine is how it looks on this screen, and what it leaves out.
 
 ## What changed for E Ink
 
-**Bitcoin only.** Liquid, Lightning, AMP, swaps, buying and the promotions are hidden. What is
-left is an on-chain wallet.
+**Bitcoin only.** Liquid, Lightning, AMP, swaps, buying and the promotions are gone, and so are
+the background calls behind them. What is left is an on-chain wallet.
 
 **One appearance.** Black and white, Lato in place of Inter, solid text, a plain price chart.
 No animations: every transition and every Rive drawing is gone, because a moving picture on
@@ -90,26 +90,42 @@ by design.
 
 ## Privacy
 
-zeni is the F-Droid build of Green: no Google services, no analytics, no crash reports.
+zeni is the F-Droid build of Green: no Google services, no analytics, no crash reports, no
+update check. The developer runs no server and receives nothing.
 
-It talks to:
+These are all the servers it contacts, and when:
 
-- **Blockstream's Electrum servers**, to read your wallet's history and send what you sign —
-  unless you set your own server under Settings. Tor can carry this if you turn it on.
-- **A price source**, for the fiat value beside amounts (GDK's exchange-rate source, CoinGecko by
-  default) and Blockstream's chart service for the price chart.
-- **Blockstream's firmware server**, to check a connected Jade's firmware.
-- **The other phone**, over NFC, only while zeni's Receive screen is open or zeni is reading
-  a tap. What passes is the payment request — an address and an amount — and nothing else.
+| Server | When | What it learns |
+|---|---|---|
+| Blockstream's Electrum server (`bitcoin-mainnet.blockstream.info`, or `bitcoin-testnet` for a testnet wallet) | While a wallet is open | The wallet's addresses, to read balance and history; transactions you sign, to send them. Your own server instead, if you set one in App Settings. |
+| Blockstream's Green server (`green-bitcoin-mainnet.blockstream.com`) | Each time a wallet opens | A login, so a Green two-factor (multisig) account can be found. |
+| Blockstream's price chart (`green-btc-chart.blockstream.com`) | When the wallet list or a wallet's home page opens | The currency you show amounts in. |
+| Blockstream's PIN server (`jadepin.blockstream.com`) | Unlocking a Jade, or a phone wallet with its PIN | A blinded exchange; it never learns the PIN or the keys. |
+| Blockstream's Jade firmware server (`jadefw.blockstream.com`) | When a Jade connects | A request for the list of firmware. Firmware downloads only if you agree. |
+
+The exchange rate for the fiat value beside amounts comes over these same connections; there
+is no separate price service.
+
+**With Tor or a proxy on, every one of these goes through it.** Tor uses Blockstream's onion
+addresses where they have them. Nothing goes around it.
+
+Besides those:
+
 - **Your hardware wallet**, over Bluetooth or USB.
+- **The other phone**, over NFC, only while zeni's Receive screen is open or zeni is reading
+  a tap. What passes is the payment request (an address and an amount) and nothing else.
+- **Glance**, only if you switch on the lock-screen price: the price from the chart server
+  above, fetched when the lock screen is looked at and the last one is over half an hour old,
+  and never while Tor or a proxy is on. Never a balance.
+- **Links you press** open in your browser: Blockstream's help pages, the donation page, the
+  author's site.
 
 Its permissions: internet, Bluetooth (to find and talk to a hardware wallet), camera (to scan
 a QR code, asked for when you scan), NFC, notifications, and fingerprint (only if you choose to
 unlock with it). Green and its libraries also declare storage, keep-awake and start-at-boot
 permissions; zeni adds none of those.
 
-Your keys stay on your hardware wallet, or encrypted on the phone for a wallet kept there. Your
-balance never goes to Glance.
+Your keys stay on your hardware wallet, or encrypted on the phone for a wallet kept there.
 
 ## Licence
 

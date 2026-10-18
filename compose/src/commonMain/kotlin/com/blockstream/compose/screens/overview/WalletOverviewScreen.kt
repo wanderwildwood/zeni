@@ -190,13 +190,9 @@ fun WalletOverviewScreen(
                     item(key = "ButtonsRow") {
                         TransactionActionButtons(
                             modifier = Modifier.padding(top = 16.dp),
-                            showBuyButton = isMainnet,
-                            showSwapButton = isSwapAvailable,
                             isSendEnabled = !isMultisigWatchOnly,
-                            onBuy = viewModel::onBuy,
                             onSend = viewModel::onSend,
-                            onReceive = viewModel::onReceive,
-                            onSwap = viewModel::onSwap
+                            onReceive = viewModel::onReceive
                         )
                     }
 

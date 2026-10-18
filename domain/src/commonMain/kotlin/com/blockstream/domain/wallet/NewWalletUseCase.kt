@@ -21,8 +21,7 @@ class NewWalletUseCase(
     private val sessionManager: SessionManager,
     private val settingsManager: SettingsManager,
     private val setPinUseCase: SetPinUseCase,
-    private val setBiometricsUseCase: SetBiometricsUseCase,
-    private val saveDerivedBoltzMnemonicUseCase: SaveDerivedBoltzMnemonicUseCase
+    private val setBiometricsUseCase: SetBiometricsUseCase
 ) {
 
     suspend operator fun invoke(
@@ -66,10 +65,7 @@ class NewWalletUseCase(
             throw Exception("Neither Cipher nor Pin provided for wallet security")
         }
 
-        // Used in Swaps
-        saveDerivedBoltzMnemonicUseCase.invoke(session = session, wallet = wallet)
-
-        session.initLwkIfNeeded(wallet = wallet)
+        // zeni: no swaps, so no Boltz key and no LWK session here.
 
         sessionManager.upgradeOnBoardingSessionToWallet(wallet)
 

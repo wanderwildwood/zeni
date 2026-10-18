@@ -13,7 +13,6 @@ import com.blockstream.data.usecases.SetBiometricsUseCase
 import com.blockstream.data.usecases.SetPinUseCase
 import com.blockstream.data.utils.generateWalletName
 import com.blockstream.domain.lightning.LightningNodeIdUseCase
-import com.blockstream.domain.receive.GetReceiveAddressUseCase
 
 class RestoreWalletUseCase(
     private val database: Database,
@@ -23,9 +22,7 @@ class RestoreWalletUseCase(
     private val setPinUseCase: SetPinUseCase,
     private val setBiometricsUseCase: SetBiometricsUseCase,
     private val lightningNodeIdUseCase: LightningNodeIdUseCase,
-    private val saveGreenlightMnemonicAndCredentialsUseCase: SaveGreenlightMnemonicAndCredentialsUseCase,
-    private val saveDerivedBoltzMnemonicUseCase: SaveDerivedBoltzMnemonicUseCase,
-    private val getReceiveAddressUseCase: GetReceiveAddressUseCase
+    private val saveGreenlightMnemonicAndCredentialsUseCase: SaveGreenlightMnemonicAndCredentialsUseCase
 ) {
 
     suspend operator fun invoke(
@@ -67,18 +64,7 @@ class RestoreWalletUseCase(
                 lightningNodeIdUseCase.invoke(wallet = wallet, session = session)
             }
 
-            // Used in Swaps
-            saveDerivedBoltzMnemonicUseCase.invoke(session = session, wallet = wallet)
-
-            val bitcoinAddress = session.accounts.value.firstOrNull { it.isBitcoin }?.let {
-                getReceiveAddressUseCase(session, it).address
-            }
-
-            val liquidAddress = session.accounts.value.firstOrNull { it.isLiquid }?.let {
-                getReceiveAddressUseCase(session, it).address
-            }
-
-            session.initLwkIfNeeded(wallet = wallet, bitcoinAddress = bitcoinAddress, liquidAddress = liquidAddress)
+            // zeni: no swaps, so no Boltz key and no LWK session here.
 
             sessionManager.upgradeOnBoardingSessionToWallet(wallet)
 

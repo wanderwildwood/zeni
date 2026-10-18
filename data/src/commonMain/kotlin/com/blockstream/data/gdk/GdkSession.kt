@@ -837,6 +837,27 @@ class GdkSession constructor(
         }
     }
 
+    private var plainGetRoute: Pair<Boolean, String>? = null
+
+    /**
+     * zeni: a GET through GDK's own HTTP client, so it goes over Tor or the proxy the same way
+     * the wallet does. For data that is no one's business but the user's (the price chart);
+     * not for device traffic, which keeps [httpRequest] and its server checks.
+     */
+    suspend fun plainGetJson(url: String): JsonElement = withContext(Dispatchers.IO) {
+        val settings = settingsManager.appSettings
+        val route = settings.tor to (if (settings.proxyEnabled) settings.proxyUrl ?: "" else "")
+        if (!isNetworkInitialized || plainGetRoute != route) {
+            prepareHttpRequest()
+            plainGetRoute = route
+        }
+        gdkNetworkBackend(defaultNetwork).httpRequest(buildJsonObject {
+            put("method", "GET")
+            putJsonArray("urls") { add(url) }
+            put("accept", "json")
+        })
+    }
+
     override suspend fun httpRequest(
         method: String,
         urls: List<String>?,
@@ -982,6 +1003,10 @@ class GdkSession constructor(
         liquidAddress: String? = null,
         mnemonic: String? = null
     ) {
+        // zeni: no swaps, so no LWK. Starting it opened a Boltz session and a Liquid Electrum
+        // connection, outside Tor, for a feature this app does not offer.
+        if (ZENI_NO_SWAPS) return
+
         if (lwkOrNull == null) {
             val lwk = lwkManager.getLwk(wallet = wallet).also {
                 lwkOrNull = it
@@ -1508,6 +1533,8 @@ class GdkSession constructor(
             }
         } + listOfNotNull(
             tryCatch {
+                if (ZENI_NO_SWAPS) return@tryCatch null
+
                 if (isTestnet) return@tryCatch null
 
                 if (liquid == null) return@tryCatch null
@@ -2699,6 +2726,9 @@ suspend fun onNewNotification(gaSession: GASession, notification: Notification) 
 
     companion object : Loggable() {
         const val DEFAULT_TRANSACTIONS_LIMIT = 10
+
+        // zeni: Bitcoin on-chain only; Boltz/LWK swaps are not part of this app.
+        const val ZENI_NO_SWAPS = true
 
         // Default for settings(network) when both the requested network and defaultNetworkOrNull are null (pre-login).
         private val NULL_SETTINGS: StateFlow<Settings?> = MutableStateFlow(null)

@@ -10,6 +10,8 @@ class IsSwapAvailableUseCase {
         session: GdkSession,
         asset: EnrichedAsset? = null
     ): Boolean {
+        // zeni: on-chain Bitcoin only; no swaps anywhere in the app.
+        if (GdkSession.ZENI_NO_SWAPS) return false
 
         if (session.deviceModel?.supportsLightningMnemonicDerivation == false) return false
 

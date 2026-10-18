@@ -39,8 +39,6 @@ import com.blockstream.compose.models.devices.DeviceScanViewModel
 import com.blockstream.compose.models.devices.ImportPubKeyViewModel
 import com.blockstream.compose.models.devices.JadeGenuineCheckViewModel
 import com.blockstream.compose.models.devices.JadeGuideViewModel
-import com.blockstream.compose.models.exchange.BuyViewModel
-import com.blockstream.compose.models.exchange.OnOffRampsViewModel
 import com.blockstream.compose.models.home.HomeViewModel
 import com.blockstream.compose.models.jade.JadeQRViewModel
 import com.blockstream.compose.models.lightning.LightningInvoiceState
@@ -96,7 +94,6 @@ import com.blockstream.compose.models.sheets.AssetDetailsViewModel
 import com.blockstream.compose.models.sheets.CoinInfoViewModel
 import com.blockstream.compose.models.sheets.JadeFirmwareUpdateViewModel
 import com.blockstream.compose.models.sheets.LightningNodeViewModel
-import com.blockstream.compose.models.sheets.MeldCountriesViewModel
 import com.blockstream.compose.models.sheets.NoteViewModel
 import com.blockstream.compose.models.sheets.RecoveryHelpViewModel
 import com.blockstream.compose.models.sheets.TransactionDetailsViewModel
@@ -124,8 +121,6 @@ import com.blockstream.compose.screens.devices.DeviceListScreen
 import com.blockstream.compose.screens.devices.DeviceScanScreen
 import com.blockstream.compose.screens.devices.ImportPubKeyScreen
 import com.blockstream.compose.screens.devices.JadeGenuineCheckScreen
-import com.blockstream.compose.screens.exchange.BuyScreen
-import com.blockstream.compose.screens.exchange.OnOffRampsScreen
 import com.blockstream.compose.screens.jade.JadePinUnlockScreen
 import com.blockstream.compose.screens.jade.JadeQRScreen
 import com.blockstream.compose.screens.lightning.EnabledLightningScreen
@@ -200,7 +195,6 @@ import com.blockstream.compose.sheets.FeeRateBottomSheet
 import com.blockstream.compose.sheets.JadeFirmwareUpdateBottomSheet
 import com.blockstream.compose.sheets.LightningFeeInfoBottomSheet
 import com.blockstream.compose.sheets.LightningNodeBottomSheet
-import com.blockstream.compose.sheets.MeldCountriesBottomSheet
 import com.blockstream.compose.sheets.MenuBottomSheetView
 import com.blockstream.compose.sheets.NewJadeConnectedBottomSheet
 import com.blockstream.compose.sheets.NoteBottomSheet
@@ -622,23 +616,6 @@ fun Router(
                     )
                 })
             }
-            appComposable<NavigateDestinations.Buy> {
-                val args = it.toRoute<NavigateDestinations.Buy>()
-                BuyScreen(viewModel {
-                    BuyViewModel(
-                        greenWallet = args.greenWallet,
-                        initialAccountAsset = args.accountAsset
-                    )
-                })
-            }
-            appComposable<NavigateDestinations.OnOffRamps> {
-                val args = it.toRoute<NavigateDestinations.OnOffRamps>()
-                OnOffRampsScreen(viewModel {
-                    OnOffRampsViewModel(
-                        greenWallet = args.greenWallet
-                    )
-                })
-            }
             appComposable<NavigateDestinations.Addresses> {
                 val args = it.toRoute<NavigateDestinations.Addresses>()
                 AddressesScreen(viewModel {
@@ -883,19 +860,6 @@ fun Router(
                     title = args.title,
                     subtitle = args.subtitle,
                     showDialCode = args.showDialCode,
-                    onDismissRequest = navController.onDismissRequest()
-                )
-            }
-            appBottomSheet<NavigateDestinations.MeldCountries> {
-                val args = it.toRoute<NavigateDestinations.MeldCountries>()
-                MeldCountriesBottomSheet(
-                    viewModel = viewModel {
-                        MeldCountriesViewModel(
-                            greenWallet = args.greenWallet
-                        )
-                    },
-                    title = args.title,
-                    subtitle = args.subtitle,
                     onDismissRequest = navController.onDismissRequest()
                 )
             }

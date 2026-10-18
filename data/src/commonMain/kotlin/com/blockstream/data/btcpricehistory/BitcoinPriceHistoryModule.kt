@@ -9,7 +9,7 @@ val btcPriceHistoryModule = module {
     }
 
     single {
-        BitcoinPriceHistoryRemoteDataSource(get())
+        BitcoinPriceHistoryRemoteDataSource(get(), get(), get())
     }
 
     single {

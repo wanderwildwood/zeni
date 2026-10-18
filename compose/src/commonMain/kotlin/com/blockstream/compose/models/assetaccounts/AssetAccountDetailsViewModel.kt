@@ -77,7 +77,6 @@ abstract class AssetAccountDetailsViewModelAbstract(
 
     abstract val totalBalanceFiat: StateFlow<String?>
 
-    abstract val showBuyButton: Boolean
     abstract val isSwapAvailable: Boolean
 
     abstract val isSendEnabled: StateFlow<Boolean>
@@ -89,10 +88,6 @@ abstract class AssetAccountDetailsViewModelAbstract(
     abstract val lightningInfo: StateFlow<LightningInfoLook?>
 
     abstract fun loadMoreTransactions()
-
-    fun onBuy() {
-        postEvent(NavigateDestinations.Buy(greenWallet = greenWallet, accountAsset = accountAsset.value))
-    }
 
     fun onSend() {
         postEvent(NavigateDestinations.SendAddress(greenWallet = greenWallet, accountAsset = accountAsset.value))
@@ -144,7 +139,6 @@ class AssetAccountDetailsViewModel(
         tryCatch { AccountBalance.create(account = account, session = session) }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), AccountBalance.create(account = account))
 
-    override val showBuyButton: Boolean = accountAsset.asset.isBitcoin
 
     override val isSwapAvailable: Boolean = session.ifConnected {
         isSwapAvailableUseCase(wallet = greenWallet, session = session, asset = accountAsset.asset)
