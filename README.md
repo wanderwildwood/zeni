@@ -90,6 +90,8 @@ by design.
 
 ## Privacy
 
+Privacy: what the app stores and what it sends is set out in [PRIVACY.md](PRIVACY.md).
+
 zeni is the F-Droid build of Green: no Google services, no analytics, no crash reports, no
 update check. The developer runs no server and receives nothing.
 
