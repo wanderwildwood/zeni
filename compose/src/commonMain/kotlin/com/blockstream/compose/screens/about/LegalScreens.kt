@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -18,6 +19,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.withFrameNanos
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -26,6 +28,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
@@ -72,15 +75,27 @@ private fun PagedRows(
     // The first row of every page shown so far, so Previous can go back exactly.
     var starts by rememberSaveable { mutableStateOf(arrayListOf(0)) }
 
+    // The page ends on the last row that fits whole: once the page is laid out at full height,
+    // the list is cut to just those rows, so no row is ever shown half.
+    var clipPx by remember { mutableStateOf<Int?>(null) }
+    val density = LocalDensity.current
+
     LaunchedEffect(starts.size) {
+        clipPx = null
         state.scrollToItem(starts.last())
+        withFrameNanos { }
+        withFrameNanos { }
+        val info = state.layoutInfo
+        val fully = info.visibleItemsInfo.lastOrNull { it.offset + it.size <= info.viewportEndOffset }
+        if (fully != null && fully.index < rows.size - 1) clipPx = fully.offset + fully.size
     }
 
     Column(modifier.fillMaxSize()) {
         LazyColumn(
             state = state,
             userScrollEnabled = false,
-            modifier = Modifier.weight(1f).fillMaxWidth().padding(horizontal = 16.dp)
+            modifier = (clipPx?.let { Modifier.height(with(density) { it.toDp() }) } ?: Modifier.weight(1f))
+                .fillMaxWidth().padding(horizontal = 16.dp)
         ) {
             itemsIndexed(rows) { _, row -> LegalRowView(row, onOpen) }
         }
