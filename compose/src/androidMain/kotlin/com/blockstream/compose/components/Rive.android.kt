@@ -32,7 +32,6 @@ actual fun Rive(riveAnimation: RiveAnimation, previewContent: @Composable (() ->
         RiveAnimation.CHECKMARK -> "checkmark.riv"
         RiveAnimation.WALLET -> "wallet.riv"
         RiveAnimation.RECOVERY_PHRASE -> "recovery_phrase.riv"
-        RiveAnimation.GREEN_TO_BLOCKSTREAM -> "green_to_blockstream.riv"
         RiveAnimation.CREATE_WALLET -> "create_wallet.riv"
         RiveAnimation.JADE_BUTTON -> "jade_button.riv"
         RiveAnimation.JADE_SCROLL -> "jade_scroll.riv"

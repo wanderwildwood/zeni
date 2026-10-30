@@ -21,6 +21,7 @@ import javax.crypto.BadPaddingException
 import javax.crypto.Cipher
 import javax.crypto.KeyGenerator
 import javax.crypto.SecretKey
+import javax.crypto.spec.GCMParameterSpec
 import javax.crypto.spec.IvParameterSpec
 
 class AndroidKeystore(val context: Context) : GreenKeystore {
@@ -32,7 +33,7 @@ class AndroidKeystore(val context: Context) : GreenKeystore {
 
     fun isBiometricsAuthenticationRequired(): Boolean {
         try {
-            getEncryptionCipher(BIOMETRICS_KEYSTORE_ALIAS)
+            getEncryptionCipher(if (keyStoreKeyExists(BIOMETRICS_GCM_ALIAS)) BIOMETRICS_GCM_ALIAS else BIOMETRICS_KEYSTORE_ALIAS)
         } catch (e: UserNotAuthenticatedException) {
             logger.i { "User not Authenticated, probably device was unlocked with Face biometrics" }
             return true
@@ -43,7 +44,12 @@ class AndroidKeystore(val context: Context) : GreenKeystore {
         return false
     }
 
-    fun biometricsKeyExists() = keyStoreKeyExists(BIOMETRICS_KEYSTORE_ALIAS)
+    fun biometricsKeyExists() =
+        keyStoreKeyExists(BIOMETRICS_GCM_ALIAS) || keyStoreKeyExists(BIOMETRICS_KEYSTORE_ALIAS)
+
+    /** Whether the key that sealed this particular data is still in the keystore. */
+    fun biometricsKeyExists(encryptedData: EncryptedData) =
+        keyStoreKeyExists(if (encryptedData.isGcm()) BIOMETRICS_GCM_ALIAS else BIOMETRICS_KEYSTORE_ALIAS)
 
     private fun keyStoreKeyExists(keystoreAlias: String): Boolean {
         try {
@@ -89,9 +95,17 @@ class AndroidKeystore(val context: Context) : GreenKeystore {
             keystoreAlias,
             KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT
         )
-            .setBlockModes(KeyProperties.BLOCK_MODE_CBC)
-            .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_PKCS7)
+            .setKeySize(256)
 
+        if (isGcmAlias(keystoreAlias)) {
+            // Authenticated encryption: a changed byte is refused before any plaintext exists.
+            builder.setBlockModes(KeyProperties.BLOCK_MODE_GCM)
+                .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE)
+        } else {
+            // Kept only so that data written before 0.1.3 can be read once and re-sealed.
+            builder.setBlockModes(KeyProperties.BLOCK_MODE_CBC)
+                .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_PKCS7)
+        }
 
         if (isBiometric) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
@@ -118,7 +132,7 @@ class AndroidKeystore(val context: Context) : GreenKeystore {
 
     @Throws(Exception::class)
     private fun getEncryptionCipher(keystoreAlias: String): Cipher {
-        val cipher = Cipher.getInstance(TRANSFORMATION)
+        val cipher = Cipher.getInstance(if (isGcmAlias(keystoreAlias)) GCM_TRANSFORMATION else TRANSFORMATION)
         val key = keyStore.getKey(keystoreAlias, null) as SecretKey
         cipher.init(Cipher.ENCRYPT_MODE, key)
         return cipher
@@ -126,9 +140,16 @@ class AndroidKeystore(val context: Context) : GreenKeystore {
 
     @Throws(Exception::class)
     private fun getDecryptionCipher(keystoreAlias: String, encryptedData: EncryptedData): Cipher {
-        val cipher = Cipher.getInstance(TRANSFORMATION)
-        val key = keyStore.getKey(keystoreAlias, null)
-        cipher.init(Cipher.DECRYPT_MODE, key, IvParameterSpec(encryptedData.getIv()))
+        // Data is read with the mode it was written in, told by the length of its IV.
+        val gcm = encryptedData.isGcm()
+        val alias = if (gcm) gcmAliasOf(keystoreAlias) else keystoreAlias
+        val cipher = Cipher.getInstance(if (gcm) GCM_TRANSFORMATION else TRANSFORMATION)
+        val key = keyStore.getKey(alias, null)
+        cipher.init(
+            Cipher.DECRYPT_MODE,
+            key,
+            if (gcm) GCMParameterSpec(GCM_TAG_BITS, encryptedData.getIv()) else IvParameterSpec(encryptedData.getIv())
+        )
         return cipher
     }
 
@@ -141,15 +162,15 @@ class AndroidKeystore(val context: Context) : GreenKeystore {
      */
     @Throws(Exception::class)
     fun getBiometricsEncryptionCipher(recreateKeyIfNeeded: Boolean): Cipher {
-        if ((!keyStoreKeyExists(BIOMETRICS_KEYSTORE_ALIAS) || !isKeyStoreValid(
-                BIOMETRICS_KEYSTORE_ALIAS
+        if ((!keyStoreKeyExists(BIOMETRICS_GCM_ALIAS) || !isKeyStoreValid(
+                BIOMETRICS_GCM_ALIAS
             )) && recreateKeyIfNeeded
         ) {
-            deleteFromKeyStore(BIOMETRICS_KEYSTORE_ALIAS)
-            initializeKeyStoreKey(BIOMETRICS_KEYSTORE_ALIAS, true)
+            deleteFromKeyStore(BIOMETRICS_GCM_ALIAS)
+            initializeKeyStoreKey(BIOMETRICS_GCM_ALIAS, true)
         }
 
-        return getEncryptionCipher(BIOMETRICS_KEYSTORE_ALIAS)
+        return getEncryptionCipher(BIOMETRICS_GCM_ALIAS)
     }
 
     /**
@@ -167,11 +188,11 @@ class AndroidKeystore(val context: Context) : GreenKeystore {
 
     @Throws(Exception::class)
     override fun encryptData(dataToEncrypt: ByteArray): EncryptedData {
-        if (!keyStoreKeyExists(BASIC_KEYSTORE_ALIAS)) {
-            initializeKeyStoreKey(BASIC_KEYSTORE_ALIAS, false)
+        if (!keyStoreKeyExists(BASIC_GCM_ALIAS)) {
+            initializeKeyStoreKey(BASIC_GCM_ALIAS, false)
         }
 
-        val cipher = getEncryptionCipher(BASIC_KEYSTORE_ALIAS)
+        val cipher = getEncryptionCipher(BASIC_GCM_ALIAS)
 
         return encryptData(cipher, dataToEncrypt)
     }
@@ -187,7 +208,7 @@ class AndroidKeystore(val context: Context) : GreenKeystore {
 
     @Throws(Exception::class)
     override fun decryptData(encryptedData: EncryptedData): ByteArray {
-        if (!keyStoreKeyExists(BASIC_KEYSTORE_ALIAS)) {
+        if (!keyStoreKeyExists(if (encryptedData.isGcm()) BASIC_GCM_ALIAS else BASIC_KEYSTORE_ALIAS)) {
             throw KeyStoreException("KeyStore Keys are not created. You have to init them first.")
         }
 
@@ -204,6 +225,8 @@ class AndroidKeystore(val context: Context) : GreenKeystore {
             throw KeystoreInvalidatedException("Keystore is invalided.")
         }
     }
+
+    override fun needsResealing(encryptedData: EncryptedData): Boolean = !encryptedData.isGcm()
 
     override fun canUseBiometrics(): Boolean {
         val kManager = context.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
@@ -250,9 +273,24 @@ class AndroidKeystore(val context: Context) : GreenKeystore {
 
         private const val TRANSFORMATION =
             "${KeyProperties.KEY_ALGORITHM_AES}/${KeyProperties.BLOCK_MODE_CBC}/${KeyProperties.ENCRYPTION_PADDING_PKCS7}"
+        private const val GCM_TRANSFORMATION =
+            "${KeyProperties.KEY_ALGORITHM_AES}/${KeyProperties.BLOCK_MODE_GCM}/${KeyProperties.ENCRYPTION_PADDING_NONE}"
+        private const val GCM_TAG_BITS = 128
         private const val ANDROID_KEYSTORE = "AndroidKeyStore"
 
+        // v1: AES-CBC, written by versions up to 0.1.2. Read-only, for the one-time re-seal.
         const val BASIC_KEYSTORE_ALIAS = "v1-basic"
         const val BIOMETRICS_KEYSTORE_ALIAS = "v1-biometrics"
+
+        // v2: AES-256-GCM, used for everything written since 0.1.3.
+        const val BASIC_GCM_ALIAS = "v2-basic"
+        const val BIOMETRICS_GCM_ALIAS = "v2-biometrics"
+
+        private fun isGcmAlias(alias: String) = alias.startsWith("v2-")
+        private fun gcmAliasOf(alias: String) = when (alias) {
+            BASIC_KEYSTORE_ALIAS -> BASIC_GCM_ALIAS
+            BIOMETRICS_KEYSTORE_ALIAS -> BIOMETRICS_GCM_ALIAS
+            else -> alias
+        }
     }
 }

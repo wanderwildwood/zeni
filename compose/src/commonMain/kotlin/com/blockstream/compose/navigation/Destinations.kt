@@ -71,6 +71,15 @@ sealed class NavigateDestinations : NavigateDestination() {
     data object About : NavigateDestination(unique = true)
 
     @Serializable
+    data object Privacy : NavigateDestination(unique = true)
+
+    @Serializable
+    data object Terms : NavigateDestination(unique = true)
+
+    @Serializable
+    data object Licences : NavigateDestination(unique = true)
+
+    @Serializable
     data object AppSettings : NavigateDestination(unique = true)
 
     @Serializable

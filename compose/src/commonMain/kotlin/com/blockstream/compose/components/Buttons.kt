@@ -25,7 +25,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.arrow_square_out
-import blockstream_green.common.generated.resources.blockstream_logo
+import blockstream_green.common.generated.resources.info
 import blockstream_green.common.generated.resources.clipboard
 import blockstream_green.common.generated.resources.id_about
 import blockstream_green.common.generated.resources.id_app_settings
@@ -393,7 +393,7 @@ fun LearnMoreButton(
 fun AboutButton(onClick: () -> Unit) {
     GreenIconButton(
         text = stringResource(Res.string.id_about),
-        icon = painterResource(Res.drawable.blockstream_logo),
+        icon = painterResource(Res.drawable.info),
         color = whiteMedium,
         onClick = onClick
     )

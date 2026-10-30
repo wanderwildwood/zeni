@@ -107,6 +107,14 @@ import com.blockstream.compose.navigation.bottomsheet.onDismissRequest
 import com.blockstream.compose.navigation.dialogs.GenericDialog
 import com.blockstream.compose.screens.HomeScreen
 import com.blockstream.compose.screens.about.AboutScreen
+import com.blockstream.compose.screens.about.LicencesScreen
+import com.blockstream.compose.screens.about.PrivacyScreen
+import com.blockstream.compose.screens.about.TermsScreen
+import com.blockstream.compose.models.about.LegalViewModel
+import blockstream_green.common.generated.resources.Res
+import blockstream_green.common.generated.resources.zeni_licences
+import blockstream_green.common.generated.resources.zeni_privacy
+import blockstream_green.common.generated.resources.zeni_terms
 import com.blockstream.compose.screens.add.Account2of3Screen
 import com.blockstream.compose.screens.add.ChooseAccountTypeScreen
 import com.blockstream.compose.screens.add.ReviewAddAccountScreen
@@ -255,6 +263,15 @@ fun Router(
             }
             appComposable<NavigateDestinations.About> {
                 AboutScreen(viewModel { AboutViewModel() })
+            }
+            appComposable<NavigateDestinations.Privacy> {
+                PrivacyScreen(viewModel { LegalViewModel("Privacy", Res.string.zeni_privacy) })
+            }
+            appComposable<NavigateDestinations.Terms> {
+                TermsScreen(viewModel { LegalViewModel("Terms", Res.string.zeni_terms) })
+            }
+            appComposable<NavigateDestinations.Licences> {
+                LicencesScreen(viewModel { LegalViewModel("Licences", Res.string.zeni_licences) })
             }
             appComposable<NavigateDestinations.AppSettings> {
                 AppSettingsScreen(viewModel { AppSettingsViewModel() })

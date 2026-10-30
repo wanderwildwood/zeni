@@ -19,8 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import blockstream_green.common.generated.resources.Res
-import blockstream_green.common.generated.resources.brand
-import blockstream_green.common.generated.resources.id_green_is_now_the_blockstream_app
+import blockstream_green.common.generated.resources.id_unlock_green
 import blockstream_green.common.generated.resources.id_unlock
 import com.blockstream.compose.LocalBiometricState
 import com.blockstream.compose.components.GreenButton
@@ -41,7 +40,7 @@ fun LockScreen(
     val lifecycleState by lifecycleOwner.lifecycle.currentStateFlow.collectAsState()
 
     val launchBiometrics = suspend {
-        biometricsState?.launchUserPresencePrompt(getString(Res.string.id_green_is_now_the_blockstream_app)) {
+        biometricsState?.launchUserPresencePrompt(getString(Res.string.id_unlock_green)) {
             if (it == true) {
                 unlock()
             }

@@ -22,7 +22,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import blockstream_green.common.generated.resources.Res
-import blockstream_green.common.generated.resources.brand
 import blockstream_green.common.generated.resources.id_by_using_blockstream_app_you_agree
 import blockstream_green.common.generated.resources.id_connect_hardware_wallet
 import blockstream_green.common.generated.resources.id_connect_jade
@@ -39,8 +38,6 @@ import com.blockstream.compose.components.GreenButtonColor
 import com.blockstream.compose.components.GreenButtonSize
 import com.blockstream.compose.components.GreenButtonType
 import com.blockstream.compose.components.GreenColumn
-import com.blockstream.compose.components.Rive
-import com.blockstream.compose.components.RiveAnimation
 import com.blockstream.compose.events.Events
 import com.blockstream.compose.extensions.linkText
 import com.blockstream.compose.models.home.HomeViewModel
@@ -149,47 +146,6 @@ fun HomeScreen(
                     }
                 }
 
-            }
-
-            val showV5Upgrade by viewModel.showV5Upgrade.collectAsStateWithLifecycle()
-
-            if (showV5Upgrade) {
-                Box(modifier = Modifier.fillMaxSize().noRippleClickable {
-                    // catch all clicks
-                }.background(md_theme_background)) {
-
-                    GreenColumn(
-                        space = 24,
-                        modifier = Modifier.align(Alignment.Center).padding(bottom = 60.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-
-                        Box(modifier = Modifier.size(160.dp)) { Rive(RiveAnimation.GREEN_TO_BLOCKSTREAM) }
-
-                        Text(
-                            text = stringResource(Res.string.id_green_is_now_the_blockstream_app),
-                            style = titleLarge,
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier.align(Alignment.CenterHorizontally)
-                        )
-
-                        Text(
-                            text = stringResource(Res.string.id_weve_redesigned_the_app_to_make_it_faster),
-                            style = bodyLarge,
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier.align(Alignment.CenterHorizontally),
-                            color = whiteMedium
-                        )
-
-                        GreenButton(
-                            text = stringResource(Res.string.id_get_started),
-                            modifier = Modifier.fillMaxWidth(),
-                            size = GreenButtonSize.BIG,
-                        ) {
-                            viewModel.postEvent(HomeViewModel.LocalEvents.UpgradeV5)
-                        }
-                    }
-                }
             }
         }
     }

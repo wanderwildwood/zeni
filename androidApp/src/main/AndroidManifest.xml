@@ -98,10 +98,6 @@
             android:exported="true"
             android:launchMode="singleTask">
 
-            <tools:validation testUrl="https://blockstream.com/jade/setup" />
-            <tools:validation testUrl="https://blockstream.com/j/s" />
-            <tools:validation testUrl="https://blockstream.com/ramps/redirect" />
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -133,45 +129,6 @@
             <meta-data
                 android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
                 android:resource="@xml/device_filter" />
-
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="https" />
-                <data android:host="blockstream.com" />
-                <data android:path="/jade/setup" />
-            </intent-filter>
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="https" />
-                <data android:host="blockstream.com" />
-                <data android:path="/j/s" />
-            </intent-filter>
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="https" />
-                <data android:host="blockstream.com" />
-                <data android:path="/ramps/redirect" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="blockstream" />
-            </intent-filter>
         </activity>
 
         <provider

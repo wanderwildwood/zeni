@@ -74,19 +74,8 @@ class HomeViewModel(isGetStarted: Boolean = false) : HomeViewModelAbstract(isGet
             !it
         }).stateIn(viewModelScope, SharingStarted.WhileSubscribed(), null)
 
-    override val showV5Upgrade: StateFlow<Boolean> = combine(
-        settingsManager.isV5UpgradedFlow(),
-        isEmptyWallet.filterNotNull()
-    ) { isV5Upgraded, isEmptyWallet ->
-        if (!isV5Upgraded) {
-            if (isEmptyWallet) {
-                // Mark it as upgraded
-                settingsManager.setV5Upgraded()
-            }
-
-            !isEmptyWallet
-        } else false
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), false)
+    // zeni: there is no "Green is now the Blockstream app" upgrade screen to show.
+    override val showV5Upgrade: StateFlow<Boolean> = MutableStateFlow(false)
     override val allWallets = combine(
         database.getAllWalletsFlow(),
         sessionManager.ephemeralWallets,
@@ -165,7 +154,6 @@ class HomeViewModel(isGetStarted: Boolean = false) : HomeViewModelAbstract(isGet
             }
 
             is LocalEvents.UpgradeV5 -> {
-                settingsManager.setV5Upgraded()
             }
 
             is LocalEvents.GetStarted -> {

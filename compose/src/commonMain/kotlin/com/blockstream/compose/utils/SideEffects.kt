@@ -54,6 +54,7 @@ import com.blockstream.compose.navigation.navigate
 import com.blockstream.compose.sideeffects.OpenDialogData
 import com.blockstream.compose.sideeffects.SideEffect
 import com.blockstream.compose.sideeffects.SideEffects
+import com.blockstream.compose.sideeffects.OpenBrowserType
 import com.blockstream.compose.sideeffects.openBrowser
 import com.blockstream.data.SupportType
 import com.blockstream.data.data.LogoutReason
@@ -66,7 +67,7 @@ import com.blockstream.data.devices.DeviceBrand
 import com.blockstream.data.extensions.handleException
 import com.blockstream.data.extensions.isNotBlank
 import com.blockstream.data.gdk.data.Network
-import com.blockstream.data.utils.createNewTicketUrl
+import com.blockstream.compose.screens.about.contactUri
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
@@ -590,28 +591,14 @@ fun HandleSideEffect(
 
                     val navigateTo = when (val destination = it.destination) {
                         is NavigateDestinations.Support -> {
-                            if (!viewModel.zendeskSdk.isAvailable) {
-                                createNewTicketUrl(
-                                    appInfo = viewModel.appInfo,
-                                    subject = destination.supportData.subject
-                                        ?: viewModel.screenName()
-                                            ?.let { "Android Issue in $it" }
-                                        ?: "Android Error Report",
-                                    supportData = destination.supportData,
-                                ).also {
-                                    appCoroutine.launch {
-                                        openBrowser(
-                                            platformManager = platformManager,
-                                            dialogState = dialog,
-                                            isTor = viewModel.settingsManager.appSettings.tor,
-                                            url = it
-                                        )
-                                    }
-                                }
-                                false
-                            } else {
-                                true
-                            }
+                            // zeni: there is no Blockstream help desk behind this app. Support is an
+                            // email to the developer, written by the person in their own mail app;
+                            // nothing is attached and nothing is sent until they send it.
+                            platformManager.openBrowser(
+                                url = contactUri(),
+                                type = OpenBrowserType.OPEN_SYSTEM
+                            )
+                            false
                         }
 
                         else -> true

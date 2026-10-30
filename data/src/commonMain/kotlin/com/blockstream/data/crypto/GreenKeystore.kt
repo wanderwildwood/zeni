@@ -15,4 +15,7 @@ interface GreenKeystore {
     fun decryptData(cipher: PlatformCipher, encryptedData: EncryptedData): ByteArray
     fun canUseBiometrics(): Boolean
     fun isBiometricEnrolled(): Boolean
+
+    /** Whether this data was sealed by the pre-0.1.3 AES-CBC key and should be re-sealed. */
+    fun needsResealing(encryptedData: EncryptedData): Boolean = false
 }

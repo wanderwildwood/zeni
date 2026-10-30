@@ -205,7 +205,7 @@ actual class BiometricsState(
                 })
             try {
 
-                if (androidKeystore.biometricsKeyExists()) {
+                if (if (isV4Authentication) androidKeystore.biometricsKeyExists(encryptedData) else androidKeystore.biometricsKeyExists()) {
                     // v4 uses a default keystore and a crypto object
                     if (isV4Authentication) {
                         activeBiometricPrompt?.authenticate(

@@ -37,8 +37,8 @@ android {
     defaultConfig {
         minSdk = libs.versions.androidMinSdk.get().toInt()
         targetSdk = libs.versions.androidTargetSdk.get().toInt()
-        versionCode = 3
-        versionName = "0.1.2"
+        versionCode = 4
+        versionName = "0.1.3"
 
         base.archivesName = "zeni-v$versionName"
         proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
@@ -63,7 +63,7 @@ android {
         create("development") {
             applicationId = "com.greenaddress.greenbits_android_wallet.dev"
             versionNameSuffix  = "-dev" + appendGdkCommitHash(rootProject, false)
-            resValue("string", "app_name", "Blockstream App Dev")
+            resValue("string", "app_name", "Bitcoin Dev")
             resValue("string", "application_id", applicationId!!)
             resValue("bool", "feature_lightning", "true")
             resValue("bool", "feature_analytics", "true")
@@ -79,7 +79,7 @@ android {
 
         create("productionGoogle") {
             applicationId = "com.greenaddress.greenbits_android_wallet"
-            resValue("string", "app_name", "Blockstream App (Green)")
+            resValue("string", "app_name", "Bitcoin")
             resValue("string", "application_id", applicationId!!)
             resValue("bool", "feature_lightning", "true")
             resValue("bool", "feature_analytics", "true")

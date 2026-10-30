@@ -11,6 +11,7 @@ import androidx.lifecycle.ProcessLifecycleOwner
 import com.blockstream.data.di.ApplicationScope
 import com.blockstream.data.fcm.Firebase
 import com.blockstream.data.managers.LifecycleManager
+import com.blockstream.data.usecases.ResealKeystoreDataUseCase
 import com.blockstream.green.di.initKoinAndroid
 import com.blockstream.green.lifecycle.ActivityLifecycle
 import com.blockstream.green.settings.AndroidMigrator
@@ -50,6 +51,16 @@ class GreenApplication : Application() {
         registerActivityLifecycleCallbacks(activityLifecycle)
 
         androidMigrator.migrate()
+
+        // Re-seal anything 0.1.2 and older stored with the old AES-CBC key under AES-GCM, once.
+        val resealKeystoreData: ResealKeystoreDataUseCase = get()
+        applicationScope.launch {
+            try {
+                resealKeystoreData()
+            } catch (e: Exception) {
+                logger.w { "Re-sealing keystore data failed: ${e.message}" }
+            }
+        }
 
         if (isDevelopmentFlavor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
             applicationScope.launch {

@@ -212,6 +212,10 @@ actual class PlatformManager constructor(
             }
         } catch (e: Exception) {
             e.printStackTrace()
+            // With no mail app installed the person is told where to write, not left with nothing.
+            if (url.startsWith("mailto:")) {
+                Toast.makeText(context, "No email app is installed. Write to ${url.removePrefix("mailto:").substringBefore('?')}.", Toast.LENGTH_LONG).show()
+            }
         }
     }
 

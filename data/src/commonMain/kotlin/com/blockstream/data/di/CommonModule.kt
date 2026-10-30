@@ -2,6 +2,7 @@ package com.blockstream.data.di
 
 import com.blockstream.data.dataModule
 import com.blockstream.data.usecases.CheckRecoveryPhraseUseCase
+import com.blockstream.data.usecases.ResealKeystoreDataUseCase
 import com.blockstream.data.usecases.SetBiometricsUseCase
 import com.blockstream.data.usecases.SetPinUseCase
 import com.blockstream.data.utils.WatchOnlyDetector
@@ -14,5 +15,6 @@ val commonModule = module {
     singleOf(::WatchOnlyDetector)
     singleOf(::CheckRecoveryPhraseUseCase)
     singleOf(::SetBiometricsUseCase)
+    singleOf(::ResealKeystoreDataUseCase)
     singleOf(::SetPinUseCase)
 }

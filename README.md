@@ -18,8 +18,12 @@ sixteen greys and a slow redraw, and used with a
 
 ## What it is
 
-Blockstream's [Green](https://github.com/Blockstream/green_android) (now *Blockstream App*),
-dressed for E Ink. Everything that makes it a good wallet is theirs and unchanged: GDK, the
+This is an independent fork of Blockstream's [Green](https://github.com/Blockstream/green_android)
+(now *Blockstream App*), dressed for E Ink. **It is not affiliated with, endorsed by or supported
+by Blockstream.** It carries no Blockstream logo, help desk or terms of its own; support is
+email@wanderthe.dev and nothing else.
+
+Everything that makes it a good wallet is theirs and unchanged: GDK, the
 wallet library underneath; hardware wallet signing; watch-only wallets from an xpub or a
 descriptor; wallets kept on the phone, created or restored from a recovery phrase; coin
 control, fees, Tor, and your own Electrum server if you have one.
@@ -119,8 +123,10 @@ Besides those:
 - **Glance**, only if you switch on the lock-screen price: the price from the chart server
   above, fetched when the lock screen is looked at and the last one is over half an hour old,
   and never while Tor or a proxy is on. Never a balance.
-- **Links you press** open in your browser: Blockstream's help pages, the donation page, the
-  author's site.
+- **Links you press** open in your browser: Blockstream's help pages (about the wallet
+  technology, not this app's), the donation page, the author's site.
+- **Contact** in About opens your email app with a blank message to email@wanderthe.dev.
+  Nothing is attached or sent until you send it.
 
 Its permissions: internet, Bluetooth (to find and talk to a hardware wallet), camera (to scan
 a QR code, asked for when you scan), NFC, notifications, and fingerprint (only if you choose to
@@ -131,9 +137,15 @@ Your keys stay on your hardware wallet, or encrypted on the phone for a wallet k
 
 ## Licence
 
-**GNU General Public License v3.0**, as Blockstream publishes Green. See [LICENSE](LICENSE).
+Based on Blockstream Green, GPL-3.0, © Blockstream Corporation Inc. and contributors.
 
-Green is © Blockstream; zeni is a fork of it, and their copyright and licence stay with every
-part that is theirs. Lato is © Łukasz Dziedzic, SIL Open Font License 1.1 ([LICENSES/OFL-1.1.txt](LICENSES/OFL-1.1.txt)).
+**GNU General Public License v3.0 only**, as Blockstream publishes Green. See [LICENSE](LICENSE).
+The app shows the full text, the source link and everything it is built with under
+About, Licences; Privacy and Terms are there too ([PRIVACY.md](PRIVACY.md), [TERMS.md](TERMS.md)).
+
+Green is © Blockstream Corporation Inc. and contributors; zeni is a fork of it, and their
+copyright and licence stay with every part that is theirs. Blockstream's names and logo belong to
+Blockstream and are not used here as this app's own; this app is not affiliated with or endorsed
+by Blockstream. Lato is © Łukasz Dziedzic, SIL Open Font License 1.1 ([LICENSES/OFL-1.1.txt](LICENSES/OFL-1.1.txt)).
 
 Copyright © wander wildwood for the parts that are mine.
