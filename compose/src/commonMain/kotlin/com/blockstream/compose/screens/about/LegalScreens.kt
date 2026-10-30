@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -91,13 +92,16 @@ private fun PagedRows(
     }
 
     Column(modifier.fillMaxSize()) {
-        LazyColumn(
-            state = state,
-            userScrollEnabled = false,
-            modifier = (clipPx?.let { Modifier.height(with(density) { it.toDp() }) } ?: Modifier.weight(1f))
-                .fillMaxWidth().padding(horizontal = 16.dp)
-        ) {
-            itemsIndexed(rows) { _, row -> LegalRowView(row, onOpen) }
+        Box(Modifier.weight(1f).fillMaxWidth()) {
+            LazyColumn(
+                state = state,
+                userScrollEnabled = false,
+                modifier = (clipPx?.let { Modifier.height(with(density) { it.toDp() }) } ?: Modifier.fillMaxHeight())
+                    .fillMaxWidth().padding(horizontal = 16.dp)
+            ) {
+                itemsIndexed(rows) { _, row -> LegalRowView(row, onOpen) }
+            }
+
         }
 
         Row(
