@@ -61,7 +61,6 @@ class SetupNewWalletViewModel(greenWalletOrNull: GreenWallet? = null) :
         object RestoreWallet : Event
 
         object SetupHardwareWallet : Event
-        object BuyJade : Events.OpenBrowser(Urls.JADE_STORE)
     }
 
     init {

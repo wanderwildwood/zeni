@@ -11,6 +11,9 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Base64
 import androidx.activity.compose.setContent
+import androidx.compose.ui.platform.LocalUriHandler
+import com.blockstream.compose.managers.GuardedUriHandler
+import com.blockstream.compose.managers.steadyCursor
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.CompositionLocalProvider
@@ -79,7 +82,15 @@ class GreenActivity : AppCompatActivity() {
         setContent {
             GreenChrome()
             GreenTheme {
-                CompositionLocalProvider(LocalActivity provides this) {
+                CompositionLocalProvider(
+                    *listOfNotNull(
+                        LocalActivity provides this,
+                        // A steady caret: a blinking one redraws the E Ink panel twice a second.
+                        steadyCursor(),
+                        // Web links go through the guarded opener, never the system's WebView shell.
+                        LocalUriHandler provides GuardedUriHandler(this),
+                    ).toTypedArray()
+                ) {
                     GreenApp(mainViewModel = mainViewModel, modifier = Modifier.compatTestTagsAsResourceId())
                 }
             }

@@ -1,6 +1,6 @@
 # Bitcoin (zeni) — Terms of Use
 
-Version 0.1.3. Last reviewed 29 October 2026.
+Version 0.1.4. Last reviewed 29 October 2026.
 
 ## What this is
 

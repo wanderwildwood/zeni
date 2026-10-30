@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.id_login_taking_longer_than_usual
 import blockstream_green.common.generated.resources.id_more_information
+import blockstream_green.common.generated.resources.zeni_server_help
 import com.adamglin.PhosphorIcons
 import com.adamglin.phosphoricons.Regular
 import com.adamglin.phosphoricons.regular.ArrowSquareOut
@@ -63,7 +64,7 @@ fun SlowLoginMessage(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = Urls.STATUS_PAGE.removePrefix("https://"),
+                    text = stringResource(Res.string.zeni_server_help),
                     style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.secondary,
                     textDecoration = TextDecoration.Underline

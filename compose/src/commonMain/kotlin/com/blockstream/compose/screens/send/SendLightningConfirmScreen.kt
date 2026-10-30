@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.bitcoin_lightning
-import androidx.compose.material3.HorizontalDivider
+import com.blockstream.compose.theme.HorizontalDivider
 import blockstream_green.common.generated.resources.id_amount
 import blockstream_green.common.generated.resources.id_from
 import blockstream_green.common.generated.resources.id_to

@@ -155,7 +155,7 @@ actual fun AppRateDialog(
                                                             googlePlay.showInAppReviewDialog(it) {
                                                                 viewModel.postEvent(
                                                                     Events.OpenBrowser(
-                                                                        Urls.BLOCKSTREAM_GOOGLE_PLAY
+                                                                        Urls.APP_PAGE
                                                                     )
                                                                 )
                                                             }

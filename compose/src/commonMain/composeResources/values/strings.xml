@@ -229,11 +229,11 @@
     <string name="id_block_height_1d">Block height: %1$d</string>
     <string name="id_blocks">blocks</string>
     <string name="id_blocks_confirmed">blocks confirmed</string>
-    <string name="id_blockstream_devices">Blockstream Devices</string>
+    <string name="id_blockstream_devices">Hardware wallets</string>
     <string name="id_blockstream_does_not_have">Nobody but you has access to your wallet backup, and nobody will be able to help you in case you lose it</string>
     <string name="id_blockstream_is_a_noncustodial">This app is a non-custodial wallet</string>
     <string name="id_blockstream_needs_access_to">This app needs access to Bluetooth in order to connect to hardware wallets. Location data is not used or kept.</string>
-    <string name="id_blockstream_store">Blockstream Store</string>
+    <string name="id_blockstream_store">Hardware wallets</string>
     <string name="id_blockstream_supports_both">This app supports Bitcoin.</string>
     <string name="id_blockstream_uses_biometric">This app uses biometric authentication to allow easy access to the wallet</string>
     <string name="id_blockstream_uses_bluetooth_for">This app uses Bluetooth for communication with hardware wallets</string>
@@ -247,7 +247,7 @@
     <string name="id_buy_now">Buy Now</string>
     <string name="id_buy_s">Buy %1$s</string>
     <string name="id_buy_with_s">Buy with %1$s</string>
-    <string name="id_by_continuing_you_agree_to">By continuing you agree to Blockstream&apos;s Terms Of Service and Privacy Policy</string>
+    <string name="id_by_continuing_you_agree_to">By continuing you agree to the Terms Of Service and Privacy Policy</string>
     <string name="id_by_proceeding_to_the_next_steps">By proceeding to the next steps you agree to the %1$s</string>
     <string name="id_by_using_the_blockstream_app">By using this app, you agree to the Terms and the Privacy Policy.</string>
     <string name="id_cable">Cable</string>
@@ -674,7 +674,7 @@
     <string name="id_follow_the_instructions_on_jade">Follow the instructions on Jade</string>
     <string name="id_follow_the_instructions_on_your">Follow the instructions on your device.</string>
     <string name="id_for_ease_of_use">For Ease of Use</string>
-    <string name="id_for_help_visit">For help visit help.blockstream.com\nTo unsubscribe turn off SMS 2FA from the app.\nStandard messages and data rates may apply.</string>
+    <string name="id_for_help_visit">For help, open the Help page\nTo unsubscribe turn off SMS 2FA from the app.\nStandard messages and data rates may apply.</string>
     <string name="id_for_higher_security">For Higher Security</string>
     <string name="id_for_investors">For investors</string>
     <string name="id_for_long_term_storage">For long term storage</string>
@@ -729,7 +729,7 @@
     <string name="id_hash_s">Hash: %1$s</string>
     <string name="id_help">Help</string>
     <string name="id_help_us_improve">Help Us Improve</string>
-    <string name="id_helpblockstreamcom">help.blockstream.com</string>
+    <string name="id_helpblockstreamcom">Help page</string>
     <string name="id_here">here</string>
     <string name="id_heres_the_proof_of_ownership_of">Here&apos;s the proof of ownership of the address</string>
     <string name="id_hex">HEX</string>
@@ -767,7 +767,7 @@
     <string name="id_if_jade_is_already_set_up">If Jade is already set up, choose QR Mode > QR PIN Unlock > Continue > Enter your PIN</string>
     <string name="id_if_you_agree_blockstream_will">If you agree, limited usage data will be collected to optimize the user experience. No sensitive user or wallet info is collected.</string>
     <string name="id_if_you_are_the_rightful_owner">If you are the rightful owner of this wallet, and you still possess one of its active 2FA methods, cancel the reset to be able to spend and empty this wallet.</string>
-    <string name="id_if_you_did_not_change_your">If you did not change your oracle settings on Jade, do not proceed and contact Blockstream support.</string>
+    <string name="id_if_you_did_not_change_your">If you did not change your oracle settings on Jade, do not proceed.</string>
     <string name="id_if_you_did_not_request_the">If you did not request the reset, but you cannot cancel the reset process because you can&apos;t access any existing Two-Factor Authorization methods, dispute this 2FA reset. This will permanently block your wallet, but you can undo this action.</string>
     <string name="id_if_you_forget_it_or_lose_it">If you forget it or lose it, your funds are going to be lost as well.</string>
     <string name="id_if_you_forget_your_pin_you_will">If you forget your PIN, you will need to restore with your recovery phrase</string>
@@ -1183,6 +1183,7 @@
     <string name="zeni_price_on_lock_screen">The bitcoin price on the lock screen</string>
     <string name="zeni_price_on_lock_screen_detail">For Glance. Only the price, never a balance; none while Tor or a proxy is on.</string>
     <string name="zeni_app_name">Bitcoin</string>
+    <string name="zeni_server_help">Help with slow servers</string>
     <string name="zeni_based_on">Based on Blockstream Green, GPL-3.0, © Blockstream Corporation Inc. and contributors.</string>
     <string name="zeni_not_affiliated">An independent fork. Not affiliated with or endorsed by Blockstream.</string>
     <string name="zeni_privacy">Privacy</string>
@@ -1630,7 +1631,7 @@
     <string name="id_these_settings_apply_for_every">These settings apply for every wallet you use in this app.</string>
     <string name="id_this_account_will_no_longer_be">This account will no longer be shown in the home or transact tabs.</string>
     <string name="id_this_amount_is_below_the">This amount is below the minimum fee %1$s (%2$s).</string>
-    <string name="id_this_device_was_not">This device was not manufactured by Blockstream. It could be DIY hardware or possibly a malicious clone. Please contact support for more assistance.</string>
+    <string name="id_this_device_was_not">This device was not manufactured by its maker. It could be DIY hardware or possibly a malicious clone.</string>
     <string name="id_this_ensures_a_secure_way_to">This ensures a secure way to access your wallet.</string>
     <string name="id_this_feature_is_coming_soon">This feature is coming soon, stay tuned!</string>
     <string name="id_this_is_not_a_valid_descriptor">This is not a valid descriptor</string>
@@ -1791,7 +1792,7 @@
     <string name="id_view_in_explorer">View in Explorer</string>
     <string name="id_view_more">View More</string>
     <string name="id_visit_s_for_further_information">Visit %1$s for further information about the software</string>
-    <string name="id_visit_the_blockstream_help">Visit the Blockstream Help Center</string>
+    <string name="id_visit_the_blockstream_help">Read the help page</string>
     <string name="id_waiting_for_transaction">Waiting for transaction…</string>
     <string name="id_wallet">Wallet</string>
     <string name="id_wallet_already_restored">Wallet already restored</string>
@@ -1978,7 +1979,7 @@
     <string name="id_validate_the_transaction_details">Validate the transaction details on Jade</string>
     <string name="id_this_is_not_the_default_blind_pin_oracle">This is not the default blind PIN oracle</string>
     <string name="id_jade_is_trying_to_connect_to_a_non_default">Jade is trying to connect to a non-default blind PIN oracle. Contact support immediately for further information.</string>
-    <string name="id_if_you_did_not_change_your_oracle_settings">If you did not change your oracle settings on Jade, do not proceed and contact Blockstream support.</string>
+    <string name="id_if_you_did_not_change_your_oracle_settings">If you did not change your oracle settings on Jade, do not proceed.</string>
     <string name="id_the_lightning_service_is_currently_unavailable_we">The Lightning service is currently unavailable. We apologize for the disruption, we are working to bring the service back online.</string>
     <string name="id_navigate_on_your_jade_to_options">Navigate on your Jade to Options > Wallet > Export Xpub (ensure the derivation path is m/84'/0'/0')</string>
     <string name="id_navigate_on_your_hardware_device">Navigate on your hardware device and export the the singlesig xpub with derivation path m/84'/0'/0' for your Native Segwit account</string>
@@ -1992,7 +1993,7 @@
     <string name="id_we_could_successfully_verify_your">We could successfully verify your Jade.</string>
     <string name="id_your_jade_core_successfully_verified">Your Jade Core has been verified and was manufactured by Blockstream</string>
     <string name="id_your_jade_plus_successfully_verified">Your Jade Plus has been verified and was manufactured by Blockstream</string>
-    <string name="id_this_device_was_not_manufactured_by">This device was not manufactured by Blockstream. It could be DIY hardware or possibly a malicious clone. Please contact support for more assistance.</string>
+    <string name="id_this_device_was_not_manufactured_by">This device was not manufactured by its maker. It could be DIY hardware or possibly a malicious clone.</string>
     <string name="id_2fa_protected_accounts_are_2of2_wallets">2FA Protected accounts are 2-of-2 wallets needing the user’s key and Blockstream’s 2FA signature. After a ~1-year timelock, they become 1-of-1, disabling 2FA, to ultimately keep you in control. Redeposit your coins to reactivate 2FA protection.</string>
     <string name="id_please_be_as_detailed_as_possible">Please be as detailed as possible when describing the issue.</string>
     <string name="id_i_understand_that_asking_for_support">I understand that asking for support through Tor will reduce my anonymity</string>

@@ -172,7 +172,7 @@ fun GreenAccountAsset(
                             if (withAccountName) {
                                 Text(
                                     text = accountAssetBalance.account.policyAndType(session).uppercase(),
-                                    style = labelMedium.copy(fontSize = 8.sp, lineHeight = 12.sp),
+                                    style = labelMedium.copy(fontSize = 14.sp, lineHeight = 18.sp),
                                     maxLines = 1,
                                     overflow = TextOverflow.Ellipsis,
                                     color = whiteLow

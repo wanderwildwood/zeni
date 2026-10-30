@@ -223,7 +223,7 @@ fun AccountType(accountType: AccountTypeLook, onClick: () -> Unit = {}) {
                 .ifTrue(accountType.isLightning) {
                     it.drawDiagonalLabel(
                         text = "BETA", color = whiteHigh, style = TextStyle(
-                            fontSize = 11.sp,
+                            fontSize = 14.sp,
                             fontWeight = FontWeight.Bold,
                             color = Color.Black
                         ),

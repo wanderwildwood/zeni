@@ -107,3 +107,6 @@
 # LWK
 -keep class lwk.** { *; }
 -keepclassmembers class * extends lwk.** { public *; }
+
+# The steady text cursor reads this getter by name (compose/managers/SteadyCursor.kt).
+-keep class androidx.compose.ui.platform.CompositionLocalsKt { *** getLocalCursorBlinkEnabled(); }

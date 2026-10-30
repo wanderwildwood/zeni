@@ -177,38 +177,14 @@ actual class PlatformManager constructor(
 
     actual fun openBrowser(url: String, type: OpenBrowserType) {
         try {
-            if (type == OpenBrowserType.OPEN_SYSTEM) {
+            if (isWebUrl(url)) {
+                // Never a Custom Tab or the system's WebView shell: a real browser, or the address in a message.
+                openLink(context, url, noBrowserMessage(url))
+            } else {
                 context.startActivity(Intent(Intent.ACTION_VIEW).also {
                     it.setData(Uri.parse(url))
+                    it.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 })
-            } else {
-                val builder = CustomTabsIntent.Builder()
-                if (type == OpenBrowserType.MELD) {
-                    builder.setShowTitle(false)
-
-                    builder.setShareState(SHARE_STATE_OFF)
-                } else {
-                    builder.setShowTitle(true)
-                }
-                builder.setUrlBarHidingEnabled(true)
-                builder.setDefaultColorSchemeParams(
-                    CustomTabColorSchemeParams.Builder()
-//                    .setToolbarColor(ContextCompat.getColor(context, R.color.brand_surface))
-//                    .setNavigationBarColor(ContextCompat.getColor(context, R.color.brand_surface))
-//                    .setNavigationBarDividerColor(
-//                        ContextCompat.getColor(
-//                            context,
-//                            R.color.brand_green
-//                        )
-//                    )
-                        .build()
-                )
-//            builder.setStartAnimations(context, R.anim.enter_slide_up, R.anim.fade_out)
-//            builder.setExitAnimations(context, R.anim.fade_in, R.anim.exit_slide_down)
-
-                val customTabsIntent = builder.build()
-                customTabsIntent.launchUrl(context, Uri.parse(url))
-
             }
         } catch (e: Exception) {
             e.printStackTrace()

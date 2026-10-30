@@ -17,7 +17,6 @@ class UseHardwareDeviceViewModel : UseHardwareDeviceViewModelAbstract() {
     class LocalEvents {
         object ConnectJade : Event
         object ConnectDifferentHardwareDevice : Event
-        object JadeStore : Events.OpenBrowser(Urls.JADE_STORE)
     }
 
     init {

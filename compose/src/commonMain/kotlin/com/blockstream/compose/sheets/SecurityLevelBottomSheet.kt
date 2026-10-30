@@ -200,7 +200,6 @@ fun SecurityLevelBottomSheet(
                             false -> stringResource(Res.string.id_set_up_hardware_wallet)
                         }
 
-                        val cta2 = stringResource(Res.string.id_dont_have_one_buy_a_jade)
 
                         GreenButton(
                             text = cta1,
@@ -213,18 +212,7 @@ fun SecurityLevelBottomSheet(
                             }
                         }
 
-                        if (isMobile) {
-                            GreenSpacer(space = 50)
-                        } else {
-                            GreenButton(
-                                text = cta2,
-                                type = GreenButtonType.TEXT,
-                                size = GreenButtonSize.BIG,
-                                modifier = Modifier.fillMaxWidth()
-                            ) {
-                                viewModel.postEvent(SetupNewWalletViewModel.LocalEvents.BuyJade)
-                            }
-                        }
+                        GreenSpacer(space = 50)
                     }
                 }
             }

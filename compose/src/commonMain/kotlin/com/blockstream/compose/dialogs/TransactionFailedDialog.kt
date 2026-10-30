@@ -131,7 +131,7 @@ fun TransactionFailedDialog(
                                 text = resolvedMessage,
                                 style = bodyMedium.copy(
                                     fontFamily = MonospaceFont(),
-                                    fontSize = 12.sp,
+                                    fontSize = 14.sp,
                                     lineHeight = 16.sp,
                                 ),
                                 color = whiteMedium,

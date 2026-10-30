@@ -263,7 +263,7 @@ private fun SwapCard(
     val colors = TextFieldDefaults.colors()
 
     val maxFontSize = 22.sp
-    val minFontSize = 10.sp
+    val minFontSize = 14.sp
 
     val textStyle = LocalTextStyle.current.merge(
         TextStyle(

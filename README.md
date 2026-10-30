@@ -4,6 +4,8 @@ A Bitcoin wallet for an E Ink phone. Black on white, Lato, nothing that slides.
 
 *Zeni* is the old word for a coin: small money, the kind you hand across.
 
+Current version: 0.1.4.
+
 Built for the [Mudita Kompakt](https://mudita.com/products/kompakt/), whose 4.3" panel has
 sixteen greys and a slow redraw, and used with a
 [Blockstream Jade](https://blockstream.com/jade/) over Bluetooth.

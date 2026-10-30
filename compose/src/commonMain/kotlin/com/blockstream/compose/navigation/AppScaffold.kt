@@ -3,7 +3,7 @@ package com.blockstream.compose.navigation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.HorizontalDivider
+import com.blockstream.compose.theme.HorizontalDivider
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn

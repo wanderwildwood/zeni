@@ -68,11 +68,11 @@ fun GreenTypography() = Typography().let {
 
         bodyLarge = copyTextStyle(it.bodyLarge, fontSize = 15.sp, lineHeight = 24.sp),
         bodyMedium = copyTextStyle(it.bodyMedium, fontSize = 14.sp, lineHeight = 20.sp),
-        bodySmall = copyTextStyle(it.bodySmall, fontSize = 12.sp, lineHeight = 14.sp),
+        bodySmall = copyTextStyle(it.bodySmall, fontSize = 14.sp, lineHeight = 18.sp),
 
         labelLarge = copyTextStyle(it.labelLarge, fontSize = 15.sp, lineHeight = 24.sp, fontWeight = FontWeight.Bold),
         labelMedium = copyTextStyle(it.labelMedium, fontSize = 14.sp, lineHeight = 20.sp, fontWeight = FontWeight.Bold),
-        labelSmall = copyTextStyle(it.labelSmall, fontSize = 12.sp, lineHeight = 14.sp, fontWeight = FontWeight.Bold),
+        labelSmall = copyTextStyle(it.labelSmall, fontSize = 14.sp, lineHeight = 18.sp, fontWeight = FontWeight.Bold),
     )
 }
 

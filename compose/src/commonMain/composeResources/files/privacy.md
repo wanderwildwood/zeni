@@ -1,6 +1,6 @@
 # Bitcoin (zeni) — Privacy Policy
 
-Version 0.1.3. Last reviewed 29 October 2026.
+Version 0.1.4. Last reviewed 29 October 2026.
 
 ## The short version
 
@@ -16,7 +16,7 @@ No personal data is transmitted to or held by the developer. The services named 
 
 In the app's private storage on the phone: each wallet's name, network and an identifier derived from its public key (a hash of the xpub); the credentials to open it — for a wallet kept on the phone, its recovery phrase encrypted with your PIN and a PIN server, or sealed with AES-256-GCM under a key in the phone's keystore if you unlock with a fingerprint; for a watch-only wallet, its xpub or descriptor; the wallet library's cache of addresses and transactions; and your settings.
 
-The app allows Android's own backup, as Green does. Android's backup and a transfer to a new phone include the wallet list, the encrypted credentials and the settings; a cloud backup is made only if it is encrypted, and the keystore keys behind fingerprint unlock are never copied off the phone. Uninstalling the app removes everything it keeps. Your recovery phrase is the only backup of a wallet that counts: keep it yourself.
+The app does not allow Android's backup. Nothing it keeps (wallet list, encrypted credentials, settings) goes to a cloud backup or is copied to a new phone by Android's transfer; on a new phone you restore a wallet from its recovery phrase. Uninstalling the app removes everything it keeps. Your recovery phrase is the only backup of a wallet that counts: keep it yourself.
 
 ## Who else receives anything, and what
 
