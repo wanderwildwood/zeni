@@ -56,7 +56,8 @@ class GreenApplication : Application() {
         val resealKeystoreData: ResealKeystoreDataUseCase = get()
         applicationScope.launch {
             try {
-                resealKeystoreData()
+                val n = resealKeystoreData()
+                logger.i { "Keystore: $n credentials re-sealed to AES-GCM" }
             } catch (e: Exception) {
                 logger.w { "Re-sealing keystore data failed: ${e.message}" }
             }
