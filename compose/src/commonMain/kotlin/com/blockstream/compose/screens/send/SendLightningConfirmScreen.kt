@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.send
 
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -104,11 +105,9 @@ fun SendLightningConfirmScreen(
         ) {
             val isSwap = transactionConfirmation?.isSwap == true
 
-            GreenColumn(
-                padding = 0,
-                modifier = Modifier
-                    .weight(1f)
-                    .verticalScroll(rememberScrollState()),
+            GreenPagedColumn(
+                    modifier = Modifier
+                    .weight(1f),
                 verticalArrangement = Arrangement.spacedBy(20.dp),
             ) {
                 if (isSwap) {

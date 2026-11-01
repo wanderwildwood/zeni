@@ -13,7 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
+import com.blockstream.compose.components.EInkDialog
+import androidx.compose.foundation.layout.Box
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.id_account_archived
 import blockstream_green.common.generated.resources.id_continue
@@ -37,18 +38,17 @@ fun ArchivedAccountsDialog(
     viewModel: ArchivedAccountsViewModelAbstract,
     onDismissRequest: () -> Unit
 ) {
-    Dialog(
-        onDismissRequest = {
+    EInkDialog(
+        onDismiss = {
             onDismissRequest()
         }
     ) {
-        NoDialogDim()
 
         HandleSideEffectDialog(viewModel, onDismiss = {
             onDismissRequest()
         })
 
-        GreenCard(modifier = Modifier.fillMaxWidth()) {
+        Box(Modifier.fillMaxWidth()) {
             Column {
                 if (!LocalInspectionMode.current) {
                     Rive(RiveAnimation.ACCOUNT_ARCHIVED)

@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.onboarding.watchonly
 
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -115,11 +116,8 @@ fun WatchOnlySinglesigScreen(
                     modifier = Modifier.padding(bottom = 8.dp)
                 )
 
-                GreenColumn(
-                    padding = 0,
-                    modifier = Modifier
+                GreenPagedColumn(modifier = Modifier
                         .weight(1f)
-                        .verticalScroll(rememberScrollState())
                 ) {
                     val isLiquid by viewModel.isLiquid.collectAsStateWithLifecycle()
                     val watchOnlyDescriptor by viewModel.watchOnlyDescriptor.collectAsStateWithLifecycle()

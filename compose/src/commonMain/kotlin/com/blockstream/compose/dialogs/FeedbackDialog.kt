@@ -1,5 +1,7 @@
 package com.blockstream.compose.dialogs
 
+import com.blockstream.compose.components.MmdTextField
+import com.blockstream.compose.components.MmdSegmented
 import com.blockstream.compose.theme.NoDialogDim
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -17,7 +19,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
+import com.blockstream.compose.components.EInkDialog
+import androidx.compose.foundation.layout.Box
 import androidx.compose.ui.window.DialogProperties
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import blockstream_green.common.generated.resources.Res
@@ -47,12 +50,11 @@ fun FeedbackDialog(
     viewModel: AboutViewModelAbstract,
     onDismissRequest: () -> Unit
 ) {
-    Dialog(
-        onDismissRequest = onDismissRequest,
+    EInkDialog(
+        onDismiss = onDismissRequest,
         properties = DialogProperties(dismissOnBackPress = true, dismissOnClickOutside = false),
     ) {
-        NoDialogDim()
-        GreenCard {
+        Box(Modifier.fillMaxWidth()) {
             GreenColumn(padding = 8) {
                 Text(
                     text = stringResource(Res.string.id_give_us_your_feedback),
@@ -67,24 +69,10 @@ fun FeedbackDialog(
                 )
 
                 val selectedRate by viewModel.rate.collectAsStateWithLifecycle()
-                SingleChoiceSegmentedButtonRow {
-                    (1..5).forEachIndexed { index, rate ->
-                        SegmentedButton(
-                            shape = SegmentedButtonDefaults.itemShape(
-                                index = index, count = 5
-                            ),
-                            onClick = {
-                                viewModel.rate.value = rate
-                            },
-                            selected = (index + 1) == selectedRate
-                        ) {
-                            Text(rate.toString())
-                        }
-                    }
-                }
+                MmdSegmented(labels = (1..5).map { it.toString() }, selectedIndex = selectedRate - 1, onSelect = { index -> viewModel.rate.value = index + 1 })
 
                 val email by viewModel.email.collectAsStateWithLifecycle()
-                OutlinedTextField(
+                MmdTextField(
                     value = email,
                     onValueChange = viewModel.email.onValueChange(),
                     supportingText = { Text(text = stringResource(Res.string.id_optional)) },
@@ -96,7 +84,7 @@ fun FeedbackDialog(
                 )
 
                 val feedback by viewModel.feedback.collectAsStateWithLifecycle()
-                OutlinedTextField(
+                MmdTextField(
                     value = feedback,
                     onValueChange = viewModel.feedback.onValueChange(),
                     label = { Text(stringResource(Res.string.id_feedback)) },

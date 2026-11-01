@@ -34,7 +34,7 @@ fun SwapAssetsBottomSheet(
         GreenColumn(
             padding = 0,
             space = 4,
-            modifier = Modifier.verticalScroll(rememberScrollState())
+            modifier = Modifier
         ) {
             assetBalance.list.forEach { assetBalance ->
                 GreenAsset(

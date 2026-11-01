@@ -1,25 +1,27 @@
 package com.blockstream.compose.dialogs
 
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.graphics.Color
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.border
-import com.blockstream.compose.theme.NoDialogDim
-import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Icon
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.id_cancel
 import blockstream_green.common.generated.resources.id_do_you_want_to_enable_tor_to
 import blockstream_green.common.generated.resources.id_ok
 import blockstream_green.common.generated.resources.id_warning
-import com.adamglin.PhosphorIcons
-import com.adamglin.phosphoricons.Regular
-import com.adamglin.phosphoricons.regular.Warning
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
+import com.blockstream.compose.components.EInkDialog
+import com.blockstream.compose.components.GreenButton
+import com.blockstream.compose.components.GreenButtonType
 import com.blockstream.compose.models.MainViewModel
+import com.blockstream.compose.theme.titleSmall
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -27,59 +29,35 @@ fun TorWarningDialog(
     viewModel: MainViewModel,
     onDismiss: () -> Unit
 ) {
-    AlertDialog(
-        // zeni: MMD dialog — white, a 2 dp black rim, 12 dp corners, no dim.
-        shape = RoundedCornerShape(12.dp),
-        modifier = Modifier.border(2.dp, Color.Black, RoundedCornerShape(12.dp)),
-        onDismissRequest = {
-            viewModel.postEvent(
-                MainViewModel.LocalEvents.TorWarningResponse(
-                    enable = false
-                )
+    val answer = { enable: Boolean ->
+        viewModel.postEvent(MainViewModel.LocalEvents.TorWarningResponse(enable = enable))
+        onDismiss()
+    }
+    EInkDialog(onDismiss = { answer(false) }) {
+        Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+            Text(
+                text = stringResource(Res.string.id_warning),
+                style = titleSmall,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth()
             )
-            onDismiss()
-        },
-        icon = {
-            Icon(imageVector = PhosphorIcons.Regular.Warning, contentDescription = null)
-        },
-        title = {
-            Text(text = stringResource(Res.string.id_warning))
-        },
-        text = {
-            Text(text = stringResource(Res.string.id_do_you_want_to_enable_tor_to))
-        },
-        confirmButton = {
-                NoDialogDim()
-            TextButton(
-                onClick = {
-                    viewModel.postEvent(
-                        MainViewModel.LocalEvents.TorWarningResponse(
-                            enable = true
-                        )
-                    )
-                    onDismiss()
-                }
-            ) {
-                Text(
-                    text = stringResource(Res.string.id_ok)
-                )
-            }
-        },
-        dismissButton = {
-            TextButton(
-                onClick = {
-                    viewModel.postEvent(
-                        MainViewModel.LocalEvents.TorWarningResponse(
-                            enable = false
-                        )
-                    )
-                    onDismiss()
-                }
-            ) {
-                Text(
-                    text = stringResource(Res.string.id_cancel)
-                )
+            Text(
+                text = stringResource(Res.string.id_do_you_want_to_enable_tor_to),
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth()
+            )
+            Row(modifier = Modifier.fillMaxWidth()) {
+                GreenButton(
+                    text = stringResource(Res.string.id_cancel),
+                    type = GreenButtonType.OUTLINE,
+                    modifier = Modifier.weight(1f)
+                ) { answer(false) }
+                Spacer(Modifier.width(10.dp))
+                GreenButton(
+                    text = stringResource(Res.string.id_ok),
+                    modifier = Modifier.weight(1f)
+                ) { answer(true) }
             }
         }
-    )
+    }
 }

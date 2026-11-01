@@ -33,10 +33,5 @@ dependencies {
     implementation(libs.review.ktx)
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.messaging)
-    implementation(libs.installreferrer)
-    /** ----------------------------------------------------------------------------------------- */
-
-    /**  --- Zendesk ---------------------------------------------------------------------------- */
-    implementation(libs.zendesk.support.providers)
     /** ----------------------------------------------------------------------------------------- */
 }

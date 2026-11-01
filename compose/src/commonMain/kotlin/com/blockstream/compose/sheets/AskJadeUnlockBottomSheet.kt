@@ -73,9 +73,6 @@ fun AskJadeUnlockBottomSheet(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .verticalScroll(
-                        rememberScrollState()
-                    )
             ) {
 
                 Text(

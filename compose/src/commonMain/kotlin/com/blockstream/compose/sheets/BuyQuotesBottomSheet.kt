@@ -3,7 +3,7 @@ package com.blockstream.compose.sheets
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
+import com.blockstream.compose.components.PagedColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.rememberModalBottomSheetState
@@ -36,13 +36,14 @@ fun BuyQuotesBottomSheet(
         viewModel = viewModel,
         withHorizontalPadding = false,
         withBottomPadding = false,
+        scrollable = false,
         sheetState = rememberModalBottomSheetState(
             skipPartiallyExpanded = false
         ),
         onDismissRequest = onDismissRequest
     ) {
-        LazyColumn(
-            contentPadding = PaddingValues(horizontal = 16.dp) + PaddingValues(bottom = 16.dp),
+        PagedColumn(
+            contentPadding = PaddingValues(start = 20.dp, end = 12.dp, bottom = 16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
 

@@ -72,7 +72,7 @@ fun SignMessageBottomSheet(
                     GreenColumn(
                         padding = 0,
                         horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier.verticalScroll(rememberScrollState())
+                        modifier = Modifier
                     ) {
                         Box(
                             contentAlignment = Alignment.Center,

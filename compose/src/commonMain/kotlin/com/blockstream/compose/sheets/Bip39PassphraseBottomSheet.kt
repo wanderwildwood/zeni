@@ -1,5 +1,8 @@
 package com.blockstream.compose.sheets
 
+import com.blockstream.compose.components.MmdSwitch
+import com.blockstream.compose.components.MmdCheckbox
+import com.blockstream.compose.components.MmdRadioButton
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardActions
@@ -111,7 +114,7 @@ fun Bip39PassphraseBottomSheet(
                     modifier = Modifier.weight(1f)
                 )
 
-                Switch(
+                MmdSwitch(
                     checked = isAlwaysAsk,
                     onCheckedChange = viewModel.isAlwaysAsk.onValueChange(),
                     modifier = Modifier.appTestTag("always_ask_switch")

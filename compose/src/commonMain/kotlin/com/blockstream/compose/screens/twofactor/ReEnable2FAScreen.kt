@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.twofactor
 
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -62,12 +63,9 @@ fun ReEnable2FAScreen(
             )
         }
 
-        GreenColumn(
-            padding = 0,
-            modifier = Modifier
+        GreenPagedColumn(modifier = Modifier
                 .weight(1f)
-                .fillMaxWidth()
-                .verticalScroll(rememberScrollState()),
+                .fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 

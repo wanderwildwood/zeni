@@ -65,14 +65,9 @@ fun GreenSwitch(
             }
         }
 
-        Switch(
+        MmdSwitch(
             checked = checked,
             onCheckedChange = onCheckedChange,
-            colors = SwitchDefaults.colors(
-                uncheckedThumbColor = Color.White,
-                checkedThumbColor = Color.White,
-                uncheckedTrackColor = MaterialTheme.colorScheme.outline
-            )
         )
     }
 }

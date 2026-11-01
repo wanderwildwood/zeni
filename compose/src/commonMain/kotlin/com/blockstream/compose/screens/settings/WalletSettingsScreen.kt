@@ -1,5 +1,8 @@
 package com.blockstream.compose.screens.settings
 
+import com.blockstream.compose.components.MmdSwitch
+import com.blockstream.compose.components.MmdCheckbox
+import com.blockstream.compose.components.MmdRadioButton
 import com.blockstream.compose.theme.labelMedium
 import blockstream_green.common.generated.resources.zeni_feed_the_llamas
 import blockstream_green.common.generated.resources.llama
@@ -16,7 +19,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
+import com.blockstream.compose.components.PagedColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
@@ -346,9 +349,9 @@ fun WalletSettingsScreen(
             }
         }) {
 
-        LazyColumn(
+        PagedColumn(
             contentPadding = innerPadding.bottom()
-                .plus(PaddingValues(horizontal = 16.dp))
+                .plus(PaddingValues(start = 20.dp, end = 12.dp))
                 .plus(PaddingValues(bottom = (if (viewModel.section == WalletSettingsSection.General) 80.dp else 0.dp) + 16.dp)),
             verticalArrangement = Arrangement.spacedBy(0.dp),
         ) {
@@ -807,7 +810,7 @@ fun RadioSetting(
             .clickable(enabled = enabled) { onSelect() }
     ) {
         GreenRow(space = 16, padding = 0, verticalAlignment = Alignment.CenterVertically) {
-            RadioButton(
+            MmdRadioButton(
                 selected = selected,
                 enabled = enabled,
                 onClick = null,
@@ -893,7 +896,7 @@ fun Setting(
 
             if (checked != null) {
                 if (isRadio) {
-                    RadioButton(
+                    MmdRadioButton(
                         selected = checked,
                         enabled = enabled,
                         onClick = {
@@ -904,7 +907,7 @@ fun Setting(
                             .padding(end = 16.dp)
                     )
                 } else {
-                    Switch(
+                    MmdSwitch(
                         checked = checked,
                         onCheckedChange = onCheckedChange,
                         enabled = enabled,

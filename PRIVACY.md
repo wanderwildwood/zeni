@@ -35,7 +35,7 @@ The lock screen: with Glance (com.wanderwildwood.hitome, the author's lock-scree
 
 Help links in the app open Blockstream's help pages in your browser, and only when you press them. They explain the wallet technology; they are Blockstream's pages, not this app's. In Settings, "feed the llamas" opens a donation page (square.link) and wanderthe.dev opens the author's website, likewise. "Contact" in About opens your email app with a blank message to email@wanderthe.dev; nothing is sent until you send it, and no logs or wallet data are attached.
 
-Never contacted: Blockstream's purchase service (Meld), Boltz or any swap service, a Liquid server, an analytics service (Green's Countly analytics is switched off in this build, and its consent prompt never shows), a crash-reporting service, a support service that uploads logs, Google's push service, and any update check.
+Never contacted: Blockstream's purchase service (Meld), Boltz or any swap service, a Liquid server, an analytics service (Green's Countly library and the Zendesk help-desk library are removed from this build), a crash-reporting service, a support service that uploads logs, Google's push service, and any update check.
 
 No data is sold, rented, or shared for advertising. There is no profiling, no personalization, and no automated decision-making about you.
 
@@ -57,7 +57,7 @@ NFC — tap to pay, as above.
 
 `READ_EXTERNAL_STORAGE` and `WRITE_EXTERNAL_STORAGE` — declared by a library. Files you export are saved through the phone's own file picker, to a place you choose.
 
-The store also lists `com.wanderwildwood.zeni.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION`, which AndroidX declares for its own internal receivers, and a Countly broadcast permission that comes with Green's analytics library; the library is switched off in this build and sends nothing.
+The store also lists `com.wanderwildwood.zeni.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION`, which AndroidX declares for its own internal receivers. The Countly analytics library that once added a broadcast permission has been removed.
 
 ## Legal basis (EU / EEA and UK)
 

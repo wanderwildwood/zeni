@@ -66,7 +66,7 @@ android {
             resValue("string", "app_name", "Bitcoin Dev")
             resValue("string", "application_id", applicationId!!)
             resValue("bool", "feature_lightning", "true")
-            resValue("bool", "feature_analytics", "true")
+            resValue("bool", "feature_analytics", "false")
             resValue("bool", "feature_rate_google_play", "true")
             manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_dev"
             manifestPlaceholders["appIconRound"] = "@mipmap/ic_launcher_dev_round"
@@ -82,7 +82,7 @@ android {
             resValue("string", "app_name", "Bitcoin")
             resValue("string", "application_id", applicationId!!)
             resValue("bool", "feature_lightning", "true")
-            resValue("bool", "feature_analytics", "true")
+            resValue("bool", "feature_analytics", "false")
             resValue("bool", "feature_rate_google_play", "true")
             manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher"
             manifestPlaceholders["appIconRound"] = "@mipmap/ic_launcher_round"

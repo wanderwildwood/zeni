@@ -1,5 +1,7 @@
 package com.blockstream.compose.screens.settings
 
+import com.blockstream.compose.components.MmdTextField
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.width
@@ -79,11 +81,9 @@ fun TwoFactorSetupScreen(
     SetupScreen(viewModel = viewModel) {
 
         GreenColumn(verticalArrangement = Arrangement.SpaceBetween) {
-            GreenColumn(
-                padding = 0,
-                space = 24,
+            GreenPagedColumn(space = 24,
                 horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.verticalScroll(rememberScrollState())
+                modifier = Modifier
             ) {
 
                 val messageText by viewModel.messageText.collectAsStateWithLifecycle()
@@ -102,7 +102,7 @@ fun TwoFactorSetupScreen(
 
                         val email by viewModel.email.collectAsStateWithLifecycle()
 
-                        OutlinedTextField(
+                        MmdTextField(
                             label = { Text(stringResource(Res.string.id_email)) },
                             value = email,
                             onValueChange = viewModel.email.onValueChange(),
@@ -119,7 +119,7 @@ fun TwoFactorSetupScreen(
                         val number by viewModel.number.collectAsStateWithLifecycle()
 
                         GreenRow(padding = 0, space = 8) {
-                            OutlinedTextField(
+                            MmdTextField(
                                 label = { Text(stringResource(Res.string.id_country)) },
                                 value = country,
                                 onValueChange = {
@@ -140,7 +140,7 @@ fun TwoFactorSetupScreen(
                                     }
                             )
 
-                            OutlinedTextField(
+                            MmdTextField(
                                 label = { Text(stringResource(Res.string.id_phone_number)) },
                                 value = number,
                                 onValueChange = viewModel.number.onValueChange(),

@@ -60,9 +60,6 @@ fun TwoFactorResetBottomSheet(
             space = 24,
             modifier = Modifier
                 .padding(top = 16.dp)
-                .verticalScroll(
-                    rememberScrollState()
-                )
         ) {
 
             if (twoFactorReset?.isDisputed == true) {

@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.add
 
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -175,11 +176,9 @@ fun ChooseAccountTypeScreen(
                 modifier = Modifier.padding(start = 4.dp, bottom = 2.dp)
             )
 
-            GreenColumn(
-                padding = 0, space = 8,
+            GreenPagedColumn(space = 8,
                 modifier = Modifier
                     .weight(1f)
-                    .verticalScroll(rememberScrollState())
             ) {
                 accountTypes.forEach {
                     AccountType(accountType = it, onClick = {

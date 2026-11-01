@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.send
 
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -130,11 +131,9 @@ fun BumpScreen(
     }) {
 
         GreenColumn {
-            GreenColumn(
-                padding = 0,
-                modifier = Modifier
+            GreenPagedColumn(
+                    modifier = Modifier
                     .weight(1f)
-                    .verticalScroll(rememberScrollState())
             ) {
 
                 val accountAssetBalance by viewModel.accountAssetBalance.collectAsStateWithLifecycle()

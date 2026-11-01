@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.settings.components
 
+import com.blockstream.compose.components.MmdTextField
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -72,7 +73,7 @@ fun PersonalElectrumServerSection(
             SettingsItem(
                 title = stringResource(Res.string.id_bitcoin_electrum_server),
                 content = {
-                    OutlinedTextField(
+                    MmdTextField(
                         value = personalBitcoinElectrumServer,
                         onValueChange = autoSaveOnStringChange(
                             viewModel.personalBitcoinElectrumServer,
@@ -116,7 +117,7 @@ fun PersonalElectrumServerSection(
             SettingsItem(
                 title = stringResource(Res.string.id_liquid_electrum_server),
                 content = {
-                    OutlinedTextField(
+                    MmdTextField(
                         value = personalLiquidElectrumServer,
                         onValueChange = autoSaveOnStringChange(
                             viewModel.personalLiquidElectrumServer,
@@ -161,7 +162,7 @@ fun PersonalElectrumServerSection(
                 SettingsItem(
                     title = stringResource(Res.string.id_testnet_electrum_server),
                     content = {
-                        OutlinedTextField(
+                        MmdTextField(
                             value = personalTestnetElectrumServer,
                             onValueChange = autoSaveOnStringChange(
                                 viewModel.personalTestnetElectrumServer,
@@ -207,7 +208,7 @@ fun PersonalElectrumServerSection(
                 SettingsItem(
                     title = stringResource(Res.string.id_liquid_testnet_electrum_server),
                     content = {
-                        OutlinedTextField(
+                        MmdTextField(
                             value = personalTestnetLiquidElectrumServer,
                             onValueChange = autoSaveOnStringChange(
                                 viewModel.personalTestnetLiquidElectrumServer,

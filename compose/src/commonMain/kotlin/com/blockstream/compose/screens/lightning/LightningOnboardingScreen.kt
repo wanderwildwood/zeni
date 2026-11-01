@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.lightning
 
+import com.blockstream.compose.components.PagedColumn
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -115,10 +116,11 @@ fun LightningOnboardingScreen(viewModel: LightningOnboardingViewModelAbstract) {
                 .padding(horizontal = 16.dp)
                 .padding(bottom = 16.dp)
         ) {
-            Column(
+            PagedColumn(modifier = Modifier.weight(1f)) {
+ item {
+ Column(
                 modifier = Modifier
-                    .weight(1f)
-                    .verticalScroll(scrollState),
+                    ,
                 verticalArrangement = Arrangement.spacedBy(24.dp)
             ) {
                 Column(
@@ -184,6 +186,8 @@ fun LightningOnboardingScreen(viewModel: LightningOnboardingViewModelAbstract) {
 
                 Spacer(Modifier.height(16.dp))
             }
+ }
+ }
 
             Column(
                 modifier = Modifier

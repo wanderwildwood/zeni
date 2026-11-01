@@ -1,5 +1,7 @@
 package com.blockstream.compose.screens.recovery
 
+import androidx.compose.foundation.layout.PaddingValues
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -92,10 +94,8 @@ fun RecoveryWordsScreen(
             }
 
 
-            GreenColumn(
-                modifier = Modifier
-                    .weight(1f)
-                    .verticalScroll(rememberScrollState()),
+            GreenPagedColumn(contentPadding = PaddingValues(16.dp), modifier = Modifier
+                    .weight(1f),
                 verticalArrangement = Arrangement.SpaceAround
             ) {
                 viewModel.words.forEachIndexed { index, word ->

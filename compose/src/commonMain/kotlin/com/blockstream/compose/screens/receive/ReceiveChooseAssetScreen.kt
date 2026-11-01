@@ -1,5 +1,7 @@
 package com.blockstream.compose.screens.receive
 
+import androidx.compose.foundation.layout.PaddingValues
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -31,13 +33,7 @@ fun ReceiveChooseAssetScreen(
         withPadding = false,
     ) {
 
-        GreenColumn(
-            space = 4, modifier = Modifier
-                .padding(top = 16.dp)
-                .verticalScroll(
-                    rememberScrollState()
-                )
-        ) {
+        GreenPagedColumn(space = 4, contentPadding = PaddingValues(start = 20.dp, end = 12.dp, top = 16.dp)) {
             assets.forEach { asset ->
                 val showLightningBadge = isSwapsEnabled && asset.isLiquidPolicyAsset(viewModel.session)
 

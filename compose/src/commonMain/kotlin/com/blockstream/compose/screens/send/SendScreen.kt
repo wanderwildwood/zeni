@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.send
 
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -174,11 +175,9 @@ fun SendScreen(
         ) {
             val selectedUtxosCount by viewModel.selectedUtxosCount.collectAsStateWithLifecycle()
 
-            GreenColumn(
-                padding = 0,
-                modifier = Modifier
+            GreenPagedColumn(
+                    modifier = Modifier
                     .weight(1f)
-                    .verticalScroll(rememberScrollState())
             ) {
                 Banner(viewModel)
 

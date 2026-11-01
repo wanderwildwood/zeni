@@ -2,6 +2,19 @@
 
 package com.blockstream.compose.views
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.material3.IconButton
+import androidx.compose.ui.text.style.TextAlign
+import blockstream_green.common.generated.resources.id_rename
+import blockstream_green.common.generated.resources.id_remove_wallet
+import blockstream_green.common.generated.resources.id_remove_wallet_tap_again
+import blockstream_green.common.generated.resources.id_wallet_actions
+import com.adamglin.phosphoricons.regular.DotsThreeVertical
+import com.blockstream.compose.components.MmdTextButton
+import com.blockstream.compose.components.rememberArmed
+import org.jetbrains.compose.resources.stringResource
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Column
@@ -94,36 +107,69 @@ fun WalletListItem(
     onSwipe: (String?) -> Unit,
     isSwiped: Boolean
 ) {
-    val actions = listOf(
-        SwipeAction(
-            icon = Res.drawable.pencil_simple,
-            backgroundColor = GreenColors.surface,
-            testTag = "rename_wallet_${look.greenWallet.id}",
-            contentDescription = "Rename wallet",
-            onClick = { callbacks.onWalletRename(look.greenWallet) }
-        ),
-        SwipeAction(
-            icon = Res.drawable.trash,
-            backgroundColor = GreenColors.error,
-            testTag = "remove_wallet_${look.greenWallet.id}",
-            contentDescription = "Remove wallet",
-            onClick = { callbacks.onWalletDelete(look.greenWallet) }
-        )
-    )
+    // Rename and remove sit behind a ⋮ button, not a swipe: a drag is an animation, and a
+    // destructive action asks with the armed-row pattern (tap, the words change, tap again within 6 s).
+    val removeArmed = rememberArmed()
 
-    SwipeableActionsContainer(
-        isSwiped = isSwiped,
-        onSwipe = { opened -> onSwipe(if (opened) look.greenWallet.id else null) },
-        actions = actions
-    ) {
+    Column(modifier = Modifier.fillMaxWidth()) {
         GreenCard(padding = 0, modifier = Modifier.fillMaxWidth()) {
-            WalletListRow(
-                title = look.title,
-                subtitle = look.subtitle,
-                isWatchOnly = look.isWatchOnly,
-                isConnected = look.isConnected,
-                onClick = { callbacks.onWalletClick(look.greenWallet) }
-            )
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Box(modifier = Modifier.weight(1f)) {
+                    WalletListRow(
+                        title = look.title,
+                        subtitle = look.subtitle,
+                        isWatchOnly = look.isWatchOnly,
+                        isConnected = look.isConnected,
+                        onClick = { callbacks.onWalletClick(look.greenWallet) }
+                    )
+                }
+                IconButton(
+                    onClick = {
+                        removeArmed.armed = false
+                        onSwipe(if (isSwiped) null else look.greenWallet.id)
+                    },
+                    modifier = Modifier
+                        .size(48.dp)
+                        .appTestTag("wallet_actions_${look.greenWallet.id}")
+                ) {
+                    Icon(
+                        imageVector = PhosphorIcons.Regular.DotsThreeVertical,
+                        contentDescription = stringResource(Res.string.id_wallet_actions)
+                    )
+                }
+            }
+        }
+
+        if (isSwiped) {
+            Row(
+                modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                MmdTextButton(
+                    onClick = { callbacks.onWalletRename(look.greenWallet) },
+                    modifier = Modifier.weight(1f).appTestTag("rename_wallet_${look.greenWallet.id}")
+                ) {
+                    Text(stringResource(Res.string.id_rename))
+                }
+                MmdTextButton(
+                    onClick = {
+                        if (removeArmed.armed) {
+                            removeArmed.armed = false
+                            callbacks.onWalletDelete(look.greenWallet)
+                        } else {
+                            removeArmed.armed = true
+                        }
+                    },
+                    modifier = Modifier.weight(1f).appTestTag("remove_wallet_${look.greenWallet.id}")
+                ) {
+                    Text(
+                        stringResource(
+                            if (removeArmed.armed) Res.string.id_remove_wallet_tap_again else Res.string.id_remove_wallet
+                        ),
+                        textAlign = TextAlign.Center
+                    )
+                }
+            }
         }
     }
 }

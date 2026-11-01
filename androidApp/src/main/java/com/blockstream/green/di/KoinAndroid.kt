@@ -10,7 +10,6 @@ import com.blockstream.data.data.AppConfig
 import com.blockstream.gms.di.gmsModule
 import com.blockstream.green.BuildConfig
 import com.blockstream.green.R
-import com.blockstream.green.data.Countly
 import com.blockstream.green.data.CountlyAndroid
 import com.blockstream.green.data.CountlyNoOp
 import com.blockstream.green.lifecycle.ActivityLifecycle
@@ -49,11 +48,7 @@ fun initKoinAndroid(context: Context) {
                 context
             }
             single {
-                if (context.resources.getBoolean(R.bool.feature_analytics)) {
-                    Countly(get(), get(), get(), get(), get(), get(), get())
-                } else {
-                    CountlyNoOp(get(), get(), get(), get())
-                }
+                CountlyNoOp(get(), get(), get(), get())
             } binds (arrayOf(CountlyBase::class, CountlyAndroid::class))
             single {
                 AndroidMigrator(get(), get(), get(), get(), get(), get(), get())

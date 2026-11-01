@@ -6,7 +6,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
+import com.blockstream.compose.components.PagedColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -51,10 +51,10 @@ fun ArchivedAccountsScreen(
                         .padding(horizontal = 16.dp)
                 )
             } else if (archivedAccounts.isSuccess()) {
-                LazyColumn(
+                PagedColumn(
                     modifier = Modifier.weight(1f),
                     verticalArrangement = Arrangement.spacedBy(8.dp),
-                    contentPadding = PaddingValues(all = 16.dp)
+                    contentPadding = PaddingValues(start = 20.dp, top = 16.dp, end = 12.dp, bottom = 16.dp)
                 ) {
                     items(archivedAccounts.data() ?: listOf()) { account ->
                         GreenAccountAsset(

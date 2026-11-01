@@ -82,7 +82,7 @@ fun GreenAccountAsset(
             verticalAlignment = Alignment.CenterVertically
         ) {
             if (selectable) {
-                Checkbox(
+                MmdCheckbox(
                     checked = isSelected,
                     onCheckedChange = { onClick?.invoke() },
                     modifier = Modifier.padding(end = 8.dp)

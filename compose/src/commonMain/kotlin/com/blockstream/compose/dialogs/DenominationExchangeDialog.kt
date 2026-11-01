@@ -1,5 +1,6 @@
 package com.blockstream.compose.dialogs
 
+import com.blockstream.compose.components.MmdTextField
 import com.blockstream.compose.theme.NoDialogDim
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -19,7 +20,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.window.Dialog
+import com.blockstream.compose.components.EInkDialog
+import androidx.compose.foundation.layout.Box
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.id_cancel
@@ -46,18 +48,17 @@ fun DenominationExchangeDialog(
     viewModel: DenominationExchangeRateViewModelAbstract,
     onDismissRequest: () -> Unit
 ) {
-    Dialog(
-        onDismissRequest = {
+    EInkDialog(
+        onDismiss = {
             onDismissRequest()
         }
     ) {
-        NoDialogDim()
 
         HandleSideEffectDialog(viewModel, onDismiss = {
             onDismissRequest()
         })
 
-        GreenCard(modifier = Modifier.fillMaxWidth()) {
+        Box(Modifier.fillMaxWidth()) {
             GreenColumn(padding = 8, space = 16) {
                 Text(
                     text = stringResource(Res.string.id_denomination__exchange_rate),
@@ -77,7 +78,7 @@ fun DenominationExchangeDialog(
                     modifier = Modifier
                         .fillMaxWidth()
                 ) {
-                    OutlinedTextField(
+                    MmdTextField(
                         // The `menuAnchor` modifier must be passed to the text field for correctness.
                         modifier = Modifier
                             .fillMaxWidth()
@@ -91,7 +92,6 @@ fun DenominationExchangeDialog(
                         onValueChange = {},
                         label = { Text(stringResource(Res.string.id_denomination)) },
                         trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = denominationExpanded) },
-                        colors = ExposedDropdownMenuDefaults.textFieldColors(),
                     )
                     ExposedDropdownMenu(
                         expanded = denominationExpanded,
@@ -126,7 +126,7 @@ fun DenominationExchangeDialog(
                         modifier = Modifier
                             .fillMaxWidth()
                     ) {
-                        OutlinedTextField(
+                        MmdTextField(
                             // The `menuAnchor` modifier must be passed to the text field for correctness.
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -140,7 +140,6 @@ fun DenominationExchangeDialog(
                             onValueChange = {},
                             label = { Text(stringResource(Res.string.id_exchange_rate)) },
                             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = exchangeExpanded) },
-                            colors = ExposedDropdownMenuDefaults.textFieldColors(),
                         )
                         ExposedDropdownMenu(
                             expanded = exchangeExpanded,

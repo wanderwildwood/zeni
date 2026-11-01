@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.login
 
+import com.blockstream.compose.components.MmdTextButton
 import androidx.compose.foundation.Image
 import com.blockstream.compose.components.NoPicture
 import androidx.compose.foundation.layout.Arrangement
@@ -482,7 +483,7 @@ fun LoginScreen(
                                     val bip39Passphrase by viewModel.bip39Passphrase.collectAsStateWithLifecycle()
 
                                     if (bip39Passphrase.isNotBlank()) {
-                                        TextButton(onClick = {
+                                        MmdTextButton(onClick = {
                                             viewModel.postEvent(
                                                 NavigateDestinations.Bip39Passphrase(
                                                     greenWallet = viewModel.greenWallet,

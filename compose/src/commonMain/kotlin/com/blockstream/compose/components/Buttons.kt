@@ -3,7 +3,8 @@ package com.blockstream.compose.components
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
@@ -85,201 +86,38 @@ fun GreenButton(
     onClick: () -> Unit
 ) {
 
-    val sizedModifier = when (size) {
-        GreenButtonSize.SMALL -> {
-            Modifier
-                .then(modifier)
-                .height(30.dp)
-
-        }
-
-        GreenButtonSize.TINY -> {
-            Modifier
-                .then(modifier)
-                .height(20.dp)
-
-        }
-
-        GreenButtonSize.BIG -> {
-            Modifier
-                .then(modifier)
-                .height(50.dp)
-        }
-
-        GreenButtonSize.LARGE -> {
-            Modifier
-                .then(modifier)
-                .height(56.dp)
-        }
-
-        else -> {
-            modifier
-        }
-    }.then(Modifier.semantics { contentDescription = "$text Button" }
+    // MMD look: black and white, a 2 dp rim, 8 dp corners, never shorter than the 48 dp touch rule.
+    // Colour variants (red, green) mean nothing on an E Ink panel; a destructive action asks with
+    // the armed-row pattern instead. COLOR is the filled primary press, the rest are outlined.
+    val sizedModifier = Modifier
+        .then(modifier)
+        .heightIn(min = 48.dp)
+        .widthIn(min = 48.dp)
+        .semantics { contentDescription = "$text Button" }
         .appTestTag(testTag)
+
+    val contentPadding = PaddingValues(
+        horizontal = if (size == GreenButtonSize.TINY || size == GreenButtonSize.SMALL) 8.dp else 14.dp,
+        vertical = 8.dp
     )
 
-    val contentPadding = when (size) {
-        GreenButtonSize.TINY -> {
-            PaddingValues(horizontal = 8.dp, vertical = 0.dp)
+    MmdButton(
+        onClick = onClick,
+        modifier = sizedModifier,
+        enabled = enabled,
+        filled = type == GreenButtonType.COLOR,
+        contentPadding = contentPadding,
+    ) {
+        if (icon != null || onProgress) {
+            Icon(
+                imageVector = if (onProgress) PhosphorIcons.Regular.Spinner else icon ?: PhosphorIcons.Regular.ArrowCounterClockwise,
+                contentDescription = null,
+                modifier = Modifier
+                    .padding(end = 6.dp)
+                    .size(18.dp)
+            )
         }
-
-        GreenButtonSize.SMALL -> {
-            PaddingValues(horizontal = 12.dp, vertical = 0.dp)
-        }
-
-        else -> {
-            ButtonDefaults.ContentPadding
-        }
-    }
-
-    val textStyle = when (size) {
-        GreenButtonSize.SMALL -> {
-            labelMedium
-        }
-
-        GreenButtonSize.TINY -> {
-            labelSmall
-        }
-
-        else -> {
-            labelLarge
-        }
-    }
-
-    when (type) {
-        GreenButtonType.COLOR -> {
-            val buttonColors = if (enabled && color == GreenButtonColor.RED) {
-                ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.error)
-            } else if (enabled && color == GreenButtonColor.WHITE) {
-                ButtonDefaults.buttonColors(
-                    containerColor = Color.White,
-                    contentColor = MaterialTheme.colorScheme.surface
-                )
-            } else {
-                ButtonDefaults.buttonColors()
-            }
-
-            Button(
-                onClick = onClick,
-                modifier = sizedModifier,
-                enabled = enabled,
-                colors = buttonColors,
-                contentPadding = contentPadding,
-                shape = MaterialTheme.shapes.small,
-            ) {
-
-                if (icon != null || onProgress) {
-                    Box(modifier = Modifier.padding(end = 6.dp)) {
-                        Rotating(
-                            duration = 2000,
-                            enabled = onProgress,
-                        ) {
-                            if (onProgress) {
-                                Icon(
-                                    imageVector = PhosphorIcons.Regular.Spinner,
-                                    contentDescription = null,
-                                    modifier = Modifier
-                                        .size(18.dp)
-                                )
-                            } else {
-                                Icon(
-                                    imageVector = icon.takeIf { !onProgress }
-                                        ?: PhosphorIcons.Regular.ArrowCounterClockwise,
-                                    contentDescription = null,
-                                    modifier = Modifier
-                                        .size(18.dp)
-                                )
-                            }
-                        }
-                    }
-                }
-
-                GreenButtonText(text = text, textStyle = textStyle)
-            }
-        }
-
-        GreenButtonType.OUTLINE -> {
-            val buttonColors = if (enabled && color == GreenButtonColor.RED) {
-                ButtonDefaults.outlinedButtonColors(contentColor = MaterialTheme.colorScheme.error)
-            } else if (enabled && color == GreenButtonColor.WHITE) {
-                ButtonDefaults.outlinedButtonColors(contentColor = textHigh)
-            } else if (enabled && color == GreenButtonColor.GREENER) {
-                ButtonDefaults.outlinedButtonColors(contentColor = MaterialTheme.colorScheme.primary)
-            } else {
-                ButtonDefaults.outlinedButtonColors(containerColor = MaterialTheme.colorScheme.surface)
-            }
-
-            val border = if (enabled && color == GreenButtonColor.RED) {
-                BorderStroke(
-                    width = 1.dp,
-                    color = MaterialTheme.colorScheme.error,
-                )
-            } else if (enabled && color == GreenButtonColor.WHITE) {
-                BorderStroke(
-                    width = 1.dp,
-                    color = textHigh,
-                )
-            } else if (enabled && color == GreenButtonColor.GREENER) {
-                BorderStroke(
-                    width = 1.dp,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-            } else {
-                ButtonDefaults.outlinedButtonBorder(enabled = enabled)
-            }
-
-            OutlinedButton(
-                onClick = onClick,
-                modifier = sizedModifier,
-                enabled = enabled,
-                colors = buttonColors,
-                shape = MaterialTheme.shapes.small,
-                contentPadding = contentPadding,
-                border = border
-            ) {
-                icon?.also {
-                    Icon(
-                        imageVector = it,
-                        contentDescription = null,
-                        modifier = Modifier
-                            .padding(end = 6.dp)
-                            .size(18.dp)
-                    )
-                }
-                GreenButtonText(text = text, textStyle = textStyle)
-            }
-        }
-
-        GreenButtonType.TEXT -> {
-            val buttonColors = if (enabled && color == GreenButtonColor.RED) {
-                ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error)
-            } else if (enabled && color == GreenButtonColor.WHITE) {
-                ButtonDefaults.textButtonColors(contentColor = Color.White)
-            } else {
-                ButtonDefaults.textButtonColors()
-            }
-
-            TextButton(
-                onClick = onClick,
-                modifier = sizedModifier,
-                enabled = enabled,
-                colors = buttonColors,
-                shape = MaterialTheme.shapes.small,
-                contentPadding = contentPadding,
-            ) {
-                icon?.also {
-                    Icon(
-                        imageVector = it,
-                        contentDescription = null,
-                        modifier = Modifier
-                            .padding(end = 6.dp)
-                            .size(18.dp)
-                    )
-                }
-                GreenButtonText(text = text, textStyle = textStyle)
-            }
-        }
+        GreenButtonText(text = text, textStyle = labelLarge)
     }
 }
 
@@ -293,17 +131,22 @@ fun GreenIconButton(
     testTag: String? = null,
     onClick: () -> Unit
 ) {
-    TextButton(modifier = Modifier.then(modifier), contentPadding = contentPadding, onClick = onClick) {
+    MmdButton(
+        onClick = onClick,
+        modifier = Modifier.then(modifier).heightIn(min = 48.dp).widthIn(min = 48.dp),
+        enabled = true,
+        filled = false,
+        contentPadding = PaddingValues(horizontal = 10.dp, vertical = 8.dp),
+    ) {
         GreenRow(padding = 0, space = 6) {
             Icon(
                 painter = icon,
                 contentDescription = null,
-                tint = color,
                 modifier = Modifier.size(20.dp)
                     .appTestTag(testTag)
             )
 
-            Text(text = text, style = labelMedium, color = color)
+            Text(text = text, style = labelMedium)
         }
     }
 }
@@ -352,13 +195,12 @@ fun ZoomButton(onClick: () -> Unit) {
 
 @Composable
 fun ZoomOutlinedButton(onClick: () -> Unit) {
-    OutlinedButton(
+    MmdButton(
         onClick = onClick,
-        modifier = Modifier.height(36.dp),
-        shape = MaterialTheme.shapes.small,
-        border = BorderStroke(1.dp, green),
-        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 0.dp),
-        colors = ButtonDefaults.outlinedButtonColors(contentColor = green)
+        modifier = Modifier.heightIn(min = 48.dp),
+        enabled = true,
+        filled = false,
+        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp),
     ) {
         GreenRow(padding = 0, space = 8) {
             Icon(
@@ -401,33 +243,48 @@ fun AboutButton(onClick: () -> Unit) {
 
 @Composable
 fun BiometricsButton(modifier: Modifier = Modifier, onClick: () -> Unit) {
-    TextButton(onClick = onClick) {
+    MmdButton(
+        onClick = onClick,
+        modifier = modifier.heightIn(min = 48.dp).widthIn(min = 48.dp),
+        enabled = true,
+        filled = false,
+        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp),
+    ) {
         Text(
             text = stringResource(Res.string.id_biometrics),
-            style = labelMedium,
-            color = whiteMedium
+            style = labelMedium
         )
     }
 }
 
 @Composable
 fun RichWatchOnlyButton(modifier: Modifier = Modifier, onClick: () -> Unit) {
-    TextButton(onClick = onClick, modifier = modifier) {
+    MmdButton(
+        onClick = onClick,
+        modifier = modifier.heightIn(min = 48.dp).widthIn(min = 48.dp),
+        enabled = true,
+        filled = false,
+        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp),
+    ) {
         Text(
             text = "RWO",
-            style = labelMedium,
-            color = whiteMedium
+            style = labelMedium
         )
     }
 }
 
 @Composable
 fun AppSettingsButton(modifier: Modifier = Modifier, onClick: () -> Unit) {
-    TextButton(onClick = onClick, modifier = modifier) {
+    MmdButton(
+        onClick = onClick,
+        modifier = modifier.heightIn(min = 48.dp).widthIn(min = 48.dp),
+        enabled = true,
+        filled = false,
+        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp),
+    ) {
         Text(
             text = stringResource(Res.string.id_app_settings),
-            style = labelMedium,
-            color = whiteMedium
+            style = labelMedium
         )
     }
 }

@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.send
 
+import com.blockstream.compose.components.MmdCheckbox
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
@@ -26,7 +27,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
+import com.blockstream.compose.components.PagedColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -215,8 +216,7 @@ fun CoinSelectionScreen(
                             Column(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .fillMaxHeight()
-                                    .verticalScroll(rememberScrollState()),
+                                    .fillMaxHeight(),
                                 horizontalAlignment = Alignment.CenterHorizontally,
                                 verticalArrangement = Arrangement.Center
                             ) {
@@ -259,8 +259,7 @@ fun CoinSelectionScreen(
                             Box(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .fillMaxHeight()
-                                    .verticalScroll(rememberScrollState()),
+                                    .fillMaxHeight(),
                                 contentAlignment = Alignment.Center
                             ) {
                                 Text(
@@ -276,8 +275,7 @@ fun CoinSelectionScreen(
                             Column(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .fillMaxHeight()
-                                    .verticalScroll(rememberScrollState()),
+                                    .fillMaxHeight(),
                                 horizontalAlignment = Alignment.CenterHorizontally,
                                 verticalArrangement = Arrangement.Center
                             ) {
@@ -324,7 +322,7 @@ fun CoinSelectionScreen(
                         }
 
                         CoinsContentState.LIST -> {
-                            LazyColumn(
+                            PagedColumn(
                                 modifier = Modifier.fillMaxWidth(),
                                 verticalArrangement = Arrangement.spacedBy(8.dp)
                             ) {
@@ -514,31 +512,7 @@ private fun CoinSelectionCard(
 
 @Composable
 private fun CoinCheckbox(checked: Boolean, onClick: () -> Unit) {
-    Box(
-        modifier = Modifier
-            .size(24.dp)
-            .clip(RoundedCornerShape(2.dp))
-            .border(
-                width = 1.5.dp,
-                color = if (checked) whiteHigh else md_theme_surfaceCircle,
-                shape = RoundedCornerShape(2.dp)
-            )
-            .clickable(onClick = onClick),
-        contentAlignment = Alignment.Center
-    ) {
-        AnimatedVisibility(
-            visible = checked,
-            enter = fadeIn() + scaleIn(),
-            exit = fadeOut() + scaleOut()
-        ) {
-            Icon(
-                imageVector = Icons.Filled.Check,
-                contentDescription = null,
-                tint = whiteHigh,
-                modifier = Modifier.size(16.dp)
-            )
-        }
-    }
+    MmdCheckbox(checked = checked, onCheckedChange = { onClick() })
 }
 
 private fun CoinSort.title() = when (this) {

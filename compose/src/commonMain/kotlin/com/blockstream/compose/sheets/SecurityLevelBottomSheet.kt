@@ -1,5 +1,6 @@
 package com.blockstream.compose.sheets
 
+import com.blockstream.compose.components.MmdSegmented
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -88,21 +89,7 @@ fun SecurityLevelBottomSheet(
             val pagerState = rememberPagerState(pageCount = { 2 })
 
             val options = listOf(Res.string.id_mobile, Res.string.id_hardware)
-            SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
-                options.forEachIndexed { index, label ->
-                    SegmentedButton(
-                        shape = SegmentedButtonDefaults.itemShape(
-                            index = index, count = options.size
-                        ), onClick = {
-                            scope.launch {
-                                pagerState.animateScrollToPage(index)
-                            }
-                        }, selected = pagerState.currentPage == index
-                    ) {
-                        Text(stringResource(label))
-                    }
-                }
-            }
+            MmdSegmented(labels = options.map { stringResource(it) }, selectedIndex = pagerState.currentPage, onSelect = { index -> scope.launch { pagerState.animateScrollToPage(index) } }, modifier = Modifier.fillMaxWidth())
 
             HorizontalPager(
                 state = pagerState
@@ -115,8 +102,7 @@ fun SecurityLevelBottomSheet(
                     space = 32,
                     modifier = Modifier
                         .padding(horizontal = 16.dp)
-                        .fillMaxWidth()
-                        .verticalScroll(rememberScrollState()),
+                        .fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
 

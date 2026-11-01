@@ -24,7 +24,7 @@ fun GreenSearchField(
     enabled: Boolean = true,
 ) {
     val platformManager = LocalPlatformManager.current
-    OutlinedTextField(
+    MmdTextField(
         value = value,
         onValueChange = onValueChange,
         placeholder = {

@@ -1,5 +1,7 @@
 package com.blockstream.compose.screens.about
 
+import com.blockstream.compose.components.GreenButton
+import com.blockstream.compose.components.GreenButtonType
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -135,20 +137,7 @@ private fun PagedRows(
 
 @Composable
 private fun PagerButton(text: String, enabled: Boolean, onClick: () -> Unit) {
-    Box(
-        modifier = Modifier
-            .heightIn(min = 48.dp)
-            .border(2.dp, MaterialTheme.colorScheme.onSurface.copy(alpha = if (enabled) 1f else 0.4f))
-            .clickable(enabled = enabled, onClick = onClick)
-            .padding(horizontal = 20.dp),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(
-            text,
-            style = labelMedium,
-            color = MaterialTheme.colorScheme.onSurface.copy(alpha = if (enabled) 1f else 0.4f)
-        )
-    }
+    GreenButton(text = text, type = GreenButtonType.OUTLINE, enabled = enabled, onClick = onClick)
 }
 
 @Composable

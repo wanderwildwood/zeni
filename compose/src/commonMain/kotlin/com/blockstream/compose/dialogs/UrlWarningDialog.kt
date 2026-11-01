@@ -1,5 +1,8 @@
 package com.blockstream.compose.dialogs
 
+import com.blockstream.compose.components.MmdSwitch
+import com.blockstream.compose.components.MmdCheckbox
+import com.blockstream.compose.components.MmdRadioButton
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -213,7 +216,7 @@ fun UrlWarningDialog(
                                 style = bodyMedium
                             )
 
-                            Switch(
+                            MmdSwitch(
                                 checked = rememberSwitch,
                                 onCheckedChange = {
                                     rememberSwitch = !rememberSwitch

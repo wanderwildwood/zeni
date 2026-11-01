@@ -100,9 +100,6 @@ fun NewJadeConnectedBottomSheet(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .verticalScroll(
-                        rememberScrollState()
-                    )
             ) {
                 GreenButton(
                     text = stringResource(Res.string.id_genuine_check),

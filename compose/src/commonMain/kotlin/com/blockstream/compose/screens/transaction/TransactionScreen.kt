@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.transaction
 
+import com.blockstream.compose.components.PagedColumn
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -160,10 +161,11 @@ fun TransactionScreen(
 
         val innerPadding = LocalInnerPadding.current
 
-        Column(
+        PagedColumn(modifier = Modifier) {
+ item {
+ Column(
             modifier = Modifier
                 .padding(horizontal = 16.dp)
-                .verticalScroll(rememberScrollState())
                 .padding(bottom = innerPadding.calculateBottomPadding()),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -487,6 +489,8 @@ fun TransactionScreen(
                 }
             }
         }
+ }
+ }
     }
 }
 

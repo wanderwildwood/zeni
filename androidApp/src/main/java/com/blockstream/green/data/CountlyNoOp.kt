@@ -2,14 +2,11 @@ package com.blockstream.green.data
 
 import android.app.Activity
 import android.content.res.Configuration
-import androidx.fragment.app.FragmentManager
 import com.blockstream.data.config.AppInfo
-import com.blockstream.data.data.CountlyWidget
 import com.blockstream.data.database.Database
 import com.blockstream.data.di.ApplicationScope
 import com.blockstream.data.managers.SettingsManager
 import com.blockstream.utils.Loggable
-import ly.count.android.sdk.ModuleFeedback
 
 class CountlyNoOp constructor(
     appInfo: AppInfo,
@@ -21,10 +18,6 @@ class CountlyNoOp constructor(
         logger.i { "CountlyNoOp init. A No-Op version of Countly class guarantees your privacy." }
     }
 
-    override fun showFeedbackWidget(supportFragmentManager: FragmentManager) {
-
-    }
-
     override fun onStart(activity: Activity) {
 
     }
@@ -33,20 +26,6 @@ class CountlyNoOp constructor(
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
-
-    }
-
-    override fun sendFeedbackWidgetData(
-        widget: ModuleFeedback.CountlyFeedbackWidget,
-        data: Map<String, Any>?
-    ) {
-
-    }
-
-    override fun getFeedbackWidgetData(
-        widget: ModuleFeedback.CountlyFeedbackWidget,
-        callback: (CountlyWidget?) -> Unit
-    ) {
 
     }
 

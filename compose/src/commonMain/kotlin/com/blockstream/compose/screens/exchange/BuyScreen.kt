@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.exchange
 
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -107,10 +108,9 @@ fun BuyScreen(
 
         GreenColumn {
 
-            GreenColumn(
+            GreenPagedColumn(
                 space = 24,
-                padding = 0,
-                modifier = Modifier.weight(1f).verticalScroll(rememberScrollState())
+                modifier = Modifier.weight(1f)
             ) {
 
                 val accountAsset by viewModel.accountAsset.collectAsStateWithLifecycle()

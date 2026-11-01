@@ -1,5 +1,8 @@
 package com.blockstream.compose.screens.receive
 
+import com.blockstream.compose.components.MmdSegmented
+import androidx.compose.foundation.layout.PaddingValues
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -230,12 +233,8 @@ fun ReceiveScreen(
             }
         }) {
         Box(modifier = Modifier.weight(1f)) {
-            GreenColumn(
-                padding = 0,
-                modifier = Modifier
-                    .verticalScroll(rememberScrollState())
-                    .padding(horizontal = 16.dp)
-                    .padding(bottom = 32.dp)
+            GreenPagedColumn(
+                contentPadding = PaddingValues(start = 20.dp, end = 12.dp, bottom = 32.dp)
             ) {
                 if (showRecoveryConfirmation) {
                     GreenAlert(
@@ -320,21 +319,8 @@ fun ReceiveScreen(
                         )
 
                         val options = listOf("Liquid", "Lightning")
-                        SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
-                            options.forEachIndexed { index, label ->
-                                SegmentedButton(
-                                    shape = SegmentedButtonDefaults.itemShape(index = index, count = options.size),
-                                    onClick = {
-                                        if ((index == 1) != isReverseSubmarineSwap) {
-                                            viewModel.postEvent(ReceiveViewModel.LocalEvents.ToggleLightning)
-                                        }
-                                    },
-                                    selected = (index == 1) == isReverseSubmarineSwap
-                                ) {
-                                    Text(label)
-                                }
-                            }
-                        }
+                        MmdSegmented(labels = options, selectedIndex = if (isReverseSubmarineSwap) 1 else 0, onSelect = { index ->
+ if ((index == 1) != isReverseSubmarineSwap) { viewModel.postEvent(ReceiveViewModel.LocalEvents.ToggleLightning) } }, modifier = Modifier.fillMaxWidth())
                     }
                 }
 

@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.lightning
 
+import com.blockstream.compose.components.PagedColumn
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -118,10 +119,11 @@ fun LightningInvoiceScreen(
                 .fillMaxSize()
         ) {
 
-            Column(
+            PagedColumn(modifier = Modifier.weight(1f)) {
+ item {
+ Column(
                 modifier = Modifier
-                    .weight(1f)
-                    .verticalScroll(rememberScrollState())
+                    
                     .padding(bottom = 24.dp)
             ) {
 
@@ -291,6 +293,8 @@ fun LightningInvoiceScreen(
                     }
                 }
             }
+ }
+ }
 
             GreenButton(
                 size = GreenButtonSize.BIG,

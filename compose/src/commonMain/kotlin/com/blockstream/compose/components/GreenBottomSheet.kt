@@ -51,6 +51,7 @@ fun GreenBottomSheet(
     viewModel: GreenViewModel? = null,
     withHorizontalPadding: Boolean = true,
     withBottomPadding: Boolean = true,
+    scrollable: Boolean = true,
     bottomPadding: Dp = 48.dp,
     sheetState: SheetState = rememberModalBottomSheetState(),
     properties: ModalBottomSheetProperties = ModalBottomSheetDefaults.properties,
@@ -58,11 +59,6 @@ fun GreenBottomSheet(
     onDismissRequest: () -> Unit,
     content: @Composable ColumnScope.() -> Unit
 ) {
-    val bottomSheetNavigator = LocalNavigator.current.navigatorProvider[BottomSheetNavigator::class]
-    LaunchedEffect(sheetState) {
-        bottomSheetNavigator.setSheetState(sheetState)
-    }
-
     if (viewModel != null) {
         HandleSideEffect(viewModel) {
             if (it is SideEffects.Dismiss) {
@@ -72,37 +68,19 @@ fun GreenBottomSheet(
         }
     }
 
-    ModalBottomSheet(
-        onDismissRequest = onDismissRequest,
-        containerColor = MaterialTheme.colorScheme.background,
-        sheetState = sheetState,
-        // zeni: MMD panels don't dim what's behind them; a black rim marks the edge instead.
-        scrimColor = Color.Transparent,
-        shape = RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp),
-        tonalElevation = 0.dp,
-        modifier = Modifier.border(2.dp, Color.Black, RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp)),
-        properties = properties
-    ) {
-        GreenColumn(
-            padding = 0,
+    // zeni: a sheet that slides up is an animation and a dimmed screen; here it is a house dialog
+    // (black rim, no animation). [sheetState] and [properties] stay so the 40-odd callers keep
+    // compiling; they no longer drive anything. [scrollable] false is for content that is a list.
+    EInkDialog(onDismiss = onDismissRequest) {
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .ifTrue(withBottomPadding) {
-                    it.padding(bottom = bottomPadding)
-                }
-                .ifTrue(withHorizontalPadding) {
-                    it.padding(horizontal = 16.dp)
-                }
-                .compatTestTagsAsResourceId()
-
+                .compatTestTagsAsResourceId(),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-
             if (title?.isNotBlank() == true || subtitle?.isNotBlank() == true) {
                 Column(
                     modifier = Modifier
-                        .ifTrue(!withHorizontalPadding) {
-                            it.padding(horizontal = 16.dp)
-                        }
                         .fillMaxWidth(),
                     verticalArrangement = Arrangement.spacedBy(16.dp),
                 ) {
@@ -132,7 +110,20 @@ fun GreenBottomSheet(
                 }
             }
 
-            content()
+            if (scrollable) {
+                PagedColumn(modifier = Modifier.fillMaxWidth()) {
+                    item {
+                        Column(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalArrangement = Arrangement.spacedBy(16.dp)
+                        ) {
+                            content()
+                        }
+                    }
+                }
+            } else {
+                content()
+            }
         }
     }
 }

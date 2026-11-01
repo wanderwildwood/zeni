@@ -34,8 +34,8 @@ import androidx.compose.ui.node.Ref
 inline fun <T> AnimatedNullableVisibility(
     value: T?,
     modifier: Modifier = Modifier,
-    enter: EnterTransition = fadeIn() + expandVertically(),
-    exit: ExitTransition = fadeOut() + shrinkVertically(),
+    enter: EnterTransition = EnterTransition.None,
+    exit: ExitTransition = ExitTransition.None,
     crossinline content: @Composable (T) -> Unit
 ) {
     val ref = remember {
@@ -57,58 +57,22 @@ inline fun <T> AnimatedNullableVisibility(
     )
 }
 
+// The E Ink panel redraws in full: a pulse or a spin is a smear and a battery cost. These keep their
+// names so callers read as before, and draw their content still.
 @Composable
+@Suppress("UNUSED_PARAMETER")
 fun Pulsating(pulseFraction: Float = 0.95f, content: @Composable () -> Unit) {
-    val infiniteTransition = rememberInfiniteTransition()
-
-    val scale by infiniteTransition.animateFloat(
-        initialValue = 1f,
-        targetValue = pulseFraction,
-        animationSpec = infiniteRepeatable(
-            animation = tween(500),
-            repeatMode = RepeatMode.Reverse
-        )
-    )
-
-    Box(modifier = Modifier.scale(scale)) {
-        content()
-    }
+    Box { content() }
 }
 
 @Composable
+@Suppress("UNUSED_PARAMETER")
 fun AlphaPulse(pulseFraction: Float = 0.75f, duration: Int = 500, modifier: Modifier = Modifier, content: @Composable () -> Unit) {
-    val infiniteTransition = rememberInfiniteTransition()
-
-    val scale by infiniteTransition.animateFloat(
-        initialValue = 1f,
-        targetValue = pulseFraction,
-        animationSpec = infiniteRepeatable(
-            animation = tween(duration),
-            repeatMode = RepeatMode.Reverse
-        )
-    )
-
-    Box(modifier = Modifier.alpha(scale).then(modifier)) {
-        content()
-    }
+    Box(modifier = modifier) { content() }
 }
 
 @Composable
+@Suppress("UNUSED_PARAMETER")
 fun Rotating(duration: Int = 1000, enabled: Boolean = true, modifier: Modifier = Modifier, content: @Composable () -> Unit) {
-    val infiniteTransition = rememberInfiniteTransition()
-
-    val rotate by infiniteTransition.animateFloat(
-        initialValue = 359f,
-        targetValue = 1f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(duration, easing = LinearEasing),
-            repeatMode = RepeatMode.Restart
-        )
-    )
-
-    Box(modifier = Modifier.ifTrue(enabled) {
-        it.rotate(rotate)
-    }.then(modifier)) {
-        content()
-    }
+    Box(modifier = modifier) { content() }
 }

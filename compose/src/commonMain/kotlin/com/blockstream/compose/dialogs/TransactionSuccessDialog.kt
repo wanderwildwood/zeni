@@ -19,7 +19,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
+import com.blockstream.compose.components.EInkDialog
+import androidx.compose.foundation.layout.Box
 import androidx.compose.ui.window.DialogProperties
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.id_done
@@ -42,18 +43,11 @@ fun TransactionSuccessDialog(
     amount: String,
     onDismissRequest: () -> Unit,
 ) {
-    Dialog(
-        onDismissRequest = onDismissRequest,
+    EInkDialog(
+        onDismiss = onDismissRequest,
         properties = DialogProperties(usePlatformDefaultWidth = false),
     ) {
-        NoDialogDim()
-        GreenCard(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            padding = 0,
-            colors = CardDefaults.outlinedCardColors(containerColor = md_theme_dialogSurface),
-        ) {
+        Box(Modifier.fillMaxWidth()) {
             Box(modifier = Modifier.fillMaxWidth()) {
                 IconButton(
                     onClick = onDismissRequest,

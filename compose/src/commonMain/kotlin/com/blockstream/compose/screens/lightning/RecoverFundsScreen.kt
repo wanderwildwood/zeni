@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.lightning
 
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
@@ -112,11 +113,8 @@ fun RecoverFundsScreen(
         }
     ) {
 
-        GreenColumn(
-            padding = 0,
-            modifier = Modifier
+        GreenPagedColumn(modifier = Modifier
                 .weight(1f)
-                .verticalScroll(rememberScrollState())
         ) {
 
             val accountAsset by viewModel.accountAsset.collectAsStateWithLifecycle()

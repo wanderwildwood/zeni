@@ -1,5 +1,6 @@
 package com.blockstream.compose.sheets
 
+import com.blockstream.compose.components.MmdTextButton
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -177,7 +178,7 @@ fun SwapFeesBottomSheet(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
             ) {
-                TextButton(
+                MmdTextButton(
                     onClick = {
                         platformManager.openBrowser(
                             url = Urls.HELP_FEES,

@@ -1,5 +1,9 @@
 package com.blockstream.compose.screens.onboarding.watchonly
 
+import com.blockstream.compose.components.MmdSwitch
+import com.blockstream.compose.components.MmdCheckbox
+import com.blockstream.compose.components.MmdRadioButton
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -88,11 +92,8 @@ fun WatchOnlyMultisigScreen(
                     modifier = Modifier.padding(bottom = 16.dp)
                 )
 
-                GreenColumn(
-                    padding = 0,
-                    modifier = Modifier
+                GreenPagedColumn(modifier = Modifier
                         .weight(1f)
-                        .verticalScroll(rememberScrollState())
                 ) {
                     val username by viewModel.username.collectAsStateWithLifecycle()
 
@@ -154,7 +155,7 @@ fun WatchOnlyMultisigScreen(
                                 modifier = Modifier.weight(1f)
                             )
 
-                            Switch(
+                            MmdSwitch(
                                 checked = isRememberMe,
                                 onCheckedChange = viewModel.isRememberMe.onValueChange()
                             )

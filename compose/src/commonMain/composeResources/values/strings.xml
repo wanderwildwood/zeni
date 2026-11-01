@@ -1292,6 +1292,8 @@
     <string name="id_remove_custom_network">Remove custom network</string>
     <string name="id_remove_lightning_shortcut">Remove lightning shortcut</string>
     <string name="id_remove_wallet">Remove wallet</string>
+    <string name="id_remove_wallet_tap_again">Remove wallet — tap again</string>
+    <string name="id_wallet_actions">Wallet actions</string>
     <string name="id_removing_wallet">Removing wallet…</string>
     <string name="id_rename">Rename</string>
     <string name="id_rename_account">Rename account</string>

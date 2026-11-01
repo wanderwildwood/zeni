@@ -2,6 +2,7 @@ package com.blockstream.compose.screens
 
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,7 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyColumn
+import com.blockstream.compose.components.PagedColumn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -136,9 +137,10 @@ fun WalletsScreen(
                 }
             }
 
-            LazyColumn(
+            PagedColumn(
                 state = lazyListState,
                 modifier = Modifier.weight(1f),
+                contentPadding = PaddingValues(start = 20.dp, end = 12.dp),
                 verticalArrangement = Arrangement.spacedBy(6.dp),
             ) {
                 allWallets?.takeIf { it.isNotEmpty() }?.also {

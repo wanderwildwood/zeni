@@ -26,7 +26,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.window.Dialog
+import com.blockstream.compose.components.EInkDialog
+import androidx.compose.foundation.layout.Box
 import androidx.compose.ui.window.DialogProperties
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.failure_x
@@ -59,19 +60,11 @@ fun TransactionFailedDialog(
     val platformManager = LocalPlatformManager.current
     val resolvedMessage = stringResourceFromId(message)
 
-    Dialog(
-        onDismissRequest = onDismissRequest,
+    EInkDialog(
+        onDismiss = onDismissRequest,
         properties = DialogProperties(usePlatformDefaultWidth = false),
     ) {
-
-        NoDialogDim()
-        GreenCard(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            padding = 0,
-            colors = CardDefaults.outlinedCardColors(containerColor = md_theme_dialogSurface),
-        ) {
+        Box(Modifier.fillMaxWidth()) {
             Box(modifier = Modifier.fillMaxWidth()) {
                 IconButton(
                     onClick = onDismissRequest,

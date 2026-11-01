@@ -1,5 +1,6 @@
 package com.blockstream.compose.dialogs
 
+import com.blockstream.compose.components.MmdTextField
 import com.blockstream.compose.theme.NoDialogDim
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -28,7 +29,8 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.window.Dialog
+import com.blockstream.compose.components.EInkDialog
+import androidx.compose.foundation.layout.Box
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.clipboard
 import blockstream_green.common.generated.resources.eye
@@ -62,13 +64,12 @@ fun TextDialog(
     maxFractionDigits: Int? = null,
     onDismissRequest: (text: String?) -> Unit
 ) {
-    Dialog(
-        onDismissRequest = {
+    EInkDialog(
+        onDismiss = {
             onDismissRequest(null)
         }
     ) {
-        NoDialogDim()
-        GreenCard(modifier = Modifier.fillMaxWidth()) {
+        Box(Modifier.fillMaxWidth()) {
             GreenColumn(padding = 8, space = 16) {
                 Text(
                     text = title,
@@ -108,7 +109,7 @@ fun TextDialog(
                 val platformManager = LocalPlatformManager.current
                 var passwordVisibility: Boolean by remember { mutableStateOf(!isPassword) }
                 val focusManager = LocalFocusManager.current
-                OutlinedTextField(
+                MmdTextField(
                     value = textFieldValueState,
                     onValueChange = {
                         textFieldValueState = if (keyboardOptions?.keyboardType == KeyboardType.Decimal) {

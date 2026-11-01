@@ -1,5 +1,8 @@
 package com.blockstream.compose.screens.settings.components
 
+import com.blockstream.compose.components.MmdSwitch
+import com.blockstream.compose.components.MmdCheckbox
+import com.blockstream.compose.components.MmdRadioButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
@@ -24,14 +27,9 @@ fun SettingSwitch(
         modifier = modifier,
         subtitleMaxLines = subtitleMaxLines,
         rightContent = {
-            Switch(
+            MmdSwitch(
                 checked = checked,
                 onCheckedChange = onCheckedChange,
-                colors = SwitchDefaults.colors(
-                    uncheckedThumbColor = Color.White,
-                    checkedThumbColor = Color.White,
-                    uncheckedTrackColor = MaterialTheme.colorScheme.outline
-                ),
                 modifier = modifier.appTestTag(testTag)
             )
         }

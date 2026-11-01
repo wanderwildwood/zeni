@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens
 
+import com.blockstream.compose.components.PagedColumn
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -78,8 +79,10 @@ fun HomeScreen(
 
                 when (isEmptyWallet) {
                     true -> {
-                        Column(
-                            modifier = Modifier.weight(1f).verticalScroll(rememberScrollState()),
+                        PagedColumn(modifier = Modifier.weight(1f)) {
+ item {
+ Column(
+                            modifier = Modifier,
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.SpaceAround
                         ) {
@@ -129,6 +132,8 @@ fun HomeScreen(
                                 // zeni: no Blockstream terms line; this is not their app.
                             }
                         }
+ }
+ }
 
                     }
 

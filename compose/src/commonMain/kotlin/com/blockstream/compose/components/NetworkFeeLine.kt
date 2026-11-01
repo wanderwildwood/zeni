@@ -1,5 +1,7 @@
 package com.blockstream.compose.components
 
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -37,11 +39,15 @@ fun NetworkFeeLine(
             .padding(end = 12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        TextButton({
-            onClick?.invoke(false)
-        }, content = {
-            Text(stringResource(Res.string.id_change_speed), style = bodyMedium, color = green)
-        })
+        MmdButton(
+            onClick = { onClick?.invoke(false) },
+            modifier = Modifier.heightIn(min = 48.dp),
+            enabled = true,
+            filled = false,
+            contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp),
+        ) {
+            Text(stringResource(Res.string.id_change_speed), style = bodyMedium)
+        }
 
         AnimatedNullableVisibility(value = feePriority.expectedConfirmationTime) {
             Text(text = "($it)", modifier = Modifier.offset(x = (-6).dp), style = bodyMedium, color = whiteLow)

@@ -1,5 +1,10 @@
 package com.blockstream.compose.screens.support
 
+import com.blockstream.compose.components.MmdTextField
+import com.blockstream.compose.components.MmdSwitch
+import com.blockstream.compose.components.MmdCheckbox
+import com.blockstream.compose.components.MmdRadioButton
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -66,12 +71,9 @@ fun SupportScreen(
                 modifier = Modifier
                     .fillMaxSize()
             ) {
-                GreenColumn(
-                    padding = 0,
-                    space = 8,
+                GreenPagedColumn(space = 8,
                     modifier = Modifier
                         .weight(1f)
-                        .verticalScroll(rememberScrollState())
                         .imePadding()
                 ) {
 
@@ -83,7 +85,7 @@ fun SupportScreen(
                         )
                     }
 
-                    OutlinedTextField(
+                    MmdTextField(
                         value = email,
                         onValueChange = viewModel.email.onValueChange(),
                         label = { Text(stringResource(Res.string.id_email)) },
@@ -93,7 +95,7 @@ fun SupportScreen(
                         singleLine = true,
                     )
 
-                    OutlinedTextField(
+                    MmdTextField(
                         value = message,
                         onValueChange = viewModel.message.onValueChange(maxChars = 1000),
                         label = { Text(stringResource(if (viewModel.type == SupportType.INCIDENT) Res.string.id_issue_description else Res.string.id_message)) },
@@ -123,7 +125,7 @@ fun SupportScreen(
                                 ).fillMaxWidth(),
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
-                                Checkbox(
+                                MmdCheckbox(
                                     checked = attachLogs,
                                     onCheckedChange = viewModel.attachLogs.onValueChange(),
                                 )
@@ -142,7 +144,7 @@ fun SupportScreen(
                                 ).fillMaxWidth(),
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
-                                Checkbox(
+                                MmdCheckbox(
                                     checked = torAcknowledged,
                                     onCheckedChange = viewModel.torAcknowledged.onValueChange()
                                 )

@@ -1,5 +1,6 @@
 package com.blockstream.compose.sheets
 
+import com.blockstream.compose.components.MmdTextButton
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -114,7 +115,6 @@ fun AmpAccountBottomSheet(
             verticalArrangement = Arrangement.spacedBy(16.dp),
             modifier = Modifier
                 .fillMaxWidth()
-                .verticalScroll(rememberScrollState())
         ) {
             if (!hasAmpAccounts && canCreateAccounts) {
                 GreenButton(
@@ -169,7 +169,7 @@ fun AmpAccountBottomSheet(
                 }
             }
 
-            TextButton(
+            MmdTextButton(
                 modifier = Modifier.align(Alignment.CenterHorizontally),
                 onClick = {
                     viewModel.postEvent(Events.OpenBrowser(Urls.HELP_AMP_ASSETS))

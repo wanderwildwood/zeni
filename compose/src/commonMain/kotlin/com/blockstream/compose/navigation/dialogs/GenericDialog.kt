@@ -7,7 +7,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.border
 import com.blockstream.compose.theme.NoDialogDim
 import androidx.compose.foundation.text.selection.SelectionContainer
-import androidx.compose.material3.AlertDialog
+import com.blockstream.compose.components.EInkAlertDialog
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -64,43 +64,13 @@ fun GenericDialog(
         navController.popBackStack()
     }
 
-    AlertDialog(
-        // zeni: MMD dialog — white, a 2 dp black rim, 12 dp corners, no dim.
-        shape = RoundedCornerShape(12.dp),
-        modifier = Modifier.border(2.dp, Color.Black, RoundedCornerShape(12.dp)),
-        title = dialog.title?.let {
-            {
-                Text(text = it)
-            }
-        },
-        text = dialog.message?.let {
-            {
-                SelectionContainer {
-                    Text(text = it)
-                }
-            }
-        },
-        onDismissRequest = {
-            onDismiss(DialogState.CANCELLED)
-        },
-        confirmButton = {
-                NoDialogDim()
-            TextButton(
-                onClick = {
-                    onDismiss(DialogState.CONFIRMED)
-                }
-            ) {
-                Text(
-                    text = dialog.confirmButtonText ?: "OK"
-                )
-            }
-        },
-        dismissButton = {
-            dialog.dismissButtonText?.let { title ->
-                TextButton(onClick = { onDismiss(DialogState.DISMISSED) }) {
-                    Text(text = title)
-                }
-            }
-        }
+    EInkAlertDialog(
+        title = dialog.title,
+        message = dialog.message,
+        onDismissRequest = { onDismiss(DialogState.CANCELLED) },
+        confirmText = dialog.confirmButtonText ?: "OK",
+        onConfirm = { onDismiss(DialogState.CONFIRMED) },
+        dismissText = dialog.dismissButtonText,
+        onDismissClick = { onDismiss(DialogState.DISMISSED) },
     )
 }

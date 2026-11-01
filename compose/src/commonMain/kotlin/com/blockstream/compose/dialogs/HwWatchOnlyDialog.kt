@@ -11,7 +11,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
+import com.blockstream.compose.components.EInkDialog
+import androidx.compose.foundation.layout.Box
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.id_enable_biometrics
 import blockstream_green.common.generated.resources.id_require_jade_connection
@@ -37,11 +38,10 @@ import org.jetbrains.compose.resources.stringResource
 fun HwWatchOnlyDialog(
     onDismissRequest: () -> Unit,
 ) {
-    Dialog(onDismissRequest = {
+    EInkDialog(onDismiss = {
         // Empty onDismissRequest: dialog is non-dismissable, user must choose an option
     }) {
-        NoDialogDim()
-        GreenCard(modifier = Modifier.fillMaxWidth()) {
+        Box(Modifier.fillMaxWidth()) {
             GreenColumn(
                 padding = 0, space = 16, horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.padding(vertical = 24.dp)
             ) {

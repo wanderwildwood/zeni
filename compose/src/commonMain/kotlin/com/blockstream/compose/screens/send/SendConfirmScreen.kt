@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.send
 
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -136,8 +137,8 @@ fun SendConfirmScreen(
             padding = 0, modifier = Modifier.padding(horizontal = 16.dp).padding(top = 8.dp, bottom = 16.dp)
         ) {
             look?.also { look ->
-                GreenColumn(
-                    padding = 0, modifier = Modifier.weight(1f).verticalScroll(rememberScrollState())
+                GreenPagedColumn(
+                    modifier = Modifier.weight(1f)
                 ) {
                     Banner(viewModel)
 

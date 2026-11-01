@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.send
 
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -120,11 +121,9 @@ fun RedepositScreen(
         }
 
         Column {
-            GreenColumn(
-                padding = 0,
-                modifier = Modifier
+            GreenPagedColumn(
+                    modifier = Modifier
                     .weight(1f)
-                    .verticalScroll(rememberScrollState())
             ) {
 
                 GreenColumn(padding = 0, space = 8) {

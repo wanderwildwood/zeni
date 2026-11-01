@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
+import com.blockstream.compose.components.PagedColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -62,8 +62,8 @@ fun WatchOnlyScreen(
 
     SetupScreen(viewModel = viewModel, withPadding = false, withBottomInsets = false) {
 
-        LazyColumn(
-            contentPadding = PaddingValues(16.dp) + innerPadding.bottom(),
+        PagedColumn(
+            contentPadding = PaddingValues(start = 20.dp, top = 16.dp, end = 12.dp, bottom = 16.dp) + innerPadding.bottom(),
             verticalArrangement = Arrangement.spacedBy(14.dp),
         ) {
 

@@ -128,11 +128,10 @@ fun ActionMenu(
 
             actionsMenu.forEach {
                 val title = it.title ?: it.titleRes?.let { titleRes -> stringResource(titleRes) }
-                TextButton(
+                MmdTextButton(
                     onClick = it.onClick,
                     modifier = Modifier.align(Alignment.CenterVertically).appTestTag(it.titleRes?.key ?: it.title),
-                    enabled = it.enabled,
-                    colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.onSurface)
+                    enabled = it.enabled
                 ) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,

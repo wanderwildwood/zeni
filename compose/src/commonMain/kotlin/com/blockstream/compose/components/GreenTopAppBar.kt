@@ -227,11 +227,10 @@ fun GreenTopAppBar(
             if (navData.isVisible && navData.showNavigationIcon && navData.walletName != null) {
 
                 Row(modifier = Modifier.padding(end = 8.dp)) {
-                    TextButton(
+                    MmdTextButton(
                         onClick = {
                             navigator.navigate(route = NavigateDestinations.Home)
                         },
-                        contentPadding = PaddingValues(),
                     ) {
                         Text(
                             text = navData.walletName,

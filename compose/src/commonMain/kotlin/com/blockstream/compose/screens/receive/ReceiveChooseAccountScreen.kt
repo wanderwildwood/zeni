@@ -1,5 +1,8 @@
 package com.blockstream.compose.screens.receive
 
+import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.layout.PaddingValues
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -18,11 +21,12 @@ fun ReceiveChooseAccountScreen(
 ) {
 
     SetupScreen(
-        viewModel = viewModel
+        viewModel = viewModel,
+        withPadding = false,
     ) {
         val accounts = viewModel.accounts
 
-        GreenColumn(padding = 0, space = 4, modifier = Modifier.verticalScroll(rememberScrollState())) {
+        GreenPagedColumn(space = 4, contentPadding = PaddingValues(start = 20.dp, end = 12.dp, top = 16.dp)) {
             accounts.forEach { account ->
                 GreenAccountAsset(
                     accountAssetBalance = account.accountAssetBalance,

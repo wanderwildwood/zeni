@@ -1,5 +1,7 @@
 package com.blockstream.compose.screens.swap
 
+import com.blockstream.compose.components.PagedColumn
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -134,10 +136,11 @@ fun SwapScreen(
     ) {
         if (uiState.isSwapCreationAvailable) {
             GreenColumn(space = 8) {
-                Column(
+                PagedColumn(modifier = Modifier.weight(1f)) {
+ item {
+ Column(
                     modifier = Modifier
-                        .weight(1f)
-                        .verticalScroll(rememberScrollState())
+                        
                 ) {
                     AnimatedVisibility(uiState.from != null && uiState.to != null) {
                         OpenKeyboard(focusRequester)
@@ -183,6 +186,8 @@ fun SwapScreen(
                         )
                     }
                 }
+ }
+ }
 
                 val showFeeSelector by viewModel.showFeeSelector.collectAsStateWithLifecycle()
                 val feePriority by viewModel.feePriority.collectAsStateWithLifecycle()
@@ -231,13 +236,11 @@ private fun SwapsUnavailable(
     onLearnMoreClick: () -> Unit
 ) {
     GreenColumn(space = 8, modifier = Modifier.appTestTag("swaps_unavailable")) {
-        GreenColumn(
+        GreenPagedColumn(
             modifier = Modifier
                 .padding(top = 32.dp)
                 .fillMaxWidth()
-                .weight(1f)
-                .verticalScroll(rememberScrollState()),
-            padding = 0,
+                .weight(1f),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(

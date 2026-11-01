@@ -77,7 +77,6 @@ fun AssetsBottomSheet(
                 padding = 0,
                 space = 4,
                 modifier = Modifier
-                    .verticalScroll(rememberScrollState())
                     .padding(top = 16.dp)
             ) {
                 data.forEach { assetBalance ->

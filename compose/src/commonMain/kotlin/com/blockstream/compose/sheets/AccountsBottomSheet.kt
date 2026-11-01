@@ -52,9 +52,6 @@ fun AccountsBottomSheet(
             padding = 0,
             space = 8,
             modifier = Modifier
-                .verticalScroll(
-                    rememberScrollState()
-                )
         ) {
             accountsBalance.list.forEach { accountAssetBalance ->
                 GreenAccountAsset(

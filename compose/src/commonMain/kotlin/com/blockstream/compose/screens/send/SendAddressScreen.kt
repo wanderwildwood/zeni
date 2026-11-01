@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.send
 
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -64,11 +65,9 @@ fun SendAddressScreen(
                 .padding(horizontal = 16.dp)
                 .padding(top = 8.dp, bottom = 16.dp)
         ) {
-            GreenColumn(
-                padding = 0,
-                modifier = Modifier
+            GreenPagedColumn(
+                    modifier = Modifier
                     .weight(1f)
-                    .verticalScroll(rememberScrollState())
             ) {
                 Banner(viewModel)
 

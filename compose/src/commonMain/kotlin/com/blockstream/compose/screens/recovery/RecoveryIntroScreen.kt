@@ -1,5 +1,7 @@
 package com.blockstream.compose.screens.recovery
 
+import com.blockstream.compose.components.MmdSegmented
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -72,11 +74,8 @@ fun RecoveryIntroScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        GreenColumn(
-            padding = 0,
-            modifier = Modifier
-                .weight(1f)
-                .verticalScroll(rememberScrollState()),
+        GreenPagedColumn(modifier = Modifier
+                .weight(1f),
         ) {
             Item(
                 stringResource(Res.string.id_safe_environment),
@@ -112,19 +111,7 @@ fun RecoveryIntroScreen(
 
                     val options = listOf(12, 24)
                     val mnemonicSize by viewModel.mnemonicSize.collectAsStateWithLifecycle()
-                    SingleChoiceSegmentedButtonRow {
-                        options.forEachIndexed { index, label ->
-                            SegmentedButton(
-                                shape = SegmentedButtonDefaults.itemShape(
-                                    index = index, count = options.size
-                                ),
-                                onClick = { viewModel.mnemonicSize.value = options[index] },
-                                selected = mnemonicSize == options[index]
-                            ) {
-                                Text(label.toString())
-                            }
-                        }
-                    }
+                    MmdSegmented(labels = options.map { it.toString() }, selectedIndex = options.indexOf(mnemonicSize), onSelect = { index -> viewModel.mnemonicSize.value = options[index] })
                 }
             }
         }

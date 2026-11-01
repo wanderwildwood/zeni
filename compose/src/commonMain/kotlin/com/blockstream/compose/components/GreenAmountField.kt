@@ -1,5 +1,7 @@
 package com.blockstream.compose.components
 
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -350,14 +352,16 @@ fun GreenAmountField(
                 }
 
                 if (!isAmountLocked && supportsSendAll) {
-                    TextButton(
-                        contentPadding = PaddingValues(horizontal = 8.dp, vertical = 0.dp),
+                    MmdButton(
+                        modifier = Modifier.heightIn(min = 48.dp).widthIn(min = 48.dp),
+                        enabled = true,
+                        filled = false,
+                        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp),
                         onClick = { onSendAllClick() }
                     ) {
                         Text(
                             text = stringResource(Res.string.id_send_all),
-                            style = titleSmall,
-                            color = green
+                            style = titleSmall
                         )
                     }
                 }

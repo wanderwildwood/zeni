@@ -1,5 +1,7 @@
 package com.blockstream.compose.screens.exchange
 
+import com.blockstream.compose.components.MmdSegmented
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -99,34 +101,12 @@ fun OnOffRampsScreen(
 
         GreenColumn {
 
-            GreenColumn(
-                padding = 0,
-                modifier = Modifier.weight(1f).verticalScroll(
-                    rememberScrollState()
-                )
+            GreenPagedColumn(modifier = Modifier.weight(1f)
             ) {
                 val isBuy by viewModel.isBuy.collectAsStateWithLifecycle()
 
                 if (viewModel.appInfo.isDevelopment) {
-                    SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
-                        (0..1).forEach { index ->
-                            SegmentedButton(
-                                shape = SegmentedButtonDefaults.itemShape(
-                                    index = index, count = 2
-                                ),
-                                colors = SegmentedButtonDefaults.colors(
-                                    activeContainerColor = md_theme_surface,
-                                    activeContentColor = green
-                                ),
-                                onClick = {
-                                    viewModel.isBuy.value = index == 0
-                                },
-                                selected = (if (isBuy) 0 else 1) == index
-                            ) {
-                                Text(stringResource(if (index == 0) Res.string.id_buy else Res.string.id_sell))
-                            }
-                        }
-                    }
+                    MmdSegmented(labels = listOf(stringResource(Res.string.id_buy), stringResource(Res.string.id_sell)), selectedIndex = if (isBuy) 0 else 1, onSelect = { index -> viewModel.isBuy.value = index == 0 }, modifier = Modifier.fillMaxWidth())
                 }
 
                 AnimatedVisibility(isBuy) {
@@ -242,25 +222,7 @@ fun OnOffRampsScreen(
             if (viewModel.appInfo.isDevelopment) {
                 val isSandboxEnvironment by viewModel.isSandboxEnvironment.collectAsStateWithLifecycle()
 
-                SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
-                    (0..1).forEach { index ->
-                        SegmentedButton(
-                            shape = SegmentedButtonDefaults.itemShape(
-                                index = index, count = 2
-                            ),
-                            colors = SegmentedButtonDefaults.colors(
-                                activeContainerColor = md_theme_surface,
-                                activeContentColor = green
-                            ),
-                            onClick = {
-                                viewModel.isSandboxEnvironment.value = index == 1
-                            },
-                            selected = (if (isSandboxEnvironment) 1 else 0) == index
-                        ) {
-                            Text(if (index == 0) "Production" else "Sandbox")
-                        }
-                    }
-                }
+                MmdSegmented(labels = listOf("Production", "Sandbox"), selectedIndex = if (isSandboxEnvironment) 1 else 0, onSelect = { index -> viewModel.isSandboxEnvironment.value = index == 1 }, modifier = Modifier.fillMaxWidth())
             }
 
             GreenColumn(padding = 0) {

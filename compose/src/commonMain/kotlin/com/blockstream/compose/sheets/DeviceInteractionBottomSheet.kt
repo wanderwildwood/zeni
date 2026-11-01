@@ -108,9 +108,6 @@ fun DeviceInteractionBottomSheet(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .verticalScroll(
-                        rememberScrollState()
-                    )
             ) {
 
                 if (transactionConfirmation != null) {

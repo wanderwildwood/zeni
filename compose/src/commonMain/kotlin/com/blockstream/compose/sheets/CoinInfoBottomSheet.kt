@@ -1,5 +1,6 @@
 package com.blockstream.compose.sheets
 
+import com.blockstream.compose.components.MmdTextButton
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -77,7 +78,6 @@ fun CoinInfoBottomSheet(
                 modifier = Modifier
                     .padding(top = 16.dp, bottom = 8.dp)
                     .heightIn(max = maxContentHeight)
-                    .verticalScroll(rememberScrollState())
             ) {
                 items.forEach { pair ->
                     CoinInfoDataListItem(
@@ -100,7 +100,7 @@ fun CoinInfoBottomSheet(
             }
         }
 
-        TextButton(
+        MmdTextButton(
             onClick = {
                 viewModel.postEvent(CoinInfoViewModelAbstract.LocalEvents.ViewInExplorer)
             },

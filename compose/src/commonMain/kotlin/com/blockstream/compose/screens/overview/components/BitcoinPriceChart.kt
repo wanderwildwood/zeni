@@ -17,7 +17,11 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.widthIn
+import com.blockstream.compose.components.GreenButton
+import com.blockstream.compose.components.GreenButtonType
+import com.blockstream.compose.components.MmdButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -278,25 +282,14 @@ private fun ChartPeriodSelector(
 private fun ChartPeriodSelectorItem(
     period: BitcoinChartPeriod, isSelected: Boolean, onChangePeriod: (BitcoinChartPeriod) -> Unit
 ) {
-    val containerColor = if (isSelected) {
-        MaterialTheme.colorScheme.outline
-    } else {
-        Color.Transparent
-    }
-
-    val contentColor = if (isSelected) {
-        MaterialTheme.colorScheme.onSecondaryContainer
-    } else {
-        whiteLow
-    }
-
     // zeni: five labels fit 480 px only with tighter padding; "5Y" was wrapping onto two lines.
-    TextButton(
-        modifier = Modifier.appTestTag(period.label),
+    // The chosen period is the filled button, the others outlined.
+    MmdButton(
+        modifier = Modifier.appTestTag(period.label).heightIn(min = 48.dp).widthIn(min = 48.dp),
         onClick = { onChangePeriod(period) },
-        contentPadding = PaddingValues(horizontal = 10.dp, vertical = 6.dp),
-        colors = ButtonDefaults.textButtonColors()
-            .copy(containerColor = containerColor, contentColor = contentColor)
+        enabled = true,
+        filled = isSelected,
+        contentPadding = PaddingValues(horizontal = 6.dp, vertical = 6.dp),
     ) {
         Text(
             text = period.label,
@@ -321,14 +314,11 @@ private fun RetryButton(onClick: () -> Unit) {
             style = MaterialTheme.typography.bodyMedium,
         )
 
-        TextButton(
+        GreenButton(
+            text = stringResource(Res.string.id_retry),
+            type = GreenButtonType.OUTLINE,
             onClick = onClick,
-        ) {
-            Text(
-                text = stringResource(Res.string.id_retry),
-                style = MaterialTheme.typography.bodyMedium,
-            )
-        }
+        )
     }
 }
 

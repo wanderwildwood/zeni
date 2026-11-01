@@ -2,6 +2,11 @@
 
 package com.blockstream.compose.screens.settings
 
+import com.blockstream.compose.components.MmdTextField
+import com.blockstream.compose.components.MmdSwitch
+import com.blockstream.compose.components.MmdCheckbox
+import com.blockstream.compose.components.MmdRadioButton
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -153,13 +158,10 @@ fun AppSettingsScreen(
     }) {
 
         Box {
-            GreenColumn(
-                padding = 0,
-                space = 8,
+            GreenPagedColumn(space = 8,
                 modifier = Modifier
                     .fillMaxWidth()
                     .imePadding()
-                    .verticalScroll(rememberScrollState())
                     .padding(horizontal = 16.dp)
                     .padding(bottom = 16.dp)
             ) {
@@ -201,7 +203,7 @@ fun AppSettingsScreen(
                             SettingsItem(
                                 title = stringResource(Res.string.id_server_ip_and_port_ipport),
                                 content = {
-                                    OutlinedTextField(
+                                    MmdTextField(
                                         value = proxyUrl,
                                         onValueChange = autoSaveOnStringChange(
                                             viewModel.proxyUrl,
@@ -327,14 +329,9 @@ fun AppSettingsScreen(
                                     )
                                 }
 
-                                Switch(
+                                MmdSwitch(
                                     checked = analyticsEnabled,
                                     onCheckedChange = autoSaveOnBooleanChange(viewModel.analyticsEnabled),
-                                    colors = SwitchDefaults.colors(
-                                        uncheckedThumbColor = Color.White,
-                                        checkedThumbColor = Color.White,
-                                        uncheckedTrackColor = MaterialTheme.colorScheme.outline
-                                    ),
                                     modifier = Modifier.appTestTag("analytics_switch"),
                                 )
                             }
@@ -415,7 +412,7 @@ fun AppSettingsScreen(
                                         onExpandedChange = { screenLockExpanded = it },
                                         modifier = Modifier.fillMaxWidth(),
                                     ) {
-                                        OutlinedTextField(
+                                        MmdTextField(
                                             // The `menuAnchor` modifier must be passed to the text field for correctness.
                                             modifier = Modifier
                                                 .fillMaxWidth()
@@ -424,8 +421,7 @@ fun AppSettingsScreen(
                                             readOnly = true,
                                             value = selectedOptionText,
                                             onValueChange = {},
-                                            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = screenLockExpanded) },
-                                            colors = ExposedDropdownMenuDefaults.outlinedTextFieldColors()
+                                            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = screenLockExpanded) }
                                         )
                                         ExposedDropdownMenu(
                                             expanded = screenLockExpanded,
@@ -505,7 +501,7 @@ fun AppSettingsScreen(
                             SettingsItem(
                                 title = stringResource(Res.string.id_address_scan_limit),
                                 content = {
-                                    OutlinedTextField(
+                                    MmdTextField(
                                         value = electrumServerGapLimit,
                                         onValueChange = autoSaveOnStringChange(
                                             viewModel.electrumServerGapLimit,

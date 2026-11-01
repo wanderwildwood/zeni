@@ -6,7 +6,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyColumn
+import com.blockstream.compose.components.PagedColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Icon
@@ -136,12 +136,12 @@ fun SecurityScreen(viewModel: SecurityViewModelAbstract) {
             }
         }) {
 
-        LazyColumn(
+        PagedColumn(
             state = listState,
             verticalArrangement = Arrangement.spacedBy(8.dp),
             contentPadding = innerPadding
                 .bottom()
-                .plus(PaddingValues(horizontal = 16.dp))
+                .plus(PaddingValues(start = 20.dp, end = 12.dp))
                 .plus(PaddingValues(bottom = 80.dp + 24.dp))
         ) {
 

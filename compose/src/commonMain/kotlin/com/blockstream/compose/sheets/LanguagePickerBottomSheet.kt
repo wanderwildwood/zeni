@@ -3,7 +3,7 @@ package com.blockstream.compose.sheets
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
+import com.blockstream.compose.components.PagedColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.ExperimentalMaterial3Api
 import com.blockstream.compose.theme.HorizontalDivider
@@ -38,10 +38,11 @@ fun LanguagePickerBottomSheet(
     GreenBottomSheet(
         title = stringResource(Res.string.id_language),
         onDismissRequest = onDismissRequest,
+        scrollable = false,
         sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = false)
     ) {
-        LazyColumn(
-            modifier = Modifier.padding(horizontal = 16.dp)
+        PagedColumn(
+            modifier = Modifier
         ) {
             items(locales.toList()) { (key, value) ->
                 val isSelected = key == currentLocale

@@ -33,9 +33,6 @@ fun AssetsAccountsBottomSheet(
         GreenColumn(
             padding = 0, space = 8, modifier = Modifier
                 .padding(top = 16.dp)
-                .verticalScroll(
-                    rememberScrollState()
-                )
         ) {
             assetsAccounts.list.forEach { account ->
                 GreenAccountAsset(accountAssetBalance = account, session = viewModel.sessionOrNull) {

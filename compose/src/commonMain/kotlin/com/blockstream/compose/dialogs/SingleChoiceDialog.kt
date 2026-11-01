@@ -1,12 +1,15 @@
 package com.blockstream.compose.dialogs
 
+import com.blockstream.compose.components.MmdSwitch
+import com.blockstream.compose.components.MmdCheckbox
+import com.blockstream.compose.components.MmdRadioButton
 import com.blockstream.compose.theme.NoDialogDim
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
+import com.blockstream.compose.components.PagedColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
@@ -19,7 +22,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
+import com.blockstream.compose.components.EInkDialog
+import androidx.compose.foundation.layout.Box
 import androidx.compose.ui.window.DialogProperties
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.id_cancel
@@ -44,14 +48,13 @@ fun SingleChoiceDialog(
     onDismissRequest: (position: Int?) -> Unit
 ) {
     var checked by remember { mutableStateOf(checkedItem) }
-    Dialog(
+    EInkDialog(
         properties = dialogProperties,
-        onDismissRequest = {
+        onDismiss = {
             onDismissRequest(null)
         }
     ) {
-        NoDialogDim()
-        GreenCard(modifier = Modifier.fillMaxWidth()) {
+        Box(Modifier.fillMaxWidth()) {
             GreenColumn(padding = 0, space = 16) {
                 Text(
                     text = title,
@@ -68,7 +71,7 @@ fun SingleChoiceDialog(
                     )
                 }
 
-                LazyColumn {
+                PagedColumn {
                     itemsIndexed(items) { index, item ->
                         Row(
                             Modifier
@@ -80,7 +83,7 @@ fun SingleChoiceDialog(
                                 .padding(vertical = 12.dp, horizontal = 8.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            RadioButton(selected = (index == checked), onClick = null)
+                            MmdRadioButton(selected = (index == checked), onClick = null)
                             Text(
                                 text = item,
                                 style = labelLarge,

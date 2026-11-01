@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.add
 
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -59,11 +60,8 @@ fun ReviewAddAccountScreen(
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
 
-            GreenColumn(
-                padding = 0,
-                modifier = Modifier
+            GreenPagedColumn(modifier = Modifier
                     .weight(1f)
-                    .verticalScroll(rememberScrollState())
             ) {
 
                 Text(

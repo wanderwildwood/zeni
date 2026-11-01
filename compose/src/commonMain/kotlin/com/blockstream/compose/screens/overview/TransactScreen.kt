@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyColumn
+import com.blockstream.compose.components.PagedColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -101,10 +101,10 @@ fun TransactScreen(viewModel: TransactViewModelAbstract) {
                 }
             }
 
-            LazyColumn(
+            PagedColumn(
                 state = listState,
                 contentPadding = innerPadding.bottom()
-                    .plus(PaddingValues(horizontal = 16.dp))
+                    .plus(PaddingValues(start = 20.dp, end = 12.dp))
                     .plus(PaddingValues(bottom = 80.dp + 16.dp)),
             ) {
 

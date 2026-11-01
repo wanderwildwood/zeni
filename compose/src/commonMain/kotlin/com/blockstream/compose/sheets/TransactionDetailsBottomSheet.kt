@@ -34,9 +34,6 @@ fun TransactionDetailsBottomSheet(
         GreenColumn(
             padding = 0, space = 16, modifier = Modifier
                 .padding(top = 16.dp)
-                .verticalScroll(
-                    rememberScrollState()
-                )
         ) {
             data.forEachIndexed { index, pair ->
                 DataListItem(

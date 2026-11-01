@@ -1,5 +1,7 @@
 package com.blockstream.compose.screens.onboarding.phone
 
+import com.blockstream.compose.components.MmdSegmented
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.BorderStroke
@@ -150,13 +152,12 @@ fun EnterRecoveryPhraseScreen(
                 .padding(bottom = 16.dp)
         )
 
-        GreenColumn(
-            padding = 4,
+        GreenPagedColumn(
+            contentPadding = PaddingValues(4.dp),
             space = 6,
             modifier = Modifier
                 .padding(end = 8.dp)
                 .weight(1f)
-                .verticalScroll(rememberScrollState())
         ) {
             val recoveryPhrase by viewModel.recoveryPhrase.collectAsStateWithLifecycle()
             val rows by viewModel.rows.collectAsStateWithLifecycle()
@@ -186,19 +187,7 @@ fun EnterRecoveryPhraseScreen(
 
         val options = listOf(12, 24, 27)
         val recoveryPhraseSize by viewModel.recoveryPhraseSize.collectAsStateWithLifecycle()
-        SingleChoiceSegmentedButtonRow(modifier = Modifier.align(Alignment.End)) {
-            options.forEachIndexed { index, label ->
-                SegmentedButton(
-                    shape = SegmentedButtonDefaults.itemShape(
-                        index = index, count = options.size
-                    ),
-                    onClick = { viewModel.recoveryPhraseSize.value = options[index] },
-                    selected = recoveryPhraseSize == options[index]
-                ) {
-                    Text(label.toString())
-                }
-            }
-        }
+        MmdSegmented(labels = options.map { it.toString() }, selectedIndex = options.indexOf(recoveryPhraseSize), onSelect = { index -> viewModel.recoveryPhraseSize.value = options[index] }, modifier = Modifier.align(Alignment.End))
 
         Box(
             modifier = Modifier

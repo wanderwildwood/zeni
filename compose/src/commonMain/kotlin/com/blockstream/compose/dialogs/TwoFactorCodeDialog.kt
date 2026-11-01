@@ -18,7 +18,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
+import com.blockstream.compose.components.EInkDialog
+import androidx.compose.foundation.layout.Box
 import androidx.compose.ui.window.DialogProperties
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.id_attempts_remaining_d
@@ -45,18 +46,13 @@ fun TwoFactorCodeDialog(
     authHandlerStatus: AuthHandlerStatus,
     onDismissRequest: (code: String?, helpClicked: Boolean?) -> Unit
 ) {
-    Dialog(
-        onDismissRequest = {
+    EInkDialog(
+        onDismiss = {
             onDismissRequest(null, null)
         },
         properties = DialogProperties(dismissOnClickOutside = false, usePlatformDefaultWidth = false),
     ) {
-        NoDialogDim()
-        Card(
-            modifier = Modifier
-                .widthIn(max = 400.dp)
-                .padding(24.dp)
-        ) {
+        Box(Modifier.fillMaxWidth()) {
             GreenColumn(padding = 24, space = 16) {
                 val method by remember {
                     mutableStateOf(

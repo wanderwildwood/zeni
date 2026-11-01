@@ -1,5 +1,8 @@
 package com.blockstream.compose.sheets
 
+import com.blockstream.compose.components.MmdSwitch
+import com.blockstream.compose.components.MmdCheckbox
+import com.blockstream.compose.components.MmdRadioButton
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -51,9 +54,6 @@ fun SystemMessageBottomSheet(
         GreenColumn(
             padding = 0, space = 16, modifier = Modifier
                 .padding(top = 16.dp)
-                .verticalScroll(
-                    rememberScrollState()
-                )
         ) {
             Text(message)
 
@@ -67,7 +67,7 @@ fun SystemMessageBottomSheet(
                 ),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Checkbox(
+                MmdCheckbox(
                     checked = isConfirmed,
                     onCheckedChange = {
                         isConfirmed = it

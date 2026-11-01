@@ -1,5 +1,8 @@
 package com.blockstream.compose.screens.jade
 
+import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.layout.PaddingValues
+import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -53,10 +56,8 @@ fun JadePinUnlockScreen(
 
     SetupScreen(viewModel = viewModel, withPadding = false) {
 
-        GreenColumn(
-            verticalArrangement = Arrangement.SpaceEvenly,
+        GreenPagedColumn(contentPadding = PaddingValues(16.dp), verticalArrangement = Arrangement.SpaceEvenly,
             modifier = Modifier.fillMaxSize()
-                .verticalScroll(rememberScrollState())
         ) {
             GreenColumn(padding = 32, horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(

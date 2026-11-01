@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.assetaccounts
 
+import com.blockstream.compose.components.PagedColumn
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -63,10 +64,11 @@ fun AccountDescriptorScreen(
     val descriptor by viewModel.descriptor.collectAsStateWithLifecycle()
 
     SetupScreen(viewModel = viewModel, withPadding = false) {
-        Column(
+        PagedColumn(modifier = Modifier) {
+ item {
+ Column(
             modifier = Modifier
                 .fillMaxSize()
-                .verticalScroll(rememberScrollState())
                 .padding(PaddingValues(16.dp) ),
             verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
@@ -106,6 +108,8 @@ fun AccountDescriptorScreen(
                 )
             }
         }
+ }
+ }
     }
 }
 

@@ -65,7 +65,6 @@ fun WatchOnlyNetworkBottomSheet(
         GreenColumn(
             modifier = Modifier
                 .padding(top = 16.dp)
-                .verticalScroll(rememberScrollState())
         ) {
             networks.forEach { network ->
                 NetworkItem(

@@ -23,7 +23,6 @@ val components: List<Component> = listOf(
     Component("Blockstream Greenlight SDK (glsdk), present but unused", "MIT", "https://github.com/Blockstream/greenlight"),
     Component("Liquid Wallet Kit (lwk), present but unused", "MIT", "https://github.com/Blockstream/lwk"),
     Component("BTChip Java API, Ledger support (source in this repository)", "Apache-2.0", "https://github.com/LedgerHQ"),
-    Component("Countly SDK, present but switched off", "MIT", "https://github.com/countly/countly-sdk-android"),
     Component("Rive Android", "MIT", "https://github.com/rive-app/rive-android"),
     Component("JNA", "Apache-2.0", "https://github.com/java-native-access/jna"),
     Component("Kotlin standard library, coroutines, serialization, datetime, io, atomicfu", "Apache-2.0", "https://kotlinlang.org"),

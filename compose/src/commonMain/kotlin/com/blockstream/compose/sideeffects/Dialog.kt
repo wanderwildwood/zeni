@@ -6,7 +6,7 @@ import androidx.compose.foundation.border
 import com.blockstream.compose.theme.NoDialogDim
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.selection.SelectionContainer
-import androidx.compose.material3.AlertDialog
+import com.blockstream.compose.components.EInkAlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -135,65 +135,34 @@ fun DialogHost(state: DialogState) {
             }
 
             else -> {
-                AlertDialog(
-        // zeni: MMD dialog — white, a 2 dp black rim, 12 dp corners, no dim.
-        shape = RoundedCornerShape(12.dp),
-        modifier = Modifier.border(2.dp, Color.Black, RoundedCornerShape(12.dp)),
-                    title = data.title?.let {
-                        {
-                            Text(text = it.string())
-                        }
-                    },
-                    text = data.message?.let {
-                        {
-                            SelectionContainer {
-                                Text(text = it.string())
-                            }
-                        }
-                    },
+                EInkAlertDialog(
+                    title = data.title?.string(),
+                    message = data.message?.string(),
                     icon = data.icon?.let {
                         {
                             Icon(
                                 painter = painterResource(it),
                                 contentDescription = null,
-                                modifier = Modifier
-                                    .size(50.dp)
+                                modifier = Modifier.size(50.dp)
                             )
                         }
                     },
-                    iconContentColor = whiteHigh,
                     onDismissRequest = {
                         data.onDismiss.invoke()
                         state.clear()
                     },
-                    confirmButton = {
-                NoDialogDim()
-                        TextButton(
-                            onClick = {
-                                data.onPrimary.invoke()
-                                state.clear()
-                            }
-                        ) {
-                            Text(
-                                data.primaryText ?: stringResource(
-                                    Res.string.id_ok
-                                )
-                            )
-                        }
+                    confirmText = data.primaryText ?: stringResource(Res.string.id_ok),
+                    onConfirm = {
+                        data.onPrimary.invoke()
+                        state.clear()
                     },
-                    dismissButton = {
-                        if (state.data?.onSecondary != null || data.secondaryText != null) {
-                            TextButton(
-                                onClick = {
-                                    data.onSecondary?.invoke()
-                                    state.clear()
-                                }
-                            ) {
-                                Text(data.secondaryText?.takeIf { it.isNotBlank() }
-                                    ?: stringResource(Res.string.id_cancel))
-                            }
-                        }
-                    }
+                    dismissText = if (state.data?.onSecondary != null || data.secondaryText != null) {
+                        data.secondaryText?.takeIf { it.isNotBlank() } ?: stringResource(Res.string.id_cancel)
+                    } else null,
+                    onDismissClick = {
+                        data.onSecondary?.invoke()
+                        state.clear()
+                    },
                 )
             }
         }
