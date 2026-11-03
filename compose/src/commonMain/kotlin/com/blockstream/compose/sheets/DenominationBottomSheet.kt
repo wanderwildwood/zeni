@@ -1,5 +1,7 @@
 package com.blockstream.compose.sheets
 
+import com.blockstream.compose.components.DottedRule
+import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -59,7 +61,7 @@ fun DenominationBottomSheet(
                         onDismissRequest()
                     })
 
-                HorizontalDivider()
+                DottedRule(start = 0.dp, end = 0.dp)
             }
         }
 

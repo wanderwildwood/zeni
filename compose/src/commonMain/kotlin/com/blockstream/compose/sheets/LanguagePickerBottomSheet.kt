@@ -1,5 +1,6 @@
 package com.blockstream.compose.sheets
 
+import com.blockstream.compose.components.DottedRule
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -70,10 +71,7 @@ fun LanguagePickerBottomSheet(
                 }
                 
                 if (locales.toList().indexOf(key to value) < locales.size - 1) {
-                    HorizontalDivider(
-                        thickness = 0.5.dp,
-                        color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f)
-                    )
+                    DottedRule(start = 0.dp, end = 0.dp)
                 }
             }
         }

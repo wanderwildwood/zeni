@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.addresses
 
+import com.blockstream.compose.components.DottedRule
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -149,7 +150,7 @@ fun AddressesScreen(
 
                 items(addresses) { address ->
                     Box {
-                        HorizontalDivider(modifier = Modifier.align(Alignment.BottomCenter))
+                        DottedRule(modifier = Modifier.align(Alignment.BottomCenter), start = 0.dp, end = 0.dp)
 
                         AddressListItem(
                             look = address, onCopyClick = {
