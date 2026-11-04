@@ -17,7 +17,7 @@
     <string name="id_2fa_dispute_in_progress">2FA Dispute in Progress</string>
     <string name="id_2fa_expired">2FA Expired</string>
     <string name="id_2fa_expiry">2FA Expiry</string>
-    <string name="id_2fa_isnt_set_up_yetnnyou_can">2FA isn&apos;t set up yet.\n\nYou can choose your favourite 2FA method among an authenticator app, email, SMS or a call.</string>
+    <string name="id_2fa_isnt_set_up_yetnnyou_can">2FA isn&apos;t set up yet.\n\nYou can choose your favorite 2FA method among an authenticator app, email, SMS or a call.</string>
     <string name="id_2fa_methods">2FA Methods</string>
     <string name="id_2fa_protected">2FA Protected</string>
     <string name="id_2fa_protected_accounts_are_2of2">2FA Protected accounts are 2-of-2 wallets needing the user&apos;s key and Blockstream&apos;s 2FA signature. After a ~1-year timelock, they become 1-of-1, disabling 2FA, to ultimately keep you in control. Redeposit your coins to reactivate 2FA protection.</string>
@@ -1188,12 +1188,12 @@
     <string name="zeni_not_affiliated">An independent fork. Not affiliated with or endorsed by Blockstream.</string>
     <string name="zeni_privacy">Privacy</string>
     <string name="zeni_terms">Terms</string>
-    <string name="zeni_licences">Licences</string>
+    <string name="zeni_licences">Licenses</string>
     <string name="zeni_contact">Contact</string>
     <string name="zeni_contact_detail">email@wanderthe.dev</string>
     <string name="zeni_contact_subject">Bitcoin (zeni)</string>
     <string name="zeni_source_code">Source code</string>
-    <string name="zeni_licence">Licence</string>
+    <string name="zeni_licence">License</string>
     <string name="zeni_licence_body">This app is free software under the GNU General Public License, version 3 only. Copyright © wander wildwood for the changes in this fork, and © Blockstream Corporation Inc. and contributors for Blockstream Green, which it is based on. The full text follows.</string>
     <string name="zeni_built_with">Built with</string>
     <string name="zeni_page_previous">Previous</string>
@@ -1934,7 +1934,7 @@
     <string name="id_your_current_receive_capacity">Your current receive capacity is %1$s.</string>
     <string name="id_your_device">Your Device</string>
     <string name="id_your_device_was_disconnected">Your device was disconnected</string>
-    <string name="id_your_favourite_exchange_rate_is">Your favourite exchange rate is not available at the moment. You can change it from settings.</string>
+    <string name="id_your_favourite_exchange_rate_is">Your favorite exchange rate is not available at the moment. You can change it from settings.</string>
     <string name="id_your_funds_are_secured_by">Your funds are secured by multiple keys, with one key on your device and another on our servers protected by your 2FA. Select this option for enhanced security.</string>
     <string name="id_your_funds_are_secured_by_a">Your funds are secured by a single key held on your device. Simpler to set up and operate than multisig. If in doubt, select this option.</string>
     <string name="id_your_funds_are_secured_by_your">Your funds are secured by your PIN. Easy to use, standard and portable on most bitcoin wallets.</string>
