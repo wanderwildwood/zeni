@@ -13,7 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
@@ -32,6 +31,7 @@ import blockstream_green.common.generated.resources.id_save
 import blockstream_green.common.generated.resources.id_update
 import blockstream_green.common.generated.resources.id_username
 import blockstream_green.common.generated.resources.id_watchonly_credentials
+import blockstream_green.common.generated.resources.zeni_delete_credentials_tap_again
 import com.blockstream.compose.events.Events
 import com.blockstream.data.extensions.isNotBlank
 import com.blockstream.compose.models.settings.WatchOnlyCredentialsSettingsViewModel
@@ -40,13 +40,12 @@ import com.blockstream.compose.components.GreenBottomSheet
 import com.blockstream.compose.components.GreenButton
 import com.blockstream.compose.components.GreenButtonColor
 import com.blockstream.compose.components.GreenButtonType
+import com.blockstream.compose.components.rememberArmedFlag
 import com.blockstream.compose.extensions.onValueChange
 import com.blockstream.compose.theme.bodyMedium
 import com.blockstream.compose.theme.whiteMedium
 import com.blockstream.compose.utils.TextInputPassword
 import com.blockstream.compose.utils.TextInputPaste
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -72,7 +71,6 @@ fun WatchOnlyCredentialsSettingsBottomSheet(
             color = whiteMedium
         )
 
-        val scope = rememberCoroutineScope()
         val focusManager = LocalFocusManager.current
         val username by viewModel.username.collectAsStateWithLifecycle()
 
@@ -135,11 +133,12 @@ fun WatchOnlyCredentialsSettingsBottomSheet(
             viewModel.postEvent(Events.Continue)
         }
 
-        var isDeleteConfirmed by remember { mutableStateOf(false) }
+        // Armed until the next other touch, Back or leaving: no timer (STYLE.md).
+        var isDeleteConfirmed by rememberArmedFlag()
 
         AnimatedVisibility(visible = hasWatchOnlyCredentials) {
             GreenButton(
-                text = stringResource(Res.string.id_delete_credentials),
+                text = stringResource(if (isDeleteConfirmed) Res.string.zeni_delete_credentials_tap_again else Res.string.id_delete_credentials),
                 modifier = Modifier.fillMaxWidth(),
                 type = if (isDeleteConfirmed) GreenButtonType.COLOR else GreenButtonType.OUTLINE,
                 color = GreenButtonColor.RED
@@ -148,11 +147,6 @@ fun WatchOnlyCredentialsSettingsBottomSheet(
                     viewModel.postEvent(WatchOnlyCredentialsSettingsViewModel.LocalEvents.DeleteCredentials)
                 } else {
                     isDeleteConfirmed = true
-
-                    scope.launch {
-                        delay(3000L)
-                        isDeleteConfirmed = false
-                    }
                 }
             }
         }

@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.blockstream.compose.components.ArmedScope
 import com.blockstream.compose.managers.LocalPlatformManager
 import com.blockstream.compose.managers.rememberPlatformManager
 import com.blockstream.data.config.AppInfo
@@ -118,6 +119,8 @@ fun GreenTheme(isLight: Boolean = false, content: @Composable () -> Unit) {
         colorScheme = colorScheme,
         shapes = GreenShapes,
         typography = GreenTypography(),
-        content = content
-    )
+    ) {
+        // One armed "tap again" row at a time in the window; a touch elsewhere disarms it.
+        ArmedScope(content = content)
+    }
 }

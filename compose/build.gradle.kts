@@ -28,6 +28,10 @@ kotlin {
         compileSdk = libs.versions.androidCompileSdk.get().toInt()
         minSdk = libs.versions.androidMinSdk.get().toInt()
         androidResources { enable = true }
+
+        // Plain JVM tests of this module's own logic (the shared armed rows: ArmedTest).
+        withHostTestBuilder {
+        }
     }
 
     jvm("desktop")
@@ -94,6 +98,10 @@ kotlin {
             api(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
             api(libs.kotlin.multiplatform.appdirs)
+        }
+
+        getByName("androidHostTest").dependencies {
+            implementation(libs.junit)
         }
 
         androidMain.dependencies {

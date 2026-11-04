@@ -13,7 +13,7 @@ import blockstream_green.common.generated.resources.id_remove_wallet_tap_again
 import blockstream_green.common.generated.resources.id_wallet_actions
 import com.adamglin.phosphoricons.regular.DotsThreeVertical
 import com.blockstream.compose.components.MmdTextButton
-import com.blockstream.compose.components.rememberArmed
+import com.blockstream.compose.components.rememberArmedFlag
 import org.jetbrains.compose.resources.stringResource
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.combinedClickable
@@ -108,8 +108,9 @@ fun WalletListItem(
     isSwiped: Boolean
 ) {
     // Rename and remove sit behind a ⋮ button, not a swipe: a drag is an animation, and a
-    // destructive action asks with the armed-row pattern (tap, the words change, tap again within 6 s).
-    val removeArmed = rememberArmed()
+    // destructive action asks with the armed-row pattern (tap, the words change, tap again). It
+    // stays armed, with no timer, until the next other touch, Back or leaving the screen.
+    val removeArmed = rememberArmedFlag(look.greenWallet.id)
 
     Column(modifier = Modifier.fillMaxWidth()) {
         GreenCard(padding = 0, modifier = Modifier.fillMaxWidth()) {
@@ -125,7 +126,7 @@ fun WalletListItem(
                 }
                 IconButton(
                     onClick = {
-                        removeArmed.armed = false
+                        removeArmed.on = false
                         onSwipe(if (isSwiped) null else look.greenWallet.id)
                     },
                     modifier = Modifier
@@ -153,18 +154,18 @@ fun WalletListItem(
                 }
                 MmdTextButton(
                     onClick = {
-                        if (removeArmed.armed) {
-                            removeArmed.armed = false
+                        if (removeArmed.on) {
+                            removeArmed.on = false
                             callbacks.onWalletDelete(look.greenWallet)
                         } else {
-                            removeArmed.armed = true
+                            removeArmed.on = true
                         }
                     },
                     modifier = Modifier.weight(1f).appTestTag("remove_wallet_${look.greenWallet.id}")
                 ) {
                     Text(
                         stringResource(
-                            if (removeArmed.armed) Res.string.id_remove_wallet_tap_again else Res.string.id_remove_wallet
+                            if (removeArmed.on) Res.string.id_remove_wallet_tap_again else Res.string.id_remove_wallet
                         ),
                         textAlign = TextAlign.Center
                     )

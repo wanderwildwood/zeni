@@ -45,8 +45,11 @@ fun EInkDialog(
                 .padding(horizontal = 20.dp)
                 .fillMaxWidth(),
         ) {
-            Column(modifier = Modifier.padding(horizontal = 14.dp, vertical = 18.dp)) {
-                CompositionLocalProvider(LocalListBleed provides 14.dp) { content() }
+            // A dialog is its own window: its armed rows need a scope of their own.
+            ArmedScope(Modifier.fillMaxWidth()) {
+                Column(modifier = Modifier.fillMaxWidth().padding(horizontal = 14.dp, vertical = 18.dp)) {
+                    CompositionLocalProvider(LocalListBleed provides 14.dp) { content() }
+                }
             }
         }
     }
