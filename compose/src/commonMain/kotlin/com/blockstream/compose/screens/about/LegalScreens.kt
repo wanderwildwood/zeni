@@ -50,6 +50,7 @@ import blockstream_green.common.generated.resources.zeni_source_code
 import com.blockstream.compose.models.about.LegalViewModel
 import com.blockstream.compose.theme.bodyMedium
 import com.blockstream.compose.theme.labelMedium
+import com.blockstream.compose.theme.titleMedium
 import com.blockstream.compose.theme.titleSmall
 import com.blockstream.compose.utils.SetupScreen
 import kotlinx.coroutines.launch
@@ -68,7 +69,7 @@ fun nextPageStart(firstVisible: Int, lastFullyVisible: Int?, lastVisible: Int, c
 
 /** The rows, a page at a time on whole rows: no touch scrolling, no scrollbar, no animation. */
 @Composable
-private fun PagedRows(
+internal fun PagedRows(
     rows: List<LegalRow>,
     onOpen: (String) -> Unit,
     modifier: Modifier = Modifier,
@@ -147,6 +148,22 @@ private fun LegalRowView(row: LegalRow, onOpen: (String) -> Unit) {
             row.text,
             style = titleSmall,
             modifier = Modifier.fillMaxWidth().padding(top = 16.dp, bottom = 4.dp)
+        )
+
+        RowKind.TITLE -> Text(
+            row.text,
+            style = titleMedium,
+            modifier = Modifier.fillMaxWidth().padding(top = 8.dp, bottom = 4.dp)
+        )
+
+        RowKind.ACTION -> Text(
+            row.text,
+            style = titleSmall,
+            modifier = Modifier
+                .fillMaxWidth()
+                .heightIn(min = 48.dp)
+                .clickable { row.url?.let(onOpen) }
+                .padding(vertical = 12.dp)
         )
 
         RowKind.BODY -> Text(

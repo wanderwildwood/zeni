@@ -1,25 +1,17 @@
 package com.blockstream.compose.screens.about
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.id_version
 import blockstream_green.common.generated.resources.zeni_app_name
 import blockstream_green.common.generated.resources.zeni_based_on
-import blockstream_green.common.generated.resources.zeni_contact
-import blockstream_green.common.generated.resources.zeni_contact_detail
+import blockstream_green.common.generated.resources.about_write_to
+import blockstream_green.common.generated.resources.privacy_contact
+import blockstream_green.common.generated.resources.privacy_contact_title
+import blockstream_green.common.generated.resources.privacy_rights
+import blockstream_green.common.generated.resources.privacy_rights_title
+import blockstream_green.common.generated.resources.privacy_who
+import blockstream_green.common.generated.resources.privacy_who_title
 import blockstream_green.common.generated.resources.zeni_contact_subject
 import blockstream_green.common.generated.resources.zeni_licences
 import blockstream_green.common.generated.resources.zeni_not_affiliated
@@ -30,18 +22,15 @@ import com.blockstream.compose.models.about.AboutViewModel
 import com.blockstream.compose.models.about.AboutViewModelAbstract
 import com.blockstream.compose.models.about.AboutViewModelPreview
 import com.blockstream.compose.navigation.NavigateDestinations
-import com.blockstream.compose.theme.bodyMedium
-import com.blockstream.compose.theme.titleMedium
-import com.blockstream.compose.theme.titleSmall
 import com.blockstream.compose.utils.SetupScreen
-import com.blockstream.compose.utils.appTestTag
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 /**
- * About: the app's own name and version, where the code came from, and Privacy, Terms and
- * Licences, then how to write to the developer. Nothing here is Blockstream's logo, help desk
- * or policy; rows are set apart by space, with no rules between them.
+ * About: the app's own name and version, where the code came from, Privacy with its three short
+ * sections (who we are, how to contact us, your rights: Mudita's review, 4 Nov 2026), Terms and
+ * Licenses, then "Write to email@wanderthe.dev". Nothing here is Blockstream's logo, help desk
+ * or policy; rows are set apart by space, with no rules between them, and turn on whole pages.
  */
 @Composable
 fun AboutScreen(
@@ -49,63 +38,41 @@ fun AboutScreen(
 ) {
     val subject = stringResource(Res.string.zeni_contact_subject)
 
-    SetupScreen(viewModel = viewModel) {
-        Column(modifier = Modifier.fillMaxWidth()) {
-            Text(stringResource(Res.string.zeni_app_name), style = titleMedium)
-            Text(
-                "${stringResource(Res.string.id_version)} ${viewModel.version}",
-                style = bodyMedium,
-                modifier = Modifier.padding(top = 4.dp)
-            )
-            Text(
-                stringResource(Res.string.zeni_based_on),
-                style = bodyMedium,
-                modifier = Modifier.padding(top = 16.dp)
-            )
-            Text(
-                stringResource(Res.string.zeni_not_affiliated),
-                style = bodyMedium,
-                modifier = Modifier.padding(top = 8.dp)
-            )
+    val rows = listOf(
+        LegalRow(stringResource(Res.string.zeni_app_name), RowKind.TITLE),
+        LegalRow("${stringResource(Res.string.id_version)} ${viewModel.version}"),
+        LegalRow(stringResource(Res.string.zeni_based_on)),
+        LegalRow(stringResource(Res.string.zeni_not_affiliated)),
+        LegalRow(stringResource(Res.string.zeni_privacy), RowKind.ACTION, url = ABOUT_PRIVACY),
+        LegalRow(stringResource(Res.string.privacy_who_title), RowKind.HEADING),
+        LegalRow(stringResource(Res.string.privacy_who)),
+        LegalRow(stringResource(Res.string.privacy_contact_title), RowKind.HEADING),
+        LegalRow(stringResource(Res.string.privacy_contact)),
+        LegalRow(stringResource(Res.string.privacy_rights_title), RowKind.HEADING),
+        LegalRow(stringResource(Res.string.privacy_rights)),
+        LegalRow(stringResource(Res.string.zeni_terms), RowKind.ACTION, url = ABOUT_TERMS),
+        LegalRow(stringResource(Res.string.zeni_licences), RowKind.ACTION, url = ABOUT_LICENCES),
+        // The one contact address, written out in full; pressing it opens the email app.
+        LegalRow(stringResource(Res.string.about_write_to, CONTACT_EMAIL), RowKind.ACTION, url = ABOUT_CONTACT),
+    )
 
-            Spacer(Modifier.height(24.dp))
-
-            AboutRow(stringResource(Res.string.zeni_privacy), "about_privacy") {
-                viewModel.postEvent(NavigateDestinations.Privacy)
+    // Turned a page at a time on whole rows, measured as drawn, like Privacy and Terms.
+    SetupScreen(viewModel = viewModel, withPadding = false) {
+        PagedRows(rows, onOpen = { key ->
+            when (key) {
+                ABOUT_PRIVACY -> viewModel.postEvent(NavigateDestinations.Privacy)
+                ABOUT_TERMS -> viewModel.postEvent(NavigateDestinations.Terms)
+                ABOUT_LICENCES -> viewModel.postEvent(NavigateDestinations.Licences)
+                ABOUT_CONTACT -> viewModel.postEvent(AboutViewModel.LocalEvents.ClickContact(subject))
             }
-            AboutRow(stringResource(Res.string.zeni_terms), "about_terms") {
-                viewModel.postEvent(NavigateDestinations.Terms)
-            }
-            AboutRow(stringResource(Res.string.zeni_licences), "about_licences") {
-                viewModel.postEvent(NavigateDestinations.Licences)
-            }
-            AboutRow(
-                stringResource(Res.string.zeni_contact),
-                "about_contact",
-                detail = stringResource(Res.string.zeni_contact_detail)
-            ) {
-                viewModel.postEvent(AboutViewModel.LocalEvents.ClickContact(subject))
-            }
-        }
+        })
     }
 }
 
-@Composable
-private fun AboutRow(title: String, tag: String, detail: String? = null, onClick: () -> Unit) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .heightIn(min = 48.dp)
-            .appTestTag(tag)
-            .clickable(onClick = onClick)
-            .padding(vertical = 8.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Text(title, style = titleSmall)
-        if (detail != null) Text(detail, style = bodyMedium)
-    }
-}
+private const val ABOUT_PRIVACY = "about:privacy"
+private const val ABOUT_TERMS = "about:terms"
+private const val ABOUT_LICENCES = "about:licences"
+private const val ABOUT_CONTACT = "about:contact"
 
 @Composable
 @Preview

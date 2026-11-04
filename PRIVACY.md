@@ -1,16 +1,10 @@
 # Bitcoin (zeni) — Privacy Policy
 
-Version 0.1.4. Last reviewed 29 October 2026.
+Version 0.1.4. Last reviewed 4 November 2026.
 
 ## The short version
 
-This app is an independent fork of Blockstream's Green wallet. It is not made, endorsed or supported by Blockstream. The developer collects nothing about you and runs no server the app talks to. There is no account, no sign-up, no analytics, no advertising and no crash reporting. zeni is a fork of Blockstream's Green wallet, built without Google services and with Green's analytics switched off. To work, a Bitcoin wallet has to ask a server about its addresses: by default that is Blockstream's, and you can use your own server or Tor instead. Your keys stay on your hardware wallet, or encrypted on the phone for a wallet kept there; they are never sent anywhere.
-
-## Who is responsible
-
-wander wildwood, the author of this fork of Blockstream's Green wallet. Contact: email@wanderthe.dev. That address is the only support there is; Blockstream does not support this app.
-
-No personal data is transmitted to or held by the developer. The services named below are run by Blockstream, an independent controller for what it receives, under its own privacy policy.
+This app is an independent fork of Blockstream's Green wallet. It is not made, endorsed or supported by Blockstream. The developer collects nothing about you and runs no server the app talks to. There is no account, no sign-up, no analytics, no advertising and no crash reporting. zeni is a fork of Blockstream's Green wallet, built without Google services and with Green's analytics switched off. To work, a Bitcoin wallet has to ask a server about its addresses: by default that is Blockstream's, and you can use your own server or Tor instead. Your keys stay on your hardware wallet, or encrypted on the phone for a wallet kept there; they are never sent anywhere. The author's address, email@wanderthe.dev, is the only support there is; Blockstream does not support this app.
 
 ## What the app stores, and where
 
@@ -19,6 +13,8 @@ In the app's private storage on the phone: each wallet's name, network and an id
 The app does not allow Android's backup. Nothing it keeps (wallet list, encrypted credentials, settings) goes to a cloud backup or is copied to a new phone by Android's transfer; on a new phone you restore a wallet from its recovery phrase. Uninstalling the app removes everything it keeps. Your recovery phrase is the only backup of a wallet that counts: keep it yourself.
 
 ## Who else receives anything, and what
+
+The services named below are run by Blockstream, an independent controller for what it receives, under its own privacy policy (on blockstream.com).
 
 Every request below also shows the service your IP address, as any connection does, unless Tor or a proxy carries it. With Tor or a proxy on, every request below goes through it; none goes around it.
 
@@ -33,9 +29,11 @@ Every request below also shows the service your IP address, as any connection do
 
 The lock screen: with Glance (com.wanderwildwood.hitome, the author's lock-screen app) installed, and only if you switch on "The bitcoin price on the lock screen", the bitcoin price is handed to Glance and only to Glance. It is fetched from the same price chart service when the lock screen is looked at and the last price is over half an hour old, and never while Tor or a proxy is on. A balance is never handed to Glance.
 
-Help links in the app open Blockstream's help pages in your browser, and only when you press them. They explain the wallet technology; they are Blockstream's pages, not this app's. In Settings, "feed the llamas" opens a donation page (square.link) and wanderthe.dev opens the author's website, likewise. "Contact" in About opens your email app with a blank message to email@wanderthe.dev; nothing is sent until you send it, and no logs or wallet data are attached.
+Help links in the app open Blockstream's help pages in your browser, and only when you press them. They explain the wallet technology; they are Blockstream's pages, not this app's. In Settings, "feed the llamas" opens a donation page (square.link) and wanderthe.dev opens the author's website, likewise. "Write to email@wanderthe.dev" in About opens your email app with a blank message to that address; nothing is sent until you send it, and no logs or wallet data are attached.
 
 Never contacted: Blockstream's purchase service (Meld), Boltz or any swap service, a Liquid server, an analytics service (Green's Countly library and the Zendesk help-desk library are removed from this build), a crash-reporting service, a support service that uploads logs, Google's push service, and any update check.
+
+A Bitcoin transaction, once broadcast, is public on the Bitcoin network and cannot be erased by anyone.
 
 No data is sold, rented, or shared for advertising. There is no profiling, no personalization, and no automated decision-making about you.
 
@@ -63,15 +61,38 @@ The store also lists `com.wanderwildwood.zeni.DYNAMIC_RECEIVER_NOT_EXPORTED_PERM
 
 Processing on the device is carried out for your own purposes and at your own direction. Where the app contacts an outside service, that request is necessary to provide the wallet you asked for (Article 6(1)(b) GDPR); the operator is an independent controller for what it then does, under its own policy.
 
-## Your rights
-
-Under the GDPR and UK GDPR you have rights of access, rectification, erasure, restriction, portability and objection. Under the CCPA/CPRA and comparable North American laws you have rights to know, delete, correct and opt out of sale or sharing.
-
-The developer holds no data about you, so there is nothing to request from them, and nothing has ever been sold or shared. What the app keeps is on your phone: remove a wallet in the app, clear the app's data, or uninstall it. For what Blockstream keeps of a request, ask it. A Bitcoin transaction, once broadcast, is public on the Bitcoin network and cannot be erased by anyone.
-
 ## Children
 
 The app is not directed at children and does not knowingly collect anything from anyone, of any age.
+
+<!-- shared-about privacy section -->
+## Who we are
+
+Bitcoin (zeni) is made by wander wildwood, an independent developer: one person, not a company. wander wildwood is the data controller for anything the app itself handles, and that is very little. Bitcoin (zeni) keeps what you put in it on your phone, apart from what it sends to Blockstream's servers and the exchange-rate source you choose, as described above, and sends nothing to the developer, so the developer holds no data about you.
+
+## How to contact us
+
+Write to email@wanderthe.dev about your data, this policy or anything else. The same address is in the app, under About.
+
+## Your rights
+
+If you are in the EU, the EEA or the UK, the GDPR gives you the right to:
+
+- see the personal data held about you (access)
+- have it corrected (rectification) or deleted (erasure)
+- limit how it is used (restriction)
+- object to its use (objection)
+- get a copy to take elsewhere (portability)
+- withdraw your consent at any time, where something rests on it
+- complain to a data protection supervisory authority, for example the one where you live
+
+Similar laws elsewhere, such as the CCPA in California, give you the right to know, delete and correct, and to opt out of the sale or sharing of your data. Nothing from Bitcoin (zeni) is sold or shared.
+
+Since Bitcoin (zeni) keeps what it stores only on your phone, you can exercise most of these rights yourself: remove a wallet in the app, clear the app's data in Android's settings, or uninstall the app, which deletes all of it. For anything you cannot do yourself, write to the address above.
+
+Bitcoin (zeni) connects to Blockstream's servers and the exchange-rate source you choose. They are separate from this app and from its developer, and what they receive is covered by their own privacy policies; ask them about what they hold.
+If you point Bitcoin (zeni) at a server of your own, what that server keeps is yours to manage.
+<!-- /shared-about privacy section -->
 
 ## Changes
 

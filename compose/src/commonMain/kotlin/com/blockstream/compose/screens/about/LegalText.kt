@@ -71,7 +71,8 @@ fun missingLicenceTexts(): List<String> {
     return components.map { it.licence }.distinct().filter { it !in shown }
 }
 
-enum class RowKind { HEADING, BODY, LINK, COMPONENT }
+/** TITLE is the About's app name; ACTION a row that does something in the app (its [LegalRow.url] is a key, not an address). */
+enum class RowKind { HEADING, BODY, LINK, COMPONENT, TITLE, ACTION }
 
 /** One screenful-friendly row of a legal page; the pager never splits a row. */
 data class LegalRow(val text: String, val kind: RowKind = RowKind.BODY, val detail: String? = null, val url: String? = null)
@@ -108,7 +109,9 @@ fun chunk(text: String): List<String> {
  */
 fun legalRows(raw: String, markdown: Boolean = false): List<LegalRow> {
     val rows = mutableListOf<LegalRow>()
-    val paragraphs = raw.replace("\r", "").split(Regex("\n\\s*\n"))
+    // HTML comments (the shared-about markers around the privacy section) are not shown.
+    val paragraphs = raw.replace("\r", "").replace(Regex("<!--[\\s\\S]*?-->"), "")
+        .split(Regex("\n\\s*\n"))
     for (paragraph in paragraphs) {
         val lines = paragraph.lines().filter { it.isNotBlank() }
         if (lines.isEmpty()) continue

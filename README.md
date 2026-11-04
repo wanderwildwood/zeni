@@ -127,7 +127,7 @@ Besides those:
   and never while Tor or a proxy is on. Never a balance.
 - **Links you press** open in your browser: Blockstream's help pages (about the wallet
   technology, not this app's), the donation page, the author's site.
-- **Contact** in About opens your email app with a blank message to email@wanderthe.dev.
+- **Write to email@wanderthe.dev** in About opens your email app with a blank message to email@wanderthe.dev.
   Nothing is attached or sent until you send it.
 
 Its permissions: internet, Bluetooth (to find and talk to a hardware wallet), camera (to scan

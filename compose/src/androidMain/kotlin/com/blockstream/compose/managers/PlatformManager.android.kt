@@ -41,6 +41,7 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.FragmentActivity
 import androidx.savedstate.SavedStateRegistryOwner
 import blockstream_green.common.generated.resources.Res
+import blockstream_green.common.generated.resources.about_no_mail_app
 import blockstream_green.common.generated.resources.id_share
 import com.arkivanov.essenty.statekeeper.StateKeeper
 import com.arkivanov.essenty.statekeeper.stateKeeper
@@ -68,6 +69,7 @@ import io.github.vinceglb.filekit.PlatformFile
 import io.github.vinceglb.filekit.dialogs.shareFile
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okio.Source
@@ -190,7 +192,10 @@ actual class PlatformManager constructor(
             e.printStackTrace()
             // With no mail app installed the person is told where to write, not left with nothing.
             if (url.startsWith("mailto:")) {
-                Toast.makeText(context, "No email app is installed. Write to ${url.removePrefix("mailto:").substringBefore('?')}.", Toast.LENGTH_LONG).show()
+                val address = url.removePrefix("mailto:").substringBefore('?')
+                MainScope().launch {
+                    Toast.makeText(context, getString(Res.string.about_no_mail_app, address), Toast.LENGTH_LONG).show()
+                }
             }
         }
     }

@@ -52,6 +52,17 @@ class LegalTextTest {
     }
 
     @Test
+    fun privacyHasMuditasThreeSectionsAndNoMarkers() {
+        val rows = legalRows(File(root, "PRIVACY.md").readText(), markdown = true)
+        val headings = rows.filter { it.kind == RowKind.HEADING }.map { it.text }
+        for (h in listOf("Who we are", "How to contact us", "Your rights")) {
+            assertEquals(h, 1, headings.count { it == h })
+        }
+        assertFalse(rows.any { it.text.contains("<!--") || it.text.contains("-->") })
+        assertTrue(rows.any { it.text.contains("CCPA") })
+    }
+
+    @Test
     fun markdownBecomesPlainRows() {
         val rows = legalRows("# Title\n\nSome **bold** and `code`, see [the site](https://x.y).\n\n- one\n  more\n- two", markdown = true)
         assertEquals(RowKind.HEADING, rows[0].kind)
