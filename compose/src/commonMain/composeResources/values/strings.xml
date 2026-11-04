@@ -1203,7 +1203,8 @@
     <string name="zeni_source_code">Source code</string>
     <string name="zeni_licence">License</string>
     <string name="zeni_licence_body">This app is free software under the GNU General Public License, version 3 only. Copyright © wander wildwood for the changes in this fork, and © Blockstream Corporation Inc. and contributors for Blockstream Green, which it is based on. The full text follows.</string>
-    <string name="zeni_built_with">Built with</string>
+    <string name="zeni_licence_no_text">%1$s needs no license text here.</string>
+    <string name="zeni_no_browser_address">No browser is installed. The address is %1$s.</string>
     <string name="zeni_page_previous">Previous</string>
     <string name="zeni_page_next">Next</string>
     <string name="zeni_page_number">Page %1$d</string>

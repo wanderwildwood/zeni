@@ -24,6 +24,7 @@ plugins {
     alias(libs.plugins.googleServices) apply false
     alias(libs.plugins.nativeCocoapods) apply false
     alias(libs.plugins.android.kotlin.multiplatform.library) apply false
+    alias(libs.plugins.aboutlibraries.android) apply false
 }
 
 allprojects {

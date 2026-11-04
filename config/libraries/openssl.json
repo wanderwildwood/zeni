@@ -1,0 +1,12 @@
+{
+  "uniqueId": "openssl",
+  "name": "OpenSSL",
+  "description": "Cryptography and TLS, native code inside GDK (3.5.8).",
+  "organization": {
+    "name": "The OpenSSL Project Authors"
+  },
+  "website": "https://www.openssl.org",
+  "licenses": [
+    "openssl-apache"
+  ]
+}

@@ -38,7 +38,6 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.zeni_based_on
-import blockstream_green.common.generated.resources.zeni_built_with
 import blockstream_green.common.generated.resources.zeni_licence
 import blockstream_green.common.generated.resources.zeni_licence_body
 import blockstream_green.common.generated.resources.zeni_no_browser
@@ -241,17 +240,24 @@ fun TermsScreen(viewModel: LegalViewModel) {
 }
 
 /**
- * Where the source is, which licence the app is under with its full text, who it is based on,
- * and what it is built with. Plain text that turns on whole rows, with no rules between parts.
+ * The Licenses page: on Android the shared house screen with one row per library the build lists
+ * (LicencesScreen.android.kt); elsewhere [SourceAndLicenceScreen].
  */
 @Composable
-fun LicencesScreen(viewModel: LegalViewModel) {
+expect fun LicencesScreen(viewModel: LegalViewModel)
+
+/**
+ * Where the source is, and which licence the app is under with its full text. Plain text that turns
+ * on whole rows. For the desktop and iOS builds, which are not shipped; the Android page lists every
+ * library as well.
+ */
+@Composable
+fun SourceAndLicenceScreen(viewModel: LegalViewModel) {
     val sourceHeading = stringResource(Res.string.zeni_source_code)
     val licenceHeading = stringResource(Res.string.zeni_licence)
     val licenceBody = stringResource(Res.string.zeni_licence_body)
     val basedOn = stringResource(Res.string.zeni_based_on)
     val notAffiliated = stringResource(Res.string.zeni_not_affiliated)
-    val builtWith = stringResource(Res.string.zeni_built_with)
 
     val rows = rememberRows {
         buildList {
@@ -263,12 +269,6 @@ fun LicencesScreen(viewModel: LegalViewModel) {
             add(LegalRow(licenceHeading, RowKind.HEADING))
             add(LegalRow(licenceBody))
             addAll(legalRows(readText("files/gpl_3_0.txt")))
-            add(LegalRow(builtWith, RowKind.HEADING))
-            components.forEach { add(LegalRow(it.name, RowKind.COMPONENT, detail = it.licence, url = it.link)) }
-            licenceTexts.forEach { t ->
-                add(LegalRow(t.name, RowKind.HEADING))
-                addAll(legalRows(readText(t.file)))
-            }
         }
     }
     LegalPage(viewModel, rows)

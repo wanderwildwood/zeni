@@ -8,68 +8,16 @@ const val CONTACT_EMAIL = "email@wanderthe.dev"
 fun contactUri(subject: String = "Bitcoin (zeni)"): String =
     "mailto:$CONTACT_EMAIL?subject=" + subject.replace(" ", "%20").replace("(", "%28").replace(")", "%29")
 
-/** One thing the app is built with: its name, its licence and where it lives. */
-data class Component(val name: String, val licence: String, val link: String)
-
 /**
- * Everything the APK contains that is not this project's own code, read from the built APK
- * (its dex packages, native libraries and assets). Libraries come in families: one line each.
+ * The full licence texts the Licenses page falls back on, by family: a library with a text of its
+ * own (config/licenses, with its copyright line) shows that instead. The build-time list of
+ * libraries comes from the AboutLibraries plugin in androidApp, whose check reads this folder.
  */
-val components: List<Component> = listOf(
-    Component("Blockstream Green 5.7.0, the wallet this app is a fork of", "GPL-3.0", UPSTREAM_URL),
-    Component("Blockstream GDK, the wallet library (native)", "MIT", "https://github.com/Blockstream/gdk"),
-    Component("libwally-core and libsecp256k1, inside GDK", "MIT", "https://github.com/ElementsProject/libwally-core"),
-    Component("Tor, inside GDK", "BSD-3-Clause", "https://www.torproject.org"),
-    Component("Blockstream Greenlight SDK (glsdk), present but unused", "MIT", "https://github.com/Blockstream/greenlight"),
-    Component("Liquid Wallet Kit (lwk), present but unused", "MIT", "https://github.com/Blockstream/lwk"),
-    Component("BTChip Java API, Ledger support (source in this repository)", "Apache-2.0", "https://github.com/LedgerHQ"),
-    Component("Rive Android", "MIT", "https://github.com/rive-app/rive-android"),
-    Component("JNA", "Apache-2.0", "https://github.com/java-native-access/jna"),
-    Component("Kotlin standard library, coroutines, serialization, datetime, io, atomicfu", "Apache-2.0", "https://kotlinlang.org"),
-    Component("Jetpack Compose, Compose Multiplatform, AndroidX (Core, Lifecycle, Navigation, Room, Work, Biometric, Browser, AppCompat and others)", "Apache-2.0", "https://developer.android.com/jetpack"),
-    Component("ConstraintLayout for Compose Multiplatform", "Apache-2.0", "https://developer.android.com/jetpack/androidx/releases/constraintlayout"),
-    Component("Ktor", "Apache-2.0", "https://ktor.io"),
-    Component("OkHttp and Okio", "Apache-2.0", "https://square.github.io/okhttp"),
-    Component("Volley", "Apache-2.0", "https://github.com/google/volley"),
-    Component("Kable, Bluetooth", "Apache-2.0", "https://github.com/JuulLabs/kable"),
-    Component("Koin", "Apache-2.0", "https://insert-koin.io"),
-    Component("SQLDelight", "Apache-2.0", "https://github.com/sqldelight/sqldelight"),
-    Component("Kermit, Stately, Tuulbox", "Apache-2.0", "https://github.com/touchlab/Kermit"),
-    Component("Multiplatform Settings, uri-kmp, Essenty state-keeper, Ksoup entities", "Apache-2.0", "https://github.com/russhwolf/multiplatform-settings"),
-    Component("Coil", "Apache-2.0", "https://coil-kt.github.io/coil"),
-    Component("Jackson", "Apache-2.0", "https://github.com/FasterXML/jackson"),
-    Component("Guava (Google common)", "Apache-2.0", "https://github.com/google/guava"),
-    Component("Accompanist permissions", "Apache-2.0", "https://github.com/google/accompanist"),
-    Component("ZXing and ZXing Android Embedded, QR codes", "Apache-2.0", "https://github.com/zxing/zxing"),
-    Component("ReLinker", "Apache-2.0", "https://github.com/KeepSafe/ReLinker"),
-    Component("FileKit and mpfilepicker, file dialogs", "Apache-2.0", "https://github.com/vinceglb/FileKit"),
-    Component("KotlinCrypto hash", "Apache-2.0", "https://github.com/KotlinCrypto/hash"),
-    Component("Protocol Buffers", "BSD-3-Clause", "https://github.com/protocolbuffers/protobuf"),
-    Component("kotlin-retry", "ISC", "https://github.com/michaelbull/kotlin-retry"),
-    Component("QRose, QR drawing", "MIT", "https://github.com/alexzhirkevich/qrose"),
-    Component("Koalaplot, charts", "MIT", "https://github.com/koalaplot/koalaplot-core"),
-    Component("Phosphor Icons for Compose", "MIT", "https://github.com/phosphor-icons/core"),
-    Component("UsbSerial, USB hardware wallets", "MIT", "https://github.com/felHR85/UsbSerial"),
-    Component("SLF4J API", "MIT", "https://www.slf4j.org"),
-    Component("Lato typeface", "OFL-1.1", "https://www.latofonts.com"),
+val licenceFamilyFiles: List<Pair<String, String>> = listOf(
+    "gpl" to "files/gpl_3_0.txt",
+    "apache" to "files/apache_2_0.txt",
+    "ofl" to "files/ofl_1_1.txt",
 )
-
-/** A licence text bundled with the app: the name shown, the resource file, and its licence label. */
-data class LicenceText(val name: String, val file: String)
-
-val licenceTexts: List<LicenceText> = listOf(
-    LicenceText("Apache-2.0", "files/apache_2_0.txt"),
-    LicenceText("MIT", "files/mit.txt"),
-    LicenceText("BSD-3-Clause", "files/bsd_3_clause.txt"),
-    LicenceText("ISC", "files/isc.txt"),
-    LicenceText("OFL-1.1 (Lato)", "files/ofl_1_1.txt"),
-)
-
-/** Every licence label a component uses must have its text bundled; GPL-3.0 has its own section. */
-fun missingLicenceTexts(): List<String> {
-    val shown = licenceTexts.map { it.name.substringBefore(' ') }.toSet() + "GPL-3.0"
-    return components.map { it.licence }.distinct().filter { it !in shown }
-}
 
 /** TITLE is the About's app name; ACTION a row that does something in the app (its [LegalRow.url] is a key, not an address). */
 enum class RowKind { HEADING, BODY, LINK, COMPONENT, TITLE, ACTION }

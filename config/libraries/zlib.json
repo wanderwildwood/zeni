@@ -1,0 +1,12 @@
+{
+  "uniqueId": "zlib",
+  "name": "zlib",
+  "description": "Compression, native code inside GDK (1.3.2).",
+  "organization": {
+    "name": "Jean-loup Gailly and Mark Adler"
+  },
+  "website": "https://zlib.net",
+  "licenses": [
+    "zlib-own"
+  ]
+}

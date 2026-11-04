@@ -14,11 +14,9 @@ class LegalTextTest {
     private fun read(path: String) = File(path).readText()
 
     @Test
-    fun builtWithListIsNotEmptyAndEveryLicenceHasItsText() {
-        assertTrue(components.size > 10)
-        assertTrue(components.all { it.name.isNotBlank() && it.link.startsWith("https://") })
-        assertEquals(emptyList<String>(), missingLicenceTexts())
-        for (t in licenceTexts) assertTrue(t.file, File(res, t.file).readText().length > 500)
+    fun everyFamilyTextIsBundled() {
+        assertEquals(listOf("gpl", "apache", "ofl"), licenceFamilyFiles.map { it.first })
+        for ((_, file) in licenceFamilyFiles) assertTrue(file, File(res, file).readText().length > 500)
     }
 
     @Test

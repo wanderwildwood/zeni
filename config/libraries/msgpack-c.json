@@ -1,0 +1,12 @@
+{
+  "uniqueId": "msgpack-c",
+  "name": "msgpack for C++",
+  "description": "Serialization, native code inside GDK (4.1.1).",
+  "organization": {
+    "name": "msgpack contributors"
+  },
+  "website": "https://github.com/msgpack/msgpack-c",
+  "licenses": [
+    "msgpack-bsl"
+  ]
+}

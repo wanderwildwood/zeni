@@ -1,0 +1,8 @@
+{
+  "uniqueId": "btchip-java-api",
+  "name": "BTChip Bitcoin Hardware Wallet Java API",
+  "description": "Ledger support; its source is carried in this repository (hardware/src/main/java/com/btchip).",
+  "organization": { "name": "BTChip" },
+  "website": "https://github.com/LedgerHQ",
+  "licenses": ["Apache-2.0"]
+}

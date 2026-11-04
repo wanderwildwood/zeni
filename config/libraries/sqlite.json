@@ -1,0 +1,12 @@
+{
+  "uniqueId": "sqlite",
+  "name": "SQLite",
+  "description": "Database, native code inside GDK (3.39.0).",
+  "organization": {
+    "name": "D. Richard Hipp and contributors"
+  },
+  "website": "https://www.sqlite.org",
+  "licenses": [
+    "sqlite-public-domain"
+  ]
+}

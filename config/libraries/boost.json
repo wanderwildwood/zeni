@@ -1,0 +1,12 @@
+{
+  "uniqueId": "boost",
+  "name": "Boost",
+  "description": "C++ libraries, native code inside GDK (1.87.0).",
+  "organization": {
+    "name": "Boost contributors"
+  },
+  "website": "https://www.boost.org",
+  "licenses": [
+    "boost-bsl"
+  ]
+}

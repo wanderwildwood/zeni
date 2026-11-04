@@ -1,0 +1,12 @@
+{
+  "uniqueId": "libevent",
+  "name": "libevent",
+  "description": "Event notification, native code inside GDK for Tor (2.1.12).",
+  "organization": {
+    "name": "Niels Provos and Nick Mathewson"
+  },
+  "website": "https://libevent.org",
+  "licenses": [
+    "libevent-bsd"
+  ]
+}

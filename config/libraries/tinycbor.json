@@ -1,0 +1,12 @@
+{
+  "uniqueId": "tinycbor",
+  "name": "TinyCBOR",
+  "description": "CBOR encoding, native code inside GDK (Blockstream's fork, 0.6.1).",
+  "organization": {
+    "name": "Intel Corporation"
+  },
+  "website": "https://github.com/Blockstream/tinycbor",
+  "licenses": [
+    "tinycbor-mit"
+  ]
+}

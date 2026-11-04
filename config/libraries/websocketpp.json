@@ -1,0 +1,12 @@
+{
+  "uniqueId": "websocketpp",
+  "name": "WebSocket++",
+  "description": "WebSockets, native code inside GDK (Blockstream's fork).",
+  "organization": {
+    "name": "Peter Thorson"
+  },
+  "website": "https://github.com/blockstream/websocketpp",
+  "licenses": [
+    "websocketpp-bsd"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "uniqueId": "tor",
+  "name": "Tor",
+  "description": "The Tor network client, native code inside GDK (0.4.9.11).",
+  "organization": {
+    "name": "The Tor Project, Inc."
+  },
+  "website": "https://www.torproject.org",
+  "licenses": [
+    "tor-bsd"
+  ]
+}

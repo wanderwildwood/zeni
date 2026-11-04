@@ -1,0 +1,12 @@
+{
+  "uniqueId": "bc-ur",
+  "name": "bc-ur",
+  "description": "Uniform Resources for QR codes, native code inside GDK (0.3.0).",
+  "organization": {
+    "name": "Blockchain Commons, LLC"
+  },
+  "website": "https://github.com/BlockchainCommons/bc-ur",
+  "licenses": [
+    "bc-ur-bsd"
+  ]
+}

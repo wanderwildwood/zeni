@@ -1,0 +1,12 @@
+{
+  "uniqueId": "autobahn-cpp",
+  "name": "Autobahn|Cpp",
+  "description": "WAMP messaging, native code inside GDK (Blockstream's fork).",
+  "organization": {
+    "name": "Crossbar.io Technologies GmbH and contributors"
+  },
+  "website": "https://github.com/Blockstream/autobahn-cpp",
+  "licenses": [
+    "autobahn-bsl"
+  ]
+}

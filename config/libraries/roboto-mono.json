@@ -1,0 +1,8 @@
+{
+  "uniqueId": "roboto-mono-font",
+  "name": "Roboto Mono typeface",
+  "description": "The monospaced typeface for addresses and transaction ids (version 3.000).",
+  "organization": { "name": "The Roboto Mono Project Authors" },
+  "website": "https://github.com/googlefonts/robotomono",
+  "licenses": ["Apache-2.0"]
+}

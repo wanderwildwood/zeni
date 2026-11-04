@@ -1,0 +1,8 @@
+{
+  "uniqueId": "blockstream-green",
+  "name": "Blockstream Green",
+  "description": "The Bitcoin wallet this app is a fork of, version 5.7.0; its source is changed and carried in this repository.",
+  "organization": { "name": "Blockstream Corporation Inc. and contributors" },
+  "website": "https://github.com/Blockstream/green_android",
+  "licenses": ["GPL-3.0-only"]
+}

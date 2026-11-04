@@ -1,0 +1,12 @@
+{
+  "uniqueId": "libwally-core",
+  "name": "libwally-core",
+  "description": "Bitcoin and Liquid primitives, native code inside GDK.",
+  "organization": {
+    "name": "Jon Griffiths (Blockstream)"
+  },
+  "website": "https://github.com/ElementsProject/libwally-core",
+  "licenses": [
+    "libwally-core-mit"
+  ]
+}

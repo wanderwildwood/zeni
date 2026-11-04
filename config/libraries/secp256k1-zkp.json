@@ -1,0 +1,12 @@
+{
+  "uniqueId": "secp256k1-zkp",
+  "name": "libsecp256k1-zkp",
+  "description": "Elliptic-curve cryptography, native code inside libwally-core.",
+  "organization": {
+    "name": "Pieter Wuille and contributors"
+  },
+  "website": "https://github.com/BlockstreamResearch/secp256k1-zkp",
+  "licenses": [
+    "secp256k1-zkp-mit"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "uniqueId": "gsl",
+  "name": "Guidelines Support Library",
+  "description": "C++ support library, native code inside GDK (4.0.0).",
+  "organization": {
+    "name": "Microsoft Corporation"
+  },
+  "website": "https://github.com/microsoft/GSL",
+  "licenses": [
+    "gsl-mit"
+  ]
+}
