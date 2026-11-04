@@ -62,8 +62,7 @@ internal fun AssetOverview(
                 text = fiat,
                 style = bodyMedium,
                 color = whiteMedium,
-                textAlign = TextAlign.Center,
-                lineHeight = 15.sp
+                textAlign = TextAlign.Center
             )
         }
     }

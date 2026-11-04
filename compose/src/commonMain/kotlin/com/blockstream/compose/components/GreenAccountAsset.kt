@@ -19,7 +19,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.id_select_account
 import blockstream_green.common.generated.resources.id_select_account__asset
@@ -172,7 +171,7 @@ fun GreenAccountAsset(
                             if (withAccountName) {
                                 Text(
                                     text = accountAssetBalance.account.policyAndType(session).uppercase(),
-                                    style = labelMedium.copy(fontSize = 14.sp, lineHeight = 18.sp),
+                                    style = labelMedium,
                                     maxLines = 1,
                                     overflow = TextOverflow.Ellipsis,
                                     color = whiteLow

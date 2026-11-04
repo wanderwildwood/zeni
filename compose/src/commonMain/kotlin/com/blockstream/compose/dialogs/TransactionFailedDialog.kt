@@ -48,6 +48,7 @@ import com.blockstream.compose.theme.md_theme_surface
 import com.blockstream.compose.theme.titleSmall
 import com.blockstream.compose.theme.whiteHigh
 import com.blockstream.compose.theme.whiteMedium
+import com.blockstream.compose.theme.HouseTypeFloor
 import com.blockstream.compose.utils.stringResourceFromId
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -124,8 +125,8 @@ fun TransactionFailedDialog(
                                 text = resolvedMessage,
                                 style = bodyMedium.copy(
                                     fontFamily = MonospaceFont(),
-                                    fontSize = 14.sp,
-                                    lineHeight = 16.sp,
+                                    fontSize = HouseTypeFloor,
+                                    lineHeight = 20.sp,
                                 ),
                                 color = whiteMedium,
                                 modifier = Modifier.weight(1f),

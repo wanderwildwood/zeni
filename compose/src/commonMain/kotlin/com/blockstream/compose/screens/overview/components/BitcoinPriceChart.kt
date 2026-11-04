@@ -175,7 +175,7 @@ private fun BitcoinPrice(startPrice: Float, currentPrice: Float, currency: Strin
                 ) {
                     Text(
                         text = changePercentageInPrice.formatPercentage(),
-                        style = labelMedium.copy(color = trendColor, lineHeight = 16.sp),
+                        style = labelMedium.copy(color = trendColor, lineHeight = 20.sp),
                         modifier = Modifier.appTestTag("percentage_change_text")
 
                     )

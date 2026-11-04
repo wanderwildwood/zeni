@@ -23,7 +23,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.box_arrow_down
@@ -71,6 +70,7 @@ import com.blockstream.compose.theme.md_theme_surfaceCircle
 import com.blockstream.compose.theme.titleLarge
 import com.blockstream.compose.theme.whiteHigh
 import com.blockstream.compose.theme.whiteMedium
+import com.blockstream.compose.theme.HouseTypeFloor
 import com.blockstream.compose.utils.SetupScreen
 import com.blockstream.compose.utils.StringHolder
 import com.blockstream.compose.utils.ifTrue
@@ -222,7 +222,7 @@ fun AccountType(accountType: AccountTypeLook, onClick: () -> Unit = {}) {
                 .ifTrue(accountType.isLightning) {
                     it.drawDiagonalLabel(
                         text = "BETA", color = whiteHigh, style = TextStyle(
-                            fontSize = 14.sp,
+                            fontSize = HouseTypeFloor,
                             fontWeight = FontWeight.Bold,
                             color = Color.Black
                         ),

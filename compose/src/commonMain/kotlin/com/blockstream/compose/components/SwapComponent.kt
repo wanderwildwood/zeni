@@ -73,6 +73,7 @@ import com.blockstream.compose.theme.textLow
 import com.blockstream.compose.theme.whiteHigh
 import com.blockstream.compose.theme.whiteLow
 import com.blockstream.compose.theme.whiteMedium
+import com.blockstream.compose.theme.HouseTypeFloor
 import com.blockstream.compose.utils.DecimalFormatter
 import com.blockstream.compose.utils.appTestTag
 import com.blockstream.compose.utils.ifTrue
@@ -263,7 +264,7 @@ private fun SwapCard(
     val colors = TextFieldDefaults.colors()
 
     val maxFontSize = 22.sp
-    val minFontSize = 14.sp
+    val minFontSize = HouseTypeFloor
 
     val textStyle = LocalTextStyle.current.merge(
         TextStyle(

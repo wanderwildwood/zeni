@@ -198,7 +198,7 @@ internal fun PromoCard(
                         )
                         PromoText(
                             text = promo.description,
-                            style = MaterialTheme.typography.bodySmall.copy(lineHeight = 16.sp),
+                            style = MaterialTheme.typography.bodySmall.copy(lineHeight = 20.sp),
                             color = whiteMedium,
                             maxLines = 3,
                         )
