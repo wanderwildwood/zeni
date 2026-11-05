@@ -4,10 +4,8 @@ A Bitcoin wallet for an E Ink phone. Black on white, Lato, nothing that slides.
 
 *Zeni* is the old word for a coin: small money, the kind you hand across.
 
-Current version: 0.1.4.
-
 Built for the [Mudita Kompakt](https://mudita.com/products/kompakt/), whose 4.3" panel has
-sixteen greys and a slow redraw, and used with a
+sixteen grays and a slow redraw, and used with a
 [Blockstream Jade](https://blockstream.com/jade/) over Bluetooth.
 
 ## Screenshots
@@ -137,16 +135,16 @@ permissions; zeni adds none of those.
 
 Your keys stay on your hardware wallet, or encrypted on the phone for a wallet kept there.
 
-## Licence
+## License
 
 Based on Blockstream Green, GPL-3.0, © Blockstream Corporation Inc. and contributors.
 
 **GNU General Public License v3.0 only**, as Blockstream publishes Green. See [LICENSE](LICENSE).
 The app shows the full text, the source link and everything it is built with under
-About, Licences; Privacy and Terms are there too ([PRIVACY.md](PRIVACY.md), [TERMS.md](TERMS.md)).
+About, Licenses; Privacy and Terms are there too ([PRIVACY.md](PRIVACY.md), [TERMS.md](TERMS.md)).
 
 Green is © Blockstream Corporation Inc. and contributors; zeni is a fork of it, and their
-copyright and licence stay with every part that is theirs. Blockstream's names and logo belong to
+copyright and license stay with every part that is theirs. Blockstream's names and logo belong to
 Blockstream and are not used here as this app's own; this app is not affiliated with or endorsed
 by Blockstream. Lato is © Łukasz Dziedzic, SIL Open Font License 1.1 ([LICENSES/OFL-1.1.txt](LICENSES/OFL-1.1.txt)).
 
