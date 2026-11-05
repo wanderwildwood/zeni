@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-env-logger-0-11-10",
+  "name": "env_logger 0.11.10",
+  "description": "Rust crate env_logger 0.11.10, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-cli/env_logger",
+  "licenses": [
+    "rust-env-logger-0-11-10-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The env_logger authors"
+  }
+}

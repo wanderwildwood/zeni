@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-async-compat-0-2-5",
+  "name": "async-compat",
+  "description": "Rust crate async-compat 0.2.5, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/smol-rs/async-compat",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-async-compat-0-2-5-mit"
+  ],
+  "organization": {
+    "name": "Stjepan Glavina"
+  }
+}

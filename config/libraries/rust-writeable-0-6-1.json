@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-writeable-0-6-1",
+  "name": "writeable 0.6.1",
+  "description": "Rust crate writeable 0.6.1, native code inside LWK (liblwk.so). License: Unicode-3.0.",
+  "website": "https://github.com/unicode-org/icu4x",
+  "licenses": [
+    "rust-writeable-0-6-1-unicode-3-0"
+  ],
+  "organization": {
+    "name": "The ICU4X Project Developers"
+  }
+}

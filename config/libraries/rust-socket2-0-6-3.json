@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-socket2-0-6-3",
+  "name": "socket2 0.6.3",
+  "description": "Rust crate socket2 0.6.3, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-lang/socket2",
+  "licenses": [
+    "rust-socket2-0-6-3-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Alex Crichton, Thomas de Zeeuw"
+  }
+}

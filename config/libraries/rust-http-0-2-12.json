@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-http-0-2-12",
+  "name": "http 0.2.12",
+  "description": "Rust crate http 0.2.12, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/hyperium/http",
+  "licenses": [
+    "rust-http-0-2-12-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Alex Crichton, Carl Lerche, Sean McArthur"
+  }
+}

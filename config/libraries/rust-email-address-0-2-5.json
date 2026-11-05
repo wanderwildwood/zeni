@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-email-address-0-2-5",
+  "name": "email_address",
+  "description": "Rust crate email_address 0.2.5, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/johnstonskj/rust-email_address.git",
+  "licenses": [
+    "rust-email-address-0-2-5-mit"
+  ],
+  "organization": {
+    "name": "Simon Johnston"
+  }
+}

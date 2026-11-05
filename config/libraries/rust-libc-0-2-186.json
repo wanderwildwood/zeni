@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-libc-0-2-186",
+  "name": "libc 0.2.186",
+  "description": "Rust crate libc 0.2.186, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-lang/libc",
+  "licenses": [
+    "rust-libc-0-2-186-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Rust Project Developers"
+  }
+}

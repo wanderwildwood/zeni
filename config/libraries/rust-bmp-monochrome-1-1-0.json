@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-bmp-monochrome-1-1-0",
+  "name": "bmp-monochrome",
+  "description": "Rust crate bmp-monochrome 1.1.0, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/RCasatta/bmp-monochrome",
+  "licenses": [
+    "rust-bmp-monochrome-1-1-0-mit"
+  ],
+  "organization": {
+    "name": "Riccardo Casatta"
+  }
+}

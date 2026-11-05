@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-poly1305-0-8-0",
+  "name": "poly1305",
+  "description": "Rust crate poly1305 0.8.0, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/RustCrypto/universal-hashes",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-poly1305-0-8-0-mit"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

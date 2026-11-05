@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-cipher-0-3-0",
-  "name": "cipher",
-  "description": "Rust crate cipher 0.3.0, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "name": "cipher 0.3.0",
+  "description": "Rust crate cipher 0.3.0, native code inside GDK (gdk_rust) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
   "website": "https://github.com/RustCrypto/traits",
   "licenses": [
     "rust-cipher-0-3-0-mit",

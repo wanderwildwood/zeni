@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-hashbrown-0-17-0",
-  "name": "hashbrown",
-  "description": "Rust crate hashbrown 0.17.0, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "name": "hashbrown 0.17.0",
+  "description": "Rust crate hashbrown 0.17.0, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
   "website": "https://github.com/rust-lang/hashbrown",
   "licenses": [
     "rust-hashbrown-0-17-0-mit",

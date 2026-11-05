@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-aes-gcm-siv-0-10-1",
-  "name": "aes-gcm-siv",
+  "name": "aes-gcm-siv 0.10.1",
   "description": "Rust crate aes-gcm-siv 0.10.1, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
   "website": "https://github.com/RustCrypto/AEADs",
   "licenses": [

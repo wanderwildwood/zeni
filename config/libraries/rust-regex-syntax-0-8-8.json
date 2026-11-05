@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-regex-syntax-0-8-8",
+  "name": "regex-syntax 0.8.8",
+  "description": "Rust crate regex-syntax 0.8.8, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-lang/regex",
+  "licenses": [
+    "rust-regex-syntax-0-8-8-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Rust Project Developers, Andrew Gallant"
+  }
+}

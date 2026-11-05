@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-async-stream-0-3-6",
+  "name": "async-stream",
+  "description": "Rust crate async-stream 0.3.6, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/tokio-rs/async-stream",
+  "licenses": [
+    "rust-async-stream-0-3-6-mit"
+  ],
+  "organization": {
+    "name": "Carl Lerche"
+  }
+}

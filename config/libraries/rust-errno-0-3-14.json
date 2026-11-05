@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-errno-0-3-14",
+  "name": "errno",
+  "description": "Rust crate errno 0.3.14, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/lambda-fairy/rust-errno",
+  "licenses": [
+    "rust-errno-0-3-14-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Chris Wong, Dan Gohman"
+  }
+}

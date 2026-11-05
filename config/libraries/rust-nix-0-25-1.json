@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-nix-0-25-1",
+  "name": "nix",
+  "description": "Rust crate nix 0.25.1, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/nix-rust/nix",
+  "licenses": [
+    "rust-nix-0-25-1-mit"
+  ],
+  "organization": {
+    "name": "The nix-rust Project Developers"
+  }
+}

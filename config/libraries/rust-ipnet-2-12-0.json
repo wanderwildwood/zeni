@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-ipnet-2-12-0",
+  "name": "ipnet 2.12.0",
+  "description": "Rust crate ipnet 2.12.0, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/krisprice/ipnet",
+  "licenses": [
+    "rust-ipnet-2-12-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Kris Price"
+  }
+}

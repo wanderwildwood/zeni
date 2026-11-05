@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-bit-vec-0-6-3",
+  "name": "bit-vec",
+  "description": "Rust crate bit-vec 0.6.3, native code inside the Greenlight SDK (libglsdk.so). License: MIT/Apache-2.0.",
+  "website": "https://github.com/contain-rs/bit-vec",
+  "licenses": [
+    "rust-bit-vec-0-6-3-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Alexis Beingessner"
+  }
+}

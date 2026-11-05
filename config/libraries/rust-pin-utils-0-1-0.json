@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-pin-utils-0-1-0",
+  "name": "pin-utils",
+  "description": "Rust crate pin-utils 0.1.0, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-lang-nursery/pin-utils",
+  "licenses": [
+    "rust-pin-utils-0-1-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Josef Brandl"
+  }
+}

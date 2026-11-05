@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-yoke-0-8-2",
+  "name": "yoke 0.8.2",
+  "description": "Rust crate yoke 0.8.2, native code inside the Greenlight SDK (libglsdk.so). License: Unicode-3.0.",
+  "website": "https://github.com/unicode-org/icu4x",
+  "licenses": [
+    "rust-yoke-0-8-2-unicode-3-0"
+  ],
+  "organization": {
+    "name": "Manish Goregaokar"
+  }
+}

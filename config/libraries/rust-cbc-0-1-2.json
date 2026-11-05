@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-cbc-0-1-2",
+  "name": "cbc",
+  "description": "Rust crate cbc 0.1.2, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/RustCrypto/block-modes",
+  "licenses": [
+    "rust-cbc-0-1-2-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

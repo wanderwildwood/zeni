@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-utf8parse-0-2-2",
+  "name": "utf8parse",
+  "description": "Rust crate utf8parse 0.2.2, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/alacritty/vte",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-utf8parse-0-2-2-mit"
+  ],
+  "organization": {
+    "name": "Joe Wilm, Christian Duerr"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "uniqueId": "rust-sct-0-7-1",
+  "name": "sct",
+  "description": "Rust crate sct 0.7.1, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR ISC OR MIT.",
+  "website": "https://github.com/rustls/sct.rs",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-sct-0-7-1-isc",
+    "rust-sct-0-7-1-mit"
+  ],
+  "organization": {
+    "name": "Joseph Birr-Pixton"
+  }
+}

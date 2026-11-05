@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-picky-6-3-0",
+  "name": "picky",
+  "description": "Rust crate picky 6.3.0, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/Devolutions/picky-rs",
+  "licenses": [
+    "rust-picky-6-3-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Benoît CORTIER, Jonathan Trepanier, François Dubois, Richard Markiewicz, Ionut Mihalcea, Kim Altintop"
+  }
+}

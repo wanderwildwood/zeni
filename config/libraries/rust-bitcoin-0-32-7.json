@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-bitcoin-0-32-7",
+  "name": "bitcoin 0.32.7",
+  "description": "Rust crate bitcoin 0.32.7, native code inside LWK (liblwk.so). License: CC0-1.0.",
+  "website": "https://github.com/rust-bitcoin/rust-bitcoin/",
+  "licenses": [
+    "rust-cc0-1-0"
+  ],
+  "organization": {
+    "name": "Andrew Poelstra"
+  }
+}

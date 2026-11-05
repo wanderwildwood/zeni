@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-ghash-0-5-1",
+  "name": "ghash 0.5.1",
+  "description": "Rust crate ghash 0.5.1, native code inside LWK (liblwk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/RustCrypto/universal-hashes",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-ghash-0-5-1-mit"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-http-body-0-4-6",
+  "name": "http-body 0.4.6",
+  "description": "Rust crate http-body 0.4.6, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/hyperium/http-body",
+  "licenses": [
+    "rust-http-body-0-4-6-mit"
+  ],
+  "organization": {
+    "name": "Carl Lerche, Lucio Franco, Sean McArthur"
+  }
+}

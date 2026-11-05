@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-webpki-roots-0-25-4",
   "name": "webpki-roots 0.25.4",
-  "description": "Rust crate webpki-roots 0.25.4, native code inside GDK (gdk_rust). License: MPL-2.0.",
+  "description": "Rust crate webpki-roots 0.25.4, native code inside GDK (gdk_rust), LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MPL-2.0.",
   "website": "https://github.com/rustls/webpki-roots",
   "licenses": [
     "rust-mpl-2-0"

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-itoa-1-0-15",
+  "name": "itoa 1.0.15",
+  "description": "Rust crate itoa 1.0.15, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/dtolnay/itoa",
+  "licenses": [
+    "rust-itoa-1-0-15-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "David Tolnay"
+  }
+}

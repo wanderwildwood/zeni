@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-anstyle-parse-0-2-7",
+  "name": "anstyle-parse 0.2.7",
+  "description": "Rust crate anstyle-parse 0.2.7, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-cli/anstyle.git",
+  "licenses": [
+    "rust-anstyle-parse-0-2-7-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The anstyle-parse authors"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-memchr-2-7-4",
-  "name": "memchr",
+  "name": "memchr 2.7.4",
   "description": "Rust crate memchr 2.7.4, native code inside GDK (gdk_rust). License: Unlicense OR MIT.",
   "website": "https://github.com/BurntSushi/memchr",
   "licenses": [

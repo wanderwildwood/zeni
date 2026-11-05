@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-base64ct-1-8-0",
+  "name": "base64ct",
+  "description": "Rust crate base64ct 1.8.0, native code inside LWK (liblwk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/RustCrypto/formats",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-base64ct-1-8-0-mit"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

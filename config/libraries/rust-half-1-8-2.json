@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-half-1-8-2",
-  "name": "half",
+  "name": "half 1.8.2",
   "description": "Rust crate half 1.8.2, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
   "website": "https://github.com/starkat99/half-rs",
   "licenses": [

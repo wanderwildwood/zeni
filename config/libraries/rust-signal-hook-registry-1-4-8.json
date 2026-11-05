@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-signal-hook-registry-1-4-8",
+  "name": "signal-hook-registry",
+  "description": "Rust crate signal-hook-registry 1.4.8, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/vorner/signal-hook",
+  "licenses": [
+    "rust-signal-hook-registry-1-4-8-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Michal 'vorner' Vaner, Masaki Hara"
+  }
+}

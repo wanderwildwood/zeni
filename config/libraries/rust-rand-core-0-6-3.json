@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-rand-core-0-6-3",
-  "name": "rand_core",
+  "name": "rand_core 0.6.3",
   "description": "Rust crate rand_core 0.6.3, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
   "website": "https://github.com/rust-random/rand",
   "licenses": [

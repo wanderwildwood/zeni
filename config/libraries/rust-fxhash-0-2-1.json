@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-fxhash-0-2-1",
+  "name": "fxhash",
+  "description": "Rust crate fxhash 0.2.1, native code inside LWK (liblwk.so). License: Apache-2.0/MIT.",
+  "website": "https://github.com/cbreeden/fxhash",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-fxhash-0-2-1-mit"
+  ],
+  "organization": {
+    "name": "cbreeden"
+  }
+}

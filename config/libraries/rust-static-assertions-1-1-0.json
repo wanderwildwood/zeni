@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-static-assertions-1-1-0",
+  "name": "static_assertions",
+  "description": "Rust crate static_assertions 1.1.0, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/nvzqz/static-assertions-rs",
+  "licenses": [
+    "rust-static-assertions-1-1-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Nikolai Vazquez"
+  }
+}

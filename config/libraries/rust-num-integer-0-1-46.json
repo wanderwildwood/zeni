@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-num-integer-0-1-46",
+  "name": "num-integer",
+  "description": "Rust crate num-integer 0.1.46, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-num/num-integer",
+  "licenses": [
+    "rust-num-integer-0-1-46-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Rust Project Developers"
+  }
+}

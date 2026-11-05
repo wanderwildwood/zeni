@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-bytes-1-11-1",
   "name": "bytes",
-  "description": "Rust crate bytes 1.11.1, native code inside GDK (gdk_rust). License: MIT.",
+  "description": "Rust crate bytes 1.11.1, native code inside GDK (gdk_rust), LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT.",
   "website": "https://github.com/tokio-rs/bytes",
   "licenses": [
     "rust-bytes-1-11-1-mit"

@@ -1,0 +1,7 @@
+{
+  "hash": "rust-siphasher-0-3-11-mit",
+  "name": "MIT (siphasher 0.3.11)",
+  "url": "https://crates.io/crates/siphasher/0.3.11",
+  "content": "Copyright (c) Frank Denis\n(the crate ships no MIT license file, nor does its repository at the published commit (https://github.com/jedisct1/rust-siphash/tree/55ff379462517d8ec790bd9ce5382d2a1c364ee0); its Cargo.toml says MIT/Apache-2.0. This is the standard MIT License text, with the holders named in its Cargo.toml.)\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+  "spdxId": "MIT"
+}

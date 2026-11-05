@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-smallvec-1-15-1",
+  "name": "smallvec 1.15.1",
+  "description": "Rust crate smallvec 1.15.1, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/servo/rust-smallvec",
+  "licenses": [
+    "rust-smallvec-1-15-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Servo Project Developers"
+  }
+}

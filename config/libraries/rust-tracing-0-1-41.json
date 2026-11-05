@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-tracing-0-1-41",
+  "name": "tracing 0.1.41",
+  "description": "Rust crate tracing 0.1.41, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/tokio-rs/tracing",
+  "licenses": [
+    "rust-tracing-0-1-41-mit"
+  ],
+  "organization": {
+    "name": "Eliza Weisman, Tokio Contributors"
+  }
+}

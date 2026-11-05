@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-dnssec-prover-0-6-8",
+  "name": "dnssec-prover",
+  "description": "Rust crate dnssec-prover 0.6.8, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://git.bitcoin.ninja/index.cgi?p=dnssec-prover",
+  "licenses": [
+    "rust-dnssec-prover-0-6-8-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Matt Corallo"
+  }
+}

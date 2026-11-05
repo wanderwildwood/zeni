@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-fnv-1-0-7",
   "name": "fnv",
-  "description": "Rust crate fnv 1.0.7, native code inside GDK (gdk_rust). License: Apache-2.0 / MIT.",
+  "description": "Rust crate fnv 1.0.7, native code inside GDK (gdk_rust), LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: Apache-2.0 / MIT.",
   "website": "https://github.com/servo/rust-fnv",
   "licenses": [
     "rust-apache-2-0",

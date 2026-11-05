@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-utf8-iter-1-0-4",
   "name": "utf8_iter",
-  "description": "Rust crate utf8_iter 1.0.4, native code inside GDK (gdk_rust). License: Apache-2.0 OR MIT.",
+  "description": "Rust crate utf8_iter 1.0.4, native code inside GDK (gdk_rust), LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR MIT.",
   "website": "https://github.com/hsivonen/utf8_iter",
   "licenses": [
     "rust-apache-2-0",

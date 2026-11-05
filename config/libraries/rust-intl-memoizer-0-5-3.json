@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-intl-memoizer-0-5-3",
+  "name": "intl-memoizer",
+  "description": "Rust crate intl-memoizer 0.5.3, native code inside LWK (liblwk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/projectfluent/fluent-rs",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-intl-memoizer-0-5-3-mit"
+  ],
+  "organization": {
+    "name": "Caleb Maclennan, Bruce Mitchener <bruce.mitchener@gmail.com, Zibi Braniecki, Staś Małolepszy"
+  }
+}

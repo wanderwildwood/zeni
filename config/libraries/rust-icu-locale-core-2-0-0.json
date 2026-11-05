@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-icu-locale-core-2-0-0",
+  "name": "icu_locale_core 2.0.0",
+  "description": "Rust crate icu_locale_core 2.0.0, native code inside LWK (liblwk.so). License: Unicode-3.0.",
+  "website": "https://github.com/unicode-org/icu4x",
+  "licenses": [
+    "rust-icu-locale-core-2-0-0-unicode-3-0"
+  ],
+  "organization": {
+    "name": "The ICU4X Project Developers"
+  }
+}

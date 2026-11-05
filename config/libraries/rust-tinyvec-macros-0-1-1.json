@@ -1,0 +1,14 @@
+{
+  "uniqueId": "rust-tinyvec-macros-0-1-1",
+  "name": "tinyvec_macros",
+  "description": "Rust crate tinyvec_macros 0.1.1, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0 OR Zlib.",
+  "website": "https://github.com/Soveu/tinyvec_macros",
+  "licenses": [
+    "rust-tinyvec-macros-0-1-1-mit",
+    "rust-apache-2-0",
+    "rust-tinyvec-macros-0-1-1-zlib"
+  ],
+  "organization": {
+    "name": "Soveu"
+  }
+}

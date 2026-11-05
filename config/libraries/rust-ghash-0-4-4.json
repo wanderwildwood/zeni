@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-ghash-0-4-4",
+  "name": "ghash 0.4.4",
+  "description": "Rust crate ghash 0.4.4, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/RustCrypto/universal-hashes",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-ghash-0-4-4-mit"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

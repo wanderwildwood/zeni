@@ -1,0 +1,14 @@
+{
+  "uniqueId": "rust-rustls-0-21-12",
+  "name": "rustls 0.21.12",
+  "description": "Rust crate rustls 0.21.12, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR ISC OR MIT.",
+  "website": "https://github.com/rustls/rustls",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-rustls-0-21-12-isc",
+    "rust-rustls-0-21-12-mit"
+  ],
+  "organization": {
+    "name": "The rustls authors"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-pem-1-1-1",
+  "name": "pem 1.1.1",
+  "description": "Rust crate pem 1.1.1, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/jcreekmore/pem-rs.git",
+  "licenses": [
+    "rust-pem-1-1-1-mit"
+  ],
+  "organization": {
+    "name": "Jonathan Creekmore"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-rand-core-0-6-4",
+  "name": "rand_core 0.6.4",
+  "description": "Rust crate rand_core 0.6.4, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-random/rand",
+  "licenses": [
+    "rust-rand-core-0-6-4-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Rand Project Developers, The Rust Project Developers"
+  }
+}

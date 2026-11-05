@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-litemap-0-7-4",
-  "name": "litemap",
+  "name": "litemap 0.7.4",
   "description": "Rust crate litemap 0.7.4, native code inside GDK (gdk_rust). License: Unicode-3.0.",
   "website": "https://github.com/unicode-org/icu4x",
   "licenses": [

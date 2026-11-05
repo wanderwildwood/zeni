@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-normalize-line-endings-0-3-0",
+  "name": "normalize-line-endings",
+  "description": "Rust crate normalize-line-endings 0.3.0, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0.",
+  "website": "https://github.com/derekdreery/normalize-line-endings",
+  "licenses": [
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Richard Dodd"
+  }
+}

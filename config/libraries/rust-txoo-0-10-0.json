@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-txoo-0-10-0",
+  "name": "txoo",
+  "description": "Rust crate txoo 0.10.0, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0.",
+  "website": "https://gitlab.com/lightning-signer/txoo",
+  "licenses": [
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Devrandom, Ken Sedgwick"
+  }
+}

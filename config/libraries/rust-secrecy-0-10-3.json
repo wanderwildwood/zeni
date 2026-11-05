@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-secrecy-0-10-3",
+  "name": "secrecy",
+  "description": "Rust crate secrecy 0.10.3, native code inside LWK (liblwk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/iqlusioninc/crates/tree/main/secrecy",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-secrecy-0-10-3-mit"
+  ],
+  "organization": {
+    "name": "Tony Arcieri"
+  }
+}

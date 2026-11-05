@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-tinystr-0-8-3",
+  "name": "tinystr 0.8.3",
+  "description": "Rust crate tinystr 0.8.3, native code inside the Greenlight SDK (libglsdk.so). License: Unicode-3.0.",
+  "website": "https://github.com/unicode-org/icu4x",
+  "licenses": [
+    "rust-tinystr-0-8-3-unicode-3-0"
+  ],
+  "organization": {
+    "name": "The ICU4X Project Developers"
+  }
+}

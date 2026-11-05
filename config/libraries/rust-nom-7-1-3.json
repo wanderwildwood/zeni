@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-nom-7-1-3",
+  "name": "nom",
+  "description": "Rust crate nom 7.1.3, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/Geal/nom",
+  "licenses": [
+    "rust-nom-7-1-3-mit"
+  ],
+  "organization": {
+    "name": "contact@geoffroycouprie.com"
+  }
+}

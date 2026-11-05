@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-utf-8-0-7-6",
+  "name": "utf-8",
+  "description": "Rust crate utf-8 0.7.6, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/SimonSapin/rust-utf8",
+  "licenses": [
+    "rust-utf-8-0-7-6-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Simon Sapin"
+  }
+}

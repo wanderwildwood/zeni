@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-bcder-0-7-6",
+  "name": "bcder",
+  "description": "Rust crate bcder 0.7.6, native code inside the Greenlight SDK (libglsdk.so). License: BSD-3-Clause.",
+  "website": "https://github.com/nlnetlabs/bcder",
+  "licenses": [
+    "rust-bcder-0-7-6-bsd-3-clause"
+  ],
+  "organization": {
+    "name": "NLnet Labs"
+  }
+}

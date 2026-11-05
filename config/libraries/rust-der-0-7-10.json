@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-der-0-7-10",
+  "name": "der",
+  "description": "Rust crate der 0.7.10, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/RustCrypto/formats/tree/master/der",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-der-0-7-10-mit"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

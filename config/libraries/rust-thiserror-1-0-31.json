@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-thiserror-1-0-31",
-  "name": "thiserror",
+  "name": "thiserror 1.0.31",
   "description": "Rust crate thiserror 1.0.31, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
   "website": "https://github.com/dtolnay/thiserror",
   "licenses": [

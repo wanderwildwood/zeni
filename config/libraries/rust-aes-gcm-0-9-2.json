@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-aes-gcm-0-9-2",
+  "name": "aes-gcm 0.9.2",
+  "description": "Rust crate aes-gcm 0.9.2, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/RustCrypto/AEADs",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-aes-gcm-0-9-2-mit"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

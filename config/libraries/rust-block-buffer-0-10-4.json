@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-block-buffer-0-10-4",
-  "name": "block-buffer",
-  "description": "Rust crate block-buffer 0.10.4, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "name": "block-buffer 0.10.4",
+  "description": "Rust crate block-buffer 0.10.4, native code inside GDK (gdk_rust), LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
   "website": "https://github.com/RustCrypto/utils",
   "licenses": [
     "rust-block-buffer-0-10-4-mit",

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-half-1-8-3",
+  "name": "half 1.8.3",
+  "description": "Rust crate half 1.8.3, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/starkat99/half-rs",
+  "licenses": [
+    "rust-half-1-8-3-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Kathryn Long"
+  }
+}

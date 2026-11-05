@@ -1,0 +1,14 @@
+{
+  "uniqueId": "rust-tinyvec-1-11-0",
+  "name": "tinyvec 1.11.0",
+  "description": "Rust crate tinyvec 1.11.0, native code inside the Greenlight SDK (libglsdk.so). License: Zlib OR Apache-2.0 OR MIT.",
+  "website": "https://github.com/Lokathor/tinyvec",
+  "licenses": [
+    "rust-tinyvec-1-11-0-zlib",
+    "rust-apache-2-0",
+    "rust-tinyvec-1-11-0-mit"
+  ],
+  "organization": {
+    "name": "Lokathor"
+  }
+}

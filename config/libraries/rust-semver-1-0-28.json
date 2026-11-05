@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-semver-1-0-28",
+  "name": "semver 1.0.28",
+  "description": "Rust crate semver 1.0.28, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/dtolnay/semver",
+  "licenses": [
+    "rust-semver-1-0-28-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "David Tolnay"
+  }
+}

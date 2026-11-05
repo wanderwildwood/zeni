@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-writeable-0-5-5",
-  "name": "writeable",
+  "name": "writeable 0.5.5",
   "description": "Rust crate writeable 0.5.5, native code inside GDK (gdk_rust). License: Unicode-3.0.",
   "website": "https://github.com/unicode-org/icu4x",
   "licenses": [

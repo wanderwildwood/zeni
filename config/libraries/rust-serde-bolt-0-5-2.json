@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-serde-bolt-0-5-2",
+  "name": "serde_bolt",
+  "description": "Rust crate serde_bolt 0.5.2, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0.",
+  "website": "https://gitlab.com/lightning-signer/serde-bolt",
+  "licenses": [
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The serde_bolt authors"
+  }
+}

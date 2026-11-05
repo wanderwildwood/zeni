@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-unicase-2-8-1",
+  "name": "unicase",
+  "description": "Rust crate unicase 2.8.1, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/seanmonstar/unicase",
+  "licenses": [
+    "rust-unicase-2-8-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Sean McArthur"
+  }
+}

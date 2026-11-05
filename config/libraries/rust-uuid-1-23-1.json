@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-uuid-1-23-1",
+  "name": "uuid",
+  "description": "Rust crate uuid 1.23.1, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/uuid-rs/uuid",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-uuid-1-23-1-mit"
+  ],
+  "organization": {
+    "name": "Ashley Mannix, Dylan DPC, Hunar Roop Kahlon"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-tower-0-5-2",
+  "name": "tower 0.5.2",
+  "description": "Rust crate tower 0.5.2, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/tower-rs/tower",
+  "licenses": [
+    "rust-tower-0-5-2-mit"
+  ],
+  "organization": {
+    "name": "Tower Maintainers"
+  }
+}

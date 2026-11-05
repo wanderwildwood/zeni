@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-picky-asn1-0-10-1",
+  "name": "picky-asn1 0.10.1",
+  "description": "Rust crate picky-asn1 0.10.1, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/Devolutions/picky-rs",
+  "licenses": [
+    "rust-picky-asn1-0-10-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Benoît CORTIER, Alexandr Yusuk, Brian Maher"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-axum-0-6-20",
+  "name": "axum",
+  "description": "Rust crate axum 0.6.20, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/tokio-rs/axum",
+  "licenses": [
+    "rust-axum-0-6-20-mit"
+  ],
+  "organization": {
+    "name": "The axum authors"
+  }
+}

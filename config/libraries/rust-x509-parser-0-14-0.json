@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-x509-parser-0-14-0",
+  "name": "x509-parser",
+  "description": "Rust crate x509-parser 0.14.0, native code inside the Greenlight SDK (libglsdk.so). License: MIT/Apache-2.0.",
+  "website": "https://github.com/rusticata/x509-parser.git",
+  "licenses": [
+    "rust-x509-parser-0-14-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Pierre Chifflier"
+  }
+}

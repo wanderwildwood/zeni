@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-cfg-if-1-0-0",
-  "name": "cfg-if",
+  "name": "cfg-if 1.0.0",
   "description": "Rust crate cfg-if 1.0.0, native code inside GDK (gdk_rust). License: MIT/Apache-2.0.",
   "website": "https://github.com/alexcrichton/cfg-if",
   "licenses": [

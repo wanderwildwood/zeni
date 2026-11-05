@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-simple-asn1-0-5-4",
+  "name": "simple_asn1",
+  "description": "Rust crate simple_asn1 0.5.4, native code inside the Greenlight SDK (libglsdk.so). License: ISC.",
+  "website": "https://github.com/acw/simple_asn1",
+  "licenses": [
+    "rust-simple-asn1-0-5-4-isc"
+  ],
+  "organization": {
+    "name": "Adam Wick"
+  }
+}

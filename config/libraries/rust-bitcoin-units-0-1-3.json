@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-bitcoin-units-0-1-3",
+  "name": "bitcoin-units 0.1.3",
+  "description": "Rust crate bitcoin-units 0.1.3, native code inside the Greenlight SDK (libglsdk.so). License: CC0-1.0.",
+  "website": "https://github.com/rust-bitcoin/rust-bitcoin/",
+  "licenses": [
+    "rust-cc0-1-0"
+  ],
+  "organization": {
+    "name": "Andrew Poelstra"
+  }
+}

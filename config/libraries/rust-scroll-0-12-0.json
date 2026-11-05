@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-scroll-0-12-0",
+  "name": "scroll",
+  "description": "Rust crate scroll 0.12.0, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/m4b/scroll",
+  "licenses": [
+    "rust-scroll-0-12-0-mit"
+  ],
+  "organization": {
+    "name": "m4b, Ted Mielczarek"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-cpufeatures-0-2-17",
+  "name": "cpufeatures 0.2.17",
+  "description": "Rust crate cpufeatures 0.2.17, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/RustCrypto/utils",
+  "licenses": [
+    "rust-cpufeatures-0-2-17-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

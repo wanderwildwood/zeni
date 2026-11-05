@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-tracing-0-1-44",
+  "name": "tracing 0.1.44",
+  "description": "Rust crate tracing 0.1.44, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/tokio-rs/tracing",
+  "licenses": [
+    "rust-tracing-0-1-44-mit"
+  ],
+  "organization": {
+    "name": "Eliza Weisman, Tokio Contributors"
+  }
+}

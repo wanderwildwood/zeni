@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-fluent-langneg-0-13-0",
+  "name": "fluent-langneg",
+  "description": "Rust crate fluent-langneg 0.13.0, native code inside LWK (liblwk.so). License: Apache-2.0.",
+  "website": "https://github.com/projectfluent/fluent-langneg-rs",
+  "licenses": [
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Zibi Braniecki"
+  }
+}

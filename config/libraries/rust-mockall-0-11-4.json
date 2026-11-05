@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-mockall-0-11-4",
+  "name": "mockall",
+  "description": "Rust crate mockall 0.11.4, native code inside the Greenlight SDK (libglsdk.so). License: MIT/Apache-2.0.",
+  "website": "https://github.com/asomers/mockall",
+  "licenses": [
+    "rust-mockall-0-11-4-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Alan Somers"
+  }
+}

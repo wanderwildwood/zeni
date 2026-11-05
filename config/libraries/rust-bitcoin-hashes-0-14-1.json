@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-bitcoin-hashes-0-14-1",
+  "name": "bitcoin_hashes 0.14.1",
+  "description": "Rust crate bitcoin_hashes 0.14.1, native code inside the Greenlight SDK (libglsdk.so). License: CC0-1.0.",
+  "website": "https://github.com/rust-bitcoin/rust-bitcoin",
+  "licenses": [
+    "rust-cc0-1-0"
+  ],
+  "organization": {
+    "name": "Andrew Poelstra"
+  }
+}

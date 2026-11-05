@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-rustc-demangle-0-1-27",
+  "name": "rustc-demangle",
+  "description": "Rust crate rustc-demangle 0.1.27, native code inside the Greenlight SDK (libglsdk.so). License: MIT/Apache-2.0.",
+  "website": "https://github.com/rust-lang/rustc-demangle",
+  "licenses": [
+    "rust-rustc-demangle-0-1-27-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Alex Crichton"
+  }
+}

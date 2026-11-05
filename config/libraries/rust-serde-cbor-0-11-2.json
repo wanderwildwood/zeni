@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-serde-cbor-0-11-2",
   "name": "serde_cbor",
-  "description": "Rust crate serde_cbor 0.11.2, native code inside GDK (gdk_rust). License: MIT/Apache-2.0.",
+  "description": "Rust crate serde_cbor 0.11.2, native code inside GDK (gdk_rust) and LWK (liblwk.so). License: MIT/Apache-2.0.",
   "website": "https://github.com/pyfisch/cbor",
   "licenses": [
     "rust-serde-cbor-0-11-2-mit",

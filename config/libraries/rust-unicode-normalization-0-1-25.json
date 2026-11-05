@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-unicode-normalization-0-1-25",
+  "name": "unicode-normalization 0.1.25",
+  "description": "Rust crate unicode-normalization 0.1.25, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/unicode-rs/unicode-normalization",
+  "licenses": [
+    "rust-unicode-normalization-0-1-25-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "kwantam, Manish Goregaokar"
+  }
+}

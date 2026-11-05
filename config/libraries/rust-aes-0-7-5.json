@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-aes-0-7-5",
-  "name": "aes",
-  "description": "Rust crate aes 0.7.5, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "name": "aes 0.7.5",
+  "description": "Rust crate aes 0.7.5, native code inside GDK (gdk_rust) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
   "website": "https://github.com/RustCrypto/block-ciphers",
   "licenses": [
     "rust-aes-0-7-5-mit",

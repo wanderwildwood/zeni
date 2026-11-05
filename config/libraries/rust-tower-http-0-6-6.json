@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-tower-http-0-6-6",
+  "name": "tower-http",
+  "description": "Rust crate tower-http 0.6.6, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/tower-rs/tower-http",
+  "licenses": [
+    "rust-tower-http-0-6-6-mit"
+  ],
+  "organization": {
+    "name": "Tower Maintainers"
+  }
+}

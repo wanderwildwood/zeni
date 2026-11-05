@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-block-padding-0-3-3",
+  "name": "block-padding 0.3.3",
+  "description": "Rust crate block-padding 0.3.3, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/RustCrypto/utils",
+  "licenses": [
+    "rust-block-padding-0-3-3-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

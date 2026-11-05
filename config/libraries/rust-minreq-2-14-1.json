@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-minreq-2-14-1",
+  "name": "minreq",
+  "description": "Rust crate minreq 2.14.1, native code inside LWK (liblwk.so). License: ISC.",
+  "website": "https://github.com/neonmoe/minreq",
+  "licenses": [
+    "rust-minreq-2-14-1-isc"
+  ],
+  "organization": {
+    "name": "Jens Pitkanen"
+  }
+}

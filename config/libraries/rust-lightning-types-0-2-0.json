@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-lightning-types-0-2-0",
+  "name": "lightning-types 0.2.0",
+  "description": "Rust crate lightning-types 0.2.0, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/lightningdevkit/rust-lightning/",
+  "licenses": [
+    "rust-lightning-types-0-2-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Matt Corallo"
+  }
+}

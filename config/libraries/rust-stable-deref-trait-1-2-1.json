@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-stable-deref-trait-1-2-1",
+  "name": "stable_deref_trait 1.2.1",
+  "description": "Rust crate stable_deref_trait 1.2.1, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/storyyeller/stable_deref_trait",
+  "licenses": [
+    "rust-stable-deref-trait-1-2-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Robert Grosse"
+  }
+}

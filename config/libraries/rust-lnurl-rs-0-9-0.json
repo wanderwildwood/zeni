@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-lnurl-rs-0-9-0",
+  "name": "lnurl-rs",
+  "description": "Rust crate lnurl-rs 0.9.0, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/benthecarman/lnurl-rs/",
+  "licenses": [
+    "rust-lnurl-rs-0-9-0-mit"
+  ],
+  "organization": {
+    "name": "Ben Carman"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-time-core-0-1-8",
   "name": "time-core",
-  "description": "Rust crate time-core 0.1.8, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "description": "Rust crate time-core 0.1.8, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
   "website": "https://github.com/time-rs/time",
   "licenses": [
     "rust-time-core-0-1-8-mit",

@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-opaque-debug-0-3-0",
-  "name": "opaque-debug",
+  "name": "opaque-debug 0.3.0",
   "description": "Rust crate opaque-debug 0.3.0, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
   "website": "https://github.com/RustCrypto/utils",
   "licenses": [

@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-tokio-1-52-1",
+  "name": "tokio 1.52.1",
+  "description": "Rust crate tokio 1.52.1, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/tokio-rs/tokio",
+  "licenses": [
+    "rust-tokio-1-52-1-mit"
+  ],
+  "organization": {
+    "name": "Tokio Contributors"
+  }
+}

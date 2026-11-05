@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-itertools-0-10-5",
+  "name": "itertools",
+  "description": "Rust crate itertools 0.10.5, native code inside the Greenlight SDK (libglsdk.so). License: MIT/Apache-2.0.",
+  "website": "https://github.com/rust-itertools/itertools",
+  "licenses": [
+    "rust-itertools-0-10-5-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "bluss"
+  }
+}

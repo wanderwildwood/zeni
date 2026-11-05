@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-icu-properties-2-2-0",
+  "name": "icu_properties 2.2.0",
+  "description": "Rust crate icu_properties 2.2.0, native code inside the Greenlight SDK (libglsdk.so). License: Unicode-3.0.",
+  "website": "https://github.com/unicode-org/icu4x",
+  "licenses": [
+    "rust-icu-properties-2-2-0-unicode-3-0"
+  ],
+  "organization": {
+    "name": "The ICU4X Project Developers"
+  }
+}

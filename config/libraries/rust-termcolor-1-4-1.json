@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-termcolor-1-4-1",
+  "name": "termcolor",
+  "description": "Rust crate termcolor 1.4.1, native code inside the Greenlight SDK (libglsdk.so). License: Unlicense OR MIT.",
+  "website": "https://github.com/BurntSushi/termcolor",
+  "licenses": [
+    "rust-unlicense",
+    "rust-termcolor-1-4-1-mit"
+  ],
+  "organization": {
+    "name": "Andrew Gallant"
+  }
+}

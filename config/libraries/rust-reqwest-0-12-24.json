@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-reqwest-0-12-24",
+  "name": "reqwest 0.12.24",
+  "description": "Rust crate reqwest 0.12.24, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/seanmonstar/reqwest",
+  "licenses": [
+    "rust-reqwest-0-12-24-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Sean McArthur"
+  }
+}

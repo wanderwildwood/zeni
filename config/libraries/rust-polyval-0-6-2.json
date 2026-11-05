@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-polyval-0-6-2",
+  "name": "polyval 0.6.2",
+  "description": "Rust crate polyval 0.6.2, native code inside LWK (liblwk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/RustCrypto/universal-hashes",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-polyval-0-6-2-mit"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

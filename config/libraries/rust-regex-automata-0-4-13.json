@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-regex-automata-0-4-13",
+  "name": "regex-automata 0.4.13",
+  "description": "Rust crate regex-automata 0.4.13, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-lang/regex",
+  "licenses": [
+    "rust-regex-automata-0-4-13-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Rust Project Developers, Andrew Gallant"
+  }
+}

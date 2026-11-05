@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-linux-raw-sys-0-4-15",
+  "name": "linux-raw-sys 0.4.15",
+  "description": "Rust crate linux-raw-sys 0.4.15, native code inside LWK (liblwk.so). License: Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT.",
+  "website": "https://github.com/sunfishcode/linux-raw-sys",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-linux-raw-sys-0-4-15-mit"
+  ],
+  "organization": {
+    "name": "Dan Gohman"
+  }
+}

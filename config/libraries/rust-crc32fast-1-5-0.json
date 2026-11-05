@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-crc32fast-1-5-0",
+  "name": "crc32fast 1.5.0",
+  "description": "Rust crate crc32fast 1.5.0, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/srijs/rust-crc32fast",
+  "licenses": [
+    "rust-crc32fast-1-5-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Sam Rijs, Alex Crichton"
+  }
+}

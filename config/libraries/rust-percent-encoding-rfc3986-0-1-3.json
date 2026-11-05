@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-percent-encoding-rfc3986-0-1-3",
+  "name": "percent-encoding-rfc3986",
+  "description": "Rust crate percent-encoding-rfc3986 0.1.3, native code inside LWK (liblwk.so). License: MIT/Apache-2.0.",
+  "website": "https://github.com/Kixunil/percent-encoding-rfc3986/",
+  "licenses": [
+    "rust-percent-encoding-rfc3986-0-1-3-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Martin Habovstiak, The rust-url developers"
+  }
+}

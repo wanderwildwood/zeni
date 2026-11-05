@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-anstyle-1-0-14",
+  "name": "anstyle 1.0.14",
+  "description": "Rust crate anstyle 1.0.14, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-cli/anstyle.git",
+  "licenses": [
+    "rust-anstyle-1-0-14-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The anstyle authors"
+  }
+}

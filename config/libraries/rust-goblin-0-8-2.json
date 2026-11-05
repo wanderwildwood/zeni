@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-goblin-0-8-2",
+  "name": "goblin",
+  "description": "Rust crate goblin 0.8.2, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/m4b/goblin",
+  "licenses": [
+    "rust-goblin-0-8-2-mit"
+  ],
+  "organization": {
+    "name": "m4b, seu, Will Glynn, Philip Craig, Lzu Tao"
+  }
+}

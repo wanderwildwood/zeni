@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-url-2-5-8",
+  "name": "url 2.5.8",
+  "description": "Rust crate url 2.5.8, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/servo/rust-url",
+  "licenses": [
+    "rust-url-2-5-8-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The rust-url developers"
+  }
+}

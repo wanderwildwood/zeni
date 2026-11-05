@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-pulldown-cmark-0-9-6",
+  "name": "pulldown-cmark",
+  "description": "Rust crate pulldown-cmark 0.9.6, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/raphlinus/pulldown-cmark",
+  "licenses": [
+    "rust-pulldown-cmark-0-9-6-mit"
+  ],
+  "organization": {
+    "name": "Raph Levien, Marcus Klaas de Vries"
+  }
+}

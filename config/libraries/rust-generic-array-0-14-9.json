@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-generic-array-0-14-9",
+  "name": "generic-array 0.14.9",
+  "description": "Rust crate generic-array 0.14.9, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/fizyk20/generic-array.git",
+  "licenses": [
+    "rust-generic-array-0-14-9-mit"
+  ],
+  "organization": {
+    "name": "Bartłomiej Kamiński, Aaron Trent"
+  }
+}

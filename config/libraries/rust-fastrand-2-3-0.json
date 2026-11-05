@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-fastrand-2-3-0",
+  "name": "fastrand 2.3.0",
+  "description": "Rust crate fastrand 2.3.0, native code inside LWK (liblwk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/smol-rs/fastrand",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-fastrand-2-3-0-mit"
+  ],
+  "organization": {
+    "name": "Stjepan Glavina"
+  }
+}

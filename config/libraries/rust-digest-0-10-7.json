@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-digest-0-10-7",
-  "name": "digest",
-  "description": "Rust crate digest 0.10.7, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "name": "digest 0.10.7",
+  "description": "Rust crate digest 0.10.7, native code inside GDK (gdk_rust), LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
   "website": "https://github.com/RustCrypto/traits",
   "licenses": [
     "rust-digest-0-10-7-mit",

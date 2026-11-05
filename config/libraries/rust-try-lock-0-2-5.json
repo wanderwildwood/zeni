@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-try-lock-0-2-5",
+  "name": "try-lock",
+  "description": "Rust crate try-lock 0.2.5, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/seanmonstar/try-lock",
+  "licenses": [
+    "rust-try-lock-0-2-5-mit"
+  ],
+  "organization": {
+    "name": "Sean McArthur"
+  }
+}

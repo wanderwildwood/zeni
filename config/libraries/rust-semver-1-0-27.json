@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-semver-1-0-27",
+  "name": "semver 1.0.27",
+  "description": "Rust crate semver 1.0.27, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/dtolnay/semver",
+  "licenses": [
+    "rust-semver-1-0-27-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "David Tolnay"
+  }
+}

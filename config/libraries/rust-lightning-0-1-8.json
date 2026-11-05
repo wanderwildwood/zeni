@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-lightning-0-1-8",
+  "name": "lightning 0.1.8",
+  "description": "Rust crate lightning 0.1.8, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/lightningdevkit/rust-lightning/",
+  "licenses": [
+    "rust-lightning-0-1-8-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Matt Corallo"
+  }
+}

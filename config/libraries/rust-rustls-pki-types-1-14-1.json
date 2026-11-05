@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-rustls-pki-types-1-14-1",
+  "name": "rustls-pki-types 1.14.1",
+  "description": "Rust crate rustls-pki-types 1.14.1, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rustls/pki-types",
+  "licenses": [
+    "rust-rustls-pki-types-1-14-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The rustls-pki-types authors"
+  }
+}

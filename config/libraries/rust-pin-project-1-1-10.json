@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-pin-project-1-1-10",
+  "name": "pin-project 1.1.10",
+  "description": "Rust crate pin-project 1.1.10, native code inside LWK (liblwk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/taiki-e/pin-project",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-pin-project-1-1-10-mit"
+  ],
+  "organization": {
+    "name": "The pin-project authors"
+  }
+}

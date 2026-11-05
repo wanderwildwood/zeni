@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-cipher-0-4-4",
+  "name": "cipher 0.4.4",
+  "description": "Rust crate cipher 0.4.4, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/RustCrypto/traits",
+  "licenses": [
+    "rust-cipher-0-4-4-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

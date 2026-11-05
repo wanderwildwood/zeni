@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-chacha20-0-9-1",
+  "name": "chacha20",
+  "description": "Rust crate chacha20 0.9.1, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/RustCrypto/stream-ciphers",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-chacha20-0-9-1-mit"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

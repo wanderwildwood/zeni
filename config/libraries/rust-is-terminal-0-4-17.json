@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-is-terminal-0-4-17",
+  "name": "is-terminal",
+  "description": "Rust crate is-terminal 0.4.17, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/sunfishcode/is-terminal",
+  "licenses": [
+    "rust-is-terminal-0-4-17-mit"
+  ],
+  "organization": {
+    "name": "softprops, Dan Gohman"
+  }
+}

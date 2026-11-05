@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-cookie-factory-0-3-3",
+  "name": "cookie-factory",
+  "description": "Rust crate cookie-factory 0.3.3, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/rust-bakery/cookie-factory",
+  "licenses": [
+    "rust-cookie-factory-0-3-3-mit"
+  ],
+  "organization": {
+    "name": "Geoffroy Couprie, Pierre Chifflier"
+  }
+}

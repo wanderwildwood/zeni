@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-iana-time-zone-0-1-65",
+  "name": "iana-time-zone 0.1.65",
+  "description": "Rust crate iana-time-zone 0.1.65, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/strawlab/iana-time-zone",
+  "licenses": [
+    "rust-iana-time-zone-0-1-65-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Andrew Straw, René Kijewski, Ryan Lopopolo"
+  }
+}

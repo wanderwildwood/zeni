@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-yasna-0-5-2",
+  "name": "yasna",
+  "description": "Rust crate yasna 0.5.2, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/qnighy/yasna.rs",
+  "licenses": [
+    "rust-yasna-0-5-2-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Masaki Hara"
+  }
+}

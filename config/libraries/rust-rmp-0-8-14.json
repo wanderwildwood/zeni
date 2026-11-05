@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-rmp-0-8-14",
+  "name": "rmp",
+  "description": "Rust crate rmp 0.8.14, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/3Hren/msgpack-rust",
+  "licenses": [
+    "rust-rmp-0-8-14-mit"
+  ],
+  "organization": {
+    "name": "Evgeny Safronov"
+  }
+}

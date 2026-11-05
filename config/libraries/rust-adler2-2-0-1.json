@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-adler2-2-0-1",
   "name": "adler2",
-  "description": "Rust crate adler2 2.0.1, native code inside GDK (gdk_rust). License: 0BSD OR MIT OR Apache-2.0.",
+  "description": "Rust crate adler2 2.0.1, native code inside GDK (gdk_rust), LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: 0BSD OR MIT OR Apache-2.0.",
   "website": "https://github.com/oyvindln/adler2",
   "licenses": [
     "rust-0bsd",

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-log-0-4-32",
+  "name": "log 0.4.32",
+  "description": "Rust crate log 0.4.32, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-lang/log",
+  "licenses": [
+    "rust-log-0-4-32-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Rust Project Developers"
+  }
+}

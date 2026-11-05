@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-num-bigint-0-4-6",
+  "name": "num-bigint",
+  "description": "Rust crate num-bigint 0.4.6, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-num/num-bigint",
+  "licenses": [
+    "rust-num-bigint-0-4-6-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Rust Project Developers"
+  }
+}

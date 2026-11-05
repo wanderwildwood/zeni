@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-indexmap-1-9-3",
+  "name": "indexmap 1.9.3",
+  "description": "Rust crate indexmap 1.9.3, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/bluss/indexmap",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-indexmap-1-9-3-mit"
+  ],
+  "organization": {
+    "name": "The indexmap authors"
+  }
+}

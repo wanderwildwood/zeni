@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-indexmap-2-11-4",
+  "name": "indexmap 2.11.4",
+  "description": "Rust crate indexmap 2.11.4, native code inside LWK (liblwk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/indexmap-rs/indexmap",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-indexmap-2-11-4-mit"
+  ],
+  "organization": {
+    "name": "The indexmap authors"
+  }
+}

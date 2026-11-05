@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-atomic-waker-1-1-2",
+  "name": "atomic-waker",
+  "description": "Rust crate atomic-waker 1.1.2, native code inside LWK (liblwk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/smol-rs/atomic-waker",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-atomic-waker-1-1-2-mit"
+  ],
+  "organization": {
+    "name": "Stjepan Glavina, Contributors to futures-rs"
+  }
+}

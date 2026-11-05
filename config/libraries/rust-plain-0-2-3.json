@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-plain-0-2-3",
+  "name": "plain",
+  "description": "Rust crate plain 0.2.3, native code inside LWK (liblwk.so). License: MIT/Apache-2.0.",
+  "website": "https://github.com/randomites/plain",
+  "licenses": [
+    "rust-plain-0-2-3-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "jzr"
+  }
+}

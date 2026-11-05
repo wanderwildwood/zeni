@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-mio-1-0-4",
+  "name": "mio 1.0.4",
+  "description": "Rust crate mio 1.0.4, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/tokio-rs/mio",
+  "licenses": [
+    "rust-mio-1-0-4-mit"
+  ],
+  "organization": {
+    "name": "Carl Lerche, Thomas de Zeeuw, Tokio Contributors"
+  }
+}

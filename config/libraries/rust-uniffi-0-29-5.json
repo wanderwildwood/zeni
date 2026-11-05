@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-uniffi-0-29-5",
+  "name": "uniffi 0.29.5",
+  "description": "Rust crate uniffi 0.29.5, native code inside the Greenlight SDK (libglsdk.so). License: MPL-2.0.",
+  "website": "https://github.com/mozilla/uniffi-rs",
+  "licenses": [
+    "rust-mpl-2-0"
+  ],
+  "organization": {
+    "name": "The uniffi authors"
+  }
+}

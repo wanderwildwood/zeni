@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-lazy-static-1-4-0",
-  "name": "lazy_static",
+  "name": "lazy_static 1.4.0",
   "description": "Rust crate lazy_static 1.4.0, native code inside GDK (gdk_rust). License: MIT/Apache-2.0.",
   "website": "https://github.com/rust-lang-nursery/lazy-static.rs",
   "licenses": [

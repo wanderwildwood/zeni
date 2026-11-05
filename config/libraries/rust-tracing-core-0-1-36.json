@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-tracing-core-0-1-36",
+  "name": "tracing-core 0.1.36",
+  "description": "Rust crate tracing-core 0.1.36, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/tokio-rs/tracing",
+  "licenses": [
+    "rust-tracing-core-0-1-36-mit"
+  ],
+  "organization": {
+    "name": "Tokio Contributors"
+  }
+}

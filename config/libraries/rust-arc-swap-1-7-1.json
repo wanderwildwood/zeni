@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-arc-swap-1-7-1",
+  "name": "arc-swap",
+  "description": "Rust crate arc-swap 1.7.1, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/vorner/arc-swap",
+  "licenses": [
+    "rust-arc-swap-1-7-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Michal 'vorner' Vaner"
+  }
+}

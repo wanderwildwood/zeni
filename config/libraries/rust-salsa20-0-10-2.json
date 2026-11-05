@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-salsa20-0-10-2",
+  "name": "salsa20",
+  "description": "Rust crate salsa20 0.10.2, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/RustCrypto/stream-ciphers",
+  "licenses": [
+    "rust-salsa20-0-10-2-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

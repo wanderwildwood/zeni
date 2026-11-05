@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-self-cell-1-2-0",
+  "name": "self_cell 1.2.0",
+  "description": "Rust crate self_cell 1.2.0, native code inside LWK (liblwk.so). License: Apache-2.0.",
+  "website": "https://github.com/Voultapher/self_cell",
+  "licenses": [
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Lukas Bergdoll"
+  }
+}

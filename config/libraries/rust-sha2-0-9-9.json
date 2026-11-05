@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-sha2-0-9-9",
+  "name": "sha2 0.9.9",
+  "description": "Rust crate sha2 0.9.9, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/RustCrypto/hashes",
+  "licenses": [
+    "rust-sha2-0-9-9-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

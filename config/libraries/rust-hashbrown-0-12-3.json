@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-hashbrown-0-12-3",
+  "name": "hashbrown 0.12.3",
+  "description": "Rust crate hashbrown 0.12.3, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-lang/hashbrown",
+  "licenses": [
+    "rust-hashbrown-0-12-3-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Amanieu d'Antras"
+  }
+}

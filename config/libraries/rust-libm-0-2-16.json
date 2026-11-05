@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-libm-0-2-16",
+  "name": "libm 0.2.16",
+  "description": "Rust crate libm 0.2.16, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/rust-lang/compiler-builtins",
+  "licenses": [
+    "rust-libm-0-2-16-mit"
+  ],
+  "organization": {
+    "name": "Alex Crichton, Amanieu d'Antras, Jorge Aparicio, Trevor Gross"
+  }
+}

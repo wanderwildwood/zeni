@@ -1,0 +1,14 @@
+{
+  "uniqueId": "rust-rustls-0-23-35",
+  "name": "rustls 0.23.35",
+  "description": "Rust crate rustls 0.23.35, native code inside LWK (liblwk.so). License: Apache-2.0 OR ISC OR MIT.",
+  "website": "https://github.com/rustls/rustls",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-rustls-0-23-35-isc",
+    "rust-rustls-0-23-35-mit"
+  ],
+  "organization": {
+    "name": "The rustls authors"
+  }
+}

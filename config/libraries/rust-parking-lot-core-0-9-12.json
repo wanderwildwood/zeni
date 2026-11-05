@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-parking-lot-core-0-9-12",
+  "name": "parking_lot_core",
+  "description": "Rust crate parking_lot_core 0.9.12, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/Amanieu/parking_lot",
+  "licenses": [
+    "rust-parking-lot-core-0-9-12-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Amanieu d'Antras"
+  }
+}

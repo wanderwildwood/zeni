@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-subtle-2-5-0",
-  "name": "subtle",
+  "name": "subtle 2.5.0",
   "description": "Rust crate subtle 2.5.0, native code inside GDK (gdk_rust). License: BSD-3-Clause.",
   "website": "https://github.com/dalek-cryptography/subtle",
   "licenses": [

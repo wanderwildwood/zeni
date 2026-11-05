@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-base64-0-21-7",
+  "name": "base64 0.21.7",
+  "description": "Rust crate base64 0.21.7, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/marshallpierce/rust-base64",
+  "licenses": [
+    "rust-base64-0-21-7-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Alice Maz, Marshall Pierce"
+  }
+}

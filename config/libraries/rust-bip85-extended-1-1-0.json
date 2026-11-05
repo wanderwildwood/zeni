@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-bip85-extended-1-1-0",
+  "name": "bip85_extended",
+  "description": "Rust crate bip85_extended 1.1.0, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/ethicnology/rust-bip85",
+  "licenses": [
+    "rust-bip85-extended-1-1-0-mit"
+  ],
+  "organization": {
+    "name": "Rita Kitic, Jules Azad EMERY"
+  }
+}

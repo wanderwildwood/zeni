@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-libc-0-2-177",
+  "name": "libc 0.2.177",
+  "description": "Rust crate libc 0.2.177, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-lang/libc",
+  "licenses": [
+    "rust-libc-0-2-177-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Rust Project Developers"
+  }
+}

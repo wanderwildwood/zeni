@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-addr2line-0-25-1",
+  "name": "addr2line",
+  "description": "Rust crate addr2line 0.25.1, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/gimli-rs/addr2line",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-addr2line-0-25-1-mit"
+  ],
+  "organization": {
+    "name": "The addr2line authors"
+  }
+}

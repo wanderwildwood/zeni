@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-bitcoind-0-36-1",
+  "name": "bitcoind",
+  "description": "Rust crate bitcoind 0.36.1, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/RCasatta/bitcoind",
+  "licenses": [
+    "rust-bitcoind-0-36-1-mit"
+  ],
+  "organization": {
+    "name": "Riccardo Casatta"
+  }
+}

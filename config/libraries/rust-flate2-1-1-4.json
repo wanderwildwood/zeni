@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-flate2-1-1-4",
+  "name": "flate2 1.1.4",
+  "description": "Rust crate flate2 1.1.4, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-lang/flate2-rs",
+  "licenses": [
+    "rust-flate2-1-1-4-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Alex Crichton, Josh Triplett"
+  }
+}

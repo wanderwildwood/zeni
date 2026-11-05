@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-rustc-hash-2-1-1",
+  "name": "rustc-hash 2.1.1",
+  "description": "Rust crate rustc-hash 2.1.1, native code inside LWK (liblwk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/rust-lang/rustc-hash",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-rustc-hash-2-1-1-mit"
+  ],
+  "organization": {
+    "name": "The Rust Project Developers"
+  }
+}

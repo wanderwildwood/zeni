@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-httparse-1-10-1",
   "name": "httparse",
-  "description": "Rust crate httparse 1.10.1, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "description": "Rust crate httparse 1.10.1, native code inside GDK (gdk_rust), LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
   "website": "https://github.com/seanmonstar/httparse",
   "licenses": [
     "rust-httparse-1-10-1-mit",

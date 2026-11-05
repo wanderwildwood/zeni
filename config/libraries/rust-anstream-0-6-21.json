@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-anstream-0-6-21",
+  "name": "anstream 0.6.21",
+  "description": "Rust crate anstream 0.6.21, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-cli/anstyle.git",
+  "licenses": [
+    "rust-anstream-0-6-21-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The anstream authors"
+  }
+}

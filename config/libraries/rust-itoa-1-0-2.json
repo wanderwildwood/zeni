@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-itoa-1-0-2",
-  "name": "itoa",
+  "name": "itoa 1.0.2",
   "description": "Rust crate itoa 1.0.2, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
   "website": "https://github.com/dtolnay/itoa",
   "licenses": [

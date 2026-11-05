@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-which-4-4-2",
+  "name": "which",
+  "description": "Rust crate which 4.4.2, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/harryfei/which-rs.git",
+  "licenses": [
+    "rust-which-4-4-2-mit"
+  ],
+  "organization": {
+    "name": "Harry Fei"
+  }
+}

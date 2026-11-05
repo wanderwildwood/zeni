@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-same-file-1-0-6",
+  "name": "same-file",
+  "description": "Rust crate same-file 1.0.6, native code inside LWK (liblwk.so). License: Unlicense/MIT.",
+  "website": "https://github.com/BurntSushi/same-file",
+  "licenses": [
+    "rust-unlicense",
+    "rust-same-file-1-0-6-mit"
+  ],
+  "organization": {
+    "name": "Andrew Gallant"
+  }
+}

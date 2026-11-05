@@ -1,0 +1,14 @@
+{
+  "uniqueId": "rust-hyper-rustls-0-24-2",
+  "name": "hyper-rustls 0.24.2",
+  "description": "Rust crate hyper-rustls 0.24.2, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR ISC OR MIT.",
+  "website": "https://github.com/rustls/hyper-rustls",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-hyper-rustls-0-24-2-isc",
+    "rust-hyper-rustls-0-24-2-mit"
+  ],
+  "organization": {
+    "name": "The hyper-rustls authors"
+  }
+}

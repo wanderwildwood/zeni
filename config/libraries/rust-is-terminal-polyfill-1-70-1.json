@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-is-terminal-polyfill-1-70-1",
+  "name": "is_terminal_polyfill 1.70.1",
+  "description": "Rust crate is_terminal_polyfill 1.70.1, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/polyfill-rs/is_terminal_polyfill",
+  "licenses": [
+    "rust-is-terminal-polyfill-1-70-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The is_terminal_polyfill authors"
+  }
+}

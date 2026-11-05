@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-serde-json-1-0-145",
+  "name": "serde_json 1.0.145",
+  "description": "Rust crate serde_json 1.0.145, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/serde-rs/json",
+  "licenses": [
+    "rust-serde-json-1-0-145-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Erick Tryzelaar, David Tolnay"
+  }
+}

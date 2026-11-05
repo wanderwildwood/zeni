@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-i18n-embed-0-15-4",
+  "name": "i18n-embed",
+  "description": "Rust crate i18n-embed 0.15.4, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/kellpossible/cargo-i18n/tree/master/i18n-embed",
+  "licenses": [
+    "rust-i18n-embed-0-15-4-mit"
+  ],
+  "organization": {
+    "name": "Luke Frisken"
+  }
+}

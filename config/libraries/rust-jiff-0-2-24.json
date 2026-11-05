@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-jiff-0-2-24",
+  "name": "jiff 0.2.24",
+  "description": "Rust crate jiff 0.2.24, native code inside the Greenlight SDK (libglsdk.so). License: Unlicense OR MIT.",
+  "website": "https://github.com/BurntSushi/jiff",
+  "licenses": [
+    "rust-unlicense",
+    "rust-jiff-0-2-24-mit"
+  ],
+  "organization": {
+    "name": "Andrew Gallant"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-hex-conservative-0-1-2",
+  "name": "hex-conservative 0.1.2",
+  "description": "Rust crate hex-conservative 0.1.2, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: CC0-1.0.",
+  "website": "https://github.com/rust-bitcoin/hex-conservative",
+  "licenses": [
+    "rust-cc0-1-0"
+  ],
+  "organization": {
+    "name": "Andrew Poelstra"
+  }
+}

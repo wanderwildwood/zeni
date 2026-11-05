@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-memchr-2-7-6",
+  "name": "memchr 2.7.6",
+  "description": "Rust crate memchr 2.7.6, native code inside LWK (liblwk.so). License: Unlicense OR MIT.",
+  "website": "https://github.com/BurntSushi/memchr",
+  "licenses": [
+    "rust-unlicense",
+    "rust-memchr-2-7-6-mit"
+  ],
+  "organization": {
+    "name": "Andrew Gallant, bluss"
+  }
+}

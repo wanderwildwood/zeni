@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-compression-core-0-4-31",
+  "name": "compression-core",
+  "description": "Rust crate compression-core 0.4.31, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/Nullus157/async-compression",
+  "licenses": [
+    "rust-compression-core-0-4-31-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Wim Looman, Allen Bui"
+  }
+}

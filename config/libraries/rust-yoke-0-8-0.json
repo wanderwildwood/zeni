@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-yoke-0-8-0",
+  "name": "yoke 0.8.0",
+  "description": "Rust crate yoke 0.8.0, native code inside LWK (liblwk.so). License: Unicode-3.0.",
+  "website": "https://github.com/unicode-org/icu4x",
+  "licenses": [
+    "rust-yoke-0-8-0-unicode-3-0"
+  ],
+  "organization": {
+    "name": "Manish Goregaokar"
+  }
+}

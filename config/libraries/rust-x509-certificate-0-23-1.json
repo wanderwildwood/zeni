@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-x509-certificate-0-23-1",
+  "name": "x509-certificate",
+  "description": "Rust crate x509-certificate 0.23.1, native code inside the Greenlight SDK (libglsdk.so). License: MPL-2.0.",
+  "website": "https://github.com/indygreg/cryptography-rs.git",
+  "licenses": [
+    "rust-mpl-2-0"
+  ],
+  "organization": {
+    "name": "Gregory Szorc"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-aes-gcm-0-10-3",
+  "name": "aes-gcm 0.10.3",
+  "description": "Rust crate aes-gcm 0.10.3, native code inside LWK (liblwk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/RustCrypto/AEADs",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-aes-gcm-0-10-3-mit"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

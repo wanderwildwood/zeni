@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-vls-protocol-signer-0-14-0",
+  "name": "vls-protocol-signer",
+  "description": "Rust crate vls-protocol-signer 0.14.0, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0.",
+  "website": "https://gitlab.com/lightning-signer/validating-lightning-signer",
+  "licenses": [
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Devrandom, Ken Sedgwick"
+  }
+}

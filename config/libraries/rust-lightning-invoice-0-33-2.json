@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-lightning-invoice-0-33-2",
+  "name": "lightning-invoice 0.33.2",
+  "description": "Rust crate lightning-invoice 0.33.2, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/lightningdevkit/rust-lightning/",
+  "licenses": [
+    "rust-lightning-invoice-0-33-2-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Sebastian Geisler"
+  }
+}

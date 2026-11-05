@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-jsonrpc-0-18-0",
+  "name": "jsonrpc",
+  "description": "Rust crate jsonrpc 0.18.0, native code inside LWK (liblwk.so). License: CC0-1.0.",
+  "website": "https://github.com/apoelstra/rust-jsonrpc/",
+  "licenses": [
+    "rust-cc0-1-0"
+  ],
+  "organization": {
+    "name": "Andrew Poelstra"
+  }
+}

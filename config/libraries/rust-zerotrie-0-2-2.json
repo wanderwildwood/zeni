@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-zerotrie-0-2-2",
+  "name": "zerotrie 0.2.2",
+  "description": "Rust crate zerotrie 0.2.2, native code inside LWK (liblwk.so). License: Unicode-3.0.",
+  "website": "https://github.com/unicode-org/icu4x",
+  "licenses": [
+    "rust-zerotrie-0-2-2-unicode-3-0"
+  ],
+  "organization": {
+    "name": "The ICU4X Project Developers"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-spin-0-9-8",
+  "name": "spin 0.9.8",
+  "description": "Rust crate spin 0.9.8, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/mvdnes/spin-rs.git",
+  "licenses": [
+    "rust-spin-0-9-8-mit"
+  ],
+  "organization": {
+    "name": "Mathijs van de Nes, John Ericson, Joshua Barretto"
+  }
+}

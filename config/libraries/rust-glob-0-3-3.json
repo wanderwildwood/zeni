@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-glob-0-3-3",
+  "name": "glob",
+  "description": "Rust crate glob 0.3.3, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-lang/glob",
+  "licenses": [
+    "rust-glob-0-3-3-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Rust Project Developers"
+  }
+}

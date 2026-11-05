@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-tokio-tungstenite-wasm-0-6-0",
+  "name": "tokio-tungstenite-wasm",
+  "description": "Rust crate tokio-tungstenite-wasm 0.6.0, native code inside LWK (liblwk.so). License: as in its file LICENSE (no SPDX id given).",
+  "website": "https://github.com/TannerRogalsky/tokio-tungstenite-wasm",
+  "licenses": [
+    "rust-tokio-tungstenite-wasm-0-6-0-license-file"
+  ],
+  "organization": {
+    "name": "The tokio-tungstenite-wasm authors"
+  }
+}

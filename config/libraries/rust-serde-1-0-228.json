@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-serde-1-0-228",
   "name": "serde",
-  "description": "Rust crate serde 1.0.228, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "description": "Rust crate serde 1.0.228, native code inside GDK (gdk_rust), LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
   "website": "https://github.com/serde-rs/serde",
   "licenses": [
     "rust-serde-1-0-228-mit",

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-fluent-bundle-0-15-3",
+  "name": "fluent-bundle",
+  "description": "Rust crate fluent-bundle 0.15.3, native code inside LWK (liblwk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/projectfluent/fluent-rs",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-fluent-bundle-0-15-3-mit"
+  ],
+  "organization": {
+    "name": "Zibi Braniecki, Staś Małolepszy"
+  }
+}

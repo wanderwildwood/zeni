@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-age-0-11-1",
+  "name": "age",
+  "description": "Rust crate age 0.11.1, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/str4d/rage",
+  "licenses": [
+    "rust-age-0-11-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Jack Grigg"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-home-0-5-11",
+  "name": "home",
+  "description": "Rust crate home 0.5.11, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-lang/cargo",
+  "licenses": [
+    "rust-home-0-5-11-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Brian Anderson"
+  }
+}

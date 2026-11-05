@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-serde-json-1-0-149",
-  "name": "serde_json",
-  "description": "Rust crate serde_json 1.0.149, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "name": "serde_json 1.0.149",
+  "description": "Rust crate serde_json 1.0.149, native code inside GDK (gdk_rust) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
   "website": "https://github.com/serde-rs/json",
   "licenses": [
     "rust-serde-json-1-0-149-mit",

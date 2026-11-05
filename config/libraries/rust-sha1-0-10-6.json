@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-sha1-0-10-6",
+  "name": "sha1",
+  "description": "Rust crate sha1 0.10.6, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/RustCrypto/hashes",
+  "licenses": [
+    "rust-sha1-0-10-6-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

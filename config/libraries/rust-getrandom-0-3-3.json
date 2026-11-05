@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-getrandom-0-3-3",
+  "name": "getrandom 0.3.3",
+  "description": "Rust crate getrandom 0.3.3, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-random/getrandom",
+  "licenses": [
+    "rust-getrandom-0-3-3-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Rand Project Developers"
+  }
+}

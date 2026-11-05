@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-x25519-dalek-2-0-1",
+  "name": "x25519-dalek",
+  "description": "Rust crate x25519-dalek 2.0.1, native code inside LWK (liblwk.so). License: BSD-3-Clause.",
+  "website": "https://github.com/dalek-cryptography/curve25519-dalek/tree/main/x25519-dalek",
+  "licenses": [
+    "rust-x25519-dalek-2-0-1-bsd-3-clause"
+  ],
+  "organization": {
+    "name": "Isis Lovecruft, DebugSteven, Henry de Valence"
+  }
+}

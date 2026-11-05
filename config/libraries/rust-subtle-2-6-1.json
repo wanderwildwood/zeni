@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-subtle-2-6-1",
+  "name": "subtle 2.6.1",
+  "description": "Rust crate subtle 2.6.1, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: BSD-3-Clause.",
+  "website": "https://github.com/dalek-cryptography/subtle",
+  "licenses": [
+    "rust-subtle-2-6-1-bsd-3-clause"
+  ],
+  "organization": {
+    "name": "Isis Lovecruft, Henry de Valence"
+  }
+}

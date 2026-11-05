@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-boltz-client-0-3-1",
+  "name": "boltz-client",
+  "description": "Rust crate boltz-client 0.3.1, native code inside LWK (liblwk.so). License: MIT. Built from https://github.com/SatoshiPortal/boltz-rust/tree/702ce85a58af528858dca4fb9a6fd91f4f5f7ec3.",
+  "website": "https://github.com/SatoshiPortal/boltz-rust",
+  "licenses": [
+    "rust-boltz-client-0-3-1-mit"
+  ],
+  "organization": {
+    "name": "i5hi, Rajarshi Maitra"
+  }
+}

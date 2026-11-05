@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-tokio-1-48-0",
+  "name": "tokio 1.48.0",
+  "description": "Rust crate tokio 1.48.0, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/tokio-rs/tokio",
+  "licenses": [
+    "rust-tokio-1-48-0-mit"
+  ],
+  "organization": {
+    "name": "Tokio Contributors"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-base85-2-0-0",
+  "name": "base85",
+  "description": "Rust crate base85 2.0.0, native code inside LWK (liblwk.so). License: MPL-2.0-no-copyleft-exception.",
+  "website": "https://github.com/darkwyrm/base85",
+  "licenses": [
+    "rust-mpl-2-0-no-copyleft-exception"
+  ],
+  "organization": {
+    "name": "Jon Yoder"
+  }
+}

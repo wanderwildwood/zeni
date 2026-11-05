@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-want-0-3-1",
+  "name": "want",
+  "description": "Rust crate want 0.3.1, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/seanmonstar/want",
+  "licenses": [
+    "rust-want-0-3-1-mit"
+  ],
+  "organization": {
+    "name": "Sean McArthur"
+  }
+}

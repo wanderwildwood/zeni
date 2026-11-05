@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-rmp-serde-1-3-0",
+  "name": "rmp-serde",
+  "description": "Rust crate rmp-serde 1.3.0, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/3Hren/msgpack-rust",
+  "licenses": [
+    "rust-rmp-serde-1-3-0-mit"
+  ],
+  "organization": {
+    "name": "Evgeny Safronov"
+  }
+}

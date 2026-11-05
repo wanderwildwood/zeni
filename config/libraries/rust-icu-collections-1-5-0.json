@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-icu-collections-1-5-0",
-  "name": "icu_collections",
+  "name": "icu_collections 1.5.0",
   "description": "Rust crate icu_collections 1.5.0, native code inside GDK (gdk_rust). License: Unicode-3.0.",
   "website": "https://github.com/unicode-org/icu4x",
   "licenses": [

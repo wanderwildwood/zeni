@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-const-oid-0-9-6",
+  "name": "const-oid",
+  "description": "Rust crate const-oid 0.9.6, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/RustCrypto/formats/tree/master/const-oid",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-const-oid-0-9-6-mit"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

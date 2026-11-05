@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-rustix-1-1-4",
+  "name": "rustix 1.1.4",
+  "description": "Rust crate rustix 1.1.4, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT.",
+  "website": "https://github.com/bytecodealliance/rustix",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-rustix-1-1-4-mit"
+  ],
+  "organization": {
+    "name": "Dan Gohman, Jakub Konka"
+  }
+}

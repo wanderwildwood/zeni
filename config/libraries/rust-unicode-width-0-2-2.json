@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-unicode-width-0-2-2",
+  "name": "unicode-width",
+  "description": "Rust crate unicode-width 0.2.2, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/unicode-rs/unicode-width",
+  "licenses": [
+    "rust-unicode-width-0-2-2-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "kwantam, Manish Goregaokar"
+  }
+}

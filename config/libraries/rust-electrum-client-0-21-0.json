@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-electrum-client-0-21-0",
+  "name": "electrum-client 0.21.0",
+  "description": "Rust crate electrum-client 0.21.0, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/MagicalBitcoin/rust-electrum-client",
+  "licenses": [
+    "rust-electrum-client-0-21-0-mit"
+  ],
+  "organization": {
+    "name": "Alekos Filini"
+  }
+}

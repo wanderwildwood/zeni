@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-float-cmp-0-9-0",
+  "name": "float-cmp",
+  "description": "Rust crate float-cmp 0.9.0, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/mikedilger/float-cmp",
+  "licenses": [
+    "rust-float-cmp-0-9-0-mit"
+  ],
+  "organization": {
+    "name": "Mike Dilger"
+  }
+}

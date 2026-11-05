@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-regex-syntax-0-8-10",
+  "name": "regex-syntax 0.8.10",
+  "description": "Rust crate regex-syntax 0.8.10, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-lang/regex",
+  "licenses": [
+    "rust-regex-syntax-0-8-10-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Rust Project Developers, Andrew Gallant"
+  }
+}

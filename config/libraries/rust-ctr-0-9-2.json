@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-ctr-0-9-2",
+  "name": "ctr 0.9.2",
+  "description": "Rust crate ctr 0.9.2, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/RustCrypto/block-modes",
+  "licenses": [
+    "rust-ctr-0-9-2-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

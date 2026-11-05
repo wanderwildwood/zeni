@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-difflib-0-4-0",
+  "name": "difflib",
+  "description": "Rust crate difflib 0.4.0, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/DimaKudosh/difflib",
+  "licenses": [
+    "rust-difflib-0-4-0-mit"
+  ],
+  "organization": {
+    "name": "Dima Kudosh"
+  }
+}

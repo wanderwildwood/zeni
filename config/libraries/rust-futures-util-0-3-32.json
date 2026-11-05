@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-futures-util-0-3-32",
+  "name": "futures-util 0.3.32",
+  "description": "Rust crate futures-util 0.3.32, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-lang/futures-rs",
+  "licenses": [
+    "rust-futures-util-0-3-32-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The futures-util authors"
+  }
+}

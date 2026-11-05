@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-qr-code-2-0-0",
+  "name": "qr_code",
+  "description": "Rust crate qr_code 2.0.0, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/RCasatta/qr_code",
+  "licenses": [
+    "rust-qr-code-2-0-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "kennytm, Riccardo Casatta"
+  }
+}

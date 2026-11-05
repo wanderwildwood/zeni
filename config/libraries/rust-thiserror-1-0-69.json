@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-thiserror-1-0-69",
+  "name": "thiserror 1.0.69",
+  "description": "Rust crate thiserror 1.0.69, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/dtolnay/thiserror",
+  "licenses": [
+    "rust-thiserror-1-0-69-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "David Tolnay"
+  }
+}

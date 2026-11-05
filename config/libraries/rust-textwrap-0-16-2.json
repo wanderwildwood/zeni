@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-textwrap-0-16-2",
+  "name": "textwrap",
+  "description": "Rust crate textwrap 0.16.2, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/mgeisler/textwrap",
+  "licenses": [
+    "rust-textwrap-0-16-2-mit"
+  ],
+  "organization": {
+    "name": "Martin Geisler"
+  }
+}

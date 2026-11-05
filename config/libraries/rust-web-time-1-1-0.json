@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-web-time-1-1-0",
+  "name": "web-time",
+  "description": "Rust crate web-time 1.1.0, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/daxpedda/web-time",
+  "licenses": [
+    "rust-web-time-1-1-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The web-time authors"
+  }
+}

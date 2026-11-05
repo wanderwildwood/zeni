@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-serde-urlencoded-0-7-1",
+  "name": "serde_urlencoded",
+  "description": "Rust crate serde_urlencoded 0.7.1, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT/Apache-2.0.",
+  "website": "https://github.com/nox/serde_urlencoded",
+  "licenses": [
+    "rust-serde-urlencoded-0-7-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Anthony Ramine"
+  }
+}

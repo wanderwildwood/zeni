@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-hex-0-4-3",
+  "name": "hex",
+  "description": "Rust crate hex 0.4.3, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/KokaKiwi/rust-hex",
+  "licenses": [
+    "rust-hex-0-4-3-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "KokaKiwi"
+  }
+}

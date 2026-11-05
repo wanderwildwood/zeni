@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-object-0-37-3",
+  "name": "object",
+  "description": "Rust crate object 0.37.3, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/gimli-rs/object",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-object-0-37-3-mit"
+  ],
+  "organization": {
+    "name": "The object authors"
+  }
+}

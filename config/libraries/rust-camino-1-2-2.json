@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-camino-1-2-2",
+  "name": "camino 1.2.2",
+  "description": "Rust crate camino 1.2.2, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/camino-rs/camino",
+  "licenses": [
+    "rust-camino-1-2-2-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Without Boats, Ashley Williams, Steve Klabnik, Rain"
+  }
+}

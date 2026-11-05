@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-icu-properties-data-2-0-1",
+  "name": "icu_properties_data 2.0.1",
+  "description": "Rust crate icu_properties_data 2.0.1, native code inside LWK (liblwk.so). License: Unicode-3.0.",
+  "website": "https://github.com/unicode-org/icu4x",
+  "licenses": [
+    "rust-icu-properties-data-2-0-1-unicode-3-0"
+  ],
+  "organization": {
+    "name": "The ICU4X Project Developers"
+  }
+}

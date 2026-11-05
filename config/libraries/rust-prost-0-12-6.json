@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-prost-0-12-6",
+  "name": "prost",
+  "description": "Rust crate prost 0.12.6, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0.",
+  "website": "https://github.com/tokio-rs/prost",
+  "licenses": [
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Dan Burkert, Lucio Franco, Casper Meijn, Tokio Contributors"
+  }
+}

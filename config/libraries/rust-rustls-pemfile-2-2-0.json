@@ -1,0 +1,14 @@
+{
+  "uniqueId": "rust-rustls-pemfile-2-2-0",
+  "name": "rustls-pemfile 2.2.0",
+  "description": "Rust crate rustls-pemfile 2.2.0, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR ISC OR MIT.",
+  "website": "https://github.com/rustls/pemfile",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-rustls-pemfile-2-2-0-isc",
+    "rust-rustls-pemfile-2-2-0-mit"
+  ],
+  "organization": {
+    "name": "The rustls-pemfile authors"
+  }
+}

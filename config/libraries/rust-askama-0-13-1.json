@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-askama-0-13-1",
+  "name": "askama",
+  "description": "Rust crate askama 0.13.1, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/askama-rs/askama",
+  "licenses": [
+    "rust-askama-0-13-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The askama authors"
+  }
+}

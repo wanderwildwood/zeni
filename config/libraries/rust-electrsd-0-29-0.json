@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-electrsd-0-29-0",
+  "name": "electrsd",
+  "description": "Rust crate electrsd 0.29.0, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/RCasatta/electrsd",
+  "licenses": [
+    "rust-electrsd-0-29-0-mit"
+  ],
+  "organization": {
+    "name": "Riccardo Casatta"
+  }
+}

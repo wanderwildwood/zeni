@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-generic-array-0-14-7",
+  "name": "generic-array 0.14.7",
+  "description": "Rust crate generic-array 0.14.7, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/fizyk20/generic-array.git",
+  "licenses": [
+    "rust-generic-array-0-14-7-mit"
+  ],
+  "organization": {
+    "name": "Bartłomiej Kamiński, Aaron Trent"
+  }
+}

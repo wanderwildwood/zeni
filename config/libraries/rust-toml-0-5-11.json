@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-toml-0-5-11",
+  "name": "toml",
+  "description": "Rust crate toml 0.5.11, native code inside LWK (liblwk.so). License: MIT/Apache-2.0.",
+  "website": "https://github.com/toml-rs/toml",
+  "licenses": [
+    "rust-toml-0-5-11-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Alex Crichton"
+  }
+}

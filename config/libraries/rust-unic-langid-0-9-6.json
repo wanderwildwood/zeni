@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-unic-langid-0-9-6",
+  "name": "unic-langid",
+  "description": "Rust crate unic-langid 0.9.6, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/zbraniecki/unic-locale",
+  "licenses": [
+    "rust-unic-langid-0-9-6-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Zibi Braniecki"
+  }
+}

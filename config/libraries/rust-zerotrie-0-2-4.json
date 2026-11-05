@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-zerotrie-0-2-4",
+  "name": "zerotrie 0.2.4",
+  "description": "Rust crate zerotrie 0.2.4, native code inside the Greenlight SDK (libglsdk.so). License: Unicode-3.0.",
+  "website": "https://github.com/unicode-org/icu4x",
+  "licenses": [
+    "rust-zerotrie-0-2-4-unicode-3-0"
+  ],
+  "organization": {
+    "name": "The ICU4X Project Developers"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-bip39-2-2-0",
+  "name": "bip39 2.2.0",
+  "description": "Rust crate bip39 2.2.0, native code inside LWK (liblwk.so). License: CC0-1.0.",
+  "website": "https://github.com/rust-bitcoin/rust-bip39/",
+  "licenses": [
+    "rust-cc0-1-0"
+  ],
+  "organization": {
+    "name": "Steven Roose"
+  }
+}

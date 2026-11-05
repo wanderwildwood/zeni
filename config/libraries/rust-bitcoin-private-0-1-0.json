@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-bitcoin-private-0-1-0",
   "name": "bitcoin-private",
-  "description": "Rust crate bitcoin-private 0.1.0, native code inside GDK (gdk_rust). License: CC0-1.0.",
+  "description": "Rust crate bitcoin-private 0.1.0, native code inside GDK (gdk_rust) and LWK (liblwk.so). License: CC0-1.0.",
   "website": "https://github.com/rust-bitcoin/rust-bitcoin/",
   "licenses": [
     "rust-cc0-1-0"

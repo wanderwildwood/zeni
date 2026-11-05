@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-sync-wrapper-0-1-2",
+  "name": "sync_wrapper 0.1.2",
+  "description": "Rust crate sync_wrapper 0.1.2, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0.",
+  "website": "https://github.com/Actyx/sync_wrapper",
+  "licenses": [
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Actyx AG"
+  }
+}

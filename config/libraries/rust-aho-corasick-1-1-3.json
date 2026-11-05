@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-aho-corasick-1-1-3",
-  "name": "aho-corasick",
-  "description": "Rust crate aho-corasick 1.1.3, native code inside GDK (gdk_rust). License: Unlicense OR MIT.",
+  "name": "aho-corasick 1.1.3",
+  "description": "Rust crate aho-corasick 1.1.3, native code inside GDK (gdk_rust) and LWK (liblwk.so). License: Unlicense OR MIT.",
   "website": "https://github.com/BurntSushi/aho-corasick",
   "licenses": [
     "rust-unlicense",

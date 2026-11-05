@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-mime-0-3-17",
+  "name": "mime",
+  "description": "Rust crate mime 0.3.17, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/hyperium/mime",
+  "licenses": [
+    "rust-mime-0-3-17-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Sean McArthur"
+  }
+}

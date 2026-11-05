@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-spki-0-7-3",
+  "name": "spki",
+  "description": "Rust crate spki 0.7.3, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/RustCrypto/formats/tree/master/spki",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-spki-0-7-3-mit"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

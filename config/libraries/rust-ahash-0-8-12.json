@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-ahash-0-8-12",
+  "name": "ahash",
+  "description": "Rust crate ahash 0.8.12, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/tkaitchuck/ahash",
+  "licenses": [
+    "rust-ahash-0-8-12-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Tom Kaitchuck"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-reqwest-0-11-27",
+  "name": "reqwest 0.11.27",
+  "description": "Rust crate reqwest 0.11.27, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/seanmonstar/reqwest",
+  "licenses": [
+    "rust-reqwest-0-11-27-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Sean McArthur"
+  }
+}

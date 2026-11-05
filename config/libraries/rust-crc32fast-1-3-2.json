@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-crc32fast-1-3-2",
-  "name": "crc32fast",
+  "name": "crc32fast 1.3.2",
   "description": "Rust crate crc32fast 1.3.2, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
   "website": "https://github.com/srijs/rust-crc32fast",
   "licenses": [

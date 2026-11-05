@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-powerfmt-0-2-0",
   "name": "powerfmt",
-  "description": "Rust crate powerfmt 0.2.0, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "description": "Rust crate powerfmt 0.2.0, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
   "website": "https://github.com/jhpratt/powerfmt",
   "licenses": [
     "rust-powerfmt-0-2-0-mit",

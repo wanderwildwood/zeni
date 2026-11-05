@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-hyper-0-14-32",
+  "name": "hyper 0.14.32",
+  "description": "Rust crate hyper 0.14.32, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/hyperium/hyper",
+  "licenses": [
+    "rust-hyper-0-14-32-mit"
+  ],
+  "organization": {
+    "name": "Sean McArthur"
+  }
+}

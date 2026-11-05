@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-cfg-if-1-0-3",
+  "name": "cfg-if 1.0.3",
+  "description": "Rust crate cfg-if 1.0.3, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-lang/cfg-if",
+  "licenses": [
+    "rust-cfg-if-1-0-3-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Alex Crichton"
+  }
+}

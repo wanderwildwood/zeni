@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-log-0-4-27",
-  "name": "log",
+  "name": "log 0.4.27",
   "description": "Rust crate log 0.4.27, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
   "website": "https://github.com/rust-lang/log",
   "licenses": [

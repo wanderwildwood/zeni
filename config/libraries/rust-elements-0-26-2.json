@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-elements-0-26-2",
+  "name": "elements 0.26.2",
+  "description": "Rust crate elements 0.26.2, native code inside LWK (liblwk.so). License: CC0-1.0.",
+  "website": "https://github.com/ElementsProject/rust-elements/",
+  "licenses": [
+    "rust-cc0-1-0"
+  ],
+  "organization": {
+    "name": "Andrew Poelstra"
+  }
+}

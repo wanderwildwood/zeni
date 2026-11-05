@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-webpki-roots-0-26-11",
+  "name": "webpki-roots 0.26.11",
+  "description": "Rust crate webpki-roots 0.26.11, native code inside LWK (liblwk.so). License: CDLA-Permissive-2.0.",
+  "website": "https://github.com/rustls/webpki-roots",
+  "licenses": [
+    "rust-webpki-roots-0-26-11-cdla-permissive-2-0"
+  ],
+  "organization": {
+    "name": "The webpki-roots authors"
+  }
+}

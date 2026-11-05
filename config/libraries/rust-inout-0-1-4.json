@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-inout-0-1-4",
+  "name": "inout",
+  "description": "Rust crate inout 0.1.4, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/RustCrypto/utils",
+  "licenses": [
+    "rust-inout-0-1-4-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

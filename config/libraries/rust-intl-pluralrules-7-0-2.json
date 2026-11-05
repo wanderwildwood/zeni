@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-intl-pluralrules-7-0-2",
+  "name": "intl_pluralrules",
+  "description": "Rust crate intl_pluralrules 7.0.2, native code inside LWK (liblwk.so). License: Apache-2.0/MIT.",
+  "website": "https://github.com/zbraniecki/pluralrules",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-intl-pluralrules-7-0-2-mit"
+  ],
+  "organization": {
+    "name": "Kekoa Riggin, Zibi Braniecki"
+  }
+}

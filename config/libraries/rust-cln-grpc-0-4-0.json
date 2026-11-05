@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-cln-grpc-0-4-0",
+  "name": "cln-grpc",
+  "description": "Rust crate cln-grpc 0.4.0, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/ElementsProject/lightning",
+  "licenses": [
+    "rust-cln-grpc-0-4-0-mit"
+  ],
+  "organization": {
+    "name": "The cln-grpc authors"
+  }
+}

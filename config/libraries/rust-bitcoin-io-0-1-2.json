@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-bitcoin-io-0-1-2",
-  "name": "bitcoin-io",
+  "name": "bitcoin-io 0.1.2",
   "description": "Rust crate bitcoin-io 0.1.2, native code inside GDK (gdk_rust). License: CC0-1.0.",
   "website": "https://github.com/rust-bitcoin/rust-bitcoin",
   "licenses": [

@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-rust-embed-8-7-2",
+  "name": "rust-embed",
+  "description": "Rust crate rust-embed 8.7.2, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://git.sr.ht/~pyrossh/rust-embed",
+  "licenses": [
+    "rust-rust-embed-8-7-2-mit"
+  ],
+  "organization": {
+    "name": "pyrossh"
+  }
+}

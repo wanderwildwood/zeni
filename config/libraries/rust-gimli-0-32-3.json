@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-gimli-0-32-3",
+  "name": "gimli",
+  "description": "Rust crate gimli 0.32.3, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/gimli-rs/gimli",
+  "licenses": [
+    "rust-gimli-0-32-3-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The gimli authors"
+  }
+}

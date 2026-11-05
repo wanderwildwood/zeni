@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-percent-encoding-2-3-2",
+  "name": "percent-encoding 2.3.2",
+  "description": "Rust crate percent-encoding 2.3.2, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/servo/rust-url/",
+  "licenses": [
+    "rust-percent-encoding-2-3-2-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The rust-url developers"
+  }
+}

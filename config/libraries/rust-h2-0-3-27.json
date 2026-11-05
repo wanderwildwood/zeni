@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-h2-0-3-27",
+  "name": "h2 0.3.27",
+  "description": "Rust crate h2 0.3.27, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/hyperium/h2",
+  "licenses": [
+    "rust-h2-0-3-27-mit"
+  ],
+  "organization": {
+    "name": "Carl Lerche, Sean McArthur"
+  }
+}

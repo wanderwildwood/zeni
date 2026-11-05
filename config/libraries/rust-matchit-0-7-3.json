@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-matchit-0-7-3",
+  "name": "matchit",
+  "description": "Rust crate matchit 0.7.3, native code inside the Greenlight SDK (libglsdk.so). License: MIT AND BSD-3-Clause.",
+  "website": "https://github.com/ibraheemdev/matchit",
+  "licenses": [
+    "rust-matchit-0-7-3-mit",
+    "rust-matchit-0-7-3-bsd-3-clause"
+  ],
+  "organization": {
+    "name": "Ibraheem Ahmed"
+  }
+}

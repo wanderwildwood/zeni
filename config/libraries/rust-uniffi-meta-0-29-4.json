@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-uniffi-meta-0-29-4",
+  "name": "uniffi_meta",
+  "description": "Rust crate uniffi_meta 0.29.4, native code inside LWK (liblwk.so). License: MPL-2.0.",
+  "website": "https://github.com/mozilla/uniffi-rs",
+  "licenses": [
+    "rust-mpl-2-0"
+  ],
+  "organization": {
+    "name": "The uniffi_meta authors"
+  }
+}

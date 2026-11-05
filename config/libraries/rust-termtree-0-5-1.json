@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-termtree-0-5-1",
+  "name": "termtree",
+  "description": "Rust crate termtree 0.5.1, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/rust-cli/termtree",
+  "licenses": [
+    "rust-termtree-0-5-1-mit"
+  ],
+  "organization": {
+    "name": "The termtree authors"
+  }
+}

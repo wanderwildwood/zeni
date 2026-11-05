@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-minimal-lexical-0-2-1",
+  "name": "minimal-lexical",
+  "description": "Rust crate minimal-lexical 0.2.1, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT/Apache-2.0.",
+  "website": "https://github.com/Alexhuszagh/minimal-lexical",
+  "licenses": [
+    "rust-minimal-lexical-0-2-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Alex Huszagh"
+  }
+}

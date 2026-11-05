@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-bitcoinconsensus-0-105-0-25-1",
+  "name": "bitcoinconsensus",
+  "description": "Rust crate bitcoinconsensus 0.105.0+25.1, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0.",
+  "website": "https://github.com/rust-bitcoin/rust-bitcoinconsensus/",
+  "licenses": [
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Tamas Blummer"
+  }
+}

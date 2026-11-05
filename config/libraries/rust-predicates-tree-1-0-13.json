@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-predicates-tree-1-0-13",
+  "name": "predicates-tree",
+  "description": "Rust crate predicates-tree 1.0.13, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/assert-rs/predicates-rs",
+  "licenses": [
+    "rust-predicates-tree-1-0-13-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The predicates-tree authors"
+  }
+}

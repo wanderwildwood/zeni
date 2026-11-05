@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-smawk-0-3-2",
+  "name": "smawk",
+  "description": "Rust crate smawk 0.3.2, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/mgeisler/smawk",
+  "licenses": [
+    "rust-smawk-0-3-2-mit"
+  ],
+  "organization": {
+    "name": "Martin Geisler"
+  }
+}

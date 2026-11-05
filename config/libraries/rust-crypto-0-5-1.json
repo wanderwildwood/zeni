@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-crypto-0-5-1",
+  "name": "crypto",
+  "description": "Rust crate crypto 0.5.1, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/RustCrypto/traits",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-crypto-0-5-1-mit"
+  ],
+  "organization": {
+    "name": "The RustCrypto Project Developers"
+  }
+}

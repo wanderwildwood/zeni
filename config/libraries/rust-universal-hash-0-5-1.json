@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-universal-hash-0-5-1",
+  "name": "universal-hash 0.5.1",
+  "description": "Rust crate universal-hash 0.5.1, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/RustCrypto/traits",
+  "licenses": [
+    "rust-universal-hash-0-5-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

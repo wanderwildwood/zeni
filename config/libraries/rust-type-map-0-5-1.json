@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-type-map-0-5-1",
+  "name": "type-map",
+  "description": "Rust crate type-map 0.5.1, native code inside LWK (liblwk.so). License: MIT/Apache-2.0.",
+  "website": "https://github.com/kardeiz/type-map",
+  "licenses": [
+    "rust-type-map-0-5-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Jacob Brown"
+  }
+}

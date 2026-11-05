@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-io-tee-0-1-1",
+  "name": "io_tee",
+  "description": "Rust crate io_tee 0.1.1, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/TheOnlyMrCat/io_tee",
+  "licenses": [
+    "rust-io-tee-0-1-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The io_tee authors"
+  }
+}

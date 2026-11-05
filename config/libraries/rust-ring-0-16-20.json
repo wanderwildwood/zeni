@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-ring-0-16-20",
+  "name": "ring 0.16.20",
+  "description": "Rust crate ring 0.16.20, native code inside the Greenlight SDK (libglsdk.so). License: as in its file LICENSE (no SPDX id given).",
+  "website": "https://github.com/briansmith/ring",
+  "licenses": [
+    "rust-ring-0-16-20-license-file"
+  ],
+  "organization": {
+    "name": "Brian Smith"
+  }
+}

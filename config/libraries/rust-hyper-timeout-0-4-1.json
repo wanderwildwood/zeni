@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-hyper-timeout-0-4-1",
+  "name": "hyper-timeout",
+  "description": "Rust crate hyper-timeout 0.4.1, native code inside the Greenlight SDK (libglsdk.so). License: MIT/Apache-2.0.",
+  "website": "https://github.com/hjr3/hyper-timeout",
+  "licenses": [
+    "rust-hyper-timeout-0-4-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Herman J. Radtke III"
+  }
+}

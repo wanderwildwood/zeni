@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-walkdir-2-5-0",
+  "name": "walkdir",
+  "description": "Rust crate walkdir 2.5.0, native code inside LWK (liblwk.so). License: Unlicense/MIT.",
+  "website": "https://github.com/BurntSushi/walkdir",
+  "licenses": [
+    "rust-unlicense",
+    "rust-walkdir-2-5-0-mit"
+  ],
+  "organization": {
+    "name": "Andrew Gallant"
+  }
+}

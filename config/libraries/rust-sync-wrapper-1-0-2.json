@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-sync-wrapper-1-0-2",
+  "name": "sync_wrapper 1.0.2",
+  "description": "Rust crate sync_wrapper 1.0.2, native code inside LWK (liblwk.so). License: Apache-2.0.",
+  "website": "https://github.com/Actyx/sync_wrapper",
+  "licenses": [
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Actyx AG"
+  }
+}

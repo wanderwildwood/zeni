@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-tempfile-3-25-0",
+  "name": "tempfile 3.25.0",
+  "description": "Rust crate tempfile 3.25.0, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/Stebalien/tempfile",
+  "licenses": [
+    "rust-tempfile-3-25-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Steven Allen, The Rust Project Developers, Ashley Mannix, Jason White"
+  }
+}

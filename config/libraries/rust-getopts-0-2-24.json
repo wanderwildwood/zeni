@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-getopts-0-2-24",
+  "name": "getopts",
+  "description": "Rust crate getopts 0.2.24, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-lang/getopts",
+  "licenses": [
+    "rust-getopts-0-2-24-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Rust Project Developers"
+  }
+}

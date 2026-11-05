@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-either-1-15-0",
+  "name": "either",
+  "description": "Rust crate either 1.15.0, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rayon-rs/either",
+  "licenses": [
+    "rust-either-1-15-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "bluss"
+  }
+}

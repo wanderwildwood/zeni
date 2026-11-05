@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-rand-chacha-0-3-1",
-  "name": "rand_chacha",
-  "description": "Rust crate rand_chacha 0.3.1, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "name": "rand_chacha 0.3.1",
+  "description": "Rust crate rand_chacha 0.3.1, native code inside GDK (gdk_rust), LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
   "website": "https://github.com/rust-random/rand",
   "licenses": [
     "rust-rand-chacha-0-3-1-mit",

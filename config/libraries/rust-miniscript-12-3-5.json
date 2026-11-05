@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-miniscript-12-3-5",
+  "name": "miniscript 12.3.5",
+  "description": "Rust crate miniscript 12.3.5, native code inside LWK (liblwk.so). License: CC0-1.0.",
+  "website": "https://github.com/rust-bitcoin/rust-miniscript/",
+  "licenses": [
+    "rust-cc0-1-0"
+  ],
+  "organization": {
+    "name": "Andrew Poelstra, Sanket Kanjalkar"
+  }
+}

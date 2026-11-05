@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-yoke-0-7-5",
-  "name": "yoke",
+  "name": "yoke 0.7.5",
   "description": "Rust crate yoke 0.7.5, native code inside GDK (gdk_rust). License: Unicode-3.0.",
   "website": "https://github.com/unicode-org/icu4x",
   "licenses": [

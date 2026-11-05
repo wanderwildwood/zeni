@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-bitflags-2-9-4",
+  "name": "bitflags 2.9.4",
+  "description": "Rust crate bitflags 2.9.4, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/bitflags/bitflags",
+  "licenses": [
+    "rust-bitflags-2-9-4-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Rust Project Developers"
+  }
+}

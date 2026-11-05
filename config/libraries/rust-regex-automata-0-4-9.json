@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-regex-automata-0-4-9",
-  "name": "regex-automata",
+  "name": "regex-automata 0.4.9",
   "description": "Rust crate regex-automata 0.4.9, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
   "website": "https://github.com/rust-lang/regex/tree/master/regex-automata",
   "licenses": [

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-env-logger-0-11-8",
+  "name": "env_logger 0.11.8",
+  "description": "Rust crate env_logger 0.11.8, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-cli/env_logger",
+  "licenses": [
+    "rust-env-logger-0-11-8-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The env_logger authors"
+  }
+}

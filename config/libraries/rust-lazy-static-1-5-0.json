@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-lazy-static-1-5-0",
+  "name": "lazy_static 1.5.0",
+  "description": "Rust crate lazy_static 1.5.0, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-lang-nursery/lazy-static.rs",
+  "licenses": [
+    "rust-lazy-static-1-5-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Marvin Löbel"
+  }
+}

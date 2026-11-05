@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-potential-utf-0-1-5",
+  "name": "potential_utf 0.1.5",
+  "description": "Rust crate potential_utf 0.1.5, native code inside the Greenlight SDK (libglsdk.so). License: Unicode-3.0.",
+  "website": "https://github.com/unicode-org/icu4x",
+  "licenses": [
+    "rust-potential-utf-0-1-5-unicode-3-0"
+  ],
+  "organization": {
+    "name": "The ICU4X Project Developers"
+  }
+}

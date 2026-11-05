@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-serde-with-1-14-0",
+  "name": "serde_with 1.14.0",
+  "description": "Rust crate serde_with 1.14.0, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/jonasbb/serde_with",
+  "licenses": [
+    "rust-serde-with-1-14-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Jonas Bushart, Marcin Kaźmierczak"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-crypto-common-0-1-6",
-  "name": "crypto-common",
-  "description": "Rust crate crypto-common 0.1.6, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "name": "crypto-common 0.1.6",
+  "description": "Rust crate crypto-common 0.1.6, native code inside GDK (gdk_rust) and LWK (liblwk.so). License: MIT OR Apache-2.0.",
   "website": "https://github.com/RustCrypto/traits",
   "licenses": [
     "rust-crypto-common-0-1-6-mit",

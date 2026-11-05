@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-camino-1-2-1",
+  "name": "camino 1.2.1",
+  "description": "Rust crate camino 1.2.1, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/camino-rs/camino",
+  "licenses": [
+    "rust-camino-1-2-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Without Boats, Ashley Williams, Steve Klabnik, Rain"
+  }
+}

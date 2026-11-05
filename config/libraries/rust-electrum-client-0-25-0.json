@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-electrum-client-0-25-0",
+  "name": "electrum-client 0.25.0",
+  "description": "Rust crate electrum-client 0.25.0, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/bitcoindevkit/rust-electrum-client",
+  "licenses": [
+    "rust-electrum-client-0-25-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Alekos Filini"
+  }
+}

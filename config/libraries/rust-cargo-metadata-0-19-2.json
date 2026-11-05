@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-cargo-metadata-0-19-2",
+  "name": "cargo_metadata",
+  "description": "Rust crate cargo_metadata 0.19.2, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/oli-obk/cargo_metadata",
+  "licenses": [
+    "rust-cargo-metadata-0-19-2-mit"
+  ],
+  "organization": {
+    "name": "Oliver Schneider"
+  }
+}

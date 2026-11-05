@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-tower-service-0-3-3",
+  "name": "tower-service",
+  "description": "Rust crate tower-service 0.3.3, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/tower-rs/tower",
+  "licenses": [
+    "rust-tower-service-0-3-3-mit"
+  ],
+  "organization": {
+    "name": "Tower Maintainers"
+  }
+}

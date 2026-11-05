@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-rand-0-9-2",
+  "name": "rand 0.9.2",
+  "description": "Rust crate rand 0.9.2, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-random/rand",
+  "licenses": [
+    "rust-rand-0-9-2-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Rand Project Developers, The Rust Project Developers"
+  }
+}

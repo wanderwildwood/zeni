@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-data-encoding-2-11-0",
+  "name": "data-encoding 2.11.0",
+  "description": "Rust crate data-encoding 2.11.0, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/ia0/data-encoding",
+  "licenses": [
+    "rust-data-encoding-2-11-0-mit"
+  ],
+  "organization": {
+    "name": "Julien Cretin"
+  }
+}

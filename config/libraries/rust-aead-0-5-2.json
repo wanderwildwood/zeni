@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-aead-0-5-2",
+  "name": "aead 0.5.2",
+  "description": "Rust crate aead 0.5.2, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/RustCrypto/traits",
+  "licenses": [
+    "rust-aead-0-5-2-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

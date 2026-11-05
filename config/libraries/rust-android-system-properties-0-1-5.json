@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-android-system-properties-0-1-5",
+  "name": "android_system_properties",
+  "description": "Rust crate android_system_properties 0.1.5, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT/Apache-2.0.",
+  "website": "https://github.com/nical/android_system_properties",
+  "licenses": [
+    "rust-android-system-properties-0-1-5-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Nicolas Silva"
+  }
+}

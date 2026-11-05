@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-hkdf-0-12-4",
+  "name": "hkdf",
+  "description": "Rust crate hkdf 0.12.4, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/RustCrypto/KDFs/",
+  "licenses": [
+    "rust-hkdf-0-12-4-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

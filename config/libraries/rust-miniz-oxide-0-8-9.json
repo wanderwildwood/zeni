@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-miniz-oxide-0-8-9",
   "name": "miniz_oxide",
-  "description": "Rust crate miniz_oxide 0.8.9, native code inside GDK (gdk_rust). License: MIT OR Zlib OR Apache-2.0.",
+  "description": "Rust crate miniz_oxide 0.8.9, native code inside GDK (gdk_rust), LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Zlib OR Apache-2.0.",
   "website": "https://github.com/Frommi/miniz_oxide/tree/master/miniz_oxide",
   "licenses": [
     "rust-miniz-oxide-0-8-9-mit",

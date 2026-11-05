@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-cargo-platform-0-1-9",
+  "name": "cargo-platform",
+  "description": "Rust crate cargo-platform 0.1.9, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-lang/cargo",
+  "licenses": [
+    "rust-cargo-platform-0-1-9-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The cargo-platform authors"
+  }
+}

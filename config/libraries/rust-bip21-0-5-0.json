@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-bip21-0-5-0",
+  "name": "bip21",
+  "description": "Rust crate bip21 0.5.0, native code inside LWK (liblwk.so). License: MITNFA.",
+  "website": "https://github.com/Kixunil/bip21",
+  "licenses": [
+    "rust-bip21-0-5-0-mitnfa"
+  ],
+  "organization": {
+    "name": "Martin Habovstiak"
+  }
+}

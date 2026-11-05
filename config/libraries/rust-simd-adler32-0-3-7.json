@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-simd-adler32-0-3-7",
+  "name": "simd-adler32",
+  "description": "Rust crate simd-adler32 0.3.7, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/mcountryman/simd-adler32",
+  "licenses": [
+    "rust-simd-adler32-0-3-7-mit"
+  ],
+  "organization": {
+    "name": "Marvin Countryman"
+  }
+}

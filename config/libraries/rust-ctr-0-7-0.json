@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-ctr-0-7-0",
-  "name": "ctr",
-  "description": "Rust crate ctr 0.7.0, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "name": "ctr 0.7.0",
+  "description": "Rust crate ctr 0.7.0, native code inside GDK (gdk_rust) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
   "website": "https://github.com/RustCrypto/stream-ciphers",
   "licenses": [
     "rust-ctr-0-7-0-mit",

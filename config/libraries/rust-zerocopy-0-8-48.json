@@ -1,0 +1,14 @@
+{
+  "uniqueId": "rust-zerocopy-0-8-48",
+  "name": "zerocopy 0.8.48",
+  "description": "Rust crate zerocopy 0.8.48, native code inside the Greenlight SDK (libglsdk.so). License: BSD-2-Clause OR Apache-2.0 OR MIT.",
+  "website": "https://github.com/google/zerocopy",
+  "licenses": [
+    "rust-zerocopy-0-8-48-bsd-2-clause",
+    "rust-apache-2-0",
+    "rust-zerocopy-0-8-48-mit"
+  ],
+  "organization": {
+    "name": "Joshua Liebow-Feeser, Jack Wrenn"
+  }
+}

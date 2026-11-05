@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-futures-task-0-3-31",
+  "name": "futures-task 0.3.31",
+  "description": "Rust crate futures-task 0.3.31, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-lang/futures-rs",
+  "licenses": [
+    "rust-futures-task-0-3-31-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The futures-task authors"
+  }
+}

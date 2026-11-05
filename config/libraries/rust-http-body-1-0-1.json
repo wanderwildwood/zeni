@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-http-body-1-0-1",
+  "name": "http-body 1.0.1",
+  "description": "Rust crate http-body 1.0.1, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/hyperium/http-body",
+  "licenses": [
+    "rust-http-body-1-0-1-mit"
+  ],
+  "organization": {
+    "name": "Carl Lerche, Lucio Franco, Sean McArthur"
+  }
+}

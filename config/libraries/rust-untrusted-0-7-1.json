@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-untrusted-0-7-1",
+  "name": "untrusted 0.7.1",
+  "description": "Rust crate untrusted 0.7.1, native code inside the Greenlight SDK (libglsdk.so). License: ISC.",
+  "website": "https://github.com/briansmith/untrusted",
+  "licenses": [
+    "rust-untrusted-0-7-1-isc"
+  ],
+  "organization": {
+    "name": "Brian Smith"
+  }
+}

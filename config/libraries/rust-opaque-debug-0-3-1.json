@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-opaque-debug-0-3-1",
+  "name": "opaque-debug 0.3.1",
+  "description": "Rust crate opaque-debug 0.3.1, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/RustCrypto/utils",
+  "licenses": [
+    "rust-opaque-debug-0-3-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-byteorder-1-5-0",
+  "name": "byteorder 1.5.0",
+  "description": "Rust crate byteorder 1.5.0, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: Unlicense OR MIT.",
+  "website": "https://github.com/BurntSushi/byteorder",
+  "licenses": [
+    "rust-unlicense",
+    "rust-byteorder-1-5-0-mit"
+  ],
+  "organization": {
+    "name": "Andrew Gallant"
+  }
+}

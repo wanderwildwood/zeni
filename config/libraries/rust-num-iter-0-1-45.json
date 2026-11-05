@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-num-iter-0-1-45",
+  "name": "num-iter",
+  "description": "Rust crate num-iter 0.1.45, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-num/num-iter",
+  "licenses": [
+    "rust-num-iter-0-1-45-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Rust Project Developers"
+  }
+}

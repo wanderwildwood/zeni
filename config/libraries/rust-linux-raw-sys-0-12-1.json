@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-linux-raw-sys-0-12-1",
+  "name": "linux-raw-sys 0.12.1",
+  "description": "Rust crate linux-raw-sys 0.12.1, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT.",
+  "website": "https://github.com/sunfishcode/linux-raw-sys",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-linux-raw-sys-0-12-1-mit"
+  ],
+  "organization": {
+    "name": "Dan Gohman"
+  }
+}

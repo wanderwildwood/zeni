@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-deranged-0-5-8",
   "name": "deranged",
-  "description": "Rust crate deranged 0.5.8, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "description": "Rust crate deranged 0.5.8, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
   "website": "https://github.com/jhpratt/deranged",
   "licenses": [
     "rust-deranged-0-5-8-mit",

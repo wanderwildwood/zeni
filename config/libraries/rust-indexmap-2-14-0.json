@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-indexmap-2-14-0",
-  "name": "indexmap",
-  "description": "Rust crate indexmap 2.14.0, native code inside GDK (gdk_rust). License: Apache-2.0 OR MIT.",
+  "name": "indexmap 2.14.0",
+  "description": "Rust crate indexmap 2.14.0, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR MIT.",
   "website": "https://github.com/indexmap-rs/indexmap",
   "licenses": [
     "rust-apache-2-0",

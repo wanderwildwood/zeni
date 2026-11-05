@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-fastrand-2-4-1",
+  "name": "fastrand 2.4.1",
+  "description": "Rust crate fastrand 2.4.1, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/smol-rs/fastrand",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-fastrand-2-4-1-mit"
+  ],
+  "organization": {
+    "name": "Stjepan Glavina"
+  }
+}

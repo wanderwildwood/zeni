@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-slab-0-4-12",
+  "name": "slab 0.4.12",
+  "description": "Rust crate slab 0.4.12, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/tokio-rs/slab",
+  "licenses": [
+    "rust-slab-0-4-12-mit"
+  ],
+  "organization": {
+    "name": "Carl Lerche"
+  }
+}

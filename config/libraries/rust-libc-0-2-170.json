@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-libc-0-2-170",
-  "name": "libc",
+  "name": "libc 0.2.170",
   "description": "Rust crate libc 0.2.170, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
   "website": "https://github.com/rust-lang/libc",
   "licenses": [

@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-weedle2-5-0-0",
+  "name": "weedle2",
+  "description": "Rust crate weedle2 5.0.0, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/mozilla/uniffi-rs",
+  "licenses": [
+    "rust-weedle2-5-0-0-mit"
+  ],
+  "organization": {
+    "name": "Sharad Chand, Jan-Erik Rediger"
+  }
+}

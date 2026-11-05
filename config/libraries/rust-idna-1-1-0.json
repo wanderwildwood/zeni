@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-idna-1-1-0",
+  "name": "idna 1.1.0",
+  "description": "Rust crate idna 1.1.0, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/servo/rust-url/",
+  "licenses": [
+    "rust-idna-1-1-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The rust-url developers"
+  }
+}

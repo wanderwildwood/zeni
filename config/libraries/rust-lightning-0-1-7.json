@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-lightning-0-1-7",
+  "name": "lightning 0.1.7",
+  "description": "Rust crate lightning 0.1.7, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/lightningdevkit/rust-lightning/",
+  "licenses": [
+    "rust-lightning-0-1-7-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Matt Corallo"
+  }
+}

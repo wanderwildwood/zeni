@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-tower-0-4-13",
+  "name": "tower 0.4.13",
+  "description": "Rust crate tower 0.4.13, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/tower-rs/tower",
+  "licenses": [
+    "rust-tower-0-4-13-mit"
+  ],
+  "organization": {
+    "name": "Tower Maintainers"
+  }
+}

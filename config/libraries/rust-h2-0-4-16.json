@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-h2-0-4-16",
+  "name": "h2 0.4.16",
+  "description": "Rust crate h2 0.4.16, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/hyperium/h2",
+  "licenses": [
+    "rust-h2-0-4-16-mit"
+  ],
+  "organization": {
+    "name": "Carl Lerche, Sean McArthur"
+  }
+}

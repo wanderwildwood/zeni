@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-httpdate-1-0-3",
+  "name": "httpdate",
+  "description": "Rust crate httpdate 1.0.3, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/pyfisch/httpdate",
+  "licenses": [
+    "rust-httpdate-1-0-3-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Pyfisch"
+  }
+}

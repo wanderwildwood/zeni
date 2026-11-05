@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-secp256k1-zkp-0-11-0",
   "name": "secp256k1-zkp",
-  "description": "Rust crate secp256k1-zkp 0.11.0, native code inside GDK (gdk_rust). License: CC0-1.0.",
+  "description": "Rust crate secp256k1-zkp 0.11.0, native code inside GDK (gdk_rust) and LWK (liblwk.so). License: CC0-1.0.",
   "website": "https://github.com/ElementsProject/rust-secp256k1-zkp/",
   "licenses": [
     "rust-cc0-1-0"

@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-zmij-1-0-21",
   "name": "zmij",
-  "description": "Rust crate zmij 1.0.21, native code inside GDK (gdk_rust). License: MIT.",
+  "description": "Rust crate zmij 1.0.21, native code inside GDK (gdk_rust) and the Greenlight SDK (libglsdk.so). License: MIT.",
   "website": "https://github.com/dtolnay/zmij",
   "licenses": [
     "rust-zmij-1-0-21-mit"

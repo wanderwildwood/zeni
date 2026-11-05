@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-keccak-0-1-6",
+  "name": "keccak",
+  "description": "Rust crate keccak 0.1.6, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/RustCrypto/sponges/tree/master/keccak",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-keccak-0-1-6-mit"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

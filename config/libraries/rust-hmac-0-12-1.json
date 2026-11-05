@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-hmac-0-12-1",
   "name": "hmac",
-  "description": "Rust crate hmac 0.12.1, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "description": "Rust crate hmac 0.12.1, native code inside GDK (gdk_rust) and LWK (liblwk.so). License: MIT OR Apache-2.0.",
   "website": "https://github.com/RustCrypto/MACs",
   "licenses": [
     "rust-hmac-0-12-1-mit",

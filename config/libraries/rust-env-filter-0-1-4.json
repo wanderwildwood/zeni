@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-env-filter-0-1-4",
+  "name": "env_filter 0.1.4",
+  "description": "Rust crate env_filter 0.1.4, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-cli/env_logger",
+  "licenses": [
+    "rust-env-filter-0-1-4-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The env_filter authors"
+  }
+}

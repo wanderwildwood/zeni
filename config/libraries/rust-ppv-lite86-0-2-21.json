@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-ppv-lite86-0-2-21",
+  "name": "ppv-lite86 0.2.21",
+  "description": "Rust crate ppv-lite86 0.2.21, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/cryptocorrosion/cryptocorrosion",
+  "licenses": [
+    "rust-ppv-lite86-0-2-21-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The CryptoCorrosion Contributors"
+  }
+}

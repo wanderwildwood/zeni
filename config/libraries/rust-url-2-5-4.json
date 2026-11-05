@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-url-2-5-4",
-  "name": "url",
+  "name": "url 2.5.4",
   "description": "Rust crate url 2.5.4, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
   "website": "https://github.com/servo/rust-url",
   "licenses": [

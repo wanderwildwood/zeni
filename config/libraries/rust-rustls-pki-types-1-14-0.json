@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-rustls-pki-types-1-14-0",
-  "name": "rustls-pki-types",
+  "name": "rustls-pki-types 1.14.0",
   "description": "Rust crate rustls-pki-types 1.14.0, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
   "website": "https://github.com/rustls/pki-types",
   "licenses": [

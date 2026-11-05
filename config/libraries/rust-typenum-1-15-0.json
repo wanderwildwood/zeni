@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-typenum-1-15-0",
-  "name": "typenum",
+  "name": "typenum 1.15.0",
   "description": "Rust crate typenum 1.15.0, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
   "website": "https://github.com/paholg/typenum",
   "licenses": [

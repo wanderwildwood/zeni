@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-libm-0-2-15",
+  "name": "libm 0.2.15",
+  "description": "Rust crate libm 0.2.15, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/rust-lang/compiler-builtins",
+  "licenses": [
+    "rust-libm-0-2-15-mit"
+  ],
+  "organization": {
+    "name": "Jorge Aparicio"
+  }
+}

@@ -44,11 +44,12 @@ class LicencesTest {
         "Tor",
         "ur-c",
         "JSON for Modern C++",
-        // GDK's Rust crates, one row each (generated from gdk_rust's Cargo.lock)
-        "ring",
-        "rustls",
+        // The Rust crates of GDK, LWK and the Greenlight SDK, one row each (generated from their Cargo.lock files)
         "serde",
         "elements-miniscript",
+        "boltz-client",
+        "tonic",
+        "prost",
     )
 
     @Test fun theBuildListedTheLibraries() {

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-pin-project-1-1-11",
+  "name": "pin-project 1.1.11",
+  "description": "Rust crate pin-project 1.1.11, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/taiki-e/pin-project",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-pin-project-1-1-11-mit"
+  ],
+  "organization": {
+    "name": "The pin-project authors"
+  }
+}

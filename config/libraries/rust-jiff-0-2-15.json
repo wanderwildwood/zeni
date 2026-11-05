@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-jiff-0-2-15",
+  "name": "jiff 0.2.15",
+  "description": "Rust crate jiff 0.2.15, native code inside LWK (liblwk.so). License: Unlicense OR MIT.",
+  "website": "https://github.com/BurntSushi/jiff",
+  "licenses": [
+    "rust-unlicense",
+    "rust-jiff-0-2-15-mit"
+  ],
+  "organization": {
+    "name": "Andrew Gallant"
+  }
+}

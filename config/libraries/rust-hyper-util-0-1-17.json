@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-hyper-util-0-1-17",
+  "name": "hyper-util",
+  "description": "Rust crate hyper-util 0.1.17, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/hyperium/hyper-util",
+  "licenses": [
+    "rust-hyper-util-0-1-17-mit"
+  ],
+  "organization": {
+    "name": "Sean McArthur"
+  }
+}

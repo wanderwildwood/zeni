@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-num-traits-0-2-19",
+  "name": "num-traits",
+  "description": "Rust crate num-traits 0.2.19, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-num/num-traits",
+  "licenses": [
+    "rust-num-traits-0-2-19-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Rust Project Developers"
+  }
+}

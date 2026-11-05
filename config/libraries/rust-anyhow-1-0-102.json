@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-anyhow-1-0-102",
+  "name": "anyhow 1.0.102",
+  "description": "Rust crate anyhow 1.0.102, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/dtolnay/anyhow",
+  "licenses": [
+    "rust-anyhow-1-0-102-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "David Tolnay"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-typenum-1-20-0",
+  "name": "typenum 1.20.0",
+  "description": "Rust crate typenum 1.20.0, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/paholg/typenum",
+  "licenses": [
+    "rust-typenum-1-20-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Paho Lurie-Gregg, Andre Bogus"
+  }
+}

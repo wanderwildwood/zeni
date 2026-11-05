@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-heck-0-5-0",
+  "name": "heck",
+  "description": "Rust crate heck 0.5.0, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/withoutboats/heck",
+  "licenses": [
+    "rust-heck-0-5-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The heck authors"
+  }
+}

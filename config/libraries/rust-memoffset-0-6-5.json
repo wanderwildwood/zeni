@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-memoffset-0-6-5",
+  "name": "memoffset",
+  "description": "Rust crate memoffset 0.6.5, native code inside LWK (liblwk.so). License: MIT.",
+  "website": "https://github.com/Gilnaa/memoffset",
+  "licenses": [
+    "rust-memoffset-0-6-5-mit"
+  ],
+  "organization": {
+    "name": "Gilad Naaman"
+  }
+}

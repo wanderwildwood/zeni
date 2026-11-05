@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-ryu-1-0-23",
+  "name": "ryu 1.0.23",
+  "description": "Rust crate ryu 1.0.23, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR BSL-1.0.",
+  "website": "https://github.com/dtolnay/ryu",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-ryu-1-0-23-bsl-1-0"
+  ],
+  "organization": {
+    "name": "David Tolnay"
+  }
+}

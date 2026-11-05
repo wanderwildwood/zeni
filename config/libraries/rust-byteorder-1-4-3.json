@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-byteorder-1-4-3",
-  "name": "byteorder",
+  "name": "byteorder 1.4.3",
   "description": "Rust crate byteorder 1.4.3, native code inside GDK (gdk_rust). License: Unlicense OR MIT.",
   "website": "https://github.com/BurntSushi/byteorder",
   "licenses": [

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-env-filter-1-0-1",
+  "name": "env_filter 1.0.1",
+  "description": "Rust crate env_filter 1.0.1, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-cli/env_logger",
+  "licenses": [
+    "rust-env-filter-1-0-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The env_filter authors"
+  }
+}

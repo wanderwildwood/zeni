@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-signature-2-2-0",
+  "name": "signature",
+  "description": "Rust crate signature 2.2.0, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/RustCrypto/traits/tree/master/signature",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-signature-2-2-0-mit"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

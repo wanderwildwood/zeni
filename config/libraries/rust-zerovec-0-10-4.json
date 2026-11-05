@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-zerovec-0-10-4",
-  "name": "zerovec",
+  "name": "zerovec 0.10.4",
   "description": "Rust crate zerovec 0.10.4, native code inside GDK (gdk_rust). License: Unicode-3.0.",
   "website": "https://github.com/unicode-org/icu4x",
   "licenses": [

@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-bollard-stubs-1-41-0",
+  "name": "bollard-stubs",
+  "description": "Rust crate bollard-stubs 1.41.0, native code inside LWK (liblwk.so). License: Apache-2.0.",
+  "website": "https://crates.io/crates/bollard-stubs",
+  "licenses": [
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Bollard contributors"
+  }
+}

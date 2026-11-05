@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-mio-1-2-0",
+  "name": "mio 1.2.0",
+  "description": "Rust crate mio 1.2.0, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/tokio-rs/mio",
+  "licenses": [
+    "rust-mio-1-2-0-mit"
+  ],
+  "organization": {
+    "name": "Carl Lerche, Thomas de Zeeuw, Tokio Contributors"
+  }
+}

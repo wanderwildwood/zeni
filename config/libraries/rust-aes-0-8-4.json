@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-aes-0-8-4",
+  "name": "aes 0.8.4",
+  "description": "Rust crate aes 0.8.4, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/RustCrypto/block-ciphers",
+  "licenses": [
+    "rust-aes-0-8-4-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

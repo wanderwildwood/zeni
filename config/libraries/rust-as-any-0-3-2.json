@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-as-any-0-3-2",
+  "name": "as-any",
+  "description": "Rust crate as-any 0.3.2, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://codeberg.org/fogti/as-any",
+  "licenses": [
+    "rust-as-any-0-3-2-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The as-any authors"
+  }
+}

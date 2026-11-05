@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-backtrace-0-3-76",
+  "name": "backtrace",
+  "description": "Rust crate backtrace 0.3.76, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-lang/backtrace-rs",
+  "licenses": [
+    "rust-backtrace-0-3-76-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Rust Project Developers"
+  }
+}

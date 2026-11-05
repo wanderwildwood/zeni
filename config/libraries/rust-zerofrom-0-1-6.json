@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-zerofrom-0-1-6",
+  "name": "zerofrom 0.1.6",
+  "description": "Rust crate zerofrom 0.1.6, native code inside LWK (liblwk.so). License: Unicode-3.0.",
+  "website": "https://github.com/unicode-org/icu4x",
+  "licenses": [
+    "rust-zerofrom-0-1-6-unicode-3-0"
+  ],
+  "organization": {
+    "name": "Manish Goregaokar"
+  }
+}

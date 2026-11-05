@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-num-conv-0-2-1",
   "name": "num-conv",
-  "description": "Rust crate num-conv 0.2.1, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "description": "Rust crate num-conv 0.2.1, native code inside the Greenlight SDK (libglsdk.so). License: MIT OR Apache-2.0.",
   "website": "https://github.com/jhpratt/num-conv",
   "licenses": [
     "rust-num-conv-0-2-1-mit",

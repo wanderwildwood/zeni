@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-fragile-2-1-0",
+  "name": "fragile",
+  "description": "Rust crate fragile 2.1.0, native code inside the Greenlight SDK (libglsdk.so). License: Apache-2.0.",
+  "website": "https://github.com/mitsuhiko/fragile",
+  "licenses": [
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Armin Ronacher"
+  }
+}

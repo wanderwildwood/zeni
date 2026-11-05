@@ -1,7 +1,7 @@
 {
   "uniqueId": "rust-secp256k1-sys-0-10-1",
   "name": "secp256k1-sys 0.10.1",
-  "description": "Rust crate secp256k1-sys 0.10.1, native code inside GDK (gdk_rust). License: CC0-1.0.",
+  "description": "Rust crate secp256k1-sys 0.10.1, native code inside GDK (gdk_rust), LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: CC0-1.0.",
   "website": "https://github.com/rust-bitcoin/rust-secp256k1/",
   "licenses": [
     "rust-cc0-1-0"

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-anstyle-query-1-1-4",
+  "name": "anstyle-query 1.1.4",
+  "description": "Rust crate anstyle-query 1.1.4, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-cli/anstyle.git",
+  "licenses": [
+    "rust-anstyle-query-1-1-4-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The anstyle-query authors"
+  }
+}

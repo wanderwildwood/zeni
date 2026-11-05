@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-bitcoin-io-0-1-4",
+  "name": "bitcoin-io 0.1.4",
+  "description": "Rust crate bitcoin-io 0.1.4, native code inside the Greenlight SDK (libglsdk.so). License: CC0-1.0.",
+  "website": "https://github.com/rust-bitcoin/rust-bitcoin",
+  "licenses": [
+    "rust-cc0-1-0"
+  ],
+  "organization": {
+    "name": "Matt Corallo"
+  }
+}

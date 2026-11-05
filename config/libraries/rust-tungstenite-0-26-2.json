@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-tungstenite-0-26-2",
+  "name": "tungstenite",
+  "description": "Rust crate tungstenite 0.26.2, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/snapview/tungstenite-rs",
+  "licenses": [
+    "rust-tungstenite-0-26-2-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Alexey Galakhov, Daniel Abramov"
+  }
+}

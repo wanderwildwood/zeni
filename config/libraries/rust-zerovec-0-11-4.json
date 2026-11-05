@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-zerovec-0-11-4",
+  "name": "zerovec 0.11.4",
+  "description": "Rust crate zerovec 0.11.4, native code inside LWK (liblwk.so). License: Unicode-3.0.",
+  "website": "https://github.com/unicode-org/icu4x",
+  "licenses": [
+    "rust-zerovec-0-11-4-unicode-3-0"
+  ],
+  "organization": {
+    "name": "The ICU4X Project Developers"
+  }
+}

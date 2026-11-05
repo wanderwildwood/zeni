@@ -1,6 +1,6 @@
 {
   "uniqueId": "rust-flate2-1-1-2",
-  "name": "flate2",
+  "name": "flate2 1.1.2",
   "description": "Rust crate flate2 1.1.2, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
   "website": "https://github.com/rust-lang/flate2-rs",
   "licenses": [

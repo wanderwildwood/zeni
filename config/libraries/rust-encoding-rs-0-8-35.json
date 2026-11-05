@@ -1,0 +1,14 @@
+{
+  "uniqueId": "rust-encoding-rs-0-8-35",
+  "name": "encoding_rs",
+  "description": "Rust crate encoding_rs 0.8.35, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: (Apache-2.0 OR MIT) AND BSD-3-Clause.",
+  "website": "https://github.com/hsivonen/encoding_rs",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-encoding-rs-0-8-35-mit",
+    "rust-encoding-rs-0-8-35-bsd-3-clause"
+  ],
+  "organization": {
+    "name": "Henri Sivonen"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-bitcoin-payment-instructions-0-7-0",
+  "name": "bitcoin-payment-instructions",
+  "description": "Rust crate bitcoin-payment-instructions 0.7.0, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-bitcoin/bitcoin-payment-instructions",
+  "licenses": [
+    "rust-bitcoin-payment-instructions-0-7-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Matt Corallo, Ben Carman"
+  }
+}

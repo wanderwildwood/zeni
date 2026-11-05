@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-runeauth-0-1-4",
+  "name": "runeauth",
+  "description": "Rust crate runeauth 0.1.4, native code inside the Greenlight SDK (libglsdk.so). License: MIT.",
+  "website": "https://github.com/nepet/futhark",
+  "licenses": [
+    "rust-runeauth-0-1-4-mit"
+  ],
+  "organization": {
+    "name": "Peter Neuroth"
+  }
+}

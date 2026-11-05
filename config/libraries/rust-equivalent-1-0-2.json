@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-equivalent-1-0-2",
+  "name": "equivalent",
+  "description": "Rust crate equivalent 1.0.2, native code inside LWK (liblwk.so) and the Greenlight SDK (libglsdk.so). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/indexmap-rs/equivalent",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-equivalent-1-0-2-mit"
+  ],
+  "organization": {
+    "name": "The equivalent authors"
+  }
+}

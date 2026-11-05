@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-chrono-0-4-42",
+  "name": "chrono 0.4.42",
+  "description": "Rust crate chrono 0.4.42, native code inside LWK (liblwk.so). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/chronotope/chrono",
+  "licenses": [
+    "rust-chrono-0-4-42-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The chrono authors"
+  }
+}
