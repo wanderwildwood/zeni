@@ -27,13 +27,20 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 /**
- * About: the app's own name and version, where the code came from, Privacy with its three short
- * sections (who we are, how to contact us, your rights: Mudita's review, 4 Nov 2026), Terms and
- * Licenses, then "Write to email@wanderthe.dev". Nothing here is Blockstream's logo, help desk
- * or policy; rows are set apart by space, with no rules between them, and turn on whole pages.
+ * About. On Android it is the shared drawer About (HouseAbout, AboutScreen.android.kt): a dialog
+ * over this destination, closed by Close or Back. Desktop and iOS, which are not shipped, keep
+ * [AboutRowsScreen].
  */
 @Composable
-fun AboutScreen(
+expect fun AboutScreen(viewModel: AboutViewModelAbstract)
+
+/**
+ * The About as plain rows, for desktop and iOS: the app's own name and version, where the code came
+ * from, Privacy with its three short sections (who we are, how to contact us, your rights), Terms
+ * and Licenses, then "Write to email@wanderthe.dev". Rows turn on whole pages.
+ */
+@Composable
+fun AboutRowsScreen(
     viewModel: AboutViewModelAbstract,
 ) {
     val subject = stringResource(Res.string.zeni_contact_subject)
@@ -78,6 +85,6 @@ private const val ABOUT_CONTACT = "about:contact"
 @Preview
 fun AboutScreenPreview() {
     GreenPreview {
-        AboutScreen(viewModel = AboutViewModelPreview.preview())
+        AboutRowsScreen(viewModel = AboutViewModelPreview.preview())
     }
 }

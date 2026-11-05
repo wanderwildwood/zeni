@@ -1,6 +1,6 @@
 # Bitcoin (zeni) — Terms of Use
 
-Version 0.1.4. Last reviewed 29 October 2026.
+Version 0.1.6. Last reviewed 5 November 2026.
 
 ## What this is
 
@@ -10,9 +10,9 @@ Bitcoin (zeni) is a free Bitcoin wallet for the Mudita Kompakt, made by wander w
 
 This app is not made, endorsed, sponsored or supported by Blockstream. It is not Blockstream's app and it is not the Blockstream App. "Blockstream" and "Green" are names of Blockstream Corporation Inc. and are used here only to say where the code came from and which servers some features talk to. The only support is email@wanderthe.dev.
 
-## Licence
+## License
 
-The app is free software under the GNU General Public License, version 3 only. You may use, study, change and share it under that licence. The source is at <https://github.com/wanderwildwood/zeni>. Copyright is Blockstream Corporation Inc. and contributors for the parts that are theirs, and wander wildwood for the parts that are not. The full text and the list of everything the app is built with are under About, Licences.
+The app is free software under the GNU General Public License, version 3 only. You may use, study, change and share it under that license. The source is at <https://github.com/wanderwildwood/zeni>. Copyright is Blockstream Corporation Inc. and contributors for the parts that are theirs, and wander wildwood for the parts that are not. The full text and the list of everything the app is built with are under About, Licenses.
 
 ## Your keys are yours
 
@@ -34,4 +34,4 @@ To read a balance and send a payment the app talks to servers run by others, chi
 
 ## Changes
 
-If these terms change, they change in a new version of the app, with the date above. The terms of the licence do not change.
+If these terms change, they change in a new version of the app, with the date above. The terms of the license do not change.

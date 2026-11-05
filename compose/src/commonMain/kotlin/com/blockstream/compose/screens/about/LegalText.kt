@@ -34,15 +34,15 @@ private fun stripMarkdown(line: String): String = line
     .replace("`", "")
 
 /** Splits a long paragraph into rows of at most [MAX_ROW_CHARS], breaking after a full stop or a space. */
-fun chunk(text: String): List<String> {
-    if (text.length <= MAX_ROW_CHARS) return listOf(text)
+fun chunk(text: String, maxChars: Int = MAX_ROW_CHARS): List<String> {
+    if (text.length <= maxChars) return listOf(text)
     val out = mutableListOf<String>()
     var rest = text
-    while (rest.length > MAX_ROW_CHARS) {
-        val window = rest.substring(0, MAX_ROW_CHARS)
+    while (rest.length > maxChars) {
+        val window = rest.substring(0, maxChars)
         var cut = window.lastIndexOf(". ")
-        if (cut < MAX_ROW_CHARS / 3) cut = window.lastIndexOf(' ') else cut += 1
-        if (cut <= 0) cut = MAX_ROW_CHARS
+        if (cut < maxChars / 3) cut = window.lastIndexOf(' ') else cut += 1
+        if (cut <= 0) cut = maxChars
         out += rest.substring(0, cut).trim()
         rest = rest.substring(cut).trim()
     }
@@ -55,7 +55,7 @@ fun chunk(text: String): List<String> {
  * into rows: blank lines break paragraphs, single line breaks become spaces, "#" lines are
  * headings and "- " lines are bullets of their own.
  */
-fun legalRows(raw: String, markdown: Boolean = false): List<LegalRow> {
+fun legalRows(raw: String, markdown: Boolean = false, maxChars: Int = MAX_ROW_CHARS): List<LegalRow> {
     val rows = mutableListOf<LegalRow>()
     // HTML comments (the shared-about markers around the privacy section) are not shown.
     val paragraphs = raw.replace("\r", "").replace(Regex("<!--[\\s\\S]*?-->"), "")
@@ -66,13 +66,13 @@ fun legalRows(raw: String, markdown: Boolean = false): List<LegalRow> {
         if (markdown && lines.first().startsWith("#")) {
             rows += LegalRow(stripMarkdown(lines.first().trimStart('#').trim()), RowKind.HEADING)
             val rest = lines.drop(1)
-            if (rest.isNotEmpty()) rows += chunk(stripMarkdown(rest.joinToString(" ") { it.trim() })).map { LegalRow(it) }
+            if (rest.isNotEmpty()) rows += chunk(stripMarkdown(rest.joinToString(" ") { it.trim() }), maxChars).map { LegalRow(it) }
             continue
         }
         if (markdown && lines.first().trimStart().startsWith("- ")) {
             var current = StringBuilder()
             fun flush() {
-                if (current.isNotEmpty()) rows += chunk("• " + stripMarkdown(current.toString().trim())).map { LegalRow(it) }
+                if (current.isNotEmpty()) rows += chunk("• " + stripMarkdown(current.toString().trim()), maxChars).map { LegalRow(it) }
                 current = StringBuilder()
             }
             for (l in lines) {
@@ -83,7 +83,7 @@ fun legalRows(raw: String, markdown: Boolean = false): List<LegalRow> {
             continue
         }
         val joined = lines.joinToString(" ") { it.trim() }
-        rows += chunk(if (markdown) stripMarkdown(joined) else joined).map { LegalRow(it) }
+        rows += chunk(if (markdown) stripMarkdown(joined) else joined, maxChars).map { LegalRow(it) }
     }
     return rows
 }

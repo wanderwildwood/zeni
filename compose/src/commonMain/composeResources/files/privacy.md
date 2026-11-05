@@ -1,6 +1,6 @@
 # Bitcoin (zeni) — Privacy Policy
 
-Version 0.1.6. Last reviewed 4 November 2026.
+Version 0.1.6. Last reviewed 5 November 2026.
 
 ## The short version
 
@@ -29,7 +29,7 @@ Every request below also shows the service your IP address, as any connection do
 
 The lock screen: with Glance (com.wanderwildwood.hitome, the author's lock-screen app) installed, and only if you switch on "The bitcoin price on the lock screen", the bitcoin price is handed to Glance and only to Glance. It is fetched from the same price chart service when the lock screen is looked at and the last price is over half an hour old, and never while Tor or a proxy is on. A balance is never handed to Glance.
 
-Help links in the app open Blockstream's help pages in your browser, and only when you press them. They explain the wallet technology; they are Blockstream's pages, not this app's. In Settings, "feed the llamas" opens a donation page (square.link) and wanderthe.dev opens the author's website, likewise. "Write to email@wanderthe.dev" in About opens your email app with a blank message to that address; nothing is sent until you send it, and no logs or wallet data are attached.
+Help links in the app open Blockstream's help pages in your browser, and only when you press them. They explain the wallet technology; they are Blockstream's pages, not this app's. In Settings and in About, "feed the llamas" opens a donation page (square.link) and wanderthe.dev opens the author's website, likewise; in About, the source address and Blockstream Green's address open those projects' pages on GitHub. The sentence "Write to email@wanderthe.dev" in About, under How to contact us, opens your email app with a new message to that address, its subject the app's name and version; nothing is sent until you send it, and no logs or wallet data are attached.
 
 Never contacted: Blockstream's purchase service (Meld), Boltz or any swap service, a Liquid server, an analytics service (Green's Countly library and the Zendesk help-desk library are removed from this build), a crash-reporting service, a support service that uploads logs, Google's push service, and any update check.
 
@@ -97,4 +97,4 @@ If you point Bitcoin (zeni) at a server of your own, what that server keeps is y
 ## Changes
 
 If a later version changes what the app stores or which hosts it contacts, this policy is updated in the same release and the change is described in the release notes. The source is public, so any claim here can be checked against the code:
-<https://github.com/wanderwildwood/zeni>. GitHub reports its licence as GPL-3.0.
+<https://github.com/wanderwildwood/zeni>. GitHub reports its license as GPL-3.0.
