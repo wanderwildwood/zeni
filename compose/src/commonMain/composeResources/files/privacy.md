@@ -68,7 +68,7 @@ The app is not directed at children and does not knowingly collect anything from
 <!-- shared-about privacy section -->
 ## Who we are
 
-Bitcoin (zeni) is made by wander wildwood, an independent developer: one person, not a company. wander wildwood is the data controller for anything the app itself handles, and that is very little. Bitcoin (zeni) keeps what you put in it on your phone, apart from what it sends to Blockstream's servers and the exchange-rate source you choose, as described above, and sends nothing to the developer, so the developer holds no data about you.
+Bitcoin (zeni) is made by wander wildwood, an independent developer: one person, not a company. wander wildwood is the data controller for anything the app itself handles, and that is very little. What you put in Bitcoin (zeni) stays on your phone. The only things that go out are the requests described above, to Blockstream's servers and to the exchange-rate source you choose: the wallet's addresses and any transaction you sign, a login attempt at the multisig server, the currency for the price chart, a request for exchange rates, the blinded PIN exchange and a request for the firmware list. The developer receives nothing, so the developer holds no data about you.
 
 ## How to contact us
 
