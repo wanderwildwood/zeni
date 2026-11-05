@@ -6,6 +6,9 @@ import org.koin.mp.KoinPlatform
 
 actual fun lockScreenPriceOn(): Boolean = context()?.let { LockScreenPrice.on(it) } ?: false
 
+actual fun glanceInstalled(): Boolean =
+    context()?.let { it.packageManager.getLaunchIntentForPackage(LockScreenPrice.GLANCE) != null } ?: false
+
 actual fun setLockScreenPriceOn(on: Boolean) {
     context()?.let { LockScreenPrice.set(it, on) }
 }
@@ -18,6 +21,9 @@ private fun context(): Context? = runCatching { KoinPlatform.getKoin().get<Conte
 
 /** The switch and currency for the lock-screen price, read by the app's Glance provider. */
 object LockScreenPrice {
+    /** Glance, the app that draws the lock-screen panel. */
+    const val GLANCE = "com.wanderwildwood.hitome"
+
     private const val PREFS = "lock_screen"
     private const val ON = "price_on"
     private const val CURRENCY = "price_currency"

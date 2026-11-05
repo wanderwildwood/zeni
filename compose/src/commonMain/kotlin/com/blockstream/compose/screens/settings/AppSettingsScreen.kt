@@ -93,6 +93,7 @@ import com.blockstream.compose.models.settings.AppSettingsViewModelAbstract.Comp
 import com.blockstream.compose.models.settings.AppSettingsViewModelPreview
 import com.blockstream.compose.screens.settings.components.PersonalElectrumServerSection
 import com.blockstream.compose.screens.settings.components.SettingSwitch
+import com.blockstream.compose.glance.glanceInstalled
 import com.blockstream.compose.glance.lockScreenPriceOn
 import com.blockstream.compose.glance.setLockScreenPriceOn
 import blockstream_green.common.generated.resources.zeni_price_on_lock_screen
@@ -251,17 +252,21 @@ fun AppSettingsScreen(
                     testTag = "remember_devices_switch"
                 )
 
-                // zeni: the price on Glance's lock-screen panel, off until switched on.
+                // zeni: the price on Glance's lock-screen panel, off until switched on. Shown only
+                // while Glance is on the phone, or while the switch is already on so it can go off.
                 var priceOnLockScreen by remember { mutableStateOf(lockScreenPriceOn()) }
-                SettingSwitch(
-                    title = stringResource(Res.string.zeni_price_on_lock_screen),
-                    subtitle = stringResource(Res.string.zeni_price_on_lock_screen_detail),
-                    checked = priceOnLockScreen,
-                    onCheckedChange = {
-                        priceOnLockScreen = it
-                        setLockScreenPriceOn(it)
-                    },
-                )
+                val showPriceOnLockScreen = remember { glanceInstalled() || priceOnLockScreen }
+                if (showPriceOnLockScreen) {
+                    SettingSwitch(
+                        title = stringResource(Res.string.zeni_price_on_lock_screen),
+                        subtitle = stringResource(Res.string.zeni_price_on_lock_screen_detail),
+                        checked = priceOnLockScreen,
+                        onCheckedChange = {
+                            priceOnLockScreen = it
+                            setLockScreenPriceOn(it)
+                        },
+                    )
+                }
 
                 // Enable testnet
                 val testnetEnabled by viewModel.testnetEnabled.collectAsStateWithLifecycle()

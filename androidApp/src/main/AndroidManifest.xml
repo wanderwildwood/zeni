@@ -63,6 +63,9 @@
             <category android:name="android.intent.category.BROWSABLE" />
             <data android:scheme="https" />
         </intent>
+        <!-- zeni: Glance, which draws the price on the lock screen: the switch in Settings shows
+             only while it is there. -->
+        <package android:name="com.wanderwildwood.hitome" />
     </queries>
 
     <application
@@ -112,10 +115,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
+                <!-- zeni: Bitcoin only; no lightning: or liquid links (nothing here could pay them). -->
                 <data android:scheme="bitcoin" />
-                <data android:scheme="liquidnetwork" />
-                <data android:scheme="liquidtestnet" />
-                <data android:scheme="lightning" />
             </intent-filter>
 
             <!-- zeni: a tapped payment request (another phone's Receive screen, or a tag) -->

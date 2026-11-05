@@ -5,6 +5,9 @@ package com.blockstream.compose.glance
 
 expect fun lockScreenPriceOn(): Boolean
 
+// Whether Glance is on the phone: the switch shows only then, or while it is already on.
+expect fun glanceInstalled(): Boolean
+
 expect fun setLockScreenPriceOn(on: Boolean)
 
 // The currency the wallet page shows prices in, so the lock screen uses the same one.
