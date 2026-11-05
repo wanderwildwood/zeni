@@ -1,6 +1,6 @@
 # Bitcoin (zeni) — Privacy Policy
 
-Version 0.1.6. Last reviewed 5 November 2026.
+Version 0.1.7. Last reviewed 5 November 2026.
 
 ## The short version
 
