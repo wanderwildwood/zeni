@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-hex-conservative-0-2-1",
+  "name": "hex-conservative",
+  "description": "Rust crate hex-conservative 0.2.1, native code inside GDK (gdk_rust). License: CC0-1.0.",
+  "website": "https://github.com/rust-bitcoin/hex-conservative",
+  "licenses": [
+    "rust-cc0-1-0"
+  ],
+  "organization": {
+    "name": "Martin Habovštiak, Andrew Poelstra"
+  }
+}

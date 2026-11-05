@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-zeroize-1-8-2",
+  "name": "zeroize",
+  "description": "Rust crate zeroize 1.8.2, native code inside GDK (gdk_rust). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/RustCrypto/utils",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-zeroize-1-8-2-mit"
+  ],
+  "organization": {
+    "name": "The RustCrypto Project Developers"
+  }
+}

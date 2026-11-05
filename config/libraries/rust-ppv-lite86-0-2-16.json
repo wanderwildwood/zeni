@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-ppv-lite86-0-2-16",
+  "name": "ppv-lite86",
+  "description": "Rust crate ppv-lite86 0.2.16, native code inside GDK (gdk_rust). License: MIT/Apache-2.0.",
+  "website": "https://github.com/cryptocorrosion/cryptocorrosion",
+  "licenses": [
+    "rust-ppv-lite86-0-2-16-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The CryptoCorrosion Contributors"
+  }
+}

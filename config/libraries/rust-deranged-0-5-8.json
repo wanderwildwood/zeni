@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-deranged-0-5-8",
+  "name": "deranged",
+  "description": "Rust crate deranged 0.5.8, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/jhpratt/deranged",
+  "licenses": [
+    "rust-deranged-0-5-8-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Jacob Pratt"
+  }
+}

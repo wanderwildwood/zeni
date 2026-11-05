@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-arrayvec-0-7-6",
+  "name": "arrayvec",
+  "description": "Rust crate arrayvec 0.7.6, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/bluss/arrayvec",
+  "licenses": [
+    "rust-arrayvec-0-7-6-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "bluss"
+  }
+}

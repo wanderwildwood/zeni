@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-bitcoin-0-29-1",
+  "name": "bitcoin 0.29.1",
+  "description": "Rust crate bitcoin 0.29.1, native code inside GDK (gdk_rust). License: CC0-1.0.",
+  "website": "https://github.com/rust-bitcoin/rust-bitcoin/",
+  "licenses": [
+    "rust-cc0-1-0"
+  ],
+  "organization": {
+    "name": "Andrew Poelstra"
+  }
+}

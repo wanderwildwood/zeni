@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-env-logger-0-7-1",
+  "name": "env_logger",
+  "description": "Rust crate env_logger 0.7.1, native code inside GDK (gdk_rust). License: MIT/Apache-2.0.",
+  "website": "https://github.com/sebasmagri/env_logger/",
+  "licenses": [
+    "rust-env-logger-0-7-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Rust Project Developers"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-equivalent-1-0-1",
+  "name": "equivalent",
+  "description": "Rust crate equivalent 1.0.1, native code inside GDK (gdk_rust). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/cuviper/equivalent",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-equivalent-1-0-1-mit"
+  ],
+  "organization": {
+    "name": "The equivalent authors"
+  }
+}

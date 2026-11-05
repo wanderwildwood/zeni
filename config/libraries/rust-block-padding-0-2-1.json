@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-block-padding-0-2-1",
+  "name": "block-padding",
+  "description": "Rust crate block-padding 0.2.1, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/RustCrypto/utils",
+  "licenses": [
+    "rust-block-padding-0-2-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

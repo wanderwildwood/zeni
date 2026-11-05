@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-electrum-client-0-24-1",
+  "name": "electrum-client",
+  "description": "Rust crate electrum-client 0.24.1, native code inside GDK (gdk_rust). License: MIT.",
+  "website": "https://github.com/bitcoindevkit/rust-electrum-client",
+  "licenses": [
+    "rust-electrum-client-0-24-1-mit"
+  ],
+  "organization": {
+    "name": "Alekos Filini"
+  }
+}

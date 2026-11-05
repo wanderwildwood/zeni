@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-regex-1-11-1",
+  "name": "regex",
+  "description": "Rust crate regex 1.11.1, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-lang/regex",
+  "licenses": [
+    "rust-regex-1-11-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Rust Project Developers, Andrew Gallant"
+  }
+}

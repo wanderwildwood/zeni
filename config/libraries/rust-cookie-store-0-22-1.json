@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-cookie-store-0-22-1",
+  "name": "cookie_store",
+  "description": "Rust crate cookie_store 0.22.1, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/pfernie/cookie_store",
+  "licenses": [
+    "rust-cookie-store-0-22-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Patrick Fernie"
+  }
+}

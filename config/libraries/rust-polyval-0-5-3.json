@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-polyval-0-5-3",
+  "name": "polyval",
+  "description": "Rust crate polyval 0.5.3, native code inside GDK (gdk_rust). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/RustCrypto/universal-hashes",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-polyval-0-5-3-mit"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

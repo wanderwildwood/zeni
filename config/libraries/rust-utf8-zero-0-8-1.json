@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-utf8-zero-0-8-1",
+  "name": "utf8-zero",
+  "description": "Rust crate utf8-zero 0.8.1, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/algesten/utf8-zero",
+  "licenses": [
+    "rust-utf8-zero-0-8-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Simon Sapin, Martin Algesten"
+  }
+}

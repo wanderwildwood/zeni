@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-memchr-2-7-4",
+  "name": "memchr",
+  "description": "Rust crate memchr 2.7.4, native code inside GDK (gdk_rust). License: Unlicense OR MIT.",
+  "website": "https://github.com/BurntSushi/memchr",
+  "licenses": [
+    "rust-unlicense",
+    "rust-memchr-2-7-4-mit"
+  ],
+  "organization": {
+    "name": "Andrew Gallant, bluss"
+  }
+}

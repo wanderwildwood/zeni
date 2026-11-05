@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-aho-corasick-1-1-3",
+  "name": "aho-corasick",
+  "description": "Rust crate aho-corasick 1.1.3, native code inside GDK (gdk_rust). License: Unlicense OR MIT.",
+  "website": "https://github.com/BurntSushi/aho-corasick",
+  "licenses": [
+    "rust-unlicense",
+    "rust-aho-corasick-1-1-3-mit"
+  ],
+  "organization": {
+    "name": "Andrew Gallant"
+  }
+}

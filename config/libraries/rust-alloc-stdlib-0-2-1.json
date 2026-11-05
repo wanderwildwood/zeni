@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-alloc-stdlib-0-2-1",
+  "name": "alloc-stdlib",
+  "description": "Rust crate alloc-stdlib 0.2.1, native code inside GDK (gdk_rust). License: BSD-3-Clause.",
+  "website": "https://github.com/dropbox/rust-alloc-no-stdlib",
+  "licenses": [
+    "rust-alloc-stdlib-0-2-1-bsd-3-clause"
+  ],
+  "organization": {
+    "name": "Daniel Reiter Horn"
+  }
+}

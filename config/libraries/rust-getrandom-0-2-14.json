@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-getrandom-0-2-14",
+  "name": "getrandom",
+  "description": "Rust crate getrandom 0.2.14, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-random/getrandom",
+  "licenses": [
+    "rust-getrandom-0-2-14-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Rand Project Developers"
+  }
+}

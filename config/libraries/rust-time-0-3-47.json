@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-time-0-3-47",
+  "name": "time",
+  "description": "Rust crate time 0.3.47, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/time-rs/time",
+  "licenses": [
+    "rust-time-0-3-47-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Jacob Pratt, Time contributors"
+  }
+}

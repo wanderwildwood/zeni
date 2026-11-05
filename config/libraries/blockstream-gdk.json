@@ -1,7 +1,7 @@
 {
   "uniqueId": "blockstream-gdk",
   "name": "Blockstream GDK",
-  "description": "The wallet library, native code inside the app (release 0.78.0). It carries libwally-core, Tor, OpenSSL, Boost and the other native libraries listed here.",
+  "description": "The wallet library, native code inside the app (release 0.78.0). It carries libwally-core, Tor, OpenSSL, Boost, its Rust crates (gdk_rust) and the other native libraries listed here.",
   "organization": {
     "name": "Blockstream"
   },

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-aead-0-4-3",
+  "name": "aead",
+  "description": "Rust crate aead 0.4.3, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/RustCrypto/traits",
+  "licenses": [
+    "rust-aead-0-4-3-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

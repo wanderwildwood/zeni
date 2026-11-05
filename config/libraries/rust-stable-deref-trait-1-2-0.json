@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-stable-deref-trait-1-2-0",
+  "name": "stable_deref_trait",
+  "description": "Rust crate stable_deref_trait 1.2.0, native code inside GDK (gdk_rust). License: MIT/Apache-2.0.",
+  "website": "https://github.com/storyyeller/stable_deref_trait",
+  "licenses": [
+    "rust-stable-deref-trait-1-2-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Robert Grosse"
+  }
+}

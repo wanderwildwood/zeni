@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-socks-0-3-4",
+  "name": "socks",
+  "description": "Rust crate socks 0.3.4, native code inside GDK (gdk_rust). License: MIT/Apache-2.0.",
+  "website": "https://github.com/sfackler/rust-socks",
+  "licenses": [
+    "rust-socks-0-3-4-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Steven Fackler"
+  }
+}

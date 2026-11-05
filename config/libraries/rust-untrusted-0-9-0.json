@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-untrusted-0-9-0",
+  "name": "untrusted",
+  "description": "Rust crate untrusted 0.9.0, native code inside GDK (gdk_rust). License: ISC.",
+  "website": "https://github.com/briansmith/untrusted",
+  "licenses": [
+    "rust-untrusted-0-9-0-isc"
+  ],
+  "organization": {
+    "name": "Brian Smith"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "hash": "ur-c-none-stated",
+  "name": "No license stated",
+  "url": "https://github.com/Blockstream/ur-c/tree/v0.5.0-rc1",
+  "content": "ur-c states no license.\n\nGDK release 0.78.0 builds ur-c from https://github.com/Blockstream/ur-c/archive/refs/tags/v0.5.0-rc1.tar.gz (sha256 1f8732869c67f235610cc2eff0709a5ea565c4da3107400d6be3ebf40ac2433b, as pinned in GDK's tools/builddeps.sh). That source has no LICENSE or COPYING file, and none of its 50 files (source, headers, README, build files) carries a license, a copyright line or an SPDX identifier. The repository on GitHub has no license file either, and GitHub detects no license for it.\n\nur-c is written and published by Blockstream, who also publish GDK, the wallet library it is built into. GDK's own LICENSE (MIT, listed under Blockstream GDK) covers GDK's code except where noted; it does not name ur-c. Nothing more is known about its terms.\n\nSource: https://github.com/Blockstream/ur-c\n"
+}

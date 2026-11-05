@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-regex-automata-0-4-9",
+  "name": "regex-automata",
+  "description": "Rust crate regex-automata 0.4.9, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/rust-lang/regex/tree/master/regex-automata",
+  "licenses": [
+    "rust-regex-automata-0-4-9-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Rust Project Developers, Andrew Gallant"
+  }
+}

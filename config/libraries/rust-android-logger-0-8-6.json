@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-android-logger-0-8-6",
+  "name": "android_logger",
+  "description": "Rust crate android_logger 0.8.6, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/Nercury/android_logger-rs",
+  "licenses": [
+    "rust-android-logger-0-8-6-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The android_logger Developers"
+  }
+}

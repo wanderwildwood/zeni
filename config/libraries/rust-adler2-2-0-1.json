@@ -1,0 +1,14 @@
+{
+  "uniqueId": "rust-adler2-2-0-1",
+  "name": "adler2",
+  "description": "Rust crate adler2 2.0.1, native code inside GDK (gdk_rust). License: 0BSD OR MIT OR Apache-2.0.",
+  "website": "https://github.com/oyvindln/adler2",
+  "licenses": [
+    "rust-0bsd",
+    "rust-adler2-2-0-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Jonas Schievink, oyvindln"
+  }
+}

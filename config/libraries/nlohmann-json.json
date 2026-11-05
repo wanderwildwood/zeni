@@ -1,0 +1,12 @@
+{
+  "uniqueId": "nlohmann-json",
+  "name": "JSON for Modern C++",
+  "description": "nlohmann/json, the JSON library GDK's C++ code is written with; header-only, compiled into GDK (3.11.3).",
+  "organization": {
+    "name": "Niels Lohmann"
+  },
+  "website": "https://github.com/nlohmann/json",
+  "licenses": [
+    "nlohmann-json-mit"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-tinystr-0-7-6",
+  "name": "tinystr",
+  "description": "Rust crate tinystr 0.7.6, native code inside GDK (gdk_rust). License: Unicode-3.0.",
+  "website": "https://github.com/unicode-org/icu4x",
+  "licenses": [
+    "rust-tinystr-0-7-6-unicode-3-0"
+  ],
+  "organization": {
+    "name": "The ICU4X Project Developers"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-base64-0-13-0",
+  "name": "base64 0.13.0",
+  "description": "Rust crate base64 0.13.0, native code inside GDK (gdk_rust). License: MIT/Apache-2.0.",
+  "website": "https://github.com/marshallpierce/rust-base64",
+  "licenses": [
+    "rust-base64-0-13-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Alice Maz, Marshall Pierce"
+  }
+}

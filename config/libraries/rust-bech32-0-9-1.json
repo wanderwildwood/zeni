@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-bech32-0-9-1",
+  "name": "bech32 0.9.1",
+  "description": "Rust crate bech32 0.9.1, native code inside GDK (gdk_rust). License: MIT.",
+  "website": "https://github.com/rust-bitcoin/rust-bech32",
+  "licenses": [
+    "rust-bech32-0-9-1-mit"
+  ],
+  "organization": {
+    "name": "Clark Moody"
+  }
+}

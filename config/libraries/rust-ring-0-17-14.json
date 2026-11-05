@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-ring-0-17-14",
+  "name": "ring",
+  "description": "Rust crate ring 0.17.14, native code inside GDK (gdk_rust). License: Apache-2.0 AND ISC.",
+  "website": "https://github.com/briansmith/ring",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-ring-0-17-14-isc"
+  ],
+  "organization": {
+    "name": "The ring authors"
+  }
+}

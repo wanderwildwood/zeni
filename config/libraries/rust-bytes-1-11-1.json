@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-bytes-1-11-1",
+  "name": "bytes",
+  "description": "Rust crate bytes 1.11.1, native code inside GDK (gdk_rust). License: MIT.",
+  "website": "https://github.com/tokio-rs/bytes",
+  "licenses": [
+    "rust-bytes-1-11-1-mit"
+  ],
+  "organization": {
+    "name": "Carl Lerche, Sean McArthur"
+  }
+}

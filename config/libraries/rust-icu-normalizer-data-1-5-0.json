@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-icu-normalizer-data-1-5-0",
+  "name": "icu_normalizer_data",
+  "description": "Rust crate icu_normalizer_data 1.5.0, native code inside GDK (gdk_rust). License: Unicode-3.0.",
+  "website": "https://github.com/unicode-org/icu4x",
+  "licenses": [
+    "rust-icu-normalizer-data-1-5-0-unicode-3-0"
+  ],
+  "organization": {
+    "name": "The ICU4X Project Developers"
+  }
+}

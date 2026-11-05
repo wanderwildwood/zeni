@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-idna-adapter-1-2-0",
+  "name": "idna_adapter",
+  "description": "Rust crate idna_adapter 1.2.0, native code inside GDK (gdk_rust). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/hsivonen/idna_adapter",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-idna-adapter-1-2-0-mit"
+  ],
+  "organization": {
+    "name": "The rust-url developers"
+  }
+}

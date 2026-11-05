@@ -42,6 +42,13 @@ class LicencesTest {
         "Blockstream Green",
         "Blockstream GDK",
         "Tor",
+        "ur-c",
+        "JSON for Modern C++",
+        // GDK's Rust crates, one row each (generated from gdk_rust's Cargo.lock)
+        "ring",
+        "rustls",
+        "serde",
+        "elements-miniscript",
     )
 
     @Test fun theBuildListedTheLibraries() {

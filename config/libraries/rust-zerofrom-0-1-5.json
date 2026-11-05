@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-zerofrom-0-1-5",
+  "name": "zerofrom",
+  "description": "Rust crate zerofrom 0.1.5, native code inside GDK (gdk_rust). License: Unicode-3.0.",
+  "website": "https://github.com/unicode-org/icu4x",
+  "licenses": [
+    "rust-zerofrom-0-1-5-unicode-3-0"
+  ],
+  "organization": {
+    "name": "Manish Goregaokar"
+  }
+}

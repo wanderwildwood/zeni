@@ -1,0 +1,12 @@
+{
+  "uniqueId": "ur-c",
+  "name": "ur-c",
+  "description": "Parses Uniform Resource (UR) types such as crypto-psbt and crypto-account, for QR codes from hardware wallets; Blockstream's C library, native code inside GDK (v0.5.0-rc1). No license is stated anywhere in its source.",
+  "organization": {
+    "name": "Blockstream"
+  },
+  "website": "https://github.com/Blockstream/ur-c",
+  "licenses": [
+    "ur-c-none-stated"
+  ]
+}

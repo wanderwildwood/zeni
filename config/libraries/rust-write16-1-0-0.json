@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-write16-1-0-0",
+  "name": "write16",
+  "description": "Rust crate write16 1.0.0, native code inside GDK (gdk_rust). License: Apache-2.0 OR MIT.",
+  "website": "https://github.com/hsivonen/write16",
+  "licenses": [
+    "rust-apache-2-0",
+    "rust-write16-1-0-0-mit"
+  ],
+  "organization": {
+    "name": "The write16 authors"
+  }
+}

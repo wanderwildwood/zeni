@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-zmij-1-0-21",
+  "name": "zmij",
+  "description": "Rust crate zmij 1.0.21, native code inside GDK (gdk_rust). License: MIT.",
+  "website": "https://github.com/dtolnay/zmij",
+  "licenses": [
+    "rust-zmij-1-0-21-mit"
+  ],
+  "organization": {
+    "name": "David Tolnay"
+  }
+}

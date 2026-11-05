@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-android-log-sys-0-1-2",
+  "name": "android_log-sys",
+  "description": "Rust crate android_log-sys 0.1.2, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/nercury/android_log-sys-rs",
+  "licenses": [
+    "rust-android-log-sys-0-1-2-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Nerijus Arlauskas"
+  }
+}

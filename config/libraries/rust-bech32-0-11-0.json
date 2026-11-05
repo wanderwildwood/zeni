@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-bech32-0-11-0",
+  "name": "bech32 0.11.0",
+  "description": "Rust crate bech32 0.11.0, native code inside GDK (gdk_rust). License: MIT.",
+  "website": "https://github.com/rust-bitcoin/rust-bech32",
+  "licenses": [
+    "rust-bech32-0-11-0-mit"
+  ],
+  "organization": {
+    "name": "Clark Moody, Andrew Poelstra, Tobin Harding"
+  }
+}

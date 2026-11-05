@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-smallvec-1-13-2",
+  "name": "smallvec",
+  "description": "Rust crate smallvec 1.13.2, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/servo/rust-smallvec",
+  "licenses": [
+    "rust-smallvec-1-13-2-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The Servo Project Developers"
+  }
+}

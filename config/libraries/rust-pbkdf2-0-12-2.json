@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-pbkdf2-0-12-2",
+  "name": "pbkdf2",
+  "description": "Rust crate pbkdf2 0.12.2, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/RustCrypto/password-hashes/tree/master/pbkdf2",
+  "licenses": [
+    "rust-pbkdf2-0-12-2-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

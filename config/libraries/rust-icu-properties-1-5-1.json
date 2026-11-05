@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-icu-properties-1-5-1",
+  "name": "icu_properties",
+  "description": "Rust crate icu_properties 1.5.1, native code inside GDK (gdk_rust). License: Unicode-3.0.",
+  "website": "https://github.com/unicode-org/icu4x",
+  "licenses": [
+    "rust-icu-properties-1-5-1-unicode-3-0"
+  ],
+  "organization": {
+    "name": "The ICU4X Project Developers"
+  }
+}

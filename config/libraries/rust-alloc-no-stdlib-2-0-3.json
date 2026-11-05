@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-alloc-no-stdlib-2-0-3",
+  "name": "alloc-no-stdlib",
+  "description": "Rust crate alloc-no-stdlib 2.0.3, native code inside GDK (gdk_rust). License: BSD-3-Clause.",
+  "website": "https://github.com/dropbox/rust-alloc-no-stdlib",
+  "licenses": [
+    "rust-alloc-no-stdlib-2-0-3-bsd-3-clause"
+  ],
+  "organization": {
+    "name": "Daniel Reiter Horn"
+  }
+}

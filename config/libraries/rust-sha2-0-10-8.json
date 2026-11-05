@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-sha2-0-10-8",
+  "name": "sha2",
+  "description": "Rust crate sha2 0.10.8, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/RustCrypto/hashes",
+  "licenses": [
+    "rust-sha2-0-10-8-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-percent-encoding-2-3-1",
+  "name": "percent-encoding",
+  "description": "Rust crate percent-encoding 2.3.1, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/servo/rust-url/",
+  "licenses": [
+    "rust-percent-encoding-2-3-1-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "The rust-url developers"
+  }
+}

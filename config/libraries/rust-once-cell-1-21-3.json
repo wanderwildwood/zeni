@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-once-cell-1-21-3",
+  "name": "once_cell",
+  "description": "Rust crate once_cell 1.21.3, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/matklad/once_cell",
+  "licenses": [
+    "rust-once-cell-1-21-3-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Aleksey Kladov"
+  }
+}

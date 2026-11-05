@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-cpufeatures-0-2-5",
+  "name": "cpufeatures",
+  "description": "Rust crate cpufeatures 0.2.5, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/RustCrypto/utils",
+  "licenses": [
+    "rust-cpufeatures-0-2-5-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "RustCrypto Developers"
+  }
+}

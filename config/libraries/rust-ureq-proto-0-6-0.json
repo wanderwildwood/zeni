@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-ureq-proto-0-6-0",
+  "name": "ureq-proto",
+  "description": "Rust crate ureq-proto 0.6.0, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/algesten/ureq-proto",
+  "licenses": [
+    "rust-ureq-proto-0-6-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Martin Algesten"
+  }
+}

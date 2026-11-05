@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-brotli-decompressor-5-0-0",
+  "name": "brotli-decompressor",
+  "description": "Rust crate brotli-decompressor 5.0.0, native code inside GDK (gdk_rust). License: BSD-3-Clause/MIT.",
+  "website": "https://github.com/dropbox/rust-brotli-decompressor",
+  "licenses": [
+    "rust-brotli-decompressor-5-0-0-bsd-3-clause",
+    "rust-brotli-decompressor-5-0-0-mit"
+  ],
+  "organization": {
+    "name": "Daniel Reiter Horn, The Brotli Authors"
+  }
+}

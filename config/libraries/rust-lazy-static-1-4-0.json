@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-lazy-static-1-4-0",
+  "name": "lazy_static",
+  "description": "Rust crate lazy_static 1.4.0, native code inside GDK (gdk_rust). License: MIT/Apache-2.0.",
+  "website": "https://github.com/rust-lang-nursery/lazy-static.rs",
+  "licenses": [
+    "rust-lazy-static-1-4-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Marvin Löbel"
+  }
+}

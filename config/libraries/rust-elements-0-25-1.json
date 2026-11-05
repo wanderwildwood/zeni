@@ -1,0 +1,12 @@
+{
+  "uniqueId": "rust-elements-0-25-1",
+  "name": "elements",
+  "description": "Rust crate elements 0.25.1, native code inside GDK (gdk_rust). License: CC0-1.0.",
+  "website": "https://github.com/ElementsProject/rust-elements/",
+  "licenses": [
+    "rust-cc0-1-0"
+  ],
+  "organization": {
+    "name": "Andrew Poelstra"
+  }
+}

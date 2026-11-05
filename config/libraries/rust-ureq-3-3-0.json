@@ -1,0 +1,13 @@
+{
+  "uniqueId": "rust-ureq-3-3-0",
+  "name": "ureq",
+  "description": "Rust crate ureq 3.3.0, native code inside GDK (gdk_rust). License: MIT OR Apache-2.0.",
+  "website": "https://github.com/algesten/ureq",
+  "licenses": [
+    "rust-ureq-3-3-0-mit",
+    "rust-apache-2-0"
+  ],
+  "organization": {
+    "name": "Martin Algesten, Jacob Hoffman-Andrews"
+  }
+}
