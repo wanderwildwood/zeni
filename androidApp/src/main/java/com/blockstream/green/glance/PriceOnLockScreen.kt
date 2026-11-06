@@ -42,7 +42,9 @@ class PriceOnLockScreen : GlanceProvider() {
     }
 
     override fun call(method: String, arg: String?, extras: Bundle?): Bundle? {
-        if (method != REFRESH || callingPackage != READER) return null
+        if (method != REFRESH) return null
+        // The same check as the lines: Glance by name and by its signing certificate.
+        if (!fromGlance(context ?: return null)) return null
         val context = context?.applicationContext ?: return null
         if (!enabled(context) || System.currentTimeMillis() - cache(context).getLong(AT, 0L) <= FRESH_MS) return null
         val job = refresh(context)
