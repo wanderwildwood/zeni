@@ -3,7 +3,6 @@ package com.blockstream.compose.models.settings
 import androidx.lifecycle.viewModelScope
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.id_app_settings
-import blockstream_green.common.generated.resources.id_applies_to_every_wallet
 import blockstream_green.common.generated.resources.id_enter_a_valid_proxy_address
 import blockstream_green.common.generated.resources.id_invalid_gap_limit
 import blockstream_green.common.generated.resources.id_invalid_server_address_format
@@ -157,9 +156,8 @@ class AppSettingsViewModel : AppSettingsViewModelAbstract() {
 
         viewModelScope.launch {
             _navData.value = NavData(
+                // The house top bar: the title alone, set from the left.
                 title = getString(Res.string.id_app_settings),
-                subtitle = getString(Res.string.id_applies_to_every_wallet),
-                isCentered = true,
             )
             database.insertEvent(GenericEvent(deviceId = settingsManager.getCountlyDeviceId()).sha256(), randomInsert = true)
         }

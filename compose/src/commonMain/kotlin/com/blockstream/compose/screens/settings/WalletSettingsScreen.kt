@@ -20,6 +20,10 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import com.blockstream.compose.components.PagedColumn
+import com.blockstream.compose.screens.settings.components.SettingsHeading
+import com.blockstream.compose.screens.settings.components.SettingsRowPadding
+import com.blockstream.compose.screens.settings.components.SettingsRowTitle
+import com.blockstream.compose.screens.settings.components.SettingsRowValue
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
@@ -359,19 +363,15 @@ fun WalletSettingsScreen(
             items(items) { item ->
                 when (item) {
                     is WalletSetting.Text -> {
+                        // zeni: a group's heading as the other apps set one, bold and black.
                         item.title?.also {
-                            Text(
-                                text = it,
-                                style = bodyLarge,
-                                color = whiteMedium,
-                                modifier = Modifier.padding(top = 16.dp).fillMaxWidth()
-                            )
+                            SettingsHeading(text = it)
                         }
                         item.message?.also {
                             Text(
                                 text = it,
-                                style = bodyMedium,
-                                color = whiteMedium
+                                style = SettingsRowValue,
+                                modifier = Modifier.padding(vertical = 8.dp)
                             )
                         }
                     }
@@ -794,6 +794,7 @@ fun WalletSettingsScreen(
     }
 }
 
+/** A choice among several, in the house style: the radio button, then its label; no box. */
 @Composable
 fun RadioSetting(
     modifier: Modifier = Modifier,
@@ -803,32 +804,36 @@ fun RadioSetting(
     testTag: String? = null,
     onSelect: () -> Unit = {},
 ) {
-    OutlinedCard(
+    GreenRow(
+        space = 16,
+        padding = 0,
+        verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .then(modifier)
+            .fillMaxWidth()
             .appTestTag(testTag)
             .clickable(enabled = enabled) { onSelect() }
+            .padding(SettingsRowPadding)
     ) {
-        GreenRow(space = 16, padding = 0, verticalAlignment = Alignment.CenterVertically) {
-            MmdRadioButton(
-                selected = selected,
-                enabled = enabled,
-                onClick = null,
-                modifier = Modifier.padding(start = 16.dp)
-            )
+        MmdRadioButton(
+            selected = selected,
+            enabled = enabled,
+            onClick = null,
+        )
 
-            Text(
-                text = title,
-                style = titleSmall,
-                modifier = Modifier
-                    .padding(vertical = 24.dp)
-                    .padding(end = 16.dp)
-                    .weight(1f)
-            )
-        }
+        Text(
+            text = title,
+            style = SettingsRowTitle,
+            modifier = Modifier.weight(1f)
+        )
     }
 }
 
+/**
+ * A settings row in the house style (STYLE.md, Settings screens): the label over its value,
+ * plain and full width, no rule under it and no icon beside it. [painter] and [imageVector] are
+ * kept for the callers but no longer drawn: a chevron or a glyph on every row is decoration.
+ */
 @Composable
 fun Setting(
     modifier: Modifier = Modifier,
@@ -836,8 +841,8 @@ fun Setting(
     subtitle: String? = null,
     subtitleAnnotated: AnnotatedString? = null,
     subtitleColor: Color = whiteMedium,
-    painter: Painter? = null,
-    imageVector: ImageVector? = null,
+    @Suppress("UNUSED_PARAMETER") painter: Painter? = null,
+    @Suppress("UNUSED_PARAMETER") imageVector: ImageVector? = null,
     checked: Boolean? = null,
     isRadio: Boolean = false,
     enabled: Boolean = true,
@@ -845,102 +850,66 @@ fun Setting(
     trailingLabel: String? = null,
     onCheckedChange: ((Boolean) -> Unit) = {},
 ) {
-    // zeni: a plain row with a rule under it, as in the other apps; no boxed card.
-    Column(
+    GreenRow(
+        space = 16,
+        padding = 0,
+        verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .then(modifier)
+            .fillMaxWidth()
             .appTestTag(testTag)
+            .padding(SettingsRowPadding)
     ) {
-        GreenRow(space = 8, padding = 0, verticalAlignment = Alignment.Top) {
-            GreenColumn(
-                padding = 0, space = 4,
-                modifier = Modifier
-                    .padding(vertical = 14.dp)
-                    .padding(start = 4.dp)
-                    .ifTrue(imageVector == null && painter == null && checked == null) {
-                        it.padding(end = 16.dp)
-                    }
-                    .weight(1f)
-            ) {
+        GreenColumn(
+            padding = 0, space = 0,
+            modifier = Modifier.weight(1f)
+        ) {
+            Text(
+                text = title,
+                style = SettingsRowTitle,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.fillMaxWidth()
+            )
+            if (subtitle != null && subtitle.isNotBlank()) {
                 Text(
-                    text = title,
-                    style = titleSmall,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                    modifier = Modifier.fillMaxWidth()
+                    text = subtitle,
+                    style = SettingsRowValue,
+                    color = subtitleColor
                 )
-                if (subtitle != null && subtitle.isNotBlank()) {
-                    Text(
-                        text = subtitle,
-                        style = bodyLarge,
-                        color = subtitleColor
-                    )
-                }
-                if (subtitleAnnotated != null) {
-                    Text(
-                        text = subtitleAnnotated,
-                        style = bodyLarge,
-                        color = subtitleColor
-                    )
-                }
             }
-
-            if (trailingLabel != null) {
+            if (subtitleAnnotated != null) {
                 Text(
-                    text = trailingLabel,
-                    style = bodySmall,
-                    color = whiteMedium,
-                    modifier = Modifier.align(Alignment.CenterVertically)
-                )
-            }
-
-            if (checked != null) {
-                if (isRadio) {
-                    MmdRadioButton(
-                        selected = checked,
-                        enabled = enabled,
-                        onClick = {
-                            onCheckedChange.invoke(true)
-                        },
-                        modifier = Modifier
-                            .align(Alignment.CenterVertically)
-                            .padding(end = 16.dp)
-                    )
-                } else {
-                    MmdSwitch(
-                        checked = checked,
-                        onCheckedChange = onCheckedChange,
-                        enabled = enabled,
-                        modifier = Modifier
-                            .align(Alignment.CenterVertically)
-                            .padding(end = 16.dp)
-                    )
-                }
-
-            }
-
-            if (painter != null) {
-                Icon(
-                    painter = painter,
-                    contentDescription = null,
-                    tint = whiteLow,
-                    modifier = Modifier
-                        .align(Alignment.CenterVertically)
-                        .padding(end = 16.dp)
-                )
-            }
-
-            imageVector?.also {
-                Icon(
-                    imageVector = it,
-                    contentDescription = null,
-                    tint = whiteLow,
-                    modifier = Modifier
-                        .align(Alignment.CenterVertically)
-                        .padding(end = 16.dp)
+                    text = subtitleAnnotated,
+                    style = SettingsRowValue,
+                    color = subtitleColor
                 )
             }
         }
-        HorizontalDivider(thickness = 1.dp, color = Color.Black)
+
+        if (trailingLabel != null) {
+            Text(
+                text = trailingLabel,
+                style = SettingsRowValue,
+            )
+        }
+
+        if (checked != null) {
+            if (isRadio) {
+                MmdRadioButton(
+                    selected = checked,
+                    enabled = enabled,
+                    onClick = {
+                        onCheckedChange.invoke(true)
+                    },
+                )
+            } else {
+                MmdSwitch(
+                    checked = checked,
+                    onCheckedChange = onCheckedChange,
+                    enabled = enabled,
+                )
+            }
+        }
     }
 }

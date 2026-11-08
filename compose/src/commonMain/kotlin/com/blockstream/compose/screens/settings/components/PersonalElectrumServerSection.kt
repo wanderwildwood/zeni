@@ -4,8 +4,6 @@ import com.blockstream.compose.components.MmdTextField
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -46,15 +44,10 @@ fun PersonalElectrumServerSection(
 
     val testnetBitcoinError by viewModel.personalTestnetElectrumServerError.collectAsStateWithLifecycle()
 
-    Card(
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.outline
-        ),
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        GreenColumn(
-            space = 8,
-            padding = 16,
+    // zeni: the server's own rows sit under its switch, no box around them (house settings).
+    GreenColumn(
+            space = 0,
+            padding = 0,
             modifier = Modifier.fillMaxWidth()
         ) {
             SettingSwitch(
@@ -157,5 +150,4 @@ fun PersonalElectrumServerSection(
 
             }
         }
-    }
 }

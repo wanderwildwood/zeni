@@ -7,6 +7,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import com.blockstream.compose.components.PagedColumn
+import com.blockstream.compose.screens.settings.components.SettingsHeading
+import com.blockstream.compose.screens.settings.components.SettingsRowPadding
+import com.blockstream.compose.screens.settings.components.SettingsRowTitle
+import com.blockstream.compose.screens.settings.components.SettingsRowValue
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Icon
@@ -138,7 +143,7 @@ fun SecurityScreen(viewModel: SecurityViewModelAbstract) {
 
         PagedColumn(
             state = listState,
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(0.dp),
             contentPadding = innerPadding
                 .bottom()
                 .plus(PaddingValues(start = 20.dp, end = 12.dp))
@@ -151,11 +156,11 @@ fun SecurityScreen(viewModel: SecurityViewModelAbstract) {
 
                 if (isJade) {
                     item(key = "jade_header") {
-                        ListHeader(title = stringResource(Res.string.id_your_jade))
+                        SettingsHeading(text = stringResource(Res.string.id_your_jade))
                     }
                 } else {
                     item(key = "device_header") {
-                        ListHeader(title = stringResource(Res.string.id_your_device))
+                        SettingsHeading(text = stringResource(Res.string.id_your_device))
                     }
                 }
 
@@ -245,7 +250,7 @@ fun SecurityScreen(viewModel: SecurityViewModelAbstract) {
                     }
 
                     item(key = "unlock_method") {
-                        ListHeader(title = stringResource(Res.string.id_unlock_method))
+                        SettingsHeading(text = stringResource(Res.string.id_unlock_method))
                     }
 
                     items(credentials) { credential ->
@@ -277,7 +282,7 @@ fun SecurityScreen(viewModel: SecurityViewModelAbstract) {
 
                 if (!viewModel.greenWallet.isHardware) {
                     item(key = "recovery") {
-                        ListHeader(title = stringResource(Res.string.id_recovery))
+                        SettingsHeading(text = stringResource(Res.string.id_recovery))
                     }
 
                     item {
@@ -304,34 +309,31 @@ fun SecurityScreen(viewModel: SecurityViewModelAbstract) {
     }
 }
 
+/**
+ * A row of the Security page in the house settings style: the label, and whether it is on;
+ * no box, no icon, no chevron (STYLE.md). [icon] is kept for the callers and not drawn.
+ */
 @Composable
-fun SecurityItem(title: String, icon: ImageVector, state: Boolean?, onClick: () -> Unit) {
-    GreenCard(onClick = {
-        onClick()
-    }, padding = 0) {
-        GreenRow(padding = 0, modifier = Modifier.height(70.dp).padding(horizontal = 16.dp)) {
-            Icon(
-                imageVector = icon,
-                contentDescription = null,
-                tint = whiteMedium,
-            )
+fun SecurityItem(title: String, @Suppress("UNUSED_PARAMETER") icon: ImageVector, state: Boolean?, onClick: () -> Unit) {
+    GreenRow(
+        padding = 0,
+        space = 16,
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onClick() }
+            .padding(SettingsRowPadding)
+    ) {
+        Text(
+            text = title,
+            style = SettingsRowTitle,
+            modifier = Modifier.weight(1f)
+        )
+
+        state?.also {
             Text(
-                text = title,
-                style = titleSmall,
-                modifier = Modifier.weight(1f)
-            )
-
-            state?.also {
-                Text(
-                    text = if (it) "ON" else "OFF",
-                    color = if (it) green else whiteMedium,
-                    style = labelLarge
-                )
-            }
-
-            Icon(
-                imageVector = PhosphorIcons.Regular.CaretRight,
-                contentDescription = null
+                text = if (it) "ON" else "OFF",
+                style = SettingsRowValue,
             )
         }
     }

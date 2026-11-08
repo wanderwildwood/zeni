@@ -26,10 +26,12 @@ fun SettingSwitch(
         subtitle = subtitle,
         modifier = modifier,
         subtitleMaxLines = subtitleMaxLines,
+        // The house switch: the whole row takes the press, the switch only shows the state.
+        onClick = { onCheckedChange(!checked) },
         rightContent = {
             MmdSwitch(
                 checked = checked,
-                onCheckedChange = onCheckedChange,
+                onCheckedChange = null,
                 modifier = modifier.appTestTag(testTag)
             )
         }

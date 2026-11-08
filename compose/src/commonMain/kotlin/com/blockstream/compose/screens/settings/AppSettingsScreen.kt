@@ -6,7 +6,10 @@ import com.blockstream.compose.components.MmdTextField
 import com.blockstream.compose.components.MmdSwitch
 import com.blockstream.compose.components.MmdCheckbox
 import com.blockstream.compose.components.MmdRadioButton
-import com.blockstream.compose.components.GreenPagedColumn
+import com.blockstream.compose.components.PagedColumn
+import com.blockstream.compose.components.PagedListPadding
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -99,6 +102,8 @@ import com.blockstream.compose.glance.setLockScreenPriceOn
 import blockstream_green.common.generated.resources.zeni_price_on_lock_screen
 import blockstream_green.common.generated.resources.zeni_price_on_lock_screen_detail
 import com.blockstream.compose.screens.settings.components.SettingsItem
+import com.blockstream.compose.screens.settings.components.SettingsHeading
+import com.blockstream.compose.screens.settings.components.SettingsRowValue
 import com.blockstream.compose.sheets.LanguagePickerBottomSheet
 import com.blockstream.compose.sideeffects.OpenDialogData
 import com.blockstream.compose.utils.SetupScreen
@@ -158,16 +163,44 @@ fun AppSettingsScreen(
         }
     }) {
 
-        Box {
-            GreenPagedColumn(space = 8,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .imePadding()
-                    .padding(horizontal = 16.dp)
-                    .padding(bottom = 16.dp)
-            ) {
-                // Connect with Tor
-                val torEnabled by viewModel.torEnabled.collectAsStateWithLifecycle()
+        // Collected here, outside the list: a LazyColumn's rows are built from plain values.
+        val torEnabled by viewModel.torEnabled.collectAsStateWithLifecycle()
+        val proxyEnabled by viewModel.proxyEnabled.collectAsStateWithLifecycle()
+        val proxyUrlError by viewModel.proxyUrlError.collectAsStateWithLifecycle()
+        val proxyUrl by viewModel.proxyUrl.collectAsStateWithLifecycle()
+        val rememberHardwareDevices by viewModel.rememberHardwareDevices.collectAsStateWithLifecycle()
+        val testnetEnabled by viewModel.testnetEnabled.collectAsStateWithLifecycle()
+        val experimentalFeaturesEnabled by viewModel.experimentalFeaturesEnabled.collectAsStateWithLifecycle()
+        val analyticsEnabled by viewModel.analyticsEnabled.collectAsStateWithLifecycle()
+        val locales by viewModel.locales.collectAsStateWithLifecycle()
+        val locale by viewModel.locale.collectAsStateWithLifecycle()
+        val enhancedPrivacyEnabled by viewModel.enhancedPrivacyEnabled.collectAsStateWithLifecycle()
+        val screenLockInSeconds by viewModel.screenLockInSeconds.collectAsStateWithLifecycle()
+        val electrumNodeEnabled by viewModel.electrumNodeEnabled.collectAsStateWithLifecycle()
+        val electrumServerGapLimit by viewModel.electrumServerGapLimit.collectAsStateWithLifecycle()
+        val customGapLimitEnabled by viewModel.customGapLimitEnabled.collectAsStateWithLifecycle()
+        val electrumServerGapLimitError by viewModel.electrumServerGapLimitError.collectAsStateWithLifecycle()
+
+        // zeni: the price on Glance's lock-screen panel, off until switched on. Shown only
+        // while Glance is on the phone, or while the switch is already on so it can go off.
+        var priceOnLockScreen by remember { mutableStateOf(lockScreenPriceOn()) }
+        val showPriceOnLockScreen = remember { glanceInstalled() || priceOnLockScreen }
+
+        var showLanguagePicker by remember { mutableStateOf(false) }
+        val languageValue = locale?.let { locales[it] } ?: stringResource(Res.string.id_system_default)
+
+        val screenLockSettings = ScreenLockSetting.getStringList().map { stringResource(it) }
+        var screenLockExpanded by remember { mutableStateOf(false) }
+
+        // The house settings page (STYLE.md): plain rows on MMD's scrollbar, pages ending on
+        // whole rows, side padding on the rows so the bar sits at the screen's edge.
+        PagedColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .imePadding(),
+            contentPadding = PagedListPadding,
+        ) {
+            item(key = "tor") {
                 SettingSwitch(
                     title = stringResource(Res.string.id_connect_with_tor),
                     subtitle = stringResource(Res.string.id_private_but_less_stable),
@@ -175,11 +208,9 @@ fun AppSettingsScreen(
                     onCheckedChange = autoSaveOnBooleanChange(viewModel.torEnabled),
                     testTag = "tor_switch"
                 )
+            }
 
-                // Connect through a proxy
-                val proxyEnabled by viewModel.proxyEnabled.collectAsStateWithLifecycle()
-                val proxyUrlError by viewModel.proxyUrlError.collectAsStateWithLifecycle()
-
+            item(key = "proxy") {
                 SettingSwitch(
                     title = stringResource(Res.string.id_connect_through_a_proxy),
                     subtitle = stringResource(Res.string.id_custom_network_route),
@@ -187,76 +218,62 @@ fun AppSettingsScreen(
                     onCheckedChange = autoSaveOnBooleanChange(viewModel.proxyEnabled),
                     testTag = "proxy_switch"
                 )
+            }
 
-                AnimatedVisibility(visible = proxyEnabled) {
-                    val proxyUrl by viewModel.proxyUrl.collectAsStateWithLifecycle()
-                    Card(
-                        colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.outline
-                        ),
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        GreenColumn(
-                            space = 8,
-                            padding = 16,
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            SettingsItem(
-                                title = stringResource(Res.string.id_server_ip_and_port_ipport),
-                                content = {
-                                    MmdTextField(
-                                        value = proxyUrl,
+            if (proxyEnabled) {
+                item(key = "proxy_url") {
+                    SettingsItem(
+                        title = stringResource(Res.string.id_server_ip_and_port_ipport),
+                        content = {
+                            MmdTextField(
+                                value = proxyUrl,
+                                onValueChange = autoSaveOnStringChange(
+                                    viewModel.proxyUrl,
+                                    viewModel.proxyUrlError
+                                ),
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .appTestTag("proxy_url_textfield"),
+                                placeholder = { Text(AppSettingsViewModelAbstract.DEFAULT_IP_AND_PORT) },
+                                singleLine = true,
+                                keyboardOptions = KeyboardOptions.Default.copy(
+                                    imeAction = ImeAction.Done
+                                ),
+                                keyboardActions = KeyboardActions(
+                                    onDone = {
+                                        focusManager.clearFocus()
+                                    }
+                                ),
+                                supportingText = {
+                                    Text(proxyUrlError ?: stringResource(Res.string.id_use_host_and_port_format))
+                                },
+                                isError = proxyUrlError != null,
+                                trailingIcon = {
+                                    TextInputPaste(
+                                        state = viewModel.proxyUrl,
                                         onValueChange = autoSaveOnStringChange(
                                             viewModel.proxyUrl,
                                             viewModel.proxyUrlError
-                                        ),
-                                        modifier = Modifier
-                                            .fillMaxWidth()
-                                            .appTestTag("proxy_url_textfield"),
-                                        placeholder = { Text(AppSettingsViewModelAbstract.DEFAULT_IP_AND_PORT) },
-                                        singleLine = true,
-                                        keyboardOptions = KeyboardOptions.Default.copy(
-                                            imeAction = ImeAction.Done
-                                        ),
-                                        keyboardActions = KeyboardActions(
-                                            onDone = {
-                                                focusManager.clearFocus()
-                                            }
-                                        ),
-                                        supportingText = {
-                                            Text(proxyUrlError ?: stringResource(Res.string.id_use_host_and_port_format))
-                                        },
-                                        isError = proxyUrlError != null,
-                                        trailingIcon = {
-                                            TextInputPaste(
-                                                state = viewModel.proxyUrl,
-                                                onValueChange = autoSaveOnStringChange(
-                                                    viewModel.proxyUrl,
-                                                    viewModel.proxyUrlError
-                                                )
-                                            )
-                                        }
+                                        )
                                     )
                                 }
                             )
                         }
-                    }
+                    )
                 }
+            }
 
-                // Remember hardware devices
-                val rememberHardwareDevices by viewModel.rememberHardwareDevices.collectAsStateWithLifecycle()
+            item(key = "remember_devices") {
                 SettingSwitch(
                     title = stringResource(Res.string.id_remember_hardware_devices),
                     checked = rememberHardwareDevices,
                     onCheckedChange = autoSaveOnBooleanChange(viewModel.rememberHardwareDevices),
                     testTag = "remember_devices_switch"
                 )
+            }
 
-                // zeni: the price on Glance's lock-screen panel, off until switched on. Shown only
-                // while Glance is on the phone, or while the switch is already on so it can go off.
-                var priceOnLockScreen by remember { mutableStateOf(lockScreenPriceOn()) }
-                val showPriceOnLockScreen = remember { glanceInstalled() || priceOnLockScreen }
-                if (showPriceOnLockScreen) {
+            if (showPriceOnLockScreen) {
+                item(key = "lock_screen_price") {
                     SettingSwitch(
                         title = stringResource(Res.string.zeni_price_on_lock_screen),
                         subtitle = stringResource(Res.string.zeni_price_on_lock_screen_detail),
@@ -267,9 +284,9 @@ fun AppSettingsScreen(
                         },
                     )
                 }
+            }
 
-                // Enable testnet
-                val testnetEnabled by viewModel.testnetEnabled.collectAsStateWithLifecycle()
+            item(key = "testnet") {
                 SettingSwitch(
                     title = stringResource(Res.string.id_enable_testnet),
                     subtitle = stringResource(Res.string.id_allow_testnet_wallets),
@@ -277,10 +294,10 @@ fun AppSettingsScreen(
                     onCheckedChange = autoSaveOnBooleanChange(viewModel.testnetEnabled),
                     testTag = "enable_testnet_switch"
                 )
+            }
 
-                // Experimental features
-                if (viewModel.experimentalFeatureEnabled) {
-                    val experimentalFeaturesEnabled by viewModel.experimentalFeaturesEnabled.collectAsStateWithLifecycle()
+            if (viewModel.experimentalFeatureEnabled) {
+                item(key = "experimental") {
                     SettingSwitch(
                         title = stringResource(Res.string.id_enable_experimental_features),
                         subtitle = stringResource(Res.string.id_experimental_features_might),
@@ -290,92 +307,48 @@ fun AppSettingsScreen(
                         subtitleMaxLines = 4
                     )
                 }
+            }
 
-                if (viewModel.analyticsFeatureEnabled) {
-                    val analyticsEnabled by viewModel.analyticsEnabled.collectAsStateWithLifecycle()
-                    OutlinedCard {
-                        Box(modifier = Modifier.padding(16.dp)) {
-                            GreenRow(
-                                space = 16,
-                                padding = 0,
-                                modifier = Modifier.fillMaxWidth(),
-                                verticalAlignment = Alignment.CenterVertically
-                            ) {
-                                Column(modifier = Modifier.weight(1f)) {
-                                    Text(
-                                        text = stringResource(Res.string.id_help_us_improve),
-                                        style = MaterialTheme.typography.titleSmall,
-                                        maxLines = 1,
-                                        overflow = TextOverflow.Ellipsis,
-                                        modifier = Modifier.fillMaxWidth()
-                                    )
-
-                                    Text(
-                                        text = stringResource(Res.string.id_enable_limited_usage_data),
-                                        style = MaterialTheme.typography.bodyMedium.copy(
-                                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
-                                        ),
-                                        textAlign = TextAlign.Start,
-                                        modifier = Modifier.fillMaxWidth()
-                                    )
-
-                                    Text(
-                                        text = stringResource(Res.string.id_more_info),
-                                        style = MaterialTheme.typography.bodyMedium.copy(
-                                            color = MaterialTheme.colorScheme.primary
-                                        ),
-                                        textAlign = TextAlign.Start,
-                                        modifier = Modifier
-                                            .fillMaxWidth()
-                                            .appTestTag("analytics_more_info")
-                                            .clickable {
-                                                viewModel.postEvent(AppSettingsViewModel.LocalEvents.AnalyticsMoreInfo)
-                                            }
-                                    )
-                                }
-
-                                MmdSwitch(
-                                    checked = analyticsEnabled,
-                                    onCheckedChange = autoSaveOnBooleanChange(viewModel.analyticsEnabled),
-                                    modifier = Modifier.appTestTag("analytics_switch"),
-                                )
+            if (viewModel.analyticsFeatureEnabled) {
+                item(key = "analytics") {
+                    SettingsItem(
+                        title = stringResource(Res.string.id_help_us_improve),
+                        subtitle = stringResource(Res.string.id_enable_limited_usage_data),
+                        subtitleMaxLines = 4,
+                        rightContent = {
+                            MmdSwitch(
+                                checked = analyticsEnabled,
+                                onCheckedChange = autoSaveOnBooleanChange(viewModel.analyticsEnabled),
+                                modifier = Modifier.appTestTag("analytics_switch"),
+                            )
+                        },
+                    )
+                    Text(
+                        text = stringResource(Res.string.id_more_info),
+                        style = SettingsRowValue.copy(fontWeight = FontWeight.Bold),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .appTestTag("analytics_more_info")
+                            .clickable {
+                                viewModel.postEvent(AppSettingsViewModel.LocalEvents.AnalyticsMoreInfo)
                             }
-                        }
-                    }
+                            .padding(bottom = 14.dp)
+                    )
                 }
+            }
 
-                // Language
-                var showLanguagePicker by remember { mutableStateOf(false) }
-                val locales by viewModel.locales.collectAsStateWithLifecycle()
-                val locale by viewModel.locale.collectAsStateWithLifecycle()
-
+            item(key = "language") {
                 SettingsItem(
                     title = stringResource(Res.string.id_language),
-                    subtitle = locale?.let { locales[it] } ?: stringResource(Res.string.id_system_default),
+                    subtitle = languageValue,
                     onClick = {
                         showLanguagePicker = true
                     },
-                    rightContent = {
-                        Icon(
-                            imageVector = PhosphorIcons.Regular.CaretRight,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
-                        )
-                    },
                     modifier = Modifier.appTestTag("language_button"),
                 )
+            }
 
-                if (showLanguagePicker) {
-                    LanguagePickerBottomSheet(
-                        viewModel = viewModel,
-                        onDismissRequest = {
-                            showLanguagePicker = false
-                        }
-                    )
-                }
-
-                // Enhanced Privacy (placeholder for SPV verification in the future)
-                val enhancedPrivacyEnabled by viewModel.enhancedPrivacyEnabled.collectAsStateWithLifecycle()
+            item(key = "enhanced_privacy") {
                 SettingSwitch(
                     title = stringResource(Res.string.id_enhanced_privacy),
                     subtitle = stringResource(Res.string.id_use_secure_display_and_screen),
@@ -383,89 +356,61 @@ fun AppSettingsScreen(
                     onCheckedChange = autoSaveOnBooleanChange(viewModel.enhancedPrivacyEnabled),
                     testTag = "enhanced_privacy_switch"
                 )
+            }
 
-                AnimatedVisibility(visible = enhancedPrivacyEnabled) {
-                    val screenLockSettings = ScreenLockSetting.getStringList().map {
-                        stringResource(it)
-                    }
-                    val screenLockInSeconds by viewModel.screenLockInSeconds.collectAsStateWithLifecycle()
-
-                    var screenLockExpanded by remember { mutableStateOf(false) }
-                    val selectedOptionText by remember {
-                        derivedStateOf {
-                            screenLockSettings[screenLockInSeconds.ordinal]
-                        }
-                    }
-
-                    Card(
-                        colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.outline
-                        ),
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        GreenColumn(
-                            space = 8,
-                            padding = 16,
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            SettingsItem(
-                                title = stringResource(Res.string.id_screen_lock),
-                                content = {
-                                    // We want to react on tap/press on TextField to show menu
-                                    ExposedDropdownMenuBox(
-                                        expanded = screenLockExpanded,
-                                        onExpandedChange = { screenLockExpanded = it },
-                                        modifier = Modifier.fillMaxWidth(),
-                                    ) {
-                                        MmdTextField(
-                                            // The `menuAnchor` modifier must be passed to the text field for correctness.
-                                            modifier = Modifier
-                                                .fillMaxWidth()
-                                                .appTestTag("screen_lock_selector")
-                                                .menuAnchor(),
-                                            readOnly = true,
-                                            value = selectedOptionText,
-                                            onValueChange = {},
-                                            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = screenLockExpanded) }
+            if (enhancedPrivacyEnabled) {
+                item(key = "screen_lock") {
+                    SettingsItem(
+                        title = stringResource(Res.string.id_screen_lock),
+                        content = {
+                            // We want to react on tap/press on TextField to show menu
+                            ExposedDropdownMenuBox(
+                                expanded = screenLockExpanded,
+                                onExpandedChange = { screenLockExpanded = it },
+                                modifier = Modifier.fillMaxWidth(),
+                            ) {
+                                MmdTextField(
+                                    // The `menuAnchor` modifier must be passed to the text field for correctness.
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .appTestTag("screen_lock_selector")
+                                        .menuAnchor(),
+                                    readOnly = true,
+                                    value = screenLockSettings[screenLockInSeconds.ordinal],
+                                    onValueChange = {},
+                                    trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = screenLockExpanded) }
+                                )
+                                ExposedDropdownMenu(
+                                    expanded = screenLockExpanded,
+                                    onDismissRequest = { screenLockExpanded = false },
+                                ) {
+                                    screenLockSettings.forEachIndexed { index, selectionOption ->
+                                        DropdownMenuItem(
+                                            modifier = Modifier.appTestTag("screen_lock_option_$index"),
+                                            text = { Text(selectionOption) },
+                                            onClick = {
+                                                ScreenLockSetting.byPosition(index).let {
+                                                    viewModel.screenLockInSeconds.value = it
+                                                    viewModel.postEvent(AppSettingsViewModel.LocalEvents.AutoSave)
+                                                }
+                                                screenLockExpanded = false
+                                            },
+                                            contentPadding = ExposedDropdownMenuDefaults.ItemContentPadding,
                                         )
-                                        ExposedDropdownMenu(
-                                            expanded = screenLockExpanded,
-                                            onDismissRequest = { screenLockExpanded = false },
-                                        ) {
-                                            screenLockSettings.forEachIndexed { index, selectionOption ->
-                                                DropdownMenuItem(
-                                                    modifier = Modifier.appTestTag("screen_lock_option_$index"),
-                                                    text = { Text(selectionOption) },
-                                                    onClick = {
-                                                        ScreenLockSetting.byPosition(index).let {
-                                                            viewModel.screenLockInSeconds.value = it
-                                                            viewModel.postEvent(AppSettingsViewModel.LocalEvents.AutoSave)
-                                                        }
-                                                        screenLockExpanded = false
-                                                    },
-                                                    contentPadding = ExposedDropdownMenuDefaults.ItemContentPadding,
-                                                )
-                                            }
-                                        }
                                     }
                                 }
-                            )
+                            }
                         }
-                    }
+                    )
                 }
+            }
 
-                // Custom Server Settings section
-                Text(
-                    text = stringResource(Res.string.id_custom_server_settings),
-                    style = MaterialTheme.typography.labelLarge.copy(
-                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
-                    ),
-                    modifier = Modifier
-                        .padding(top = 16.dp, bottom = 8.dp)
-                )
+            // Custom Server Settings section
+            item(key = "custom_server_heading") {
+                SettingsHeading(text = stringResource(Res.string.id_custom_server_settings))
+            }
 
-                val electrumNodeEnabled by viewModel.electrumNodeEnabled.collectAsStateWithLifecycle()
-
+            item(key = "electrum") {
                 SettingSwitch(
                     title = stringResource(Res.string.id_personal_electrum_server),
                     subtitle = stringResource(Res.string.id_use_your_own_server),
@@ -473,8 +418,10 @@ fun AppSettingsScreen(
                     onCheckedChange = autoSaveOnBooleanChange(viewModel.electrumNodeEnabled),
                     testTag = "electrum_switch"
                 )
+            }
 
-                AnimatedVisibility(visible = electrumNodeEnabled) {
+            if (electrumNodeEnabled) {
+                item(key = "electrum_servers") {
                     PersonalElectrumServerSection(
                         viewModel = viewModel,
                         testnetEnabled = testnetEnabled,
@@ -482,11 +429,9 @@ fun AppSettingsScreen(
                         autoSaveOnStringChange = ::autoSaveOnStringChange,
                     )
                 }
+            }
 
-                val electrumServerGapLimit by viewModel.electrumServerGapLimit.collectAsStateWithLifecycle()
-                val customGapLimitEnabled by viewModel.customGapLimitEnabled.collectAsStateWithLifecycle()
-                val electrumServerGapLimitError by viewModel.electrumServerGapLimitError.collectAsStateWithLifecycle()
-
+            item(key = "gap_limit") {
                 SettingSwitch(
                     title = stringResource(Res.string.id_custom_server_gap_limit),
                     subtitle = stringResource(Res.string.id_number_of_unused_addresses_to_scan),
@@ -494,56 +439,58 @@ fun AppSettingsScreen(
                     onCheckedChange = autoSaveOnBooleanChange(viewModel.customGapLimitEnabled),
                     testTag = "gap_limit_switch"
                 )
+            }
 
-                AnimatedVisibility(visible = customGapLimitEnabled) {
-                    Card(
-                        colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.outline
-                        ),
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        GreenColumn(space = 8, padding = 16) {
-                            SettingsItem(
-                                title = stringResource(Res.string.id_address_scan_limit),
-                                content = {
-                                    MmdTextField(
-                                        value = electrumServerGapLimit,
-                                        onValueChange = autoSaveOnStringChange(
-                                            viewModel.electrumServerGapLimit,
-                                            viewModel.electrumServerGapLimitError
-                                        ),
-                                        modifier = Modifier
-                                            .fillMaxWidth()
-                                            .appTestTag("gap_limit_textfield"),
-                                        singleLine = true,
-                                        placeholder = { Text(DEFAULT_SCAN_GAP_LIMIT) },
-                                        isError = electrumServerGapLimitError != null,
-                                        supportingText = {
-                                            Text(
-                                                text = electrumServerGapLimitError
-                                                    ?: stringResource(
-                                                        Res.string.id_allowed_range,
-                                                        SCAN_GAP_LIMIT_MIN,
-                                                        SCAN_GAP_LIMIT_MAX
-                                                    )
+            if (customGapLimitEnabled) {
+                item(key = "gap_limit_value") {
+                    SettingsItem(
+                        title = stringResource(Res.string.id_address_scan_limit),
+                        content = {
+                            MmdTextField(
+                                value = electrumServerGapLimit,
+                                onValueChange = autoSaveOnStringChange(
+                                    viewModel.electrumServerGapLimit,
+                                    viewModel.electrumServerGapLimitError
+                                ),
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .appTestTag("gap_limit_textfield"),
+                                singleLine = true,
+                                placeholder = { Text(DEFAULT_SCAN_GAP_LIMIT) },
+                                isError = electrumServerGapLimitError != null,
+                                supportingText = {
+                                    Text(
+                                        text = electrumServerGapLimitError
+                                            ?: stringResource(
+                                                Res.string.id_allowed_range,
+                                                SCAN_GAP_LIMIT_MIN,
+                                                SCAN_GAP_LIMIT_MAX
                                             )
-                                        },
-                                        keyboardOptions = KeyboardOptions.Default.copy(
-                                            keyboardType = KeyboardType.Number,
-                                            imeAction = ImeAction.Done
-                                        ),
-                                        keyboardActions = KeyboardActions(
-                                            onDone = {
-                                                focusManager.clearFocus()
-                                            }
-                                        ),
                                     )
-                                }
+                                },
+                                keyboardOptions = KeyboardOptions.Default.copy(
+                                    keyboardType = KeyboardType.Number,
+                                    imeAction = ImeAction.Done
+                                ),
+                                keyboardActions = KeyboardActions(
+                                    onDone = {
+                                        focusManager.clearFocus()
+                                    }
+                                ),
                             )
                         }
-                    }
+                    )
                 }
             }
+        }
+
+        if (showLanguagePicker) {
+            LanguagePickerBottomSheet(
+                viewModel = viewModel,
+                onDismissRequest = {
+                    showLanguagePicker = false
+                }
+            )
         }
     }
 }
