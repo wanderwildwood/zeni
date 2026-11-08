@@ -337,7 +337,7 @@
     <string name="id_connection_failed">연결 실패</string>
     <string name="id_connection_to_device_failed">기기 연결에 실패했습니다! 기기를 더 가까이 하여 다시 시도하세요.</string>
     <string name="id_contact_support">Contact Support</string>
-    <string name="id_contact_support_at_s_or_visit_s">%1$s에서 고객 센터에 문의하거나 %2$s를 방문하세요</string>
+    <string name="id_contact_support_at_s_or_visit_s">%1$s 주소로 문의하거나 %2$s를 방문하세요</string>
     <string name="id_contact_us">Contact Us</string>
     <string name="id_continue">계속</string>
     <string name="id_continue_as_diy">Continue as DIY</string>
@@ -653,7 +653,7 @@
     <string name="id_hardware_wallets">하드웨어 지갑들</string>
     <string name="id_hash">해시</string>
     <string name="id_hash_s">해시: %1$s</string>
-    <string name="id_help">고객 센터</string>
+    <string name="id_help">도움말</string>
     <string name="id_help_us_improve">Help Us Improve</string>
     <string name="id_here">여기</string>
     <string name="id_heres_the_proof_of_ownership_of">Here&apos;s the proof of ownership of the address</string>
@@ -1644,7 +1644,7 @@
     <string name="id_warning_nononion_address">경고 : .onion이 아닌 주소가 탐지되었습니다!</string>
     <string name="id_warning_resetting_twofactor">경고 : 이중 인증을 초기화하면 지갑이 잠금 상태로 전환됩니다</string>
     <string name="id_warning_there_is_already_a">경고 : 지갑에 대한 2FA 초기화 요청 기록이 있습니다. 새로운 이메일 주소로 지금 요청하시면 지갑은 이의 신청 상태로 전환되고 영구적으로 사용할 수 없게 될 수 있습니다.</string>
-    <string name="id_warning_wallet_locked_by">경고 : 지갑은 이중 보안 이의 신청으로 잠금 상태입니다. 자세한 내용은 고객 센터로 문의 바랍니다.</string>
+    <string name="id_warning_wallet_locked_by">경고 : 지갑은 이중 보안 이의 신청으로 잠금 상태입니다. 자세한 내용은 문의 바랍니다.</string>
     <string name="id_warning_watchonly_credentials">경고 : 보기 전용 자격 증명이 사용자 기기에 저장됩니다.</string>
     <string name="id_warning_you_need_a_positive">경고! LBTC 잔액이 남아있어야 거래를 보낼 수 있습니다.</string>
     <string name="id_watchonly">보기 전용</string>
