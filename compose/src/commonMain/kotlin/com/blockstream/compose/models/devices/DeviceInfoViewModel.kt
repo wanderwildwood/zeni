@@ -4,7 +4,6 @@ import androidx.lifecycle.viewModelScope
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.id_connection_failed
 import blockstream_green.common.generated.resources.id_connection_failed_device_offline
-import blockstream_green.common.generated.resources.id_setup_guide
 import blockstream_green.common.generated.resources.id_your_device_was_disconnected
 import com.blockstream.compose.events.Event
 import com.blockstream.compose.extensions.launchIn
@@ -83,12 +82,10 @@ class DeviceInfoViewModel(deviceId: String) : DeviceInfoViewModelAbstract(device
 
         viewModelScope.launch {
             _navData.value = NavData(
-                title = deviceOrNull?.deviceBrand?.name,
+                // zeni: the device's own name, never the maker's.
+                title = deviceOrNull?.name,
                 isVisible = !onProgress.value,
                 actions = listOfNotNull(
-                    NavAction(title = getString(Res.string.id_setup_guide), onClick = {
-                        postEvent(NavigateDestinations.JadeGuide)
-                    }).takeIf { deviceOrNull?.isJade == true },
                     NavAction(title = "Update Firmware", isMenuEntry = true, onClick = {
                         postSideEffect(LocalSideEffects.SelectFirmwareChannel())
                     }).takeIf { appInfo.isDevelopmentOrDebug && deviceOrNull?.isJade == true },

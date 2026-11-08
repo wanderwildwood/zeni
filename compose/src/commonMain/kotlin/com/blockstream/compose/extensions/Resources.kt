@@ -11,11 +11,6 @@ import blockstream_green.common.generated.resources.bitcoin
 import blockstream_green.common.generated.resources.bitcoin_lightning
 import blockstream_green.common.generated.resources.bitcoin_lightning_testnet
 import blockstream_green.common.generated.resources.bitcoin_testnet
-import blockstream_green.common.generated.resources.blockstream_devices
-import blockstream_green.common.generated.resources.blockstream_jade_action
-import blockstream_green.common.generated.resources.blockstream_jade_device
-import blockstream_green.common.generated.resources.blockstream_jade_plus_action
-import blockstream_green.common.generated.resources.blockstream_jade_plus_device
 import blockstream_green.common.generated.resources.eye
 import blockstream_green.common.generated.resources.flask
 import blockstream_green.common.generated.resources.generic_device
@@ -129,25 +124,19 @@ fun GreenDevice?.actionIcon(): DrawableResource =
 fun DeviceBrand.deviceBrandIcon(): DrawableResource = when (this) {
     DeviceBrand.Ledger -> Res.drawable.ledger_device
     DeviceBrand.Trezor -> Res.drawable.trezor_device
-    DeviceBrand.Generic -> Res.drawable.generic_device
-    else -> Res.drawable.blockstream_devices
+    // zeni: no maker's drawing for the default hardware wallet; the plain device drawing stands in.
+    else -> Res.drawable.generic_device
 }
 
 fun DeviceModel.icon(): DrawableResource = when (this) {
-    DeviceModel.BlockstreamGeneric -> Res.drawable.blockstream_devices
-    DeviceModel.BlockstreamJade -> Res.drawable.blockstream_jade_device
-    DeviceModel.BlockstreamJadePlus, DeviceModel.BlockstreamJadeCore -> Res.drawable.blockstream_jade_plus_device
+    DeviceModel.BlockstreamGeneric, DeviceModel.BlockstreamJade,
+    DeviceModel.BlockstreamJadePlus, DeviceModel.BlockstreamJadeCore -> Res.drawable.generic_device
     DeviceModel.TrezorGeneric, DeviceModel.TrezorModelT, DeviceModel.TrezorModelOne -> Res.drawable.trezor_device
     DeviceModel.LedgerGeneric, DeviceModel.LedgerNanoS, DeviceModel.LedgerNanoX -> Res.drawable.ledger_device
     DeviceModel.Generic -> Res.drawable.generic_device
 }
 
-fun DeviceModel.actionIcon(): DrawableResource = when (this) {
-    DeviceModel.BlockstreamGeneric -> Res.drawable.blockstream_jade_plus_action
-    DeviceModel.BlockstreamJade -> Res.drawable.blockstream_jade_action
-    DeviceModel.BlockstreamJadePlus -> Res.drawable.blockstream_jade_plus_action
-    else -> icon()
-}
+fun DeviceModel.actionIcon(): DrawableResource = icon()
 
 fun List<DeviceIdentifier>?.icon(): DrawableResource = this?.firstOrNull()?.let {
     it.model?.icon() ?: it.brand?.deviceBrandIcon()

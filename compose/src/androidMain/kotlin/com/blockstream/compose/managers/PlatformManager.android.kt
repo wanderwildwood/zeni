@@ -202,7 +202,7 @@ actual class PlatformManager constructor(
 
     actual fun copyToClipboard(content: String, label: String?, isSensitive: Boolean): Boolean {
         (context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager).setPrimaryClip(
-            ClipData.newPlainText(label ?: "Green", content).apply {
+            ClipData.newPlainText(label ?: "Bitcoin", content).apply {
                 if (isSensitive) {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                         description.extras = PersistableBundle().apply {

@@ -19,7 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import blockstream_green.common.generated.resources.Res
-import blockstream_green.common.generated.resources.blockstream_devices
+import blockstream_green.common.generated.resources.generic_device
 import blockstream_green.common.generated.resources.id_blockstream_app_needs_the_master_blinding
 import blockstream_green.common.generated.resources.id_change
 import blockstream_green.common.generated.resources.id_confirm_on_your_device
@@ -94,7 +94,7 @@ fun DeviceInteractionBottomSheet(
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
             NoPicture(
-                painter = painterResource(deviceIcon ?: Res.drawable.blockstream_devices),
+                painter = painterResource(deviceIcon ?: Res.drawable.generic_device),
                 contentDescription = null,
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)

@@ -14,7 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import blockstream_green.common.generated.resources.Res
-import blockstream_green.common.generated.resources.blockstream_jade_plus_device
+import blockstream_green.common.generated.resources.generic_device
 import blockstream_green.common.generated.resources.id_jade_already_unlocked
 import blockstream_green.common.generated.resources.id_learn_more
 import blockstream_green.common.generated.resources.id_qr_airgapped_mode
@@ -61,7 +61,7 @@ fun AskJadeUnlockBottomSheet(
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
             NoPicture(
-                painter = painterResource(Res.drawable.blockstream_jade_plus_device),
+                painter = painterResource(Res.drawable.generic_device),
                 contentDescription = null,
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)

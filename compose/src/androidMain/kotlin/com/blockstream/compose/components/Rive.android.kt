@@ -33,14 +33,10 @@ actual fun Rive(riveAnimation: RiveAnimation, previewContent: @Composable (() ->
         RiveAnimation.WALLET -> "wallet.riv"
         RiveAnimation.RECOVERY_PHRASE -> "recovery_phrase.riv"
         RiveAnimation.CREATE_WALLET -> "create_wallet.riv"
-        RiveAnimation.JADE_BUTTON -> "jade_button.riv"
-        RiveAnimation.JADE_SCROLL -> "jade_scroll.riv"
-        RiveAnimation.JADE_POWER -> "jade_power.riv"
-        RiveAnimation.JADE_UPDATE -> "jade_power.riv"
-        RiveAnimation.JADE_PLUS_BUTTON -> "jade_plus_button.riv"
-        RiveAnimation.JADE_PLUS_SCROLL -> "jade_plus_scroll.riv"
-        RiveAnimation.JADE_PLUS_POWER -> "jade_plus_power.riv"
-        RiveAnimation.JADE_PLUS_UPDATE -> "jade_plus_update.riv"
+        // zeni: the hardware-wallet animations drew one maker's device; nothing is drawn instead.
+        RiveAnimation.JADE_BUTTON, RiveAnimation.JADE_SCROLL, RiveAnimation.JADE_POWER,
+        RiveAnimation.JADE_UPDATE, RiveAnimation.JADE_PLUS_BUTTON, RiveAnimation.JADE_PLUS_SCROLL,
+        RiveAnimation.JADE_PLUS_POWER, RiveAnimation.JADE_PLUS_UPDATE -> null
         RiveAnimation.LIGHTNING_SUCCESS -> "lightning_success.riv"
         RiveAnimation.NONE -> null
     }?.let {

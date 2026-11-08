@@ -15,7 +15,7 @@ class SaveAndShareQrCodeUseCase(
         if (qrBytes == null) return null
 
         val fileSystem = platformFileSystem()
-        val cachePath = "${appConfig.cacheDir}/Green_QR_Code.jpeg".toPath()
+        val cachePath = "${appConfig.cacheDir}/Bitcoin_QR_Code.jpeg".toPath()
 
         withContext(Dispatchers.IO) {
             fileSystem.write(cachePath) {

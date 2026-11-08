@@ -45,8 +45,9 @@ abstract class AndroidDevice constructor(
         get() = (if (deviceBrand.isJade && isUsb) "Jade" else usbDevice?.productName) ?: super.name
 
     // Jade v1 has the controller manufacturer as a productName
+    // zeni: no maker's name shown under the device.
     override val manufacturer
-        get() = if (deviceBrand.isJade) deviceBrand.name else usbDevice?.productName ?: super.manufacturer
+        get() = if (deviceBrand.isJade) null else usbDevice?.productName ?: super.manufacturer
 
     override fun hasPermissions(): Boolean {
         return usbDevice?.let { deviceManager.hasPermissions(it) } ?: super.hasPermissions()

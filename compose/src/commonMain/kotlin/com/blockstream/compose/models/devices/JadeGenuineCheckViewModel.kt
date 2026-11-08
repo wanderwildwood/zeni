@@ -106,7 +106,7 @@ class JadeGenuineCheckViewModel constructor(greenWalletOrNull: GreenWallet?, dev
                         NavigateDestinations.Support(
                             type = SupportType.INCIDENT,
                             supportData = SupportData(
-                                subject = "Jade Genuine check failed",
+                                subject = "Hardware wallet genuine check failed",
                                 zendeskHardwareWallet = deviceOrNull?.deviceModel?.zendeskValue
                             ),
                             greenWalletOrNull = greenWalletOrNull

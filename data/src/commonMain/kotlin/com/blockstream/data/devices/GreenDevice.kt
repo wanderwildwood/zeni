@@ -92,8 +92,9 @@ abstract class GreenDeviceImpl constructor(
     private val _isJadePlus = MutableStateFlow(false)
     override val isJadePlus: StateFlow<Boolean> = _isJadePlus
 
+    // zeni: the device's own name; never the maker's ("Blockstream").
     override val name
-        get() = peripheral?.name ?: deviceBrand.name
+        get() = peripheral?.name ?: if (deviceBrand.isJade) "Jade" else deviceBrand.name
 
     // On Jade devices is not safe to use mac address as an id cause of RPA. Prefer using the unique name as a way to identify the device.
     override val connectionIdentifier: String
@@ -109,8 +110,9 @@ abstract class GreenDeviceImpl constructor(
         private set
 
     // Jade v1 has the controller manufacturer as a productName
+    // zeni: no maker's name shown under the device.
     override val manufacturer
-        get() = if (deviceBrand.isJade) deviceBrand.name else peripheral?.name
+        get() = if (deviceBrand.isJade) null else peripheral?.name
 
     override val isUsb
         get() = type == ConnectionType.USB

@@ -212,7 +212,7 @@ fun LoginScreen(
                         viewModel.deviceOrNull?.also {
                             NoPicture(
                                 painter = painterResource(it.icon()),
-                                contentDescription = it.deviceBrand.toString(),
+                                contentDescription = it.name,
                                 modifier = Modifier
                                     .align(Alignment.Center)
                                     .size(72.dp)

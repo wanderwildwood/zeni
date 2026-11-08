@@ -5,8 +5,7 @@ A Bitcoin wallet for an E Ink phone. Black on white, Lato, nothing that slides.
 *Zeni* is the old word for a coin: small money, the kind you hand across.
 
 Built for the [Mudita Kompakt](https://mudita.com/products/kompakt/), whose 4.3" panel has
-sixteen grays and a slow redraw, and used with a
-[Blockstream Jade](https://blockstream.com/jade/) over Bluetooth.
+sixteen grays and a slow redraw, and used with a hardware wallet over Bluetooth.
 
 ## Screenshots
 
@@ -39,7 +38,7 @@ the background calls behind them. What is left is an on-chain wallet.
 No animations: every transition and every Rive drawing is gone, because a moving picture on
 this panel is a smear.
 
-**No pictures in setup.** The device drawings and the Jade pitch are gone from setup, from
+**No pictures in setup.** The device drawings and the hardware-wallet pitch are gone from setup, from
 signing in and from the device sheets. The words stay: *Turn on your hardware wallet and
 unlock it.*
 
@@ -106,8 +105,8 @@ These are all the servers it contacts, and when:
 | Blockstream's Electrum server (`bitcoin-mainnet.blockstream.info`, or `bitcoin-testnet` for a testnet wallet) | While a wallet is open | The wallet's addresses, to read balance and history; transactions you sign, to send them. Your own server instead, if you set one in App Settings. |
 | Blockstream's Green server (`green-bitcoin-mainnet.blockstream.com`) | Each time a wallet opens | A login, so a Green two-factor (multisig) account can be found. |
 | Blockstream's price chart (`green-btc-chart.blockstream.com`) | When the wallet list or a wallet's home page opens | The currency you show amounts in. |
-| Blockstream's PIN server (`jadepin.blockstream.com`) | Unlocking a Jade, or a phone wallet with its PIN | A blinded exchange; it never learns the PIN or the keys. |
-| Blockstream's Jade firmware server (`jadefw.blockstream.com`) | When a Jade connects | A request for the list of firmware. Firmware downloads only if you agree. |
+| Blockstream's PIN server (`jadepin.blockstream.com`) | Unlocking a hardware wallet, or a phone wallet with its PIN | A blinded exchange; it never learns the PIN or the keys. |
+| Blockstream's firmware server for hardware wallets (`jadefw.blockstream.com`) | When a hardware wallet connects | A request for the list of firmware. Firmware downloads only if you agree. |
 
 The exchange rate for the fiat value beside amounts comes over these same connections; there
 is no separate price service.
@@ -123,8 +122,7 @@ Besides those:
 - **Glance**, only if you switch on the lock-screen price: the price from the chart server
   above, fetched when the lock screen is looked at and the last one is over half an hour old,
   and never while Tor or a proxy is on. Never a balance.
-- **Links you press** open in your browser: Blockstream's help pages (about the wallet
-  technology, not this app's), the donation page, the author's site.
+- **Links you press** open in your browser: this app's help page, the donation page, the author's site.
 - **Write to email@wanderthe.dev** in About opens your email app with a blank message to email@wanderthe.dev.
   Nothing is attached or sent until you send it.
 

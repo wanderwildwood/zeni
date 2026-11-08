@@ -2,7 +2,7 @@ package com.blockstream.compose.models.devices
 
 import androidx.lifecycle.viewModelScope
 import blockstream_green.common.generated.resources.Res
-import blockstream_green.common.generated.resources.id_setup_guide
+import blockstream_green.common.generated.resources.id_hardware_wallet
 import com.blockstream.data.devices.DeviceModel
 import com.blockstream.data.devices.GreenDevice
 import com.blockstream.compose.events.Event
@@ -43,11 +43,8 @@ class DeviceListViewModel(isJade: Boolean = true) :
         viewModelScope.launch {
             _navData.value =
                 NavData(
-                    title = if (isJade) "Blockstream Jade" else "", actions = listOfNotNull(
-                        NavAction(title = getString(Res.string.id_setup_guide), onClick = {
-                            postEvent(NavigateDestinations.JadeGuide)
-                        }).takeIf { isJade }
-                    ))
+                    // zeni: no maker's name and no one-model setup guide; just what this list holds.
+                    title = getString(Res.string.id_hardware_wallet))
         }
 
         bootstrap()

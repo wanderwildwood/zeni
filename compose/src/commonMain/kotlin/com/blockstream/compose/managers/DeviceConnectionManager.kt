@@ -66,9 +66,9 @@ open class DeviceConnectionManager(
 
             jadeApi.connect()?.let {
                 onJadeConnected(device = device, jade = jadeApi)
-            } ?: throw Exception("Couldn't connect to Jade device")
+            } ?: throw Exception("Couldn't connect to the hardware wallet")
 
-        } ?: throw Exception("Cannot create Jade API")
+        } ?: throw Exception("Couldn't reach the hardware wallet")
     }
 
     open suspend fun createJadeApi(device: GreenDevice, httpRequestHandler: HttpRequestHandler): JadeAPI? {

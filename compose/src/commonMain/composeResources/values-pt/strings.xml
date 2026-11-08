@@ -205,22 +205,17 @@
     <string name="id_check_for_updates">Verifique se há atualizações</string>
     <string name="id_check_for_updates_on_startup">Verificar se há atualizações ao iniciar</string>
     <string name="id_check_our_6_easy_steps_to_be">Confira as 6 etapas necessárias para enviar e receber ativos do tipo AMP.</string>
-    <string name="id_check_our_store">Confira nossa loja</string>
     <string name="id_check_your_backup">Confirme as palavras </string>
     <string name="id_check_your_device">Verifique seu dispositivo</string>
     <string name="id_choose">Escolha</string>
     <string name="id_choose_a_name_for_your_wallet">Escolha um nome para sua carteira</string>
     <string name="id_choose_a_swap_option">Escolha uma opção de troca</string>
-    <string name="id_choose_a_usb_or_bluetooth">Escolha uma conexão USB ou Bluetooth no dispositivo Jade após verificar sua frase de recuperação</string>
-    <string name="id_choose_bluetooth_connection_on">Escolha a conexão via Bluetooth no dispositivo Jade após verificar a sua frase de recuperação</string>
     <string name="id_choose_method_to_authorize_the">Escolha um método para autorizar a ação</string>
     <string name="id_choose_recovery_phrase_length">Escolha o total de palavras da frase de recuperação</string>
     <string name="id_choose_security_policy">Escolha o tipo de conta</string>
     <string name="id_choose_the_electrum_servers_you">Escolha servidores Electrum de sua confiança</string>
     <string name="id_choose_the_security_policy_that">Selecione o tipo de conta que você deseja acessar.</string>
     <string name="id_choose_the_security_policy_you">Selecione o tipo de carteira que você deseja restaurar.</string>
-    <string name="id_choose_this_version_to_connect">Escolha esta versão para conectar o seu dispositivo Blockstream Jade por USB e rede sem fio</string>
-    <string name="id_choose_this_version_to_disable">Escolha esta versão para desativar todas as conexões de rádio em seu dispositivo Blockstream Jade. Isso tornará sua Blockstream Jade incompatível com dispositivos iOS</string>
     <string name="id_choose_twofactor_authentication">Escolha o método 2FA</string>
     <string name="id_choose_watchonly">Conta somente leitura</string>
     <string name="id_choose_your_network">Escolha a rede</string>
@@ -260,8 +255,6 @@
     <string name="id_confirm_swap">Confirmar troca</string>
     <string name="id_confirm_transaction">Confirmar transação</string>
     <string name="id_confirm_transaction_details_on">Confirme os detalhes da transação em sua carteira física</string>
-    <string name="id_confirm_update_on_your_jade">Confirme a atualização no seu dispositivo Jade</string>
-    <string name="id_confirm_version_on_jade">Confirme a versão no dispositivo Jade</string>
     <string name="id_confirm_via_2fa_that_you">Confirme via 2FA que você autoriza esta alteração.</string>
     <string name="id_confirm_your_new_pin">Confirme seu novo PIN</string>
     <string name="id_confirmation_in_d_blocks">Confirmação em %1$d blocos</string>
@@ -271,15 +264,11 @@
     <string name="id_congratulations">Parabéns!</string>
     <string name="id_connect_a_different_hardware">Outro modelo de carteira física</string>
     <string name="id_connect_hardware_wallet">Conectar carteira física</string>
-    <string name="id_connect_jade">Conectar Jade</string>
-    <string name="id_connect_jade_with_a_usb_cable">Conecte o dispositivo Jade com um cabo USB para baixar a atualização de firmware mais recente</string>
     <string name="id_connect_through_a_proxy">Conectar através de um proxy</string>
     <string name="id_connect_usb_cable_or_enable">Conecte o cabo USB ou ative o Bluetooth</string>
     <string name="id_connect_using_usb_or_bluetooth">Conecte usando USB ou Bluetooth</string>
-    <string name="id_connect_via_qr">Connect via QR (Plus &amp; Classic only)</string>
     <string name="id_connect_with_bluetooth">Conectar com Bluetooth</string>
     <string name="id_connect_with_tor">Conectar usando Tor</string>
-    <string name="id_connected_to_jade">Conectado à Jade</string>
     <string name="id_connected_wallets">Carteiras conectadas</string>
     <string name="id_connecting">Conectando…</string>
     <string name="id_connecting_through_tor">Conectando através do Tor</string>
@@ -353,12 +342,10 @@
     <string name="id_day">dia</string>
     <string name="id_days">dias</string>
     <string name="id_days_remaining_s">Dias restantes: %1$s</string>
-    <string name="id_decoding_error_try_again_by">Decoding error: try again by scanning the QR code with Jade</string>
     <string name="id_default_custom_fee_rate">Taxa de rede personalizada</string>
     <string name="id_default_transaction_priority">Padrão de prioridade das transações</string>
     <string name="id_delete">Excluir</string>
     <string name="id_delete_credentials">Excluir credenciais</string>
-    <string name="id_delete_permanently_your_wallet">Exclua permanentemente sua carteira do banco de dados da Blockstream App. Nunca mais será possível logar nesta carteira. </string>
     <string name="id_delete_s_twofactor">Remover 2FA %1$s</string>
     <string name="id_delete_wallet">Excluir carteira</string>
     <string name="id_deleting_your_pin_will_remove">Remover o seu PIN impossibilitará o acesso a sua carteira permanentemente a não ser que você tenha acesso ao seu mnemômico. Pressione &quot;OK&quot; para continuar.</string>
@@ -391,8 +378,6 @@
     <string name="id_dont_ask_me_again">Não perguntar novamente</string>
     <string name="id_dont_ask_me_again_for_this">Don&apos;t ask me again for this oracle</string>
     <string name="id_dont_collect_data">Não coletar dados</string>
-    <string name="id_dont_have_a_jade">Não possui uma Jade?</string>
-    <string name="id_dont_have_a_jade_check_our_store">Não possui uma Jade? Confira nossa loja</string>
     <string name="id_dont_show_this_again">Não mostrar novamente</string>
     <string name="id_dont_store_your_recovery_phrase">Não armazene a frase de recuperação no telefone, computador ou serviços online.</string>
     <string name="id_dont_take_screenshots_of_your">Não tire prints da sua frase de recuperação!</string>
@@ -425,7 +410,6 @@
     <string name="id_enable_spv">Ativar SPV</string>
     <string name="id_enable_spv_and_modify_spv">Ativar SPV e modificar as configurações de SPV</string>
     <string name="id_enable_testnet">Ativar rede de testes</string>
-    <string name="id_enable_testnet_in_app_settings">Ative a rede testes nas configurações do aplicativo para usar a Jade</string>
     <string name="id_enable_tls">Enable TLS</string>
     <string name="id_enable_touch_id">Ativar Touch ID</string>
     <string name="id_enable_twofactor_authentication">Ative o 2FA para proteger sua carteira de transações não autorizadas ou alterações nas configurações críticas de segurança</string>
@@ -442,11 +426,9 @@
     <string name="id_enter_amount_in">Insira o valor em</string>
     <string name="id_enter_an_address">Insira um endereço</string>
     <string name="id_enter_an_address_or_sweep_paper">Insira um endereço ou resgate uma carteira de papel</string>
-    <string name="id_enter_and_confirm_a_unique_pin">Insira e confirme um PIN exclusivo que será usado para desbloquear o dispositivo Jade.</string>
     <string name="id_enter_new_email">Insira o novo e-mail</string>
     <string name="id_enter_phone_number">Insira o número de telefone</string>
     <string name="id_enter_pin">Insira o PIN</string>
-    <string name="id_enter_pin_on_jade">Insira o PIN na Jade</string>
     <string name="id_enter_the_email_for_which_you">Digite o e-mail para o qual você deseja excluir uma solicitação de disputa</string>
     <string name="id_enter_the_matching_words">Insira as palavras correspondentes</string>
     <string name="id_enter_the_pin_for_your_hardware">Insira o PIN da sua carteira física</string>
@@ -457,7 +439,6 @@
     <string name="id_enter_your_code">Insira seu código</string>
     <string name="id_enter_your_email_address">Insira seu endereço de e-mail</string>
     <string name="id_enter_your_pin">Insira seu PIN</string>
-    <string name="id_enter_your_pin_on_jade_to_unlock">Insira seu PIN na Jade para desbloquear</string>
     <string name="id_enter_your_recovery_phrase">Insira sua frase de recuperação</string>
     <string name="id_enter_your_s_wallet_mnemonic">Insira o mnemônico da sua carteira %1$s</string>
     <string name="id_enter_your_wallet_mnemonic">Insira o mnemônico da sua carteira</string>
@@ -496,7 +477,6 @@
     <string name="id_failed_to_load_asset_icons">Falha ao carregar ícones de ativos</string>
     <string name="id_failed_to_load_asset_registry">Falha ao carregar registro de ativos</string>
     <string name="id_fast">Rápido</string>
-    <string name="id_fast_transactions_on_the">Transações rápidas na rede relâmpago, com tecnologia da Greenlight.</string>
     <string name="id_faster_more_confidential">Transações de bitcoin mais rápidas e confidenciais</string>
     <string name="id_fastest">Instantâneo </string>
     <string name="id_fee">Taxa de rede</string>
@@ -519,7 +499,6 @@
     <string name="id_firmware_upgrade">Atualização de firmware</string>
     <string name="id_firmware_version_s">Versão do firmware: %1$s</string>
     <string name="id_follow_the_instructions_of_your">Siga as instruções da sua carteira física antes de continuar.</string>
-    <string name="id_follow_the_instructions_on_jade">Siga as instruções na Jade</string>
     <string name="id_follow_the_instructions_on_your">Siga as instruções no seu dispositivo.</string>
     <string name="id_for_ease_of_use">Fácil uso</string>
     <string name="id_for_higher_security">Maior segurança</string>
@@ -539,7 +518,6 @@
     <string name="id_generate_new_address">Gerar novo endereço</string>
     <string name="id_get_code">Obter código</string>
     <string name="id_get_id">Mostrar ID</string>
-    <string name="id_get_jade">Comprar Jade</string>
     <string name="id_get_started">Começar</string>
     <string name="id_give_bluetooth_permissions">Permitir conexão bluetooth</string>
     <string name="id_give_us_your_feedback">Nos envie sua opinião</string>
@@ -589,8 +567,6 @@
     <string name="id_if_you_have_some_coins_on_the">Se você tiver algumas moedas em endereços do tipo legacy e não pretende movimentá-las em breve, talvez seja interessante configurar um e-mail e receber suas transações de recuperação para ter certeza de que está sempre no controle de seus fundos.</string>
     <string name="id_if_you_initiated_the_2fa_reset">Se você iniciou a disputa de redefinição 2FA por engano, você pode desfazê-la e voltar para o estado de redefinição 2FA anterior.</string>
     <string name="id_import">Importar</string>
-    <string name="id_import_a_multisig_shield_wallet">Restaure uma carteira conjunta criada na Blockstream App.</string>
-    <string name="id_import_a_wallet_created_on">Importar uma carteira criada na Blockstream App.</string>
     <string name="id_import_a_wallet_created_with">Restaure carteiras criadas em outros aplicativos. Esta opção funciona somente em carteiras individuais BIP39 e com os as seguintes derivações BIP44, BIP49, or BIP84.</string>
     <string name="id_import_from_file">Importar de um arquivo</string>
     <string name="id_in_progress">Em andamento</string>
@@ -604,7 +580,6 @@
     <string name="id_increase_the_security_of_your">Aumente a segurança da sua conta ativando a proteção por 2FA</string>
     <string name="id_information_not_available">Informação não disponível.</string>
     <string name="id_initialize_and_create_wallet">Inicializar e criar carteira</string>
-    <string name="id_initialize_jade_for_testnet">Initialize Jade for testnet</string>
     <string name="id_initialized">Inicializado</string>
     <string name="id_initializing_tor">Iniciando Tor…</string>
     <string name="id_initiate_oracle_communication">Initiate oracle communication</string>
@@ -649,12 +624,6 @@
     <string name="id_issuer">Emissor</string>
     <string name="id_issuer_domain_s">Domínio do emissor: %1$s</string>
     <string name="id_it_looks_like_you_have_no">Nenhuma carteira foi encontrada. Clique abaixo para adicionar uma.</string>
-    <string name="id_jade_is_a_specialized_device">A Jade é um dispositivo projetado para armazenar com segurança as chaves necessárias para movimentar seus bitcoins.</string>
-    <string name="id_jade_is_an_isolated_device_not">A Jade é um dispositivo não conectado à internet, isso significa que seus fundos estão protegidos contra telefones hackeados ou inseguros.</string>
-    <string name="id_jade_is_an_opensource_hardware">A Jade é uma carteira física de código aberto para ativos Bitcoin e Liquid.</string>
-    <string name="id_jade_is_trying_to_connect_to_a">Jade is trying to connect to a non-default blind PIN oracle. Contact support immediately for further information.</string>
-    <string name="id_jade_unlocked">Jade desbloqueada</string>
-    <string name="id_jade_was_initialized_for_testnet">A Jade foi inicializada na rede de testes</string>
     <string name="id_just_a_few_more_steps_to_get">Faltam apenas mais algumas etapas para restaurar a carteira.</string>
     <string name="id_label">Rótulo</string>
     <string name="id_language">Idioma</string>
@@ -684,7 +653,6 @@
     <string name="id_lightning_invoice">Fatura relâmpago</string>
     <string name="id_lightning_invoice__lnurl">Fatura relâmpago / LNURL</string>
     <string name="id_lightning_invoice_is_expired">A fatura relâmpago expirou</string>
-    <string name="id_lightning_network_account">Conta na Rede Relâmpago do Bitcoin fornecida por Greenlight. Em seu próprio nó CLN.</string>
     <string name="id_lightning_notifications">Notificações relâmpago</string>
     <string name="id_lightning_service_is_undergoing">A carteira relâmpago está em manutenção, mas retornará em breve.</string>
     <string name="id_lightning_shortcut">Atalho relâmpago</string>
@@ -789,8 +757,6 @@
     <string name="id_new_accounts_functionality">A funcionalidade &quot;Novas contas&quot; estará disponível em breve!</string>
     <string name="id_new_fee">Nova taxa</string>
     <string name="id_new_incoming_transaction_in">Nova transação recebida na conta %1$s (%2$s).</string>
-    <string name="id_new_jade_firmware_available">Novo firmware da Jade disponível</string>
-    <string name="id_new_jade_firmware_required">Novo firmware da Jade necessário</string>
     <string name="id_new_outgoing_transaction_from">Nova transação enviada saindo da conta %1$s (%2$s).</string>
     <string name="id_new_recovery_phrase">Nova frase de recuperação</string>
     <string name="id_new_s_transaction_of_s_in">Nova transação de %1$s no valor de %2$s na conta %3$s.</string>
@@ -918,11 +884,9 @@
     <string name="id_please_select_the_checkbox">Por favor, faça a marcação</string>
     <string name="id_please_set_and_enable_socks5">Defina e ative o proxy SOCKS5 e a porta para usar o Tor</string>
     <string name="id_please_tap_card">Por favor, clique no cartão</string>
-    <string name="id_please_upgrade_your_jade">Please upgrade your Jade firmware to v1.0.25 via USB in order to restore the Bluetooth functionality using Android 14.</string>
     <string name="id_please_verify_that_the_address">Verifique se o endereço que aparece na sua carteira física é igual ao endereço do seu telefone.</string>
     <string name="id_please_verify_that_this_address">Verifique se este endereço corresponde ao exibido no seu dispositivo físico.</string>
     <string name="id_please_wait_until_your_ledger">Aguarde até que sua Ledger exiba o endereço para validá-lo. Isso pode levar até 20 segundos.</string>
-    <string name="id_power_on_jade">Ligue a Jade</string>
     <string name="id_precision">Precisão</string>
     <string name="id_previous_addresses">Endereços anteriores</string>
     <string name="id_previous_fee">Taxa anterior</string>
@@ -980,7 +944,6 @@
     <string name="id_recovery_words">Recuperar palavras</string>
     <string name="id_recovery_xpub">Recuperar xPub</string>
     <string name="id_redeem">Resgatar</string>
-    <string name="id_redeem_your_deposited_funds">Resgate seus fundos sem precisar da assinatura da Blockstream App após um período de tempo predefinido.</string>
     <string name="id_redeposit">Redepositar</string>
     <string name="id_redeposit_expired_2fa_coins">Redeposit Expired 2FA Coins</string>
     <string name="id_redeposited">Depositado novamente</string>
@@ -1019,7 +982,6 @@
     <string name="id_reset_spv">Redefinir SPV</string>
     <string name="id_resetting_your_twofactor_takes">O prazo para redefinir a configuração do 2FA é de no mínimo 12 meses. Se você tem certeza de que não possui mais acesso ao seu 2FA, por favor, forneça um novo endereço de email no campo abaixo para iniciar o processo de redefinição.</string>
     <string name="id_restore">Restaurar</string>
-    <string name="id_restore_a_singlesig_wallet">Restaure carteiras criadas na Blockstream App ou em outros aplicativos. Esta opção só funciona em carteiras individuais com padrão mnemônico BIP39 e seguindo as derivações BIP44, BIP49 ou BIP84.</string>
     <string name="id_restore_a_wallet">Restaurar carteira</string>
     <string name="id_restore_temporary_wallet">Restaurar carteira temporária</string>
     <string name="id_restore_wallet">Restaurar carteira</string>
@@ -1050,8 +1012,6 @@
     <string name="id_scan_or_paste_your_extended">Leia ou cole sua chave pública estendida (xPub/yPub/zPub) para acessar sua conta somente leitura.</string>
     <string name="id_scan_or_paste_your_public">Scan or paste your public descriptor to log in to your watch-only account.</string>
     <string name="id_scan_qr_code">Ler código QR</string>
-    <string name="id_scan_qr_on_jade">Scan QR on Jade</string>
-    <string name="id_scan_qr_with_jade">Scan QR with Jade</string>
     <string name="id_scan_the_qr_code_with_an">Leia o código QR usando o app autenticador</string>
     <string name="id_scan_to_send_here">Leia este código QR ou envie para o endereço abaixo</string>
     <string name="id_screen_lock">Bloqueio de tela</string>
@@ -1081,7 +1041,6 @@
     <string name="id_select_watchonly_type">Tipo de conta somente leitura</string>
     <string name="id_select_word_number_d">Selecionar palavra de número %1$d</string>
     <string name="id_select_your_coins">Selecione suas moedas</string>
-    <string name="id_select_your_jade_to_login">Selecione sua Jade para logar</string>
     <string name="id_select_your_recovery_key">Selecione sua chave de recuperação</string>
     <string name="id_send">Enviar</string>
     <string name="id_send_all">Enviar tudo</string>
@@ -1121,10 +1080,8 @@
     <string name="id_setup_2fa_now">Configurar 2FA</string>
     <string name="id_setup_a_new_wallet">Configurar uma nova carteira</string>
     <string name="id_setup_guide">Tutorial de configuração</string>
-    <string name="id_setup_jade">Configurar Jade</string>
     <string name="id_setup_pin">Configurar PIN</string>
     <string name="id_setup_pin_and_s">Configurar PIN e %1$s</string>
-    <string name="id_setup_your_jade">Configurar sua Jade</string>
     <string name="id_share">Compartilhar</string>
     <string name="id_share_address">Compartilhar endereço</string>
     <string name="id_share_logs">Compartilhar logs</string>
@@ -1233,7 +1190,6 @@
     <string name="id_the_lightning_service_is">A carteira relâmpago está indisponível no momento. Pedimos desculpas pela interrupção, estamos trabalhando para restaurar os serviços.</string>
     <string name="id_the_liquid_network_is_a_bitcoin">Liquid é uma rede alternativa de Bitcoin que permite a liquidação e emissão de ativos digitais, como moedas estáveis, tokens de valores mobiliários e outros instrumentos financeiros.</string>
     <string name="id_the_new_email_will_be_used_for">O novo e-mail será usado como método 2FA quando a redefinição for concluída. A redefinição leva 12 meses mais o período restante do timelock. </string>
-    <string name="id_the_new_firmware_requires_you">O novo firmware exige que você desemparelhe sua Jade nas configurações de Bluetooth.</string>
     <string name="id_the_password_cant_be_empty">A senha não pode ficar em branco</string>
     <string name="id_the_qr_code_does_not_include">O código QR não inclui a senha do padrão BIP39</string>
     <string name="id_the_recovery_key_below_will_not">A chave de recuperação abaixo não será exibida novamente. Faça agora mesmo um backup seguro dela para garantir que você sempre possa acessar seus fundos.</string>
@@ -1258,7 +1214,6 @@
     <string name="id_this_wallet_is_based_on_your">Esta carteira é baseada na sua chave de recuperação e na senha BIP39 escolhida</string>
     <string name="id_this_wallet_operates_on_a_test">Esta carteira opera em uma rede de testes. Qualquer coisa que você receber ou enviar aqui não tem nenhum valor</string>
     <string name="id_this_will_disable_pin_login_for">O acesso por PIN será desativado para esta carteira em todos os seus dispositivos. Você precisará de sua frase de recuperação para acessar sua carteira.</string>
-    <string name="id_this_will_log_you_out_and">Você será desconectado e sua carteira será excluída do aplicativo e do banco de dados dos servidores da Blockstream.</string>
     <string name="id_ticker">Ticker</string>
     <string name="id_time_s">Tempo: %1$s</string>
     <string name="id_tip_we_recommend_you_enable">Dica: É recomendado ativar mais de um método de autenticação. Se você tiver somente um método ativado e perdê-lo, você terá que esperar o prazo de 1 ano completo para conseguir movimentar seus fundos.  </string>
@@ -1319,9 +1274,7 @@
     <string name="id_unknown_custom">Desconhecido (Personalizado)</string>
     <string name="id_unknown_firmware">Firmware desconhecido</string>
     <string name="id_unlock">Desbloquear</string>
-    <string name="id_unlock_jade_to_continue">Desbloqueie a Jade para continuar</string>
     <string name="id_unlock_your_device_to_continue">Desbloqueie seu dispositivo para continuar</string>
-    <string name="id_unlock_your_jade_to_continue">Desbloqueie sua Jade para continuar</string>
     <string name="id_unlocked_coins_can_be_spent_and">As moedas desbloqueadas podem ser gastas e incluídas no seu saldo.</string>
     <string name="id_unlocking_coins">Desbloqueando moedas</string>
     <string name="id_unstable_internet_connection">Conexão de internet instável</string>
@@ -1400,7 +1353,6 @@
     <string name="id_we_will_do_our_best_to_find_a">Faremos o possível para encontrar uma carteira correspondente a esta frase de recuperação</string>
     <string name="id_welcome">Bem-vindo</string>
     <string name="id_welcome_to">Bem-vindo à</string>
-    <string name="id_welcome_to_blockstream_jade">Bem-vindo à Blockstream Jade</string>
     <string name="id_welcome_to_your_wallet">Bem-vindo à sua Carteira!</string>
     <string name="id_well_done_you_can_continue">Muito bem, pode continuar</string>
     <string name="id_well_done_you_can_continue_with">Muito bem, pode continuar com a sua senha</string>
@@ -1457,7 +1409,6 @@
     <string name="id_you_need_an_amp_account_in">Você precisa de uma conta do tipo AMP para recebê-lo.</string>
     <string name="id_you_only_have_one_twofactor">Você tem apenas um método 2FA ativado</string>
     <string name="id_you_will_be_asked_to_enter_your">Sempre me lembrar de inserir a senha ao acessar a carteira.</string>
-    <string name="id_you_will_need_to_export_the">You will need to export the account from Jade at your next login.</string>
     <string name="id_you_will_need_to_reenter_your">Caso você não configure um PIN, toda vez que for acessar a carteira será necessário reinserir seu mnemônico. Pressione &quot;OK&quot; para continuar.</string>
     <string name="id_you_will_see_your_coins_here">Suas moedas aparecerão aqui</string>
     <string name="id_you_will_stop_receiving_push">You will stop receiving push notifications for this lightning account. Notifications are helpful to improve the reliability of lightning payments.</string>
@@ -1465,12 +1416,10 @@
     <string name="id_youll_need_your_pin_to_log_in">O PIN é necessário para você acessar sua carteira. Este PIN protege a carteira somente neste dispositivo.</string>
     <string name="id_youll_need_your_recovery_phrase">Você vai precisar da sua frase de recuperação para restaurar esta carteira</string>
     <string name="id_youll_see_your_coins_here_when">Suas moedas irão aparecer aqui quando você receber fundos</string>
-    <string name="id_your_bitcoin_and_liquid_assets">Seus ativos Bitcoin e Liquid são armazenados na blockchain e só podem ser gastos usando as chaves que estão no dispositivo Jade.</string>
     <string name="id_your_bluetooth_adapter_is">Seu adaptador Bluetooth está desativado</string>
     <string name="id_your_current_receive_capacity">Sua capacidade de recebimento atual é de %1$s.</string>
     <string name="id_your_device_was_disconnected">Seu dispositivo foi desconectado</string>
     <string name="id_your_favourite_exchange_rate_is">Seu câmbio de referência favorito não está disponível no momento. Você pode alterá-lo nas configurações.</string>
-    <string name="id_your_funds_are_secured_by">Duas ou mais chaves são necessárias para movimentar os fundos. Uma chave fica armazenada no seu dispositivo e a outra em nossos servidores protegida por 2FA, pronta para aprovar suas transações. Contas com uma terceira chave exclusiva sua também podem ser criadas. Selecione essa opção se deseja maior segurança.  </string>
     <string name="id_your_funds_are_secured_by_a">Uma única chave armazenada no seu dispositivo é necessária para movimentar os fundos. É mais simples de usar e configurar do que uma carteira do tipo conjunta. Na dúvida, escolha essa opção.</string>
     <string name="id_your_funds_are_secured_by_your">Seus fundos são protegidos por seu PIN. Fácil de usar, padrão e portátil na maioria das carteiras bitcoin.</string>
     <string name="id_your_funds_have_grown">Seu saldo aumentou recentemente.\n\nConsidere usar uma conta protegida por 2FA, para quando você realizar transações, exista uma camada extra de proteção.\nPara isso você vai precisar:\n\n1. Criar uma conta protegida por 2FA;\n2. Configurar um método 2FA;\n3. Mover os fundos para a nova conta;\n4. Arquivar a conta antiga;</string>

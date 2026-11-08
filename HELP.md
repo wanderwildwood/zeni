@@ -24,7 +24,7 @@ Every on-chain payment pays a fee to the miners, not to this app. Fees rise when
 
 ## Hardware wallet
 
-The wallet can sign with a Jade over Bluetooth. If it does not connect: turn Bluetooth on, allow the Bluetooth permission for this app, wake the Jade and unlock it, bring it close, and try again. A Jade that was set up to disable radio connections cannot be reached over Bluetooth.
+The wallet can sign with a hardware wallet over Bluetooth. If it does not connect: turn Bluetooth on, allow the Bluetooth permission for this app, wake the hardware wallet and unlock it, bring it close, and try again. A hardware wallet that was set up to turn off its radio cannot be reached over Bluetooth.
 
 ## Watch-only
 

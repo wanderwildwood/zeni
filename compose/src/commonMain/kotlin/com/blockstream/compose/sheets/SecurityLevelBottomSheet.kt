@@ -26,7 +26,6 @@ import androidx.compose.ui.unit.dp
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.device_keys
 import blockstream_green.common.generated.resources.id_convenient_spending
-import blockstream_green.common.generated.resources.id_dont_have_one_buy_a_jade
 import blockstream_green.common.generated.resources.id_hardware
 import blockstream_green.common.generated.resources.id_ideal_for_longterm_bitcoin
 import blockstream_green.common.generated.resources.id_ideal_for_small_amounts_of

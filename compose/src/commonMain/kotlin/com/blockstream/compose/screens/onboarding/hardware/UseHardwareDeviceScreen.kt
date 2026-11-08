@@ -27,9 +27,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.arrow_square_out
-import blockstream_green.common.generated.resources.blockstream_devices
+import blockstream_green.common.generated.resources.generic_device
 import blockstream_green.common.generated.resources.hardware_security
-import blockstream_green.common.generated.resources.id_check_our_store
 import blockstream_green.common.generated.resources.id_connect_a_different_hardware
 import blockstream_green.common.generated.resources.id_connect_jade
 import blockstream_green.common.generated.resources.id_dont_have_a_jade

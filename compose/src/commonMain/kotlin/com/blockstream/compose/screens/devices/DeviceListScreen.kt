@@ -34,7 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.ble
-import blockstream_green.common.generated.resources.blockstream_devices
+import blockstream_green.common.generated.resources.generic_device
 import blockstream_green.common.generated.resources.id_blockstream_needs_access_to
 import blockstream_green.common.generated.resources.id_choose_a_usb_or_bluetooth
 import blockstream_green.common.generated.resources.id_connect_using_usb_or_bluetooth
@@ -171,7 +171,7 @@ fun DeviceListScreen(
                                 // zeni: one line, no pictures and no rotating three-step card.
                                 Box(modifier = Modifier.weight(1f)) {
                                     NoPicture(
-                                        painter = painterResource(Res.drawable.blockstream_devices),
+                                        painter = painterResource(Res.drawable.generic_device),
                                         contentDescription = null,
                                         modifier = Modifier.fillMaxSize()
                                     )
