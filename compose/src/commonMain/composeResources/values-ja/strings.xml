@@ -5,7 +5,7 @@
     <string name="id_12_months_51840_blocks">12ヶ月 (51840ブロック)</string>
     <string name="id_12_words">12単語</string>
     <string name="id_15_months_65535_blocks">15ヶ月 (65535ブロック)</string>
-    <string name="id_1_double_check_all_of_your">1. リカバリーフレーズの単語１つ１つを正確に書き写せたか、今一度ご確認ください。\n2. 語順も重要です。単語の順番を正しく記録したことも確認してください。\n\nいずれも間違っていない場合、またはリカバリーフレーズが12, 24, 27単語のいずれでもない場合、ヘルプセンターをご覧ください。</string>
+    <string name="id_1_double_check_all_of_your">1. リカバリーフレーズの単語１つ１つを正確に書き写せたか、今一度ご確認ください。\n2. 語順も重要です。単語の順番を正しく記録したことも確認してください。\n\nいずれも間違っていない場合、またはリカバリーフレーズが12, 24, 27単語のいずれでもない場合、下のヘルプページをご覧ください。</string>
     <string name="id_1d_2s_ago">%1$d%2$s前</string>
     <string name="id_1d_minutes">%1$d 分</string>
     <string name="id_1s_blocks_left_2d"> 残り%1$sブロック %2$d</string>
@@ -994,7 +994,7 @@
     <string name="id_on_hardware_wallet">ハードウェアウォレットで保管する</string>
     <string name="id_on_jade_select_qr__continue_">Jadeで、QR > Continue > Enter your PINを選択</string>
     <string name="id_on_this_device">デバイスで保管する</string>
-    <string name="id_once_selected_this_spending">このポリシーを一度選択すると以後変更できません。あなたに最適なセキュリティポリシーの選び方はヘルプセンターより確認できます。</string>
+    <string name="id_once_selected_this_spending">このポリシーを一度選択すると以後変更できません。</string>
     <string name="id_onchain_address">オンチェーンアドレス</string>
     <string name="id_onchain_balance_satoshi">Onchain Balance Satoshi</string>
     <string name="id_onchain_swaps">オンチェーンスワップ</string>

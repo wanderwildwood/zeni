@@ -5,7 +5,7 @@
     <string name="id_12_months_51840_blocks">12 mesi (51840 blocchi)</string>
     <string name="id_12_words">12 parole</string>
     <string name="id_15_months_65535_blocks">15 mesi (65535 blocchi)</string>
-    <string name="id_1_double_check_all_of_your">1. Ricontrolla la tua recovery phrase. Le parole sono tutte corrette?\n2. L&apos;ordine delle parole è importante! Assicurati di averle inserite nell&apos;ordine corretto.\n\nSe questi consigli non ti sono di aiuto, o se non possiedi una recovery phrase da 12, 24 o 27 parole, consulta il nostro help center.</string>
+    <string name="id_1_double_check_all_of_your">1. Ricontrolla la tua recovery phrase. Le parole sono tutte corrette?\n2. L&apos;ordine delle parole è importante! Assicurati di averle inserite nell&apos;ordine corretto.\n\nSe questi consigli non ti sono di aiuto, o se non possiedi una recovery phrase da 12, 24 o 27 parole, leggi la pagina di aiuto qui sotto.</string>
     <string name="id_1d_2s_ago">%1$d %2$s fa</string>
     <string name="id_1d_minutes">%1$d minuti</string>
     <string name="id_1s_blocks_left_2d">%1$s blocchi rimanenti %2$d</string>
@@ -994,7 +994,7 @@
     <string name="id_on_hardware_wallet">On Hardware Wallet</string>
     <string name="id_on_jade_select_qr__continue_">On Jade select QR > Continue > Enter your PIN</string>
     <string name="id_on_this_device">On This Device</string>
-    <string name="id_once_selected_this_spending">Una volta selezionata, la spending policy non potrà essere modificata. Per capire quale tipo di sicurezza sia la migliore per te, visita il nostro Help Center.</string>
+    <string name="id_once_selected_this_spending">Una volta selezionata, la spending policy non potrà essere modificata.</string>
     <string name="id_onchain_address">Onchain Address</string>
     <string name="id_onchain_balance_satoshi">Onchain Balance Satoshi</string>
     <string name="id_onchain_swaps">Onchain Swaps</string>

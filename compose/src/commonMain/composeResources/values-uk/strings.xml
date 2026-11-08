@@ -5,7 +5,7 @@
     <string name="id_12_months_51840_blocks">12 місяців (51840 блоків)</string>
     <string name="id_12_words">12 слів</string>
     <string name="id_15_months_65535_blocks">15 місяців (65535 блоків)</string>
-    <string name="id_1_double_check_all_of_your">Двічі перевірте свою фразу відновлення, чи всі слова правильні? \n2. Порядок слів важливий! Переконайтеся, що ви ввели слова в правильному порядку.\n\n Якщо жодна з цих порад не допомогла або у вас немає фрази відновлення з 12, 24 або 27 слів, зверніться в нашу службу підтримки.</string>
+    <string name="id_1_double_check_all_of_your">Двічі перевірте свою фразу відновлення, чи всі слова правильні? \n2. Порядок слів важливий! Переконайтеся, що ви ввели слова в правильному порядку.\n\n Якщо жодна з цих порад не допомогла або у вас немає фрази відновлення з 12, 24 або 27 слів, прочитайте сторінку довідки нижче.</string>
     <string name="id_1d_2s_ago">%1$d %2$s тому</string>
     <string name="id_1d_minutes">%1$d хвилин</string>
     <string name="id_1s_blocks_left_2d">%1$s блоків залишилося %2$d</string>
@@ -994,7 +994,7 @@
     <string name="id_on_hardware_wallet">On Hardware Wallet</string>
     <string name="id_on_jade_select_qr__continue_">On Jade select QR > Continue > Enter your PIN</string>
     <string name="id_on_this_device">On This Device</string>
-    <string name="id_once_selected_this_spending">Після вибору політику витрат змінити не можна. Щоб дізнатися, який тип безпеки найкраще підходить для вас, відвідайте наш довідковий центр.</string>
+    <string name="id_once_selected_this_spending">Після вибору політику витрат змінити не можна.</string>
     <string name="id_onchain_address">Onchain Address</string>
     <string name="id_onchain_balance_satoshi">Onchain Balance Satoshi</string>
     <string name="id_onchain_swaps">Onchain Swaps</string>

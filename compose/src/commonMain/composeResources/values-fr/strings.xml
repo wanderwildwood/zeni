@@ -5,7 +5,7 @@
     <string name="id_12_months_51840_blocks">12 mois (51840 blocs)</string>
     <string name="id_12_words">12 mots</string>
     <string name="id_15_months_65535_blocks">15 mois ( 65535 blocs)</string>
-    <string name="id_1_double_check_all_of_your">1. Vérifiez toutes vos phrases de récupération mot par mot, tous les mots sont-ils corrects ?\n2. L&apos;ordre des mots est important ! Assurez-vous que vous avez tapé les mots dans le bon ordre.\n\nSi aucun de ces conseils ne vous a aidé, ou si vous n&apos;avez pas de phrase de récupération de 12, 24 ou 27 mots, consultez notre centre d&apos;aide.\n\n</string>
+    <string name="id_1_double_check_all_of_your">1. Vérifiez toutes vos phrases de récupération mot par mot, tous les mots sont-ils corrects ?\n2. L&apos;ordre des mots est important ! Assurez-vous que vous avez tapé les mots dans le bon ordre.\n\nSi aucun de ces conseils ne vous a aidé, ou si vous n&apos;avez pas de phrase de récupération de 12, 24 ou 27 mots, consultez la page d&apos;aide ci-dessous.\n\n</string>
     <string name="id_1d_2s_ago">%1$d %2$s auparavant</string>
     <string name="id_1d_minutes">%1$d minutes</string>
     <string name="id_1s_blocks_left_2d">%1$s blocs restant %2$d</string>
@@ -994,7 +994,7 @@
     <string name="id_on_hardware_wallet">On Hardware Wallet</string>
     <string name="id_on_jade_select_qr__continue_">On Jade select QR > Continue > Enter your PIN</string>
     <string name="id_on_this_device">On This Device</string>
-    <string name="id_once_selected_this_spending">Une fois sélectionnée, cette politique de dépenses ne peut être modifiée. Pour obtenir des conseils sur le type de sécurité qui vous convient le mieux, consultez notre Centre d&apos;aide.</string>
+    <string name="id_once_selected_this_spending">Une fois sélectionnée, cette politique de dépenses ne peut être modifiée.</string>
     <string name="id_onchain_address">Onchain Address</string>
     <string name="id_onchain_balance_satoshi">Onchain Balance Satoshi</string>
     <string name="id_onchain_swaps">Onchain Swaps</string>

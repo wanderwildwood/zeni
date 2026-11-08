@@ -5,7 +5,7 @@
     <string name="id_12_months_51840_blocks">12 meses (51840 blocos)</string>
     <string name="id_12_words">12 palavras</string>
     <string name="id_15_months_65535_blocks">15 meses (65535 blocos)</string>
-    <string name="id_1_double_check_all_of_your">1. Verifique novamente a frase de recuperação. Todas as palavras estão corretas?\n2. A ordem das palavras é importante! Verifique se você digitou as palavras na ordem correta.\n\nSe nenhuma dessas orientações te ajudou ou se você não tiver uma frase de recuperação de 12, 24 ou 27 palavras, verifique nossa central de ajuda.</string>
+    <string name="id_1_double_check_all_of_your">1. Verifique novamente a frase de recuperação. Todas as palavras estão corretas?\n2. A ordem das palavras é importante! Verifique se você digitou as palavras na ordem correta.\n\nSe nenhuma dessas orientações te ajudou ou se você não tiver uma frase de recuperação de 12, 24 ou 27 palavras, leia a página de ajuda abaixo.</string>
     <string name="id_1d_2s_ago">%1$d %2$s atrás</string>
     <string name="id_1d_minutes">%1$d minutos</string>
     <string name="id_1s_blocks_left_2d">%1$s blocos restantes %2$d</string>
@@ -991,7 +991,7 @@
     <string name="id_on_hardware_wallet">Na carteira física</string>
     <string name="id_on_jade_select_qr__continue_">Na Jade selecione código QR > Continuar > Insira seu PIN</string>
     <string name="id_on_this_device">Neste dispositivo</string>
-    <string name="id_once_selected_this_spending">Uma vez selecionada, a política de gastos para esta carteira não pode ser alterada. Para obter dicas sobre qual tipo de segurança é melhor para você, visite nossa central de ajuda.</string>
+    <string name="id_once_selected_this_spending">Uma vez selecionada, a política de gastos para esta carteira não pode ser alterada.</string>
     <string name="id_onchain_address">Endereço bitcoin</string>
     <string name="id_onchain_balance_satoshi">Saldo onchain de Satoshi</string>
     <string name="id_onchain_swaps">Onchain Swaps</string>

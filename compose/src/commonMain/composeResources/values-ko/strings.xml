@@ -5,7 +5,7 @@
     <string name="id_12_months_51840_blocks">12개월(블록 51840개)</string>
     <string name="id_12_words">12 개 단어</string>
     <string name="id_15_months_65535_blocks">15개월(블록 65535개)</string>
-    <string name="id_1_double_check_all_of_your">1. 모든 복구 구문을 한글자 한글자 다시 확인하세요. 모두 올바른 단어가 입력되었나요?\n2. 단어의 순서가 중요합니다! 단어의 순서가 바르게 입력되었는지 확인하세요.\n\n위의 팁이 모두 도움이 되지 않거나, 12 또는 24, 27개 단어로 이루어진 복구 문구가 없으시면 고객 센터에 문의하세요.</string>
+    <string name="id_1_double_check_all_of_your">1. 모든 복구 구문을 한글자 한글자 다시 확인하세요. 모두 올바른 단어가 입력되었나요?\n2. 단어의 순서가 중요합니다! 단어의 순서가 바르게 입력되었는지 확인하세요.\n\n위의 팁이 모두 도움이 되지 않거나, 12 또는 24, 27개 단어로 이루어진 복구 문구가 없으시면 아래 도움말 페이지를 읽어 보세요.</string>
     <string name="id_1d_2s_ago">%1$d%2$s전</string>
     <string name="id_1d_minutes">%1$d분</string>
     <string name="id_1s_blocks_left_2d">%1$s블록 남음%2$d</string>
@@ -994,7 +994,7 @@
     <string name="id_on_hardware_wallet">On Hardware Wallet</string>
     <string name="id_on_jade_select_qr__continue_">On Jade select QR > Continue > Enter your PIN</string>
     <string name="id_on_this_device">On This Device</string>
-    <string name="id_once_selected_this_spending">이 결제 정책은 한 번 선택하면 변경할 수 없습니다. 나에게 가장 적합한 보안 유형에 대한 정보는 Help Center를 참조하세요.</string>
+    <string name="id_once_selected_this_spending">이 결제 정책은 한 번 선택하면 변경할 수 없습니다.</string>
     <string name="id_onchain_address">Onchain Address</string>
     <string name="id_onchain_balance_satoshi">Onchain Balance Satoshi</string>
     <string name="id_onchain_swaps">Onchain Swaps</string>

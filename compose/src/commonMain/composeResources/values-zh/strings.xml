@@ -5,7 +5,7 @@
     <string name="id_12_months_51840_blocks">12个月（51840个区块）</string>
     <string name="id_12_words">12个单词</string>
     <string name="id_15_months_65535_blocks">15个月（65535个区块）</string>
-    <string name="id_1_double_check_all_of_your">1. 请仔细检查所有助记词，所有单词都正确吗？\n2. 助记词的顺序很重要！请确保您已按正确顺序输入单词。\n\n如果这些提示都没有帮助到您，或者您没有12、24或27个单词的助记词，请查看我们的帮助中心。</string>
+    <string name="id_1_double_check_all_of_your">1. 请仔细检查所有助记词，所有单词都正确吗？\n2. 助记词的顺序很重要！请确保您已按正确顺序输入单词。\n\n如果这些提示都没有帮助到您，或者您没有12、24或27个单词的助记词，请阅读下方的帮助页面。</string>
     <string name="id_1d_2s_ago">%1$d %2$s前</string>
     <string name="id_1d_minutes">%1$d分钟</string>
     <string name="id_1s_blocks_left_2d">剩余%1$s区块%2$d</string>
@@ -994,7 +994,7 @@
     <string name="id_on_hardware_wallet">On Hardware Wallet</string>
     <string name="id_on_jade_select_qr__continue_">On Jade select QR > Continue > Enter your PIN</string>
     <string name="id_on_this_device">On This Device</string>
-    <string name="id_once_selected_this_spending">一旦选择，支出政策将无法更改。想了解最适合您的安全类型，请访问我们的帮助中心。</string>
+    <string name="id_once_selected_this_spending">一旦选择，支出政策将无法更改。</string>
     <string name="id_onchain_address">Onchain Address</string>
     <string name="id_onchain_balance_satoshi">Onchain Balance Satoshi</string>
     <string name="id_onchain_swaps">Onchain Swaps</string>

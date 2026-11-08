@@ -5,7 +5,7 @@
     <string name="id_12_months_51840_blocks">12 Monate (51840 Blöcke)</string>
     <string name="id_12_words">12 Wörter</string>
     <string name="id_15_months_65535_blocks">15 Monate (65535 Blöcke)</string>
-    <string name="id_1_double_check_all_of_your">1. Kontrolliere deine Wiederherstellungs-Phrase zweimal Wort für Wort, sind alle richtig?\n2. Die Reihenfolge der Wörter ist wichtig! Stelle sicher, dass du die Wörter in der richtigen Reihenfolge eingegeben hast.\n\nWenn keiner dieser Tips dir helfen konnte oder wenn du deine 12, 24 oder 27 Wörter der Wiederherstellungsphrase nicht zur Hand hast, schau doch mal in unserem Hilfe-Center nach.</string>
+    <string name="id_1_double_check_all_of_your">1. Kontrolliere deine Wiederherstellungs-Phrase zweimal Wort für Wort, sind alle richtig?\n2. Die Reihenfolge der Wörter ist wichtig! Stelle sicher, dass du die Wörter in der richtigen Reihenfolge eingegeben hast.\n\nWenn keiner dieser Tips dir helfen konnte oder wenn du deine 12, 24 oder 27 Wörter der Wiederherstellungsphrase nicht zur Hand hast, lies die Hilfeseite unten.</string>
     <string name="id_1d_2s_ago">vor %1$d %2$s</string>
     <string name="id_1d_minutes">%1$d Minuten</string>
     <string name="id_1s_blocks_left_2d">%1$s Blöcke verbleibend %2$d</string>
@@ -994,7 +994,7 @@
     <string name="id_on_hardware_wallet">On Hardware Wallet</string>
     <string name="id_on_jade_select_qr__continue_">On Jade select QR > Continue > Enter your PIN</string>
     <string name="id_on_this_device">On This Device</string>
-    <string name="id_once_selected_this_spending">Einmal festgelegt, kann diese Ausgabe-Regel nicht mehr geändert werden. Für Hinweise, welche Art von Sicherheitseinstellungen für dich am besten ist, besuche unser Hilfe-Center.</string>
+    <string name="id_once_selected_this_spending">Einmal festgelegt, kann diese Ausgabe-Regel nicht mehr geändert werden.</string>
     <string name="id_onchain_address">Onchain Address</string>
     <string name="id_onchain_balance_satoshi">Onchain Balance Satoshi</string>
     <string name="id_onchain_swaps">Onchain Swaps</string>

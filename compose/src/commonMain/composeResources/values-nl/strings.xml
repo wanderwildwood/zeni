@@ -5,7 +5,7 @@
     <string name="id_12_months_51840_blocks">12 maanden (51.840 blocks)</string>
     <string name="id_12_words">12 woorden</string>
     <string name="id_15_months_65535_blocks">15 maanden (65.535 blocks)</string>
-    <string name="id_1_double_check_all_of_your">1. Controleer je gehele herstelzin woord voor woord. Zijn alle woorden correct?\n2. De volgorde van de woorden is belangrijk! Controleer dat je de woorden in de juiste volgorde hebt ingevoerd.\n\nAls geen van deze tips je heeft geholpen, of als je geen herstelzin van 12, 24 of 27 woorden hebt, raadpleeg dan ons hulpcentrum.</string>
+    <string name="id_1_double_check_all_of_your">1. Controleer je gehele herstelzin woord voor woord. Zijn alle woorden correct?\n2. De volgorde van de woorden is belangrijk! Controleer dat je de woorden in de juiste volgorde hebt ingevoerd.\n\nAls geen van deze tips je heeft geholpen, of als je geen herstelzin van 12, 24 of 27 woorden hebt, lees dan de hulppagina hieronder.</string>
     <string name="id_1d_2s_ago">%1$d %2$s geleden</string>
     <string name="id_1d_minutes">%1$d minuten</string>
     <string name="id_1s_blocks_left_2d">%1$s blocks resterend %2$d</string>
@@ -994,7 +994,7 @@
     <string name="id_on_hardware_wallet">On Hardware Wallet</string>
     <string name="id_on_jade_select_qr__continue_">On Jade select QR > Continue > Enter your PIN</string>
     <string name="id_on_this_device">On This Device</string>
-    <string name="id_once_selected_this_spending">Eenmaal geselecteerd, kan dit bestedingsbeleid niet meer worden gewijzigd. Bezoek ons hulpcentrum voor tips over welk type beveiliging het beste voor je is.</string>
+    <string name="id_once_selected_this_spending">Eenmaal geselecteerd, kan dit bestedingsbeleid niet meer worden gewijzigd.</string>
     <string name="id_onchain_address">Onchain Address</string>
     <string name="id_onchain_balance_satoshi">Onchain Balance Satoshi</string>
     <string name="id_onchain_swaps">Onchain Swaps</string>

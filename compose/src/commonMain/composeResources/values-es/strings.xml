@@ -5,7 +5,7 @@
     <string name="id_12_months_51840_blocks">12 meses (51840 bloques)</string>
     <string name="id_12_words">12 palabras</string>
     <string name="id_15_months_65535_blocks">15 meses (65535 bloques)</string>
-    <string name="id_1_double_check_all_of_your">1. Revise la frase de recuperación entera, palabra por palabra. ¿Coinciden todas las palabras?\n2. ¡El orden de las palabras importa! Asegúrese de haberlas escrito en el orden correcto.\n\nSi ninguno de estos consejos lo ayudó, o si no cuenta con una frase de recuperación de 12, 24 o 27 palabras, consulte nuestro centro de ayuda.</string>
+    <string name="id_1_double_check_all_of_your">1. Revise la frase de recuperación entera, palabra por palabra. ¿Coinciden todas las palabras?\n2. ¡El orden de las palabras importa! Asegúrese de haberlas escrito en el orden correcto.\n\nSi ninguno de estos consejos lo ayudó, o si no cuenta con una frase de recuperación de 12, 24 o 27 palabras, lea la página de ayuda que aparece abajo.</string>
     <string name="id_1d_2s_ago">Hace %1$d%2$s</string>
     <string name="id_1d_minutes">%1$d minutos</string>
     <string name="id_1s_blocks_left_2d">Restan %1$s bloques %2$d</string>
@@ -994,7 +994,7 @@
     <string name="id_on_hardware_wallet">On Hardware Wallet</string>
     <string name="id_on_jade_select_qr__continue_">On Jade select QR > Continue > Enter your PIN</string>
     <string name="id_on_this_device">On This Device</string>
-    <string name="id_once_selected_this_spending">Una vez seleccionada, esta política de gasto no se puede modificar. Si desea obtener consejos sobre el tipo de seguridad que más le conviene, visite nuestro Centro de ayuda.</string>
+    <string name="id_once_selected_this_spending">Una vez seleccionada, esta política de gasto no se puede modificar.</string>
     <string name="id_onchain_address">Dirección en la cadena</string>
     <string name="id_onchain_balance_satoshi">Onchain Balance Satoshi</string>
     <string name="id_onchain_swaps">Intercambios en la cadena</string>

@@ -5,7 +5,7 @@
     <string name="id_12_months_51840_blocks">12 měsíců (51840 bloků)</string>
     <string name="id_12_words">12 slov</string>
     <string name="id_15_months_65535_blocks">15 měsíců (65535 bloků)</string>
-    <string name="id_1_double_check_all_of_your">1. Pečlivě zkontrolujte všechny své fráze pro obnovení slovo po slovu, jsou všechna slova správná?\n2. Pořadí slov je důležité! Ujistěte se, že jste zadali slova ve správném pořadí.\n\nPokud vám žádný z těchto tipů nepomohl nebo pokud nemáte frázi pro obnovení jako 12, 24 nebo 27 slov, podívejte se do našeho centra nápovědy.</string>
+    <string name="id_1_double_check_all_of_your">1. Pečlivě zkontrolujte všechny své fráze pro obnovení slovo po slovu, jsou všechna slova správná?\n2. Pořadí slov je důležité! Ujistěte se, že jste zadali slova ve správném pořadí.\n\nPokud vám žádný z těchto tipů nepomohl nebo pokud nemáte frázi pro obnovení jako 12, 24 nebo 27 slov, přečtěte si stránku nápovědy níže.</string>
     <string name="id_1d_2s_ago">před %1$d %2$s</string>
     <string name="id_1d_minutes">%1$d minut</string>
     <string name="id_1s_blocks_left_2d">%1$s bloků zbývá %2$d</string>
@@ -994,7 +994,7 @@
     <string name="id_on_hardware_wallet">O hardwarové peněžence</string>
     <string name="id_on_jade_select_qr__continue_">On Jade select QR > Continue > Enter your PIN</string>
     <string name="id_on_this_device">Na tomto zařízení</string>
-    <string name="id_once_selected_this_spending">Po výběru nelze tuto výdajovou politiku změnit. Tipy, jaký typ zabezpečení je pro vás nejlepší, najdete v našem centru nápovědy.</string>
+    <string name="id_once_selected_this_spending">Po výběru nelze tuto výdajovou politiku změnit.</string>
     <string name="id_onchain_address">Onchain Adresa</string>
     <string name="id_onchain_balance_satoshi">Onchain Balance Satoshi</string>
     <string name="id_onchain_swaps">Onchain swapy</string>

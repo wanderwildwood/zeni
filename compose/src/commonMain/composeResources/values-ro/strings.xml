@@ -5,7 +5,7 @@
     <string name="id_12_months_51840_blocks">12 luni (51840 blocuri)</string>
     <string name="id_12_words">12 words</string>
     <string name="id_15_months_65535_blocks">15 luni (65535 blocuri)</string>
-    <string name="id_1_double_check_all_of_your">1. Verificați de două ori fraza de recuperare cuvânt cu cuvânt. Toate cuvintele sunt scrise corect?\n\n2. Ordinea cuvintelor este importantă! Asigurați-vă ca ați scris cuvintele în ordinea corespunzătoare.\n\nDacă aceste instrucțiuni nu au fost de ajutor sau dacă nu aveți o frază de recuperare din 12, 24 sau 27 de cuvinte, accesați centrul nostru de ajutor.</string>
+    <string name="id_1_double_check_all_of_your">1. Verificați de două ori fraza de recuperare cuvânt cu cuvânt. Toate cuvintele sunt scrise corect?\n\n2. Ordinea cuvintelor este importantă! Asigurați-vă ca ați scris cuvintele în ordinea corespunzătoare.\n\nDacă aceste instrucțiuni nu au fost de ajutor sau dacă nu aveți o frază de recuperare din 12, 24 sau 27 de cuvinte, citiți pagina de ajutor de mai jos.</string>
     <string name="id_1d_2s_ago">În urmă cu %1$d %2$s</string>
     <string name="id_1d_minutes">%1$d minute</string>
     <string name="id_1s_blocks_left_2d">%1$s blocuri rămase %2$d</string>
@@ -994,7 +994,7 @@
     <string name="id_on_hardware_wallet">On Hardware Wallet</string>
     <string name="id_on_jade_select_qr__continue_">On Jade select QR > Continue > Enter your PIN</string>
     <string name="id_on_this_device">On This Device</string>
-    <string name="id_once_selected_this_spending">Această opțiune nu poate fi modificată. Pentru mai multe informații, accesați centrul de suport</string>
+    <string name="id_once_selected_this_spending">Această opțiune nu poate fi modificată.</string>
     <string name="id_onchain_address">Onchain Address</string>
     <string name="id_onchain_balance_satoshi">Onchain Balance Satoshi</string>
     <string name="id_onchain_swaps">Onchain Swaps</string>
