@@ -5,6 +5,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## zeni [0.1.11] - not yet released
+
+### Removed
+
+- Two-factor (2of2) and 2of3 multisig accounts: no login attempt at the multisig server when a hardware wallet connects or a phrase is restored, no such accounts in "add account", no username-and-password (multisig) watch-only, and no recovery-tool link. A wallet that holds such accounts has to be opened with the app it was made in.
+
+### Changed
+
+- Default Electrum server is electrum.jhoenicke.de, with fulcrum.grey.pw as the backup when the first doesn't answer (testnet: blackie.c3-soft.com). Both have certificates from a public authority, and the certificate check stays on. A server typed in App Settings still wins.
+- App Settings no longer shows the unused Liquid Electrum server field.
+- Fiat values come from mempool.space (`/api/v1/prices`), worked out in the app; the wallet library no longer asks a price server itself. Currencies: USD, EUR, GBP, CAD, CHF, AUD, JPY.
+- The price chart comes from mempool.space's price history; same periods and look.
+- The lock-screen price for Glance comes from mempool.space.
+- "View in explorer" opens mempool.space.
+- The hardware-wallet firmware list is fetched only when you press Firmware update, or when the firmware is below the minimum this app accepts (1.0.40, still refused).
+
+### Added
+
+- Device info shows the PIN server the device used at its last unlock here; the warning for a non-default PIN server names the host it asks for.
+- Help: "The PIN server".
+
 ## [5.7.0] - 2026-09-16
 
 ### Added

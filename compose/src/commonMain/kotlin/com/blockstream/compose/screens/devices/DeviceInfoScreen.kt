@@ -29,6 +29,8 @@ import blockstream_green.common.generated.resources.id_continue
 import blockstream_green.common.generated.resources.id_create_a_pin
 import blockstream_green.common.generated.resources.id_enter_and_confirm_a_unique_pin
 import blockstream_green.common.generated.resources.id_set_up_your_jade
+import blockstream_green.common.generated.resources.zeni_pin_server_not_known
+import blockstream_green.common.generated.resources.zeni_pin_server_s
 import com.blockstream.data.data.MenuEntry
 import com.blockstream.data.data.MenuEntryList
 import com.blockstream.compose.components.AppSettingsButton
@@ -149,6 +151,15 @@ fun DeviceInfoScreen(
             ) {
                 Text(text = device?.name ?: "", style = titleMedium, textAlign = TextAlign.Center)
                 Text(text = device?.manufacturer ?: "", style = bodyLarge, textAlign = TextAlign.Center)
+                // zeni: the PIN server this device used at its last unlock here
+                if (device?.isJade == true) {
+                    val pinServer = remember(onProgress) { viewModel.settingsManager.pinServerHost(device.uniqueIdentifier) }
+                    Text(
+                        text = stringResource(Res.string.zeni_pin_server_s, pinServer ?: stringResource(Res.string.zeni_pin_server_not_known)),
+                        style = bodyMedium,
+                        textAlign = TextAlign.Center
+                    )
+                }
             }
         }
 

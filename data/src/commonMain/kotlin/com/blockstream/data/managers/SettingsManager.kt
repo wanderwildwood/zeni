@@ -59,6 +59,16 @@ class SettingsManager constructor(
         settings[keyForCustomPinServer(url)] = true
     }
 
+    // zeni: the PIN server a hardware wallet used at its last unlock, by the device's name
+    private fun keyForPinServer(deviceId: String): String =
+        "zeni_pin_server_${Base64.UrlSafe.encode(deviceId.encodeToByteArray())}"
+
+    fun pinServerHost(deviceId: String): String? = settings.getStringOrNull(keyForPinServer(deviceId))
+
+    fun setPinServerHost(deviceId: String, host: String) {
+        settings[keyForPinServer(deviceId)] = host
+    }
+
     private fun keyForPromo(id: String): String {
         return "${KEY_PROMO_DISMISSED}_$id"
     }

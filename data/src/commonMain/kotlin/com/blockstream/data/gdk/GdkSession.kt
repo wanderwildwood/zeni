@@ -14,6 +14,7 @@ import com.blockstream.data.backend.NetworkBackend
 import com.blockstream.data.backend.combineBackends
 import com.blockstream.data.backend.gdk.GdkAccountBackend
 import com.blockstream.data.backend.gdk.GdkNetworkBackend
+import com.blockstream.data.prices.MempoolPrices
 import com.blockstream.data.backend.gl.GlAccountBackend
 import com.blockstream.data.backend.gl.GlNetworkBackend
 import com.blockstream.data.backend.lwk.LwkNetworkBackend
@@ -54,6 +55,7 @@ import com.blockstream.data.gdk.data.EncryptWithPin
 import com.blockstream.data.gdk.data.FeeEstimation
 import com.blockstream.data.gdk.data.LoginData
 import com.blockstream.data.gdk.data.Network
+import com.blockstream.data.gdk.data.Pricing
 import com.blockstream.data.gdk.data.NetworkEvent
 import com.blockstream.data.gdk.data.Notification
 import com.blockstream.data.gdk.data.PendingTransaction
@@ -138,6 +140,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.launchIn
@@ -153,6 +156,7 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeoutOrNull
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.add
 import kotlinx.serialization.json.buildJsonObject
@@ -602,7 +606,21 @@ class GdkSession constructor(
     }
 
     @Throws(Exception::class)
-    suspend fun availableCurrencies() = gdkNetworkBackend(defaultNetwork).getAvailableCurrencies()
+    // zeni: the currencies mempool.space prices bitcoin in; the wallet library's own list
+    // came from the old vendor's price server.
+    fun availableCurrencies(): List<Pricing> = MempoolPrices.CURRENCIES.map { Pricing(currency = it, exchange = MempoolPrices.HOST) }
+
+    /**
+     * zeni: the price of one bitcoin in [currency] from mempool.space; through Tor or the
+     * proxy, the same way as the wallet, when either is on.
+     */
+    suspend fun mempoolRate(currency: String?): Double? {
+        val settings = settingsManager.appSettings
+        val via: (suspend (String) -> JsonElement)? = if (settings.tor || settings.proxyEnabled) {
+            { url -> sessionManager.httpRequestHandler.plainGetJson(url) }
+        } else null
+        return MempoolPrices.rate(currency, via)
+    }
 
     fun prominentNetwork(isTestnet: Boolean) = if (isTestnet) networks.testnetBitcoinElectrum else networks.bitcoinElectrum
     fun prominentNetwork(wallet: GreenWallet, loginCredentials: LoginCredentials? = null) =
@@ -634,6 +652,12 @@ class GdkSession constructor(
             electrumUrl = applicationSettings.getPersonalElectrumServer(network).takeIf { it.isNotBlank() }
         }
 
+        // zeni: a server typed in App Settings wins; otherwise the app's default (and backup).
+        val isPersonalServer = electrumUrl != null
+        if (electrumUrl == null && network.isElectrum) {
+            electrumUrl = ZeniElectrum.current(network.id)
+        }
+
         val useTor = applicationSettings.tor
 
         return ConnectionParams(
@@ -642,7 +666,7 @@ class GdkSession constructor(
             userAgent = userAgent,
             proxy = if (applicationSettings.proxyEnabled) applicationSettings.proxyUrl ?: "" else "",
             gapLimit = if (network.isSinglesig && applicationSettings.customGapLimitEnabled) applicationSettings.electrumServerGapLimit?.coerceAtLeast(1) else null,
-            electrumTls = if (electrumUrl.isNotBlank()) applicationSettings.personalElectrumServerTls else true,
+            electrumTls = if (isPersonalServer) applicationSettings.personalElectrumServerTls else true,
             electrumUrl = electrumUrl,
             electrumOnionUrl = ConnectionParams.electrumOnionUrl(electrumUrl = electrumUrl, useTor = useTor),
             // blobServerUrl = "wss://green-blobserver.staging.blockstream.com/ws".takeIf { appInfo.isDevelopment && network.isSinglesig && network.isTestnet },
@@ -662,19 +686,13 @@ class GdkSession constructor(
         return ephemeralWallet == null && appConfig.lightningFeatureEnabled && !isWatchOnly && (device == null || device.deviceModel?.supportsLightningMnemonicDerivation == true) && lightningManager.isAvailable
     }
 
-    // zeni: Bitcoin only. Liquid, AMP and their assets are not part of this app; Green's
-    // Bitcoin multisig stays so an old Green 2FA wallet still restores.
+    // zeni: Bitcoin singlesig (Electrum) only. Liquid, AMP and the old vendor's multisig
+    // (two-factor) server are not part of this app, so a login never contacts that server.
     fun networks(isTestnet: Boolean, isWatchOnly: Boolean, device: GreenDevice?): List<Network> {
         return if (isTestnet) {
-            listOfNotNull(
-                networks.testnetBitcoinElectrum,
-                networks.testnetBitcoinGreen,
-            )
+            listOfNotNull(networks.testnetBitcoinElectrum)
         } else {
-            listOfNotNull(
-                networks.bitcoinElectrum,
-                networks.bitcoinGreen,
-            )
+            listOfNotNull(networks.bitcoinElectrum)
         }
     }
 
@@ -716,6 +734,20 @@ class GdkSession constructor(
     }
 
     suspend fun connect(network: Network, initNetworks: List<Network>? = null): List<Network> {
+        val unanswered = MutableStateFlow<List<Network>>(emptyList())
+        val connected = connectNetworks(network, initNetworks, unanswered)
+
+        // zeni: GDK takes one Electrum server per network. When the default one didn't answer
+        // GDK's ping, connect once more with the backup (ZeniElectrum), which then stays.
+        return if (unanswered.value.map { ZeniElectrum.advance(it.id) }.any { it }) {
+            logger.i { "Default Electrum server did not answer for ${unanswered.value.joinToString { it.id }}, trying the backup" }
+            connectNetworks(network, initNetworks, MutableStateFlow(emptyList()))
+        } else {
+            connected
+        }
+    }
+
+    private suspend fun connectNetworks(network: Network, initNetworks: List<Network>?, unanswered: MutableStateFlow<List<Network>>): List<Network> {
         defaultNetworkOrNull = network
 
         disconnect()
@@ -728,7 +760,24 @@ class GdkSession constructor(
                 scope.async(start = CoroutineStart.DEFAULT) {
                     try {
                         networkBackend.network.also { network ->
-                            networkBackend.connect(createConnectionParams(network))
+                            val params = createConnectionParams(network)
+                            val isDefaultElectrum = networkBackend is GdkNetworkBackend && network.isElectrum &&
+                                    params.electrumUrl != null && params.electrumUrl == ZeniElectrum.current(network.id)
+
+                            if (isDefaultElectrum) {
+                                // GDK pings the server during connect and reports it as a network event
+                                val ping = scope.async(start = CoroutineStart.UNDISPATCHED) {
+                                    (networkBackend as GdkNetworkBackend).networkEvents.first()
+                                }
+                                networkBackend.connect(params)
+                                val event = withTimeoutOrNull(3_000) { ping.await() }
+                                ping.cancel()
+                                if (event != null && !event.isConnected) {
+                                    unanswered.update { it + network }
+                                }
+                            } else {
+                                networkBackend.connect(params)
+                            }
                         }
                     } catch (e: Exception) {
                         e.printStackTrace()
@@ -2337,10 +2386,26 @@ class GdkSession constructor(
             return@withContext Balance.fromAssetWithoutMetadata(asLong ?: asString?.toLongOrNull() ?: 0)
         }
 
-        logger.d { "GDK_CONVERT call: assetId=$assetId, network=${network.id}, isPolicyAsset=$isPolicyAsset, params=$convert" }
+        // zeni: GDK is handed mempool.space's rate and an empty exchange, so it never asks a
+        // price server itself (ga_rust::convert_amount only fetches when an exchange is set).
+        val zeniConvert = if (isPolicyAsset && network.isBitcoin) {
+            val currency = settings(network).value?.pricing?.currency?.uppercase()
+            val rate = currency?.let { mempoolRate(it) }
+            buildJsonObject {
+                convert.jsonObject.forEach { (k, v) -> put(k, v) }
+                putJsonObject("pricing") {
+                    put("currency", currency ?: "")
+                    put("exchange", "")
+                }
+                put("fiat_currency", currency ?: "")
+                put("fiat_rate", rate?.let { MempoolPrices.rateString(it) } ?: "")
+            }
+        } else convert
+
+        logger.d { "GDK_CONVERT call: assetId=$assetId, network=${network.id}, isPolicyAsset=$isPolicyAsset, params=$zeniConvert" }
 
         val balance = try {
-            val result = (networkBackend(network) as AmountConverter).convertAmount(convert)
+            val result = (networkBackend(network) as AmountConverter).convertAmount(zeniConvert)
             logger.d { "GDK_CONVERT result: assetId=$assetId, network=${network.id}, response=${result.toString().take(300)}" }
             Balance.fromJsonElement(
                 jsonElement = result,

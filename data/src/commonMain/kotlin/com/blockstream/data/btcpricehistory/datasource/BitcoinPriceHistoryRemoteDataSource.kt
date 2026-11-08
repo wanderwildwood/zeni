@@ -1,42 +1,34 @@
 package com.blockstream.data.btcpricehistory.datasource
 
-import com.blockstream.data.btcpricehistory.BitcoinPriceHistoryHttpClient
 import com.blockstream.data.btcpricehistory.model.NetworkBitcoinPriceData
 import com.blockstream.data.managers.SessionManager
 import com.blockstream.data.managers.SettingsManager
+import com.blockstream.data.prices.MempoolPrices
 import com.blockstream.network.NetworkResponse
 import kotlinx.coroutines.CancellationException
-import kotlinx.serialization.json.jsonObject
-import kotlinx.serialization.json.jsonPrimitive
+import kotlinx.serialization.json.JsonElement
+import kotlin.time.Clock
 
+/**
+ * zeni: the price chart comes from mempool.space's price history (hourly for the last
+ * couple of years, weekly before that). With Tor or a proxy on, the request goes the same
+ * way as the wallet, through GDK, instead of straight out over the app's own HTTP client.
+ */
 class BitcoinPriceHistoryRemoteDataSource(
-    private val client: BitcoinPriceHistoryHttpClient,
     private val settingsManager: SettingsManager,
     private val sessionManager: SessionManager
 ) {
-    suspend fun getPriceHistory(currency: String): NetworkResponse<NetworkBitcoinPriceData> {
+    suspend fun getPriceHistory(currency: String): NetworkResponse<NetworkBitcoinPriceData> = try {
         val settings = settingsManager.appSettings
+        val via: (suspend (String) -> JsonElement)? = if (settings.tor || settings.proxyEnabled) {
+            { url -> sessionManager.httpRequestHandler.plainGetJson(url) }
+        } else null
 
-        // zeni: with Tor or a proxy on, the chart goes the same way as the wallet, through
-        // GDK, instead of straight out over the app's own HTTP client.
-        if (settings.tor || settings.proxyEnabled) {
-            return throughGdk(currency)
-        }
-
-        return client.get<NetworkBitcoinPriceData>(BASE_URL) {
-            url {
-                parameters.append("currency", currency)
-            }
-        }
-    }
-
-    private suspend fun throughGdk(currency: String): NetworkResponse<NetworkBitcoinPriceData> = try {
-        val response = sessionManager.httpRequestHandler.plainGetJson("$BASE_URL?currency=$currency").jsonObject
-        val body = response["body"]
-        if (body == null || response["error"]?.jsonPrimitive?.content?.isNotBlank() == true) {
-            NetworkResponse.Error(0, response["error"]?.jsonPrimitive?.content ?: "No answer")
+        val prices = MempoolPrices.history(currency, via)
+        if (prices.isNullOrEmpty()) {
+            NetworkResponse.Error(0, "No answer")
         } else {
-            NetworkResponse.Success(json.decodeFromJsonElement(NetworkBitcoinPriceData.serializer(), body))
+            NetworkResponse.Success(chartData(currency.uppercase(), prices))
         }
     } catch (e: CancellationException) {
         throw e
@@ -45,8 +37,24 @@ class BitcoinPriceHistoryRemoteDataSource(
     }
 
     companion object {
-        const val BASE_URL = "https://green-btc-chart.blockstream.com/api/v1/bitcoin/prices"
+        private const val HOUR = 3_600_000L
+        private const val DAY = 24 * HOUR
 
-        private val json = kotlinx.serialization.json.Json { ignoreUnknownKeys = true }
+        /** Shapes mempool.space's history like the chart's own data: a day, a month, everything. */
+        fun chartData(currency: String, prices: List<Pair<Long, Double>>, now: Long = Clock.System.now().toEpochMilliseconds()): NetworkBitcoinPriceData {
+            fun rows(list: List<Pair<Long, Double>>) = list.map { listOf(it.first.toDouble(), it.second) }
+
+            val day = prices.filter { it.first >= now - DAY - HOUR }
+            val month = prices.filter { it.first >= now - 31 * DAY }
+            // One point a day is plenty for a year or five on an e-ink screen.
+            val full = prices.groupBy { it.first / DAY }.values.map { it.last() }
+
+            return NetworkBitcoinPriceData(
+                currency = currency,
+                pricesDay = rows(day.ifEmpty { prices.takeLast(2) }),
+                pricesMonth = rows(month),
+                pricesFull = rows(full),
+            )
+        }
     }
 }

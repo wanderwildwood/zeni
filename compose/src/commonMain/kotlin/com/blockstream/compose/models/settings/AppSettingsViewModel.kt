@@ -14,6 +14,8 @@ import com.blockstream.compose.navigation.NavData
 import com.blockstream.compose.navigation.NavigateDestinations
 import com.blockstream.compose.sideeffects.SideEffect
 import com.blockstream.compose.sideeffects.SideEffects
+import com.blockstream.data.gdk.ZeniElectrum
+import com.blockstream.data.gdk.data.Network
 import com.blockstream.data.data.ApplicationSettings
 import com.blockstream.data.data.ScreenLockSetting
 import com.blockstream.data.extensions.isHostPortFormatValid
@@ -77,17 +79,14 @@ abstract class AppSettingsViewModelAbstract() :
         const val SCAN_GAP_LIMIT_MIN = 1
         const val SCAN_GAP_LIMIT_MAX = 1000
         const val DEFAULT_SCAN_GAP_LIMIT = "20"
-        const val DEFAULT_BITCOIN_ELECTRUM_URL = "bitcoin-mainnet.blockstream.info:50002"
-        const val DEFAULT_LIQUID_ELECTRUM_URL = "elements-mainnet.blockstream.info:50002"
-        const val DEFAULT_TESTNET_ELECTRUM_URL = "bitcoin-testnet.blockstream.info:50002"
-        const val DEFAULT_TESTNET_LIQUID_ELECTRUM_URL = "elements-testnet.blockstream.info:50002"
+        // zeni: the app's own default servers (ZeniElectrum), shown as the field's placeholder
+        val DEFAULT_BITCOIN_ELECTRUM_URL = ZeniElectrum.primary(Network.ElectrumMainnet)!!
+        const val DEFAULT_LIQUID_ELECTRUM_URL = ""
+        val DEFAULT_TESTNET_ELECTRUM_URL = ZeniElectrum.primary(Network.ElectrumTestnet)!!
+        const val DEFAULT_TESTNET_LIQUID_ELECTRUM_URL = ""
 
         const val DEFAULT_IP_AND_PORT = "192.168.1.10:9050"
 
-        const val DEFAULT_MULTI_SPV_BITCOIN_URL = "electrum.blockstream.info:50002"
-        const val DEFAULT_MULTI_SPV_LIQUID_URL = "blockstream.info:995"
-        const val DEFAULT_MULTI_SPV_TESTNET_URL = "electrum.blockstream.info:60002"
-        const val DEFAULT_MULTI_SPV_TESTNET_LIQUID_URL = "blockstream.info:465"
     }
 }
 

@@ -2,6 +2,7 @@ package com.blockstream.compose.models.settings
 
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.id_s_from_s
+import com.blockstream.data.prices.MempoolPrices
 import com.blockstream.data.BTC_UNIT
 import com.blockstream.data.BitcoinUnits
 import com.blockstream.data.TestnetUnits
@@ -62,8 +63,9 @@ class DenominationExchangeRateViewModel(greenWallet: GreenWallet) :
                     getString(Res.string.id_s_from_s, it.currency, it.exchange)
                 }
 
+                // zeni: every rate comes from mempool.space, whatever an older setting names
                 _selectedExchangeAndCurrency.value = settings.pricing.let {
-                    getString(Res.string.id_s_from_s, it.currency, it.exchange)
+                    getString(Res.string.id_s_from_s, it.currency, MempoolPrices.HOST)
                 }
             }.launchIn(this)
         }

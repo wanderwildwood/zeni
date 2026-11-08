@@ -192,6 +192,7 @@ class DeviceInfoViewModel(deviceId: String) : DeviceInfoViewModelAbstract(device
                     )
                 }
             )
+            rememberPinServer(device)
 
             val network = device.getOperatingNetwork(device, gdk, interaction = this)!!
             val isEphemeral = !settingsManager.appSettings.rememberHardwareDevices

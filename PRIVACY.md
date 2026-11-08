@@ -1,10 +1,10 @@
 # Bitcoin (zeni) — Privacy Policy
 
-Version 0.1.8. Last reviewed 7 November 2026.
+Version 0.1.11. Last reviewed 8 November 2026.
 
 ## The short version
 
-This app is an independent fork of Blockstream's Green wallet. It is not made, endorsed or supported by Blockstream. The developer collects nothing about you and runs no server the app talks to. There is no account, no sign-up, no analytics, no advertising and no crash reporting. zeni is a fork of Blockstream's Green wallet, built without Google services and with Green's analytics switched off. To work, a Bitcoin wallet has to ask a server about its addresses: by default that is Blockstream's, and you can use your own server or Tor instead. Your keys stay on your hardware wallet, or encrypted on the phone for a wallet kept there; they are never sent anywhere. The author's address, email@wanderthe.dev, is the only support there is; Blockstream does not support this app.
+This app is an independent fork of Blockstream's Green wallet. It is not made, endorsed or supported by Blockstream. The developer collects nothing about you and runs no server the app talks to. There is no account, no sign-up, no analytics, no advertising and no crash reporting. zeni is a fork of Blockstream's Green wallet, built without Google services and with Green's analytics switched off. To work, a Bitcoin wallet has to ask a server about its addresses: by default that is a public Electrum server, and you can use your own server or Tor instead. Your keys stay on your hardware wallet, or encrypted on the phone for a wallet kept there; they are never sent anywhere. The author's address, email@wanderthe.dev, is the only support there is; Blockstream does not support this app.
 
 ## What the app stores, and where
 
@@ -16,24 +16,22 @@ The app does not allow Android's backup. Nothing it keeps (wallet list, encrypte
 
 ## Who else receives anything, and what
 
-The services named below are run by Blockstream, an independent controller for what it receives, under its own privacy policy (on blockstream.com).
+Each service below is run by someone independent of this app, a controller for what it receives under its own privacy policy.
 
 Every request below also shows the service your IP address, as any connection does, unless Tor or a proxy carries it. With Tor or a proxy on, every request below goes through it; none goes around it.
 
-- Blockstream's Electrum servers, each time a wallet is opened: the wallet's addresses, to read its balance and history, and any transaction you sign, to broadcast it. Set your own Electrum server in Settings and these go there instead.
-- Blockstream's Green multisig server, each time a wallet is opened: a login attempt, so a Green two-factor (multisig) account can be found and restored. If you add such an account, it is run with that server.
-- Blockstream's price chart service (green-btc-chart.blockstream.com), when the home screen or a wallet opens: the currency you show amounts in.
-- The exchange-rate source chosen in the wallet's settings, through the wallet library, for the value of amounts in your currency.
-- Blockstream's PIN server (jadepin.blockstream.com), when a hardware wallet unlocks, or a phone wallet is unlocked with its PIN. The exchange is blinded: the server never learns your PIN or your keys.
-- Blockstream's firmware server for hardware wallets (jadefw.blockstream.com), when a hardware wallet connects: a request for the list of firmware. Firmware is downloaded only if you agree.
+- An Electrum server, while a wallet is open: the wallet's addresses, to read its balance and history, and any transaction you sign, to broadcast it. By default that is electrum.jhoenicke.de, or fulcrum.grey.pw if the first doesn't answer. Set your own server in Settings and these go there instead.
+- mempool.space, when amounts are shown in your currency (at most every five minutes) and when the price chart is shown (at most every half hour): the currency you show amounts in, and nothing about your wallet.
+- The PIN server your hardware wallet names, when it unlocks: by default Blockstream's (j8d.io, the same server as jadepin.blockstream.com). The device chooses it, not this app. A phone wallet unlocked with its PIN uses jadepin.blockstream.com. The exchange is blinded: the server never learns your PIN or your keys.
+- Blockstream's firmware server for hardware wallets (jadefw.blockstream.com), only when you press Firmware update, or when a hardware wallet's firmware is too old for this app to use: a request for the list of firmware. Firmware is downloaded only if you agree.
 - Your hardware wallet, over Bluetooth or USB.
 - Another phone, over NFC, only while zeni's Receive screen is open on this phone or zeni is reading a tap: the payment request on that screen (an address and any amount), and nothing else. The phone must be unlocked. A tap only fills in Send; nothing is sent until you confirm and sign.
 
-The lock screen: with Glance (com.wanderwildwood.hitome, the author's lock-screen app) installed, and only if you switch on "The bitcoin price on the lock screen", the bitcoin price is handed to Glance and only to Glance. It is fetched from the same price chart service when the lock screen is looked at and the last price is over half an hour old, and never while Tor or a proxy is on. A balance is never handed to Glance.
+The lock screen: with Glance (com.wanderwildwood.hitome, the author's lock-screen app) installed, and only if you switch on "The bitcoin price on the lock screen", the bitcoin price is handed to Glance and only to Glance. It is fetched from mempool.space when the lock screen is looked at and the last price is over half an hour old, and never while Tor or a proxy is on. A balance is never handed to Glance.
 
-Help links in the app open this app's help page on GitHub in your browser, and only when you press them; the two-factor recovery link opens the open-source recovery tool there. In Settings and in About, "feed the llamas" opens a donation page (square.link) and wanderthe.dev opens the author's website, likewise; in About, the source address and Blockstream Green's address open those projects' pages on GitHub. The sentence "Write to email@wanderthe.dev" in About, under How to contact us, opens your email app with a new message to that address, its subject the app's name and version; nothing is sent until you send it, and no logs or wallet data are attached.
+Help links in the app open this app's help page on GitHub in your browser, and only when you press them. "View in explorer" opens the transaction or address on mempool.space in your browser, only when you press it. In Settings and in About, "feed the llamas" opens a donation page (square.link) and wanderthe.dev opens the author's website, likewise; in About, the source address and Blockstream Green's address open those projects' pages on GitHub. The sentence "Write to email@wanderthe.dev" in About, under How to contact us, opens your email app with a new message to that address, its subject the app's name and version; nothing is sent until you send it, and no logs or wallet data are attached.
 
-Never contacted: Blockstream's purchase service (Meld), Boltz or any swap service, a Liquid server, an analytics service (Green's Countly library and the Zendesk help-desk library are removed from this build), a crash-reporting service, a support service that uploads logs, Google's push service, and any update check.
+Never contacted: a multisig (two-factor) server, a purchase service (Meld), Boltz or any swap service, a Liquid server, an analytics service (Green's Countly library and the Zendesk help-desk library are removed from this build), a crash-reporting service, a support service that uploads logs, Google's push service, and any update check.
 
 A Bitcoin transaction, once broadcast, is public on the Bitcoin network and cannot be erased by anyone.
 
@@ -70,7 +68,7 @@ The app is not directed at children and does not knowingly collect anything from
 <!-- shared-about privacy section -->
 ## Who we are
 
-Bitcoin (zeni) is made by wander wildwood, an independent developer: one person, not a company. wander wildwood is the data controller for anything the app itself handles, and that is very little. What you put in Bitcoin (zeni) stays on your phone. The only things that go out are the requests described above, to Blockstream's servers and to the exchange-rate source you choose: the wallet's addresses and any transaction you sign, a login attempt at the multisig server, the currency for the price chart, a request for exchange rates, the blinded PIN exchange and a request for the firmware list. The developer receives nothing, so the developer holds no data about you.
+Bitcoin (zeni) is made by wander wildwood, an independent developer: one person, not a company. wander wildwood is the data controller for anything the app itself handles, and that is very little. What you put in Bitcoin (zeni) stays on your phone. The only things that go out are the requests described above: the wallet's addresses and any transaction you sign, to an Electrum server; your currency, to mempool.space; the blinded PIN exchange; and, when asked, a request for the firmware list. The developer receives nothing, so the developer holds no data about you.
 
 ## How to contact us
 
@@ -92,7 +90,7 @@ Similar laws elsewhere, such as the CCPA in California, give you the right to kn
 
 Since Bitcoin (zeni) keeps what it stores only on your phone, you can exercise most of these rights yourself: remove a wallet in the app, clear the app's data in Android's settings, or uninstall the app, which deletes all of it. For anything you cannot do yourself, write to the address above.
 
-Bitcoin (zeni) connects to Blockstream's servers and the exchange-rate source you choose. They are separate from this app and from its developer, and what they receive is covered by their own privacy policies; ask them about what they hold.
+Bitcoin (zeni) connects to an Electrum server, mempool.space, and Blockstream's PIN and firmware servers. They are separate from this app and from its developer, and what they receive is covered by their own privacy policies; ask them about what they hold.
 If you point Bitcoin (zeni) at a server of your own, what that server keeps is yours to manage.
 <!-- /shared-about privacy section -->
 

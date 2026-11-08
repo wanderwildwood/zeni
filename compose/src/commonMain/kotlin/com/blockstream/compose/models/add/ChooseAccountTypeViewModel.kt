@@ -130,14 +130,8 @@ class ChooseAccountTypeViewModel(greenWallet: GreenWallet, initAsset: AssetBalan
                         list += AccountTypeLook(AccountType.BIP84_SEGWIT)
                     }
 
-                    // Check if multisig networks are available in this session
-                    if (isBitcoin && session.bitcoinMultisig != null) {
-                        list += AccountTypeLook(AccountType.TWO_OF_THREE)
-                    }
-
-                    if ((isBitcoin && session.bitcoinMultisig != null) || (isLiquid && session.liquidMultisig != null)) {
-                        list += AccountTypeLook(AccountType.STANDARD)
-                    }
+                    // zeni: no two-factor (2of2) or 2of3 accounts; they need the old vendor's
+                    // multisig server, which this app doesn't use.
 
                     if (hasSinglesig) {
                         list += AccountTypeLook(AccountType.BIP49_SEGWIT_WRAPPED)

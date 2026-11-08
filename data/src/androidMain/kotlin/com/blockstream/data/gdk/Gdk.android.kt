@@ -266,6 +266,7 @@ class AndroidGdk(printGdkMessages: Boolean, config: InitConfig, logger: Logger) 
 
     override fun registerNetwork(id: String, network: JsonElement) {
         GDK.register_network(id, network)
+        _cachedNetworks = null
     }
 
     override fun blindTransaction(session: GASession, createTransaction: JsonElement): GAAuthHandler =

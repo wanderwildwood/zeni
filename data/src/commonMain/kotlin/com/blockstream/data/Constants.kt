@@ -41,7 +41,6 @@ object Urls {
     const val HELP_JADE_EXPORT_XPUB = "$HELP#watch-only"
     const val HELP_HW_EXPORT_XPUB = "$HELP#watch-only"
     const val HELP_CENTER = HELP
-    const val RECOVERY_TOOL = "https://github.com/greenaddress/garecovery"
     const val JADE_TROUBLESHOOT = "$HELP#hardware-wallet"
     const val HELP_JADE_SWAP = "$HELP#swaps"
     const val HELP_PERFORM_SWAP = "$HELP#swaps"

@@ -458,6 +458,11 @@ class JadeAPI internal constructor(
             logger.d { "HttpRequestResponseResult: $result" }
             val httpResponse = makeHttpRequest(result.httpRequest)
 
+            // zeni: remember which PIN server (blind oracle) the device asked for, to show it
+            if (result.httpRequest.onReply in PIN_SERVER_REPLIES) {
+                lastPinServerUrls = result.httpRequest.params.urls
+            }
+
 
             when (result.httpRequest.onReply) {
                 "pin" -> {
@@ -523,7 +528,12 @@ class JadeAPI internal constructor(
         throw Exception("HTTP Request failed")
     }
 
+    /** zeni: the URLs of the last PIN-server request this device made, if any yet. */
+    var lastPinServerUrls: List<String>? = null
+        private set
+
     companion object : Loggable() {
+        private val PIN_SERVER_REPLIES = setOf("pin", "handshake_init", "handshake_complete")
 
         fun fromBle(
             peripheral: Peripheral,

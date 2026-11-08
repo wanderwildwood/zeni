@@ -34,7 +34,7 @@ class AboutDrawersTest {
         assertFalse(privacy.first().contains("Privacy Policy"))
         assertFalse(terms.first().contains("Terms of Use"))
         assertTrue(privacy.none { it == "Who we are" || it == "Your rights" })
-        assertTrue(privacy.any { it.startsWith("Blockstream's Electrum servers") || it.startsWith("• Blockstream's Electrum servers") })
+        assertTrue(privacy.any { it.startsWith("An Electrum server") || it.startsWith("• An Electrum server") })
         assertTrue(terms.any { it.contains("No warranty") })
     }
 

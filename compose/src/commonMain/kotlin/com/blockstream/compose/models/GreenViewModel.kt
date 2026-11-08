@@ -106,6 +106,8 @@ import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import com.blockstream.data.jade.JadeHWWallet
+import com.blockstream.data.jade.PinServer
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.minutes
 import kotlin.uuid.ExperimentalUuidApi
@@ -962,6 +964,14 @@ open class GreenViewModel constructor(
                     postSideEffect(SideEffects.NavigateBack())
                 }
             }
+        }
+    }
+
+    /** zeni: keep the PIN server this device used at its unlock, for Device info. */
+    protected fun rememberPinServer(device: GreenDevice) {
+        val jade = device.gdkHardwareWallet as? JadeHWWallet ?: return
+        PinServer.displayHost(jade.jade.lastPinServerUrls)?.also {
+            settingsManager.setPinServerHost(device.uniqueIdentifier, it)
         }
     }
 

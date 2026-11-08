@@ -1179,6 +1179,9 @@
     <string name="zeni_price_on_lock_screen">The bitcoin price on the lock screen</string>
     <string name="zeni_price_on_lock_screen_detail">For Glance. Only the price, never a balance; none while Tor or a proxy is on.</string>
     <string name="zeni_app_name">Bitcoin</string>
+    <string name="zeni_pin_server_s">PIN server: %1$s</string>
+    <string name="zeni_pin_server_not_known">not known until it unlocks here</string>
+    <string name="zeni_pin_server_asked_s">It asks for: %1$s</string>
     <string name="zeni_server_help">Help with slow servers</string>
     <string name="zeni_based_on">Based on Blockstream Green, GPL-3.0, © Blockstream Corporation Inc. and contributors.</string>
     <string name="zeni_not_affiliated">An independent fork. Not affiliated with or endorsed by Blockstream.</string>

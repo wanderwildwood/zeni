@@ -35,10 +35,12 @@ import blockstream_green.common.generated.resources.id_this_is_not_the_default_b
 import blockstream_green.common.generated.resources.id_warning
 import blockstream_green.common.generated.resources.warning
 import blockstream_green.common.generated.resources.x_bold
+import blockstream_green.common.generated.resources.zeni_pin_server_asked_s
 import com.blockstream.data.SupportType
 import com.blockstream.data.data.SupportData
 import com.blockstream.data.devices.DeviceModel
 import com.blockstream.data.utils.hostname
+import com.blockstream.data.jade.PinServer
 import com.blockstream.compose.components.GreenButton
 import com.blockstream.compose.components.GreenButtonColor
 import com.blockstream.compose.components.GreenButtonSize
@@ -126,6 +128,16 @@ fun UrlWarningDialog(
                             textAlign = TextAlign.Center,
                             style = bodyMedium
                         )
+
+                        // zeni: say which server, before anything goes to it
+                        PinServer.displayHost(urls)?.also { host ->
+                            Text(
+                                text = stringResource(Res.string.zeni_pin_server_asked_s, host),
+                                color = textHigh,
+                                textAlign = TextAlign.Center,
+                                style = titleSmall
+                            )
+                        }
                     }
                 }
 

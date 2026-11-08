@@ -113,6 +113,7 @@ class DeviceScanViewModel(
                         interaction = this,
                         gdkHardwareWallet = gdkHardwareWallet
                     )
+                    rememberPinServer(device)
 
                     val network =
                         device.getOperatingNetworkForEnviroment(device, gdk, greenWallet.isTestnet)

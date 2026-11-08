@@ -30,12 +30,10 @@ import blockstream_green.common.generated.resources.id_in_a_watch_only_wallet_yo
 import blockstream_green.common.generated.resources.id_paste_descriptors_placeholder
 import blockstream_green.common.generated.resources.id_scan_or_paste_xpub_descriptor
 import blockstream_green.common.generated.resources.id_set_up_watchonly_wallet
-import blockstream_green.common.generated.resources.id_set_up_with_username_and_password
 import com.blockstream.data.data.ScanResult
 import com.blockstream.compose.LocalBiometricState
 import com.blockstream.compose.components.GreenButton
 import com.blockstream.compose.components.GreenButtonSize
-import com.blockstream.compose.components.GreenButtonType
 import com.blockstream.compose.components.GreenColumn
 import com.blockstream.compose.components.GreenIconButton
 import com.blockstream.compose.components.GreenSpacer
@@ -47,7 +45,6 @@ import com.blockstream.compose.models.onboarding.watchonly.WatchOnlySinglesigVie
 import com.blockstream.compose.models.onboarding.watchonly.WatchOnlySinglesigViewModelAbstract
 import com.blockstream.compose.navigation.NavigateDestinations
 import com.blockstream.compose.navigation.getResult
-import com.blockstream.compose.sheets.WatchOnlyNetworkBottomSheet
 import com.blockstream.compose.theme.bodyLarge
 import com.blockstream.compose.theme.displayMedium
 import com.blockstream.compose.theme.whiteMedium
@@ -69,16 +66,6 @@ fun WatchOnlySinglesigScreen(
             WatchOnlySinglesigViewModel.LocalEvents.AppendWatchOnlyDescriptor(
                 value = it.result
             )
-        )
-    }
-
-    var showWatchOnlyNetworkBottomSheet by remember { mutableStateOf(false) }
-
-    if (showWatchOnlyNetworkBottomSheet) {
-        WatchOnlyNetworkBottomSheet(
-            viewModel = viewModel,
-            setupArgs = viewModel.setupArgs,
-            onDismissRequest = { showWatchOnlyNetworkBottomSheet = false }
         )
     }
 
@@ -201,17 +188,8 @@ fun WatchOnlySinglesigScreen(
                             focusManager.clearFocus()
                             viewModel.postEvent(Events.Continue)
                         }
-
-                        GreenButton(
-                            text = stringResource(Res.string.id_set_up_with_username_and_password),
-                            type = GreenButtonType.TEXT,
-                            size = GreenButtonSize.BIG,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(top = 16.dp)
-                        ) {
-                            showWatchOnlyNetworkBottomSheet = true
-                        }
+                        // zeni: no username-and-password (multisig) watch-only; it needs the
+                        // old vendor's multisig server.
                     }
                 }
             }

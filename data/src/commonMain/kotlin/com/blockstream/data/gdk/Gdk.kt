@@ -291,6 +291,8 @@ class Gdk constructor(
 ) : GdkBinding by gdkBinding {
 
     init {
+        zeniNetworkDefaults()
+
         settings.getStringOrNull(KEY_CUSTOM_NETWORK)?.also {
             try {
                 val jsonElement = JsonConverter.JsonDeserializer.parseToJsonElement(it)
@@ -334,6 +336,40 @@ class Gdk constructor(
                 setCustomNetwork(network)
                 // Save settings
                 settings[KEY_CUSTOM_NETWORK] = jsonElement.toString()
+            }
+        }
+    }
+
+    /**
+     * zeni: the Bitcoin (Electrum) networks as GDK knows them, with the old vendor's services
+     * taken out where something else can do the job: the default Electrum server
+     * ([ZeniElectrum]), the block explorer (mempool.space), and the price URLs, emptied,
+     * since GdkSession.convert hands GDK mempool.space's rate and GDK never fetches one. The
+     * PIN server stays: phone wallets locked with a PIN were set up with it.
+     */
+    private fun zeniNetworkDefaults() {
+        ZeniElectrum.servers.forEach { (id, servers) ->
+            try {
+                val obj = gdkBinding.networks().getNetworkAsJsonElement(id)?.jsonObject ?: return@forEach
+                val explorer = ZeniElectrum.explorers[id]
+                buildJsonObject {
+                    for (k in obj) {
+                        put(k.key, k.value)
+                    }
+                    put("electrum_url", servers.first())
+                    put("electrum_onion_url", "")
+                    put("price_url", "")
+                    put("price_onion_url", "")
+                    if (explorer != null) {
+                        put("tx_explorer_url", "${explorer}tx/")
+                        put("address_explorer_url", "${explorer}address/")
+                        put("tx_explorer_onion_url", "")
+                        put("address_explorer_onion_url", "")
+                    }
+                }.also { registerNetwork(id, it) }
+            } catch (e: Throwable) {
+                // Not on every platform (desktop/JVM tests have no GDK networks)
+                logger.w { "zeni network defaults not applied: ${e.message}" }
             }
         }
     }

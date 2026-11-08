@@ -20,7 +20,6 @@ import blockstream_green.common.generated.resources.id_general
 import blockstream_green.common.generated.resources.id_if_you_have_some_coins_on_the
 import blockstream_green.common.generated.resources.id_learn_more
 import blockstream_green.common.generated.resources.id_lightning_enabled
-import blockstream_green.common.generated.resources.id_recovery_tool
 import blockstream_green.common.generated.resources.id_recovery_transactions
 import blockstream_green.common.generated.resources.id_request_twofactor_reset
 import blockstream_green.common.generated.resources.id_security
@@ -44,6 +43,7 @@ import com.blockstream.compose.navigation.NavigateDestinations.ChooseAccountType
 import com.blockstream.compose.sideeffects.SideEffect
 import com.blockstream.compose.sideeffects.SideEffects
 import com.blockstream.compose.utils.StringHolder
+import com.blockstream.data.prices.MempoolPrices
 import com.blockstream.data.BTC_UNIT
 import com.blockstream.data.Urls
 import com.blockstream.data.crypto.PlatformCipher
@@ -333,8 +333,7 @@ class WalletSettingsViewModel(
                 list += listOf(
                     WalletSetting.InfoAlert(
                         message = getString(Res.string.id_your_2fa_expires_so_that_if_you)
-                    ),
-                    WalletSetting.ButtonEvent(getString(Res.string.id_recovery_tool), Events.OpenBrowser(Urls.RECOVERY_TOOL), isPrimary = true)
+                    )
                 )
 
                 if (network?.isBitcoin == true) {
@@ -395,7 +394,7 @@ class WalletSettingsViewModel(
                     WalletSetting.DenominationExchangeRate(
                         unit = settings.networkUnit(session),
                         currency = settings.pricing.currency,
-                        exchange = settings.pricing.exchange
+                        exchange = MempoolPrices.HOST // zeni: the only source of rates
                     ),
                     WalletSetting.AutoLogoutTimeout(settings.altimeout),
                     WalletSetting.Logout

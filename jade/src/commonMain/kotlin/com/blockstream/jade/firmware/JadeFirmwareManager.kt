@@ -317,6 +317,14 @@ class JadeFirmwareManager constructor(
             return fwValid
         }
 
+        // zeni: no visit to the firmware server on every connect. It is asked only when the
+        // user presses Firmware update (forceFirmwareUpdate), or when the firmware is below the
+        // minimum this app accepts, the one case where the device can't be used without an
+        // update. The app still refuses such firmware either way.
+        if (!forceFirmwareUpdate && fwValid) {
+            return fwValid
+        }
+
         try {
             // Log if current firmware not valid wrt the allowed minimum version
             if (!fwValid) {

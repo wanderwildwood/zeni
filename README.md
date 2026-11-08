@@ -19,7 +19,7 @@ sixteen grays and a slow redraw, and used with a hardware wallet over Bluetooth.
 
 This is an independent fork of Blockstream's [Green](https://github.com/Blockstream/green_android)
 (now *Blockstream App*), dressed for E Ink. **It is not affiliated with, endorsed by or supported
-by Blockstream.** It carries no Blockstream logo, help desk or terms of its own; support is
+by Blockstream.** It carries no logo, help desk or terms of theirs; support is
 email@wanderthe.dev and nothing else.
 
 Everything that makes it a good wallet is theirs and unchanged: GDK, the
@@ -31,8 +31,10 @@ What is mine is how it looks on this screen, and what it leaves out.
 
 ## What changed for E Ink
 
-**Bitcoin only.** Liquid, Lightning, AMP, swaps, buying and the promotions are gone, and so are
-the background calls behind them. What is left is an on-chain wallet.
+**Bitcoin only.** Liquid, Lightning, AMP, swaps, buying, the promotions and the two-factor
+(multisig) accounts are gone, and so are the background calls behind them. What is left is an
+on-chain singlesig wallet. Its default Electrum server, its prices and its explorer links are
+public services not run by the wallet's original maker (see Privacy).
 
 **One appearance.** Black and white, Lato in place of Inter, solid text, a plain price chart.
 No animations: every transition and every Rive drawing is gone, because a moving picture on
@@ -102,27 +104,23 @@ These are all the servers it contacts, and when:
 
 | Server | When | What it learns |
 |---|---|---|
-| Blockstream's Electrum server (`bitcoin-mainnet.blockstream.info`, or `bitcoin-testnet` for a testnet wallet) | While a wallet is open | The wallet's addresses, to read balance and history; transactions you sign, to send them. Your own server instead, if you set one in App Settings. |
-| Blockstream's Green server (`green-bitcoin-mainnet.blockstream.com`) | Each time a wallet opens | A login, so a Green two-factor (multisig) account can be found. |
-| Blockstream's price chart (`green-btc-chart.blockstream.com`) | When the wallet list or a wallet's home page opens | The currency you show amounts in. |
-| Blockstream's PIN server (`jadepin.blockstream.com`) | Unlocking a hardware wallet, or a phone wallet with its PIN | A blinded exchange; it never learns the PIN or the keys. |
-| Blockstream's firmware server for hardware wallets (`jadefw.blockstream.com`) | When a hardware wallet connects | A request for the list of firmware. Firmware downloads only if you agree. |
+| An Electrum server: `electrum.jhoenicke.de` by default, `fulcrum.grey.pw` if that one doesn't answer (testnet: `blackie.c3-soft.com`) | While a wallet is open | The wallet's addresses, to read balance and history; transactions you sign, to send them. Your own server instead, if you set one in App Settings. |
+| mempool.space (`mempool.space/api/v1/prices` and `/historical-price`) | When amounts are shown in your currency (at most every five minutes), and when the price chart is shown (at most every half hour) | The currency you show amounts in. Nothing about your wallet. |
+| The PIN server the hardware wallet names: by default Blockstream's (`j8d.io`, the same server as `jadepin.blockstream.com`); a phone wallet with a PIN uses `jadepin.blockstream.com` | Unlocking a hardware wallet, or a phone wallet with its PIN | A blinded exchange; it never learns the PIN or the keys. The hardware wallet chooses this server, not the app; Device info shows the one it used. |
+| Blockstream's firmware server for hardware wallets (`jadefw.blockstream.com`) | Only when you press Firmware update (Security), or when a hardware wallet's firmware is too old for this app to use | A request for the list of firmware. Firmware downloads only if you agree. |
 
-The exchange rate for the fiat value beside amounts comes over these same connections; there
-is no separate price service.
+There is no multisig (two-factor) server and no Liquid server.
 
-**With Tor or a proxy on, every one of these goes through it.** Tor uses Blockstream's onion
-addresses where they have them. Nothing goes around it.
+**With Tor or a proxy on, every one of these goes through it.** Nothing goes around it.
 
 Besides those:
 
 - **Your hardware wallet**, over Bluetooth or USB.
 - **The other phone**, over NFC, only while zeni's Receive screen is open or zeni is reading
   a tap. What passes is the payment request (an address and an amount) and nothing else.
-- **Glance**, only if you switch on the lock-screen price: the price from the chart server
-  above, fetched when the lock screen is looked at and the last one is over half an hour old,
+- **Glance**, only if you switch on the lock-screen price: the price from mempool.space, fetched when the lock screen is looked at and the last one is over half an hour old,
   and never while Tor or a proxy is on. Never a balance.
-- **Links you press** open in your browser: this app's help page, the donation page, the author's site.
+- **Links you press** open in your browser: this app's help page, "View in explorer" (mempool.space), the donation page, the author's site.
 - **Write to email@wanderthe.dev** in About opens your email app with a blank message to email@wanderthe.dev.
   Nothing is attached or sent until you send it.
 

@@ -13,6 +13,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeoutOrNull
 import org.json.JSONObject
+import com.blockstream.data.prices.MempoolPrices
 import org.koin.mp.KoinPlatform
 import java.net.HttpURLConnection
 import java.net.URL
@@ -61,10 +62,9 @@ class PriceOnLockScreen : GlanceProvider() {
                 // the lock screen would not be, so the price waits until the app is in the clear.
                 val settings = KoinPlatform.getKoin().getOrNull<SettingsManager>()?.getApplicationSettings()
                 if (settings == null || settings.tor || settings.proxyEnabled) return@launch
-                val currency = LockScreenPrice.currency(context)
-                val prices = fetch(currency)
-                val now = prices.last()
-                val dayAgo = prices.first()
+                val currency = LockScreenPrice.currency(context).uppercase()
+                    .takeIf { MempoolPrices.isSupported(it) } ?: "USD"
+                val (now, dayAgo) = fetch(currency)
                 val format = NumberFormat.getCurrencyInstance(Locale.getDefault()).apply {
                     runCatching { this.currency = Currency.getInstance(currency.uppercase()) }
                     maximumFractionDigits = 0
@@ -86,20 +86,22 @@ class PriceOnLockScreen : GlanceProvider() {
         }.also { running = it }
     }
 
-    // The last day's prices, oldest first.
-    private fun fetch(currency: String): List<Double> {
-        val connection = URL("$PRICES?currency=${currency.lowercase()}").openConnection() as HttpURLConnection
+    // The price now and a day ago, from mempool.space: two small requests.
+    private fun fetch(currency: String): Pair<Double, Double> {
+        val now = JSONObject(get(MempoolPrices.LATEST)).getDouble(currency)
+        val dayAgoSeconds = System.currentTimeMillis() / 1000 - 24 * 3600
+        val rows = JSONObject(get("${MempoolPrices.HISTORY}?currency=$currency&timestamp=$dayAgoSeconds")).getJSONArray("prices")
+        val dayAgo = rows.getJSONObject(0).getDouble(currency)
+        require(now > 0)
+        return now to dayAgo
+    }
+
+    private fun get(url: String): String {
+        val connection = URL(url).openConnection() as HttpURLConnection
         connection.connectTimeout = 15_000
         connection.readTimeout = 15_000
         try {
-            val body = connection.inputStream.bufferedReader().use { it.readText() }
-            val day = JSONObject(body).getJSONArray("prices_day")
-            return (0 until day.length())
-                .map { day.getJSONArray(it) }
-                .filter { !it.isNull(1) }
-                .sortedBy { it.getLong(0) }
-                .map { it.getDouble(1) }
-                .also { require(it.isNotEmpty()) }
+            return connection.inputStream.bufferedReader().use { it.readText() }
         } finally {
             connection.disconnect()
         }
@@ -108,7 +110,6 @@ class PriceOnLockScreen : GlanceProvider() {
     private fun cache(context: Context) = context.getSharedPreferences(LockScreenPrice.CACHE, Context.MODE_PRIVATE)
 
     companion object {
-        private const val PRICES = "https://green-btc-chart.blockstream.com/api/v1/bitcoin/prices"
         private const val PRICE = "price"
         private const val TEXT = "text"
         private const val AT = "at"
