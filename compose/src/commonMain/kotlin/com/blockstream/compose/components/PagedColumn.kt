@@ -16,9 +16,11 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
 
 /**
- * The list every screen uses. On Android it is Mudita's own `LazyColumnMMD` with its scrollbar (the
- * chevrons turn a page, the track jumps, the thumb shows where you are); on desktop and iOS, which
- * have no MMD, it is a plain lazy column. Same arguments as the shop's shared PagedColumn.
+ * The list every screen uses. On Android it is the shop's shared PagedColumn (components/paged,
+ * shared-pagedcolumn 69b6659): MMD's scrollbar (the chevrons turn a page, the track jumps, the
+ * thumb shows where you are) over pages that end on whole rows, or, with [showCutRow], on the row
+ * the foot cuts through (content lists: wallets, accounts, transactions, addresses). On desktop
+ * and iOS, which have no MMD, it is a plain lazy column. Same arguments as the shared one.
  *
  * A full-screen list keeps its side padding in [contentPadding] (start 20 dp, end 12 dp), never
  * on the list as a whole, so the scrollbar sits at the screen's edge. [onPullAtTop], when given,
@@ -33,6 +35,7 @@ expect fun PagedColumn(
     horizontalAlignment: Alignment.Horizontal = Alignment.Start,
     isScrollbarVisible: Boolean = true,
     onPullAtTop: (() -> Unit)? = null,
+    showCutRow: Boolean = false,
     content: LazyListScope.() -> Unit,
 )
 

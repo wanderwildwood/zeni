@@ -19,6 +19,7 @@ actual fun PagedColumn(
     horizontalAlignment: Alignment.Horizontal,
     isScrollbarVisible: Boolean,
     onPullAtTop: (() -> Unit)?,
+    showCutRow: Boolean,
     content: LazyListScope.() -> Unit,
 ) {
     LazyColumn(
