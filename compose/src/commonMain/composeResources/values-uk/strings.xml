@@ -210,8 +210,6 @@
     <string name="id_block_height_1d">Висота блоку: %1$d</string>
     <string name="id_blocks">блоки</string>
     <string name="id_blocks_confirmed">підтверджені блоки</string>
-    <string name="id_blockstream_devices">Blockstream-пристрої</string>
-    <string name="id_blockstream_store">Магазин Blockstream</string>
     <string name="id_bluetooth">Bluetooth</string>
     <string name="id_btchip_is_not_set_up_please_set">BTChip не налаштовано. Для налаштування, будь ласка, встановіть програму за допомогою десктоп-клієнта.</string>
     <string name="id_buy__sell">Buy / Sell</string>
@@ -220,7 +218,6 @@
     <string name="id_buy_now">Buy Now</string>
     <string name="id_buy_s">Buy %1$s</string>
     <string name="id_buy_with_s">Buy with %1$s</string>
-    <string name="id_by_continuing_you_agree_to">By continuing you agree to Blockstream&apos;s Terms Of Service and Privacy Policy</string>
     <string name="id_by_proceeding_to_the_next_steps">З переходом до наступного кроку, ви погоджуєтеся з %1$s</string>
     <string name="id_cable">Кабель</string>
     <string name="id_call">Дзвінок</string>
@@ -613,7 +610,6 @@
     <string name="id_follow_the_instructions_on_jade">Дотримуйтесь інструкцій на Jade</string>
     <string name="id_follow_the_instructions_on_your">Дотримуйтесь інструкцій на вашому пристрої.</string>
     <string name="id_for_ease_of_use">For Ease of Use</string>
-    <string name="id_for_help_visit">For help visit help.blockstream.com\nTo unsubscribe turn off SMS 2FA from the app.\nStandard messages and data rates may apply.</string>
     <string name="id_for_higher_security">For Higher Security</string>
     <string name="id_for_investors">Для інвесторів</string>
     <string name="id_for_long_term_storage">Для тривалого зберігання</string>
@@ -659,7 +655,6 @@
     <string name="id_hash_s">Хеш: %1$s</string>
     <string name="id_help">Допомога</string>
     <string name="id_help_us_improve">Help Us Improve</string>
-    <string name="id_helpblockstreamcom">help.blockstream.com</string>
     <string name="id_here">тут</string>
     <string name="id_heres_the_proof_of_ownership_of">Here&apos;s the proof of ownership of the address</string>
     <string name="id_hex">HEX</string>
@@ -696,7 +691,6 @@
     <string name="id_if_for_any_reason_you_cant">Якщо з будь-якої причини ви не можете ввійти у свій гаманець, ви можете відновити фразу відновлення за допомогою PIN-коду/біометричних даних.</string>
     <string name="id_if_jade_is_already_set_up">If Jade is already set up, choose QR Mode > QR PIN Unlock > Continue > Enter your PIN</string>
     <string name="id_if_you_are_the_rightful_owner">Якщо ви є власником цього гаманця і у вас все ще є один з активних методів 2FA, скасуйте скидання, щоб мати можливість витратити кошти і очистити цей гаманець.</string>
-    <string name="id_if_you_did_not_change_your">If you did not change your oracle settings on Jade, do not proceed and contact Blockstream support.</string>
     <string name="id_if_you_did_not_request_the">Якщо ви не запитували скидання, але не можете скасувати процес скидання, тому що у вас немає доступу до жодних існуючих методів двофакторної авторизації, ви маєте можливість оскаржити це скидання 2FA. Це назавжди заблокує ваш гаманець, але ви зможете скасувати цю дію.</string>
     <string name="id_if_you_forget_it_or_lose_it">Якщо ви забудете або втратите його, ваші кошти також будуть втрачені.</string>
     <string name="id_if_you_forget_your_pin_you_will">If you forget your PIN, you will need to restore with your recovery phrase</string>
@@ -1479,7 +1473,6 @@
     <string name="id_these_are_some_compatible">Ось декілька сумісних гаманців:</string>
     <string name="id_this_account_will_no_longer_be">This account will no longer be shown in the home or transact tabs.</string>
     <string name="id_this_amount_is_below_the">This amount is below the minimum fee %1$s (%2$s).</string>
-    <string name="id_this_device_was_not">This device was not manufactured by Blockstream. It could be DIY hardware or possibly a malicious clone. Please contact support for more assistance.</string>
     <string name="id_this_ensures_a_secure_way_to">This ensures a secure way to access your wallet.</string>
     <string name="id_this_feature_is_coming_soon">Ця функція скоро з&apos;явиться, слідкуйте за оновленнями!</string>
     <string name="id_this_is_not_a_valid_descriptor">This is not a valid descriptor</string>
@@ -1630,7 +1623,6 @@
     <string name="id_view_in_explorer">Переглянути Explorer</string>
     <string name="id_view_more">Дивитись більше</string>
     <string name="id_visit_s_for_further_information">Відвідайте %1$s для отримання додаткової інформації про програмне забезпечення</string>
-    <string name="id_visit_the_blockstream_help">Відвідати Blockstream Help Center</string>
     <string name="id_waiting_for_transaction">Очікування транзакції...</string>
     <string name="id_wallet">Гаманець</string>
     <string name="id_wallet_already_restored">Гаманець уже відновлений</string>

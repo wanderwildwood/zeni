@@ -1,6 +1,6 @@
 # Bitcoin (zeni) — Privacy Policy
 
-Version 0.1.7. Last reviewed 5 November 2026.
+Version 0.1.8. Last reviewed 7 November 2026.
 
 ## The short version
 
@@ -9,6 +9,8 @@ This app is an independent fork of Blockstream's Green wallet. It is not made, e
 ## What the app stores, and where
 
 In the app's private storage on the phone: each wallet's name, network and an identifier derived from its public key (a hash of the xpub); the credentials to open it — for a wallet kept on the phone, its recovery phrase encrypted with your PIN and a PIN server, or sealed with AES-256-GCM under a key in the phone's keystore if you unlock with a fingerprint; for a watch-only wallet, its xpub or descriptor; the wallet library's cache of addresses and transactions; and your settings.
+
+Everything the app seals in the keystore is written with AES-256-GCM, which refuses data that has been changed. Versions before 0.1.3 used AES-CBC, as Blockstream Green does. So that a wallet set up with one of those versions still opens, the app can still read CBC data: it reads it once, seals it again with GCM, and from then on uses the GCM copy. Nothing is ever written with CBC. The CBC code stays only for that one-time move and runs inside the phone's keystore, where nothing outside the app can send it data to try.
 
 The app does not allow Android's backup. Nothing it keeps (wallet list, encrypted credentials, settings) goes to a cloud backup or is copied to a new phone by Android's transfer; on a new phone you restore a wallet from its recovery phrase. Uninstalling the app removes everything it keeps. Your recovery phrase is the only backup of a wallet that counts: keep it yourself.
 

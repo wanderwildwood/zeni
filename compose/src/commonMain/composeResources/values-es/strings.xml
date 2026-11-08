@@ -210,8 +210,6 @@
     <string name="id_block_height_1d">Altura del bloque: %1$d</string>
     <string name="id_blocks">bloques</string>
     <string name="id_blocks_confirmed">bloques confirmados</string>
-    <string name="id_blockstream_devices">Dispositivos de Blockstream</string>
-    <string name="id_blockstream_store">Tienda Blockstream</string>
     <string name="id_bluetooth">Bluetooth</string>
     <string name="id_btchip_is_not_set_up_please_set">BTChip no está configurado. Configúrelo con un cliente de escritorio para poder usarlo.</string>
     <string name="id_buy__sell">Buy / Sell</string>
@@ -220,7 +218,6 @@
     <string name="id_buy_now">Buy Now</string>
     <string name="id_buy_s">Buy %1$s</string>
     <string name="id_buy_with_s">Buy with %1$s</string>
-    <string name="id_by_continuing_you_agree_to">By continuing you agree to Blockstream&apos;s Terms Of Service and Privacy Policy</string>
     <string name="id_by_proceeding_to_the_next_steps">Si elige avanzar a los pasos siguientes, acepta %1$s</string>
     <string name="id_cable">Cable</string>
     <string name="id_call">Llamada</string>
@@ -613,7 +610,6 @@
     <string name="id_follow_the_instructions_on_jade">Siga las instrucciones que aparecen en Jade</string>
     <string name="id_follow_the_instructions_on_your">Siga las instrucciones en su dispositivo.</string>
     <string name="id_for_ease_of_use">For Ease of Use</string>
-    <string name="id_for_help_visit">For help visit help.blockstream.com\nTo unsubscribe turn off SMS 2FA from the app.\nStandard messages and data rates may apply.</string>
     <string name="id_for_higher_security">For Higher Security</string>
     <string name="id_for_investors">Para inversores</string>
     <string name="id_for_long_term_storage">Para almacenamiento a largo plazo</string>
@@ -659,7 +655,6 @@
     <string name="id_hash_s">Hash: %1$s</string>
     <string name="id_help">Ayuda</string>
     <string name="id_help_us_improve">Help Us Improve</string>
-    <string name="id_helpblockstreamcom">help.blockstream.com</string>
     <string name="id_here">aquí</string>
     <string name="id_heres_the_proof_of_ownership_of">Here&apos;s the proof of ownership of the address</string>
     <string name="id_hex">HEX</string>
@@ -696,7 +691,6 @@
     <string name="id_if_for_any_reason_you_cant">Si por algún motivo no logra iniciar sesión en su cartera, puede acceder a la frase de recuperación mediante su PIN o sus datos biométricos.</string>
     <string name="id_if_jade_is_already_set_up">If Jade is already set up, choose QR Mode > QR PIN Unlock > Continue > Enter your PIN</string>
     <string name="id_if_you_are_the_rightful_owner">Si es el dueño legítimo de esta cartera y todavía tiene acceso a alguno de sus métodos 2FA activos, cancele el restablecimiento para poder gastar los fondos de esta cartera y así vaciarla.</string>
-    <string name="id_if_you_did_not_change_your">If you did not change your oracle settings on Jade, do not proceed and contact Blockstream support.</string>
     <string name="id_if_you_did_not_request_the">Si no solicitó el restablecimiento pero no puede cancelarlo porque no tiene acceso a ninguno de los métodos de autorización de dos factores vigentes, impugne este restablecimiento 2FA. Dicha acción bloqueará su cartera permanentemente, pero podrá revertirla.</string>
     <string name="id_if_you_forget_it_or_lose_it">Si la olvida o la pierde, también perderá sus fondos.</string>
     <string name="id_if_you_forget_your_pin_you_will">If you forget your PIN, you will need to restore with your recovery phrase</string>
@@ -1479,7 +1473,6 @@
     <string name="id_these_are_some_compatible">Las siguientes carteras son compatibles:</string>
     <string name="id_this_account_will_no_longer_be">This account will no longer be shown in the home or transact tabs.</string>
     <string name="id_this_amount_is_below_the">Esta cantidad es inferior a la comisión mínima de %1$s (%2$s).</string>
-    <string name="id_this_device_was_not">This device was not manufactured by Blockstream. It could be DIY hardware or possibly a malicious clone. Please contact support for more assistance.</string>
     <string name="id_this_ensures_a_secure_way_to">This ensures a secure way to access your wallet.</string>
     <string name="id_this_feature_is_coming_soon">Esta característica estará disponible próximamente. ¡No se la pierda!</string>
     <string name="id_this_is_not_a_valid_descriptor">This is not a valid descriptor</string>
@@ -1630,7 +1623,6 @@
     <string name="id_view_in_explorer">Ver en el explorador</string>
     <string name="id_view_more">Ver más</string>
     <string name="id_visit_s_for_further_information">Visite %1$s para más información sobre el software</string>
-    <string name="id_visit_the_blockstream_help">Visite nuestro Centro de ayuda</string>
     <string name="id_waiting_for_transaction">Esperando transacción...</string>
     <string name="id_wallet">Cartera</string>
     <string name="id_wallet_already_restored">La cartera ya se restauró</string>

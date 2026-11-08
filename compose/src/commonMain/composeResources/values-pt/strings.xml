@@ -181,11 +181,8 @@
     <string name="id_block_height_1d">Bloco sincronizado: %1$d</string>
     <string name="id_blocks">blocos</string>
     <string name="id_blocks_confirmed">blocos confirmados</string>
-    <string name="id_blockstream_devices">Dispositivos Blockstream</string>
-    <string name="id_blockstream_store">Loja Blockstream</string>
     <string name="id_bluetooth">Bluetooth</string>
     <string name="id_btchip_is_not_set_up_please_set">BTChip não está configurado. Por favor, configure-o usando o cliente de computador para poder usá-lo.</string>
-    <string name="id_by_continuing_you_agree_to">Ao continuar, você concorda com os Termos de Serviço e a Política de Privacidade da Blockstream</string>
     <string name="id_by_proceeding_to_the_next_steps">Ao prosseguir você concorda com os %1$s</string>
     <string name="id_cable">Cabo</string>
     <string name="id_call">Chamada telefônica</string>
@@ -525,7 +522,6 @@
     <string name="id_follow_the_instructions_on_jade">Siga as instruções na Jade</string>
     <string name="id_follow_the_instructions_on_your">Siga as instruções no seu dispositivo.</string>
     <string name="id_for_ease_of_use">Fácil uso</string>
-    <string name="id_for_help_visit">For help visit help.blockstream.com\nTo unsubscribe turn off SMS 2FA from the app.\nStandard messages and data rates may apply.</string>
     <string name="id_for_higher_security">Maior segurança</string>
     <string name="id_for_investors">Para investidores</string>
     <string name="id_for_long_term_storage">Para armazenamento a longo prazo</string>
@@ -559,7 +555,6 @@
     <string name="id_hash">Hash</string>
     <string name="id_hash_s">Hash: %1$s</string>
     <string name="id_help">Ajuda</string>
-    <string name="id_helpblockstreamcom">help.blockstream.com</string>
     <string name="id_here">aqui</string>
     <string name="id_heres_the_proof_of_ownership_of">Aqui está a prova de propriedade do endereço</string>
     <string name="id_hex">HEX</string>
@@ -569,7 +564,6 @@
     <string name="id_hide_details">Ocultar detalhes</string>
     <string name="id_high">Alta</string>
     <string name="id_hold_button_to_send">Pressione o botão para enviar</string>
-    <string name="id_hold_the_blockstream_app_button_on_the">Segure o botão verde na parte inferior da Jade até iniciar</string>
     <string name="id_hold_your_nfc_tag_close_to_the">Mantenha sua tag NFC próxima do dispositivo</string>
     <string name="id_hour">hora</string>
     <string name="id_hours">horas</string>
@@ -589,7 +583,6 @@
     <string name="id_id">ID</string>
     <string name="id_if_for_any_reason_you_cant">Se por algum motivo você não conseguir acessar sua carteira, você pode recuperar sua frase de recuperação usando seu PIN/biometria.</string>
     <string name="id_if_you_are_the_rightful_owner">Se você é o proprietário legítimo desta carteira e ainda possui um de seus métodos 2FA ativos, cancele a redefinição para poder movimentar os fundos e esvaziar esta carteira.</string>
-    <string name="id_if_you_did_not_change_your">If you did not change your oracle settings on Jade, do not proceed and contact Blockstream support.</string>
     <string name="id_if_you_did_not_request_the">Se você não solicitou a redefinição e não pode cancelá-la porque está impossibilitado de acessar os métodos 2FA existentes, conteste essa redefinição. Isso bloqueará permanentemente sua carteira, mas você pode desfazer essa ação.</string>
     <string name="id_if_you_forget_it_or_lose_it">Se você esquecer ou perder a frase de recuperação, seus fundos também serão perdidos.</string>
     <string name="id_if_you_have_access_to_a">Se você conseguiu recuperar o acesso a um dos métodos 2FA desta conta, cancele a redefinição para poder movimentar seus fundos, caso contrário aguarde %1$d dias.</string>
@@ -1372,7 +1365,6 @@
     <string name="id_view_in_explorer">Ver no explorador</string>
     <string name="id_view_more">Ver mais</string>
     <string name="id_visit_s_for_further_information">Acesse %1$s para obter mais informações sobre o software </string>
-    <string name="id_visit_the_blockstream_help">Central de ajuda da Blockstream</string>
     <string name="id_waiting_for_transaction">Aguardando transação…</string>
     <string name="id_wallet">Carteira</string>
     <string name="id_wallet_already_restored">Carteira já restaurada</string>

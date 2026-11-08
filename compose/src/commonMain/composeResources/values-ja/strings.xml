@@ -210,8 +210,6 @@
     <string name="id_block_height_1d">ブロック高: %1$d</string>
     <string name="id_blocks">ブロック</string>
     <string name="id_blocks_confirmed">検証済みブロック</string>
-    <string name="id_blockstream_devices">Blockstreamデバイス</string>
-    <string name="id_blockstream_store">Blockstream Store</string>
     <string name="id_bluetooth">Bluetooth</string>
     <string name="id_btchip_is_not_set_up_please_set">BTChipが設定されていません。デスクトップ・クライアントを利用し設定を終えてからもう一度お試しください。</string>
     <string name="id_buy__sell">Buy / Sell</string>
@@ -220,7 +218,6 @@
     <string name="id_buy_now">Buy Now</string>
     <string name="id_buy_s">Buy %1$s</string>
     <string name="id_buy_with_s">Buy with %1$s</string>
-    <string name="id_by_continuing_you_agree_to">続行すると、Blockstreamの利用規約とプライバシーポリシーに同意したことになります</string>
     <string name="id_by_proceeding_to_the_next_steps">次のステップに進むことで%1$sに同意します</string>
     <string name="id_cable">ケーブル</string>
     <string name="id_call">通話する</string>
@@ -613,7 +610,6 @@
     <string name="id_follow_the_instructions_on_jade">Jadeに表示される指示に従ってください</string>
     <string name="id_follow_the_instructions_on_your">デバイスの指示に従ってください。</string>
     <string name="id_for_ease_of_use">使いやすさを重視</string>
-    <string name="id_for_help_visit">サポートが必要な場合は、help.blockstream.comをご覧ください。\n購読を解除するには、アプリからSMS 2FAをオフにしてください。\n標準のメッセージおよびデータ通信料が適用される場合があります。</string>
     <string name="id_for_higher_security">高いセキュリティを重視</string>
     <string name="id_for_investors">投資家向け</string>
     <string name="id_for_long_term_storage">長期保管向け</string>
@@ -659,7 +655,6 @@
     <string name="id_hash_s">ハッシュ値：%1$s</string>
     <string name="id_help">ヘルプ</string>
     <string name="id_help_us_improve">Help Us Improve</string>
-    <string name="id_helpblockstreamcom">help.blockstream.com</string>
     <string name="id_here">ここ</string>
     <string name="id_heres_the_proof_of_ownership_of">アドレスの所有者があなたであることを証明する証拠です</string>
     <string name="id_hex">16進数</string>
@@ -696,7 +691,6 @@
     <string name="id_if_for_any_reason_you_cant">もしウォレットにログインできなくなった場合、PINや生体認証でリカバリーフレーズを復元することができます。</string>
     <string name="id_if_jade_is_already_set_up">Jadeのセットアップが終わっている場合、QR Mode > QR PIN Unlock > Continue > Enter your PINを選択します</string>
     <string name="id_if_you_are_the_rightful_owner">あなたがこのウォレットの所有者で2段階認証手段が１つでも残されている場合、リセットをキャンセルしてウォレット内の資金を退避させてください。</string>
-    <string name="id_if_you_did_not_change_your">Jadeでオラクル設定を変更していない場合は、続行せずBlockstreamサポートにお問い合わせください。</string>
     <string name="id_if_you_did_not_request_the">リセットを申請したのが貴方ではなく、2段階認証手段も失ってしまったためにキャンセルできない場合、2段階認証のリセットを係争申請してください。ウォレットの利用ができなくなりますが、この申請は取り消すこともできます。</string>
     <string name="id_if_you_forget_it_or_lose_it">忘れたり失くした場合、アカウント内の資金も失うことになります。</string>
     <string name="id_if_you_forget_your_pin_you_will">If you forget your PIN, you will need to restore with your recovery phrase</string>
@@ -1479,7 +1473,6 @@
     <string name="id_these_are_some_compatible">互換性のあるウォレットの例です:</string>
     <string name="id_this_account_will_no_longer_be">This account will no longer be shown in the home or transact tabs.</string>
     <string name="id_this_amount_is_below_the">この金額は最低手数料%1$s (%2$s)を下回っています</string>
-    <string name="id_this_device_was_not">This device was not manufactured by Blockstream. It could be DIY hardware or possibly a malicious clone. Please contact support for more assistance.</string>
     <string name="id_this_ensures_a_secure_way_to">This ensures a secure way to access your wallet.</string>
     <string name="id_this_feature_is_coming_soon">この機能はまもなく追加予定です！</string>
     <string name="id_this_is_not_a_valid_descriptor">This is not a valid descriptor</string>
@@ -1630,7 +1623,6 @@
     <string name="id_view_in_explorer">エクスプローラで見る</string>
     <string name="id_view_more">もっと見る</string>
     <string name="id_visit_s_for_further_information">ソフトウェアの詳細は%1$s からご確認ください</string>
-    <string name="id_visit_the_blockstream_help">Blockstream Help Centerを開く</string>
     <string name="id_waiting_for_transaction">トランザクション待機中…</string>
     <string name="id_wallet">ウォレット</string>
     <string name="id_wallet_already_restored">このウォレットは復元済みです</string>
