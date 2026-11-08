@@ -6,8 +6,6 @@ import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.blockstream.compose.components.paged.LocalListBleed as SharedListBleed
@@ -32,18 +30,6 @@ actual fun PagedColumn(
     showCutRow: Boolean,
     content: LazyListScope.() -> Unit,
 ) {
-    // The shared list ends a whole-row list in a blank tail. When its rows arrive after the first
-    // frame (Settings waits for the wallet's settings), the list keeps its place on that tail, as a
-    // lazy list keeps its first item by key, and the page stays blank. Then go back to the top.
-    if (!showCutRow) {
-        LaunchedEffect(state) {
-            snapshotFlow {
-                val info = state.layoutInfo
-                info.totalItemsCount > 1 && info.visibleItemsInfo.isNotEmpty() &&
-                    info.visibleItemsInfo.all { it.key == SHARED_TAIL }
-            }.collect { onlyTail -> if (onlyTail) state.scrollToItem(0) }
-        }
-    }
     CompositionLocalProvider(SharedListBleed provides LocalListBleed.current) {
         SharedPagedColumn(
             modifier = modifier,
@@ -58,6 +44,3 @@ actual fun PagedColumn(
         )
     }
 }
-
-/** The key of the shared list's blank tail (paged/PagedColumn.kt, `TAIL`). */
-private const val SHARED_TAIL = "paged-column-tail"
