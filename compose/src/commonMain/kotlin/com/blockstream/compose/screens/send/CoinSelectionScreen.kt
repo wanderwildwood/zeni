@@ -323,6 +323,7 @@ fun CoinSelectionScreen(
 
                         CoinsContentState.LIST -> {
                             PagedColumn(
+                                showCutRow = true,
                                 modifier = Modifier.fillMaxWidth(),
                                 verticalArrangement = Arrangement.spacedBy(8.dp)
                             ) {

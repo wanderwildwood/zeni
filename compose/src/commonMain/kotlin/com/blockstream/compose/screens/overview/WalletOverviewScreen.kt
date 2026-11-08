@@ -162,6 +162,7 @@ fun WalletOverviewScreen(
             val listState = rememberLazyListState()
 
             PagedColumn(
+                showCutRow = true,
                 state = listState,
                 contentPadding = innerPadding
                     .bottom()

@@ -149,6 +149,7 @@ fun DeviceListScreen(
 
                 if (devices.isNotEmpty()) {
                     PagedColumn(
+                        showCutRow = true,
                         modifier = Modifier.weight(1f),
                         verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {

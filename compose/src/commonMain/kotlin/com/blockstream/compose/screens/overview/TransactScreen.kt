@@ -102,6 +102,7 @@ fun TransactScreen(viewModel: TransactViewModelAbstract) {
             }
 
             PagedColumn(
+                showCutRow = true,
                 state = listState,
                 contentPadding = innerPadding.bottom()
                     .plus(PaddingValues(start = 20.dp, end = 12.dp))

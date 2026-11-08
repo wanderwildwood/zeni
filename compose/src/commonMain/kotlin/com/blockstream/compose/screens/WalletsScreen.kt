@@ -138,6 +138,7 @@ fun WalletsScreen(
             }
 
             PagedColumn(
+                showCutRow = true,
                 state = lazyListState,
                 modifier = Modifier.weight(1f),
                 contentPadding = PaddingValues(start = 20.dp, end = 12.dp),

@@ -52,6 +52,7 @@ fun ArchivedAccountsScreen(
                 )
             } else if (archivedAccounts.isSuccess()) {
                 PagedColumn(
+                    showCutRow = true,
                     modifier = Modifier.weight(1f),
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                     contentPadding = PaddingValues(start = 20.dp, top = 16.dp, end = 12.dp, bottom = 16.dp)

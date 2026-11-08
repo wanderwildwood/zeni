@@ -105,6 +105,7 @@ fun AddressesScreen(
         Box {
 
             PagedColumn(
+                showCutRow = true,
                 verticalArrangement = Arrangement.spacedBy(8.dp),
                 contentPadding = PaddingValues(start = 20.dp, top = 16.dp, end = 12.dp, bottom = 16.dp),
                 state = listState

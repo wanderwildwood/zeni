@@ -36,6 +36,7 @@ fun AssetAccountListScreen(
 
     SetupScreen(viewModel = viewModel) {
         PagedColumn(
+            showCutRow = true,
             modifier = Modifier.fillMaxSize(),
         ) {
             item(key = "AssetOverview") {
