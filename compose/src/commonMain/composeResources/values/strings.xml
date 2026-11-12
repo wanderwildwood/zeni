@@ -465,7 +465,7 @@
     <string name="id_delete_wallet">Delete Wallet</string>
     <string name="id_deleting_your_pin_will_remove">Deleting your PIN will remove wallet access permanently unless you have your mnemonic available. Press &quot;OK&quot; to continue.</string>
     <string name="id_denomination">Denomination</string>
-    <string name="id_denomination__exchange_rate">Denomination &amp; Exchange Rate</string>
+    <string name="id_denomination__exchange_rate">Denomination &amp; exchange rate</string>
     <string name="id_deposit">Deposit</string>
     <string name="id_description">Description</string>
     <string name="id_descriptor">Descriptor</string>
@@ -603,7 +603,7 @@
     <string name="id_everything_you_need_to_take">Everything you need to take control of your bitcoin.</string>
     <string name="id_example_89142833341161285">Example: 8.9.14.2:8333,4.116.12.85:8333</string>
     <string name="id_exchange">Exchange</string>
-    <string name="id_exchange_rate">Exchange Rate</string>
+    <string name="id_exchange_rate">Exchange rate</string>
     <string name="id_existing_recovery_phrase">Existing recovery phrase</string>
     <string name="id_existing_wallets">Existing Wallets</string>
     <string name="id_exit_guide">Exit Guide</string>

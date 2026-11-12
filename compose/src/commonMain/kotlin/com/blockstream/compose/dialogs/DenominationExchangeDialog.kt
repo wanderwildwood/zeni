@@ -2,7 +2,11 @@ package com.blockstream.compose.dialogs
 
 import com.blockstream.compose.components.MmdTextField
 import com.blockstream.compose.theme.NoDialogDim
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.DropdownMenuItem
@@ -95,7 +99,13 @@ fun DenominationExchangeDialog(
                     )
                     ExposedDropdownMenu(
                         expanded = denominationExpanded,
-                        onDismissRequest = { denominationExpanded = false }
+                        onDismissRequest = { denominationExpanded = false },
+                        // zeni: MMD's menu, as PopupMenu draws it: white, a black rim, no shadow.
+                        shape = RoundedCornerShape(12.dp),
+                        containerColor = Color.White,
+                        tonalElevation = 0.dp,
+                        shadowElevation = 0.dp,
+                        border = BorderStroke(2.dp, Color.Black),
                     ) {
                         viewModel.units.forEachIndexed { index, selectionOption ->
                             DropdownMenuItem(
@@ -144,6 +154,12 @@ fun DenominationExchangeDialog(
                         ExposedDropdownMenu(
                             expanded = exchangeExpanded,
                             onDismissRequest = { exchangeExpanded = false },
+                            // zeni: MMD's menu, as PopupMenu draws it: white, a black rim, no shadow.
+                            shape = RoundedCornerShape(12.dp),
+                            containerColor = Color.White,
+                            tonalElevation = 0.dp,
+                            shadowElevation = 0.dp,
+                            border = BorderStroke(2.dp, Color.Black),
                         ) {
                             exchangeAndCurrencies.forEachIndexed { index, selectionOption ->
                                 DropdownMenuItem(
