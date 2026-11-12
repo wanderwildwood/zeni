@@ -32,6 +32,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -174,8 +175,9 @@ fun GreenTopAppBar(
                             Text(
                                 text = it,
                                 maxLines = 1,
-                                // The house title size (STYLE.md: a top bar's title is titleLarge), not 18 sp.
-                                style = titleLarge,
+                                // The house title size (STYLE.md: a top bar's title is titleLarge), not 18 sp,
+                                // and never bold: this app's type scale makes every title style bold.
+                                style = titleLarge.copy(fontWeight = FontWeight.Normal),
                                 textAlign = if (isCentered) TextAlign.Center else TextAlign.Start,
                                 overflow = TextOverflow.Ellipsis,
                             )
