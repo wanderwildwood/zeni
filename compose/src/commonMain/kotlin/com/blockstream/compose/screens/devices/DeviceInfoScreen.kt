@@ -1,8 +1,6 @@
 package com.blockstream.compose.screens.devices
 
 import com.blockstream.compose.components.NoPicture
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -36,7 +34,6 @@ import com.blockstream.data.data.MenuEntryList
 import com.blockstream.compose.components.AppSettingsButton
 import com.blockstream.compose.components.GreenButton
 import com.blockstream.compose.components.GreenButtonSize
-import com.blockstream.compose.components.GreenCard
 import com.blockstream.compose.components.GreenColumn
 import com.blockstream.compose.components.OnProgressStyle
 import com.blockstream.compose.events.Events
@@ -47,12 +44,9 @@ import com.blockstream.compose.navigation.NavigateDestinations
 import com.blockstream.compose.navigation.getResult
 import com.blockstream.compose.theme.bodyLarge
 import com.blockstream.compose.theme.bodyMedium
-import com.blockstream.compose.theme.green
 import com.blockstream.compose.theme.labelLarge
 import com.blockstream.compose.theme.labelMedium
 import com.blockstream.compose.theme.titleMedium
-import com.blockstream.compose.theme.whiteHigh
-import com.blockstream.compose.theme.whiteMedium
 import com.blockstream.compose.utils.SetupScreen
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -167,56 +161,47 @@ fun DeviceInfoScreen(
 
             Box(modifier = Modifier.fillMaxWidth().weight(1f)) {
 
-                androidx.compose.animation.AnimatedVisibility(
-                    visible = onProgress,
-                    modifier = Modifier.align(Alignment.Center)
-                ) {
+                // zeni: nothing fades in or out on this panel; a part is there or it is not.
+                if (onProgress) {
                     CircularProgressIndicator(
                         modifier = Modifier
-                            .size(120.dp),
+                            .size(120.dp)
+                            .align(Alignment.Center),
                         color = MaterialTheme.colorScheme.secondary,
                         trackColor = MaterialTheme.colorScheme.surfaceVariant,
                     )
                 }
 
-                androidx.compose.animation.AnimatedVisibility(
-                    visible = !onProgress && jadeIsUninitialized,
-                    modifier = Modifier.align(Alignment.Center)
-                ) {
-                    GreenCard(
-                        modifier = Modifier.align(Alignment.Center),
-                        border = BorderStroke(1.dp, green)
+                // No box around it and no capitals (STYLE.md): the three lines, plain.
+                if (!onProgress && jadeIsUninitialized) {
+                    GreenColumn(
+                        padding = 0,
+                        space = 4,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .align(Alignment.Center),
+                        horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        GreenColumn(
-                            padding = 0,
-                            space = 4,
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            Text(
-                                text = stringResource(Res.string.id_set_up_your_jade).uppercase(),
-                                style = labelMedium,
-                                color = green,
-                                textAlign = TextAlign.Center
-                            )
-                            Text(
-                                text = stringResource(Res.string.id_create_a_pin),
-                                style = labelLarge,
-                                color = whiteHigh,
-                                textAlign = TextAlign.Center
-                            )
-                            Text(
-                                text = stringResource(Res.string.id_enter_and_confirm_a_unique_pin),
-                                style = bodyMedium,
-                                color = whiteMedium,
-                                textAlign = TextAlign.Center
-                            )
-                        }
+                        Text(
+                            text = stringResource(Res.string.id_set_up_your_jade),
+                            style = labelMedium,
+                            textAlign = TextAlign.Center
+                        )
+                        Text(
+                            text = stringResource(Res.string.id_create_a_pin),
+                            style = labelLarge,
+                            textAlign = TextAlign.Center
+                        )
+                        Text(
+                            text = stringResource(Res.string.id_enter_and_confirm_a_unique_pin),
+                            style = bodyMedium,
+                            textAlign = TextAlign.Center
+                        )
                     }
                 }
             }
 
-            AnimatedVisibility(visible = !onProgress) {
+            if (!onProgress) {
                 GreenButton(
                     text = stringResource(Res.string.id_continue),
                     size = GreenButtonSize.BIG,
@@ -225,9 +210,7 @@ fun DeviceInfoScreen(
                         viewModel.postEvent(DeviceInfoViewModel.LocalEvents.AuthenticateAndContinue())
                     }
                 )
-            }
 
-            AnimatedVisibility(visible = !onProgress) {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.End

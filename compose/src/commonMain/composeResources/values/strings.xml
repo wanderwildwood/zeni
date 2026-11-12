@@ -1488,7 +1488,7 @@
     <string name="id_set_up_watchonly_credentials">Set up watch-only credentials for this wallet</string>
     <string name="id_set_up_watchonly_wallet">Set up Watch-only Wallet</string>
     <string name="id_set_up_with_username_and">Set up with username and password</string>
-    <string name="id_set_up_your_jade">Set Up Your Hardware Wallet</string>
+    <string name="id_set_up_your_jade">Set up your hardware wallet</string>
     <string name="id_set_wallet_name">Set wallet name</string>
     <string name="id_set_your_pin_via_qr_on_your">Set your PIN via QR on your hardware wallet to get started</string>
     <string name="id_setting_up_your_wallet">Setting up your wallet</string>
