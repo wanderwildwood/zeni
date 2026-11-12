@@ -49,7 +49,7 @@ import com.blockstream.compose.navigation.NavData
 import com.blockstream.compose.navigation.NavigateDestinations
 import com.blockstream.compose.theme.bodyLarge
 import com.blockstream.compose.theme.bodySmall
-import com.blockstream.compose.theme.titleMedium
+import com.blockstream.compose.theme.titleLarge
 import com.blockstream.compose.utils.appTestTag
 import com.blockstream.compose.utils.ifTrue
 import org.jetbrains.compose.resources.painterResource
@@ -174,7 +174,8 @@ fun GreenTopAppBar(
                             Text(
                                 text = it,
                                 maxLines = 1,
-                                style = titleMedium,
+                                // The house title size (STYLE.md: a top bar's title is titleLarge), not 18 sp.
+                                style = titleLarge,
                                 textAlign = if (isCentered) TextAlign.Center else TextAlign.Start,
                                 overflow = TextOverflow.Ellipsis,
                             )
