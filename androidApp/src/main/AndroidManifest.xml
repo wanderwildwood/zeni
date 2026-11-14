@@ -66,6 +66,8 @@
         <!-- zeni: Glance, which draws the price on the lock screen: the switch in Settings shows
              only while it is there. -->
         <package android:name="com.wanderwildwood.hitome" />
+        <!-- Home, whose dark mode switch this app follows when Home is installed. -->
+        <package android:name="com.wanderwildwood.iori" />
     </queries>
 
     <application
@@ -101,6 +103,12 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id" />
+
+        <!-- Starts dark mode before the first screen is drawn. Holds no data. -->
+        <provider
+            android:name="com.blockstream.compose.components.DarkModeInit"
+            android:authorities="${applicationId}.darkmodeinit"
+            android:exported="false" />
 
         <activity
             android:name="com.blockstream.green.GreenActivity"

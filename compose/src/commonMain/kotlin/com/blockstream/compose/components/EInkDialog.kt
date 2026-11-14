@@ -35,6 +35,7 @@ fun EInkDialog(
         usePlatformDefaultWidth = false,
     )
     Dialog(onDismissRequest = onDismiss, properties = fixed) {
+        DarkModeWindow()
         NoDialogDim()
         Surface(
             color = MaterialTheme.colorScheme.surface,
