@@ -126,6 +126,7 @@ fun LegacyGreenQR(
                 colors = CardDefaults.cardColors(containerColor = color),
                 modifier = Modifier
                     .align(Alignment.Center)
+                    .ifTrue(isVisibleAndNotBlank) { it.keepColorsInDark() }
                     .widthIn(100.dp, 400.dp)
                     .aspectRatio(1f)
                     .appTestTag(testTag)
@@ -223,6 +224,7 @@ private fun BorderedQR(
                 colors = CardDefaults.cardColors(containerColor = Color.White),
                 modifier = Modifier
                     .fillMaxSize()
+                    .keepColorsInDark()
                     .clip(cardShape)
                     .appTestTag(testTag)
                     .clickable { openTrigger() }
@@ -257,10 +259,11 @@ private fun QrFullscreenDialog(
         onDismissRequest = onDismiss,
         properties = DialogProperties(usePlatformDefaultWidth = false)
     ) {
-
+        DarkModeWindow()
         NoDialogDim()
         Box(
             modifier = Modifier
+                .keepColorsInDark()
                 .fillMaxSize()
                 .clickable { onDismiss() }
                 .ifTrue(isJadeQR) { it.background(Color.White) }

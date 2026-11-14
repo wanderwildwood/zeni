@@ -100,6 +100,8 @@ actual fun CameraView(
                         this.barcodeView.decoderFactory =
                             DefaultDecoderFactory(null, null, null, Intents.Scan.MIXED_SCAN)
                     }
+                    // zeni: the camera picture keeps its colours in dark mode
+                    DarkMode.keep(decoratedBarcode)
 
                     decoratedBarcode.cameraSettings.apply {
                         isMeteringEnabled = true

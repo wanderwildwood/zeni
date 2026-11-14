@@ -8,6 +8,9 @@ import com.blockstream.compose.components.MmdCheckbox
 import com.blockstream.compose.components.MmdRadioButton
 import com.blockstream.compose.components.PagedColumn
 import com.blockstream.compose.components.PagedListPadding
+import com.blockstream.compose.components.darkModeAvailable
+import com.blockstream.compose.components.darkModeOn
+import com.blockstream.compose.components.setDarkModeOn
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.animation.AnimatedVisibility
@@ -101,6 +104,8 @@ import com.blockstream.compose.glance.lockScreenPriceOn
 import com.blockstream.compose.glance.setLockScreenPriceOn
 import blockstream_green.common.generated.resources.zeni_price_on_lock_screen
 import blockstream_green.common.generated.resources.zeni_price_on_lock_screen_detail
+import blockstream_green.common.generated.resources.zeni_settings_dark
+import blockstream_green.common.generated.resources.zeni_settings_dark_note
 import com.blockstream.compose.screens.settings.components.SettingsItem
 import com.blockstream.compose.screens.settings.components.SettingsHeading
 import com.blockstream.compose.screens.settings.components.SettingsRowValue
@@ -346,6 +351,17 @@ fun AppSettingsScreen(
                     },
                     modifier = Modifier.appTestTag("language_button"),
                 )
+            }
+
+            if (darkModeAvailable) {
+                item(key = "dark") {
+                    SettingSwitch(
+                        title = stringResource(Res.string.zeni_settings_dark),
+                        subtitle = stringResource(Res.string.zeni_settings_dark_note),
+                        checked = darkModeOn(),
+                        onCheckedChange = { setDarkModeOn(it) },
+                    )
+                }
             }
 
             item(key = "enhanced_privacy") {
