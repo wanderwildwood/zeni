@@ -14,6 +14,21 @@ import com.blockstream.compose.sideeffects.DialogState
 import com.blockstream.compose.utils.getStringFromIdOrNull
 import org.jetbrains.compose.resources.getString
 
+/**
+ * zeni: a notice stays until it is closed with its X or the screen changes (GreenApp), not for
+ * four seconds: on an e-ink panel a message on a timer can be gone before it has been read. A
+ * new one takes the place of the one showing rather than queuing behind it.
+ */
+suspend fun SnackbarHostState.showNotice(message: String, actionLabel: String? = null): SnackbarResult {
+    currentSnackbarData?.dismiss()
+    return showSnackbar(
+        message = message,
+        actionLabel = actionLabel,
+        withDismissAction = true,
+        duration = SnackbarDuration.Indefinite
+    )
+}
+
 suspend fun SnackbarHostState.showErrorSnackbar(
     platformManager: PlatformManager,
     dialogState: DialogState,
@@ -21,10 +36,9 @@ suspend fun SnackbarHostState.showErrorSnackbar(
     error: Throwable,
     supportData: SupportData? = null
 ) {
-    val result = showSnackbar(
+    val result = showNotice(
         message = getStringFromIdOrNull(error.message) ?: "",
-        actionLabel = if (supportData != null) getString(Res.string.id_contact_support) else null,
-        duration = if (supportData != null) SnackbarDuration.Long else SnackbarDuration.Short
+        actionLabel = if (supportData != null) getString(Res.string.id_contact_support) else null
     )
 
     if (result == SnackbarResult.ActionPerformed && supportData != null) {

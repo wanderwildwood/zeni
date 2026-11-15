@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.settings
 
+import com.blockstream.compose.extensions.showNotice
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -66,7 +67,7 @@ fun ChangePinScreen(
 
             PinView(modifier = Modifier.weight(1f), isVerifyMode = true, onPinNotVerified = {
                 scope.launch {
-                    snackbar.showSnackbar(getString(Res.string.id_pins_do_not_match_please_try))
+                    snackbar.showNotice(getString(Res.string.id_pins_do_not_match_please_try))
                 }
             }, onModeChange = {
                 isVerify = it

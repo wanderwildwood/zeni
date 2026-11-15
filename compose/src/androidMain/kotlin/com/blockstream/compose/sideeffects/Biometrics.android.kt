@@ -1,5 +1,6 @@
 package com.blockstream.compose.sideeffects
 
+import com.blockstream.compose.extensions.showNotice
 import android.os.Build
 import android.security.keystore.KeyPermanentlyInvalidatedException
 import androidx.biometric.BiometricManager
@@ -424,7 +425,7 @@ open class AuthenticationCallback constructor(val state: BiometricsState) :
         } else {
             // TODO INVALIDATE ALL BIOMETRIC LOGIN CREDENTIALS
             state.scope.launch {
-                state.snackbarHostState.showSnackbar(
+                state.snackbarHostState.showNotice(
                     message = getString(
                         Res.string.id_authentication_error_s,
                         "$errorCode $errString"
@@ -438,7 +439,7 @@ open class AuthenticationCallback constructor(val state: BiometricsState) :
     override fun onAuthenticationFailed() {
         logger.d { "onAuthenticationFailed" }
         state.scope.launch {
-            state.snackbarHostState.showSnackbar(message = getString(Res.string.id_authentication_failed))
+            state.snackbarHostState.showNotice(message = getString(Res.string.id_authentication_failed))
         }
         state.activeBiometricPrompt = null
     }

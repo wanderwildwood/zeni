@@ -1,5 +1,6 @@
 package com.blockstream.compose.views
 
+import com.blockstream.compose.extensions.showNotice
 import blockstream_green.common.generated.resources.id_paste
 import blockstream_green.common.generated.resources.zeni_shuffle_keys
 import org.jetbrains.compose.resources.stringResource
@@ -209,7 +210,7 @@ fun PinView(
                         pin = it
                     } else {
                         scope.launch {
-                            snackbarHostState?.showSnackbar(
+                            snackbarHostState?.showNotice(
                                 message = getString(Res.string.id_invalid_clipboard_contents)
                             )
                         }

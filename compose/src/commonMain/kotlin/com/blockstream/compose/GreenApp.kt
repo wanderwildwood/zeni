@@ -2,6 +2,7 @@
 
 package com.blockstream.compose
 
+import com.blockstream.compose.extensions.showNotice
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.fadeOut
@@ -10,7 +11,6 @@ import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.runtime.Composable
@@ -149,13 +149,17 @@ fun GreenApp(mainViewModel: MainViewModel, modifier: Modifier = Modifier) {
 
         val pendingUri by mainViewModel.sessionManager.pendingUri.collectAsStateWithLifecycle()
 
+        // zeni: a notice stays until closed or the screen changes; this is the screen changing.
+        LaunchedEffect(backstackEntry?.id) {
+            snackbarHostState.currentSnackbarData?.dismiss()
+        }
+
         LaunchedEffect(pendingUri) {
             pendingUri?.also {
                 if (backstackEntry?.destination?.hasRoute<NavigateDestinations.Home>() == true) {
-                    val result = snackbarHostState.showSnackbar(
+                    val result = snackbarHostState.showNotice(
                         message = getString(Res.string.id_you_have_clicked_a_payment_uri),
-                        actionLabel = getString(Res.string.id_cancel),
-                        duration = SnackbarDuration.Short
+                        actionLabel = getString(Res.string.id_cancel)
                     )
 
                     if (result == SnackbarResult.ActionPerformed) {

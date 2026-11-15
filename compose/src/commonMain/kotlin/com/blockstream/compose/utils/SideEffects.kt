@@ -1,5 +1,6 @@
 package com.blockstream.compose.utils
 
+import com.blockstream.compose.extensions.showNotice
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -219,7 +220,7 @@ fun HandleSideEffect(
 
                 is SideEffects.Snackbar -> {
                     appCoroutine.launch {
-                        snackbar.showSnackbar(message = it.text.getString())
+                        snackbar.showNotice(message = it.text.getString())
                     }
                 }
 
@@ -321,11 +322,10 @@ fun HandleSideEffect(
                 is SideEffects.CopyToClipboard -> {
                     if (!platformManager.copyToClipboard(content = it.value)) {
                         it.message?.also {
-                            if (!platformManager.openToast(it)) {
-                                // In case openToast is not supported
-                                appCoroutine.launch {
-                                    snackbar.showSnackbar(message = it)
-                                }
+                            // zeni: said in a notice that stays until closed, not a toast that is
+                            // gone before the panel has shown it.
+                            appCoroutine.launch {
+                                snackbar.showNotice(message = it)
                             }
                         }
                     }

@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.onboarding.phone
 
+import com.blockstream.compose.extensions.showNotice
 import blockstream_green.common.generated.resources.id_delete
 import com.blockstream.compose.components.MmdSegmented
 import com.blockstream.compose.components.GreenPagedColumn
@@ -205,7 +206,7 @@ fun EnterRecoveryPhraseScreen(
                 GreenRow(padding = 0, space = 8, modifier = Modifier.clickable {
                     if (hintMessage.isNotBlank()) {
                         scope.launch {
-                            snackbar.showSnackbar(hintMessage)
+                            snackbar.showNotice(hintMessage)
                         }
                     }
                 }) {
