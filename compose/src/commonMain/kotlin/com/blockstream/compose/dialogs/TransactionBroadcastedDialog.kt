@@ -51,6 +51,7 @@ import com.blockstream.compose.theme.whiteHigh
 import com.blockstream.compose.theme.whiteMedium
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+import blockstream_green.common.generated.resources.id_close
 
 @Composable
 fun TransactionBroadcastedDialog(
@@ -76,7 +77,7 @@ fun TransactionBroadcastedDialog(
                 ) {
                     Icon(
                         imageVector = Icons.Default.Close,
-                        contentDescription = null,
+                        contentDescription = stringResource(Res.string.id_close),
                         tint = whiteMedium,
                     )
                 }

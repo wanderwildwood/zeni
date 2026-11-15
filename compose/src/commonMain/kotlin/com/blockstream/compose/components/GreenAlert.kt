@@ -63,6 +63,7 @@ import com.blockstream.data.data.SetupArgs
 import com.blockstream.data.data.SupportData
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import blockstream_green.common.generated.resources.id_close
 
 @Composable
 fun GreenAlert(modifier: Modifier = Modifier, alertType: AlertType, viewModel: GreenViewModel) {
@@ -339,7 +340,7 @@ fun GreenAlert(
                 ) {
                     Icon(
                         imageVector = PhosphorIcons.Regular.X,
-                        contentDescription = null,
+                        contentDescription = stringResource(Res.string.id_close),
                     )
                 }
             }

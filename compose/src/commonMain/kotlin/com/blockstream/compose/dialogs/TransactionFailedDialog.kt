@@ -52,6 +52,7 @@ import com.blockstream.compose.theme.HouseTypeFloor
 import com.blockstream.compose.utils.stringResourceFromId
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+import blockstream_green.common.generated.resources.id_close
 
 @Composable
 fun TransactionFailedDialog(
@@ -76,7 +77,7 @@ fun TransactionFailedDialog(
                 ) {
                     Icon(
                         imageVector = Icons.Default.Close,
-                        contentDescription = null,
+                        contentDescription = stringResource(Res.string.id_close),
                         tint = whiteMedium,
                     )
                 }

@@ -53,6 +53,8 @@ import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import blockstream_green.common.generated.resources.id_copy
+import blockstream_green.common.generated.resources.id_show_qr_code
 
 @Composable
 fun AccountDescriptorScreen(
@@ -161,14 +163,14 @@ fun Descriptor(
                     IconButton(onCopy) {
                         Icon(
                             imageVector = PhosphorIcons.Regular.Copy,
-                            contentDescription = null,
+                            contentDescription = stringResource(Res.string.id_copy),
                             modifier = Modifier.minimumInteractiveComponentSize().appTestTag("copy_button")
                         )
                     }
                     IconButton(onQr) {
                         Icon(
                             painter = painterResource(Res.drawable.qr_code),
-                            contentDescription = null,
+                            contentDescription = stringResource(Res.string.id_show_qr_code),
                             modifier = Modifier.minimumInteractiveComponentSize().appTestTag("scan_button")
                         )
                     }
