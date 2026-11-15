@@ -2,6 +2,7 @@
 
 package com.blockstream.compose
 
+import com.blockstream.compose.extensions.NoticeScreen
 import com.blockstream.compose.extensions.showNotice
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.EnterTransition
@@ -15,6 +16,7 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.compositionLocalOf
@@ -150,8 +152,15 @@ fun GreenApp(mainViewModel: MainViewModel, modifier: Modifier = Modifier) {
         val pendingUri by mainViewModel.sessionManager.pendingUri.collectAsStateWithLifecycle()
 
         // zeni: a notice stays until closed or the screen changes; this is the screen changing.
+        // A notice that went up on the new screen (posted with the step that led here) stays.
+        DisposableEffect(navController) {
+            NoticeScreen.currentEntryId = { navController.currentBackStackEntry?.id }
+            onDispose { NoticeScreen.currentEntryId = { null } }
+        }
         LaunchedEffect(backstackEntry?.id) {
-            snackbarHostState.currentSnackbarData?.dismiss()
+            if (NoticeScreen.leftBehind(backstackEntry?.id)) {
+                snackbarHostState.currentSnackbarData?.dismiss()
+            }
         }
 
         LaunchedEffect(pendingUri) {

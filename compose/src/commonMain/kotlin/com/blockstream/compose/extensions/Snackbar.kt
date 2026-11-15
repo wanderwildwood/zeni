@@ -15,12 +15,36 @@ import com.blockstream.compose.utils.getStringFromIdOrNull
 import org.jetbrains.compose.resources.getString
 
 /**
+ * zeni: which screen a notice went up on, so that a screen change closes only a notice from the
+ * screen being left. A view model often posts a notice together with a step back ("Transaction
+ * sent", "Wrong choice..."): the step runs first and the notice goes up after it, on the new
+ * screen, so it must outlive that screen change. GreenApp points [currentEntryId] at its
+ * NavController.
+ */
+object NoticeScreen {
+    var currentEntryId: () -> String? = { null }
+
+    var shownOn: String? = null
+        private set
+
+    fun markShown() {
+        shownOn = currentEntryId()
+    }
+
+    /** True when the screen is now [entryId] and the notice showing went up on another one. */
+    fun leftBehind(entryId: String?): Boolean = noticeLeftBehind(shownOn = shownOn, nowOn = entryId)
+}
+
+internal fun noticeLeftBehind(shownOn: String?, nowOn: String?): Boolean = shownOn != nowOn
+
+/**
  * zeni: a notice stays until it is closed with its X or the screen changes (GreenApp), not for
  * four seconds: on an e-ink panel a message on a timer can be gone before it has been read. A
  * new one takes the place of the one showing rather than queuing behind it.
  */
 suspend fun SnackbarHostState.showNotice(message: String, actionLabel: String? = null): SnackbarResult {
     currentSnackbarData?.dismiss()
+    NoticeScreen.markShown()
     return showSnackbar(
         message = message,
         actionLabel = actionLabel,
