@@ -1,5 +1,6 @@
 package com.blockstream.compose.dialogs
 
+import blockstream_green.common.generated.resources.id_close
 import com.blockstream.compose.components.MmdSwitch
 import com.blockstream.compose.components.MmdCheckbox
 import com.blockstream.compose.components.MmdRadioButton
@@ -99,7 +100,7 @@ fun UrlWarningDialog(
                 ) {
                     Icon(
                         painter = painterResource(Res.drawable.x_bold),
-                        contentDescription = "Close",
+                        contentDescription = stringResource(Res.string.id_close),
                     )
                 }
             }

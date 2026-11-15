@@ -1,5 +1,8 @@
 package com.blockstream.compose.views
 
+import org.jetbrains.compose.resources.stringResource
+import blockstream_green.common.generated.resources.Res
+import blockstream_green.common.generated.resources.id_copy
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import com.blockstream.compose.theme.HorizontalDivider
@@ -57,7 +60,7 @@ fun DataListItem(
                 ) {
                     Icon(
                         imageVector = PhosphorIcons.Regular.Copy,
-                        contentDescription = null,
+                        contentDescription = stringResource(Res.string.id_copy),
                     )
                 }
             }
@@ -75,7 +78,7 @@ fun DataListItem(
 
             Icon(
                 imageVector = PhosphorIcons.Regular.Copy,
-                contentDescription = "Copy",
+                contentDescription = stringResource(Res.string.id_copy),
                 tint = whiteLow,
                 modifier = Modifier.noRippleClickable {
                     scope.launch {

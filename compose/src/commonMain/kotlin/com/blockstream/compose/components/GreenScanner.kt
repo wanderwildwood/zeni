@@ -1,7 +1,9 @@
 package com.blockstream.compose.components
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.selection.toggleable
+import androidx.compose.ui.semantics.Role
+import blockstream_green.common.generated.resources.zeni_flashlight
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -89,12 +91,10 @@ fun GreenScanner(
                     .align(Alignment.TopEnd)
                     .padding(if (isFullPage) 32.dp else 8.dp)
                     .clip(CircleShape)
-                    .clickable {
-                        isFlashOn = !isFlashOn
-                    }
+                    .toggleable(value = isFlashOn, role = Role.Switch, onValueChange = { isFlashOn = it })
                     .padding(8.dp),
                 painter = painterResource(if (isFlashOn) Res.drawable.lightning_slash else Res.drawable.lightning),
-                contentDescription = "Flash"
+                contentDescription = stringResource(Res.string.zeni_flashlight)
             )
         }
 

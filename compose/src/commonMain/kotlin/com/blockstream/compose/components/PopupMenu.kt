@@ -1,5 +1,7 @@
 package com.blockstream.compose.components
 
+import blockstream_green.common.generated.resources.Res
+import blockstream_green.common.generated.resources.id_more_actions
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -128,6 +130,8 @@ fun ActionMenu(
 
             actionsMenu.forEach {
                 val title = it.title ?: it.titleRes?.let { titleRes -> stringResource(titleRes) }
+                // An action drawn as an icon alone is named by its description; beside a title the icon is decoration.
+                val iconDescription = if (title == null) it.description?.let { d -> stringResource(d) } else null
                 MmdTextButton(
                     onClick = it.onClick,
                     modifier = Modifier.align(Alignment.CenterVertically).appTestTag(it.titleRes?.key ?: it.title),
@@ -140,7 +144,7 @@ fun ActionMenu(
                         it.icon?.also { icon ->
                             Icon(
                                 painter = painterResource(icon),
-                                contentDescription = null,
+                                contentDescription = iconDescription,
                                 tint = it.iconTint ?: MaterialTheme.colorScheme.onSurface,
                                 modifier = Modifier.size(it.iconSize)
                             )
@@ -148,7 +152,7 @@ fun ActionMenu(
                         it.imageVector?.also { imageVector ->
                             Icon(
                                 imageVector = imageVector,
-                                contentDescription = null,
+                                contentDescription = iconDescription,
                                 tint = it.iconTint ?: MaterialTheme.colorScheme.onSurface,
                                 modifier = Modifier.size(it.iconSize)
                             )
@@ -170,7 +174,7 @@ fun ActionMenu(
                 }) {
                     Icon(
                         imageVector = PhosphorIcons.Bold.DotsThreeVertical,
-                        contentDescription = "More Menu"
+                        contentDescription = stringResource(Res.string.id_more_actions)
                     )
                 }
 

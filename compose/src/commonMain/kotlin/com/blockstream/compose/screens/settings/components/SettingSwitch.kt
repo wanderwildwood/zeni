@@ -9,6 +9,11 @@ import androidx.compose.material3.SwitchDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.toggleableState
+import androidx.compose.ui.state.ToggleableState
 import com.blockstream.compose.utils.appTestTag
 
 @Composable
@@ -24,7 +29,11 @@ fun SettingSwitch(
     SettingsItem(
         title = title,
         subtitle = subtitle,
-        modifier = modifier,
+        // The row is what a screen reader lands on, so it says it is a switch and whether it is on.
+        modifier = modifier.semantics {
+            role = Role.Switch
+            toggleableState = ToggleableState(checked)
+        },
         subtitleMaxLines = subtitleMaxLines,
         // The house switch: the whole row takes the press, the switch only shows the state.
         onClick = { onCheckedChange(!checked) },

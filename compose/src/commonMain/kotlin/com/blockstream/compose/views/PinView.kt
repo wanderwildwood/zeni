@@ -1,5 +1,9 @@
 package com.blockstream.compose.views
 
+import blockstream_green.common.generated.resources.id_paste
+import blockstream_green.common.generated.resources.zeni_shuffle_keys
+import org.jetbrains.compose.resources.stringResource
+import blockstream_green.common.generated.resources.id_delete
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -92,7 +96,7 @@ fun PinButton(
                     -1 -> {
                         Icon(
                             painter = painterResource(Res.drawable.backspace),
-                            contentDescription = "Backspace",
+                            contentDescription = stringResource(Res.string.id_delete),
                             tint = if (enabled) whiteHigh else whiteLow
                         )
                     }
@@ -101,13 +105,13 @@ fun PinButton(
                         if (isShuffle) {
                             Icon(
                                 painter = painterResource(Res.drawable.arrows_counter_clockwise),
-                                contentDescription = "Shuffle",
+                                contentDescription = stringResource(Res.string.zeni_shuffle_keys),
                                 tint = if (enabled) whiteHigh else whiteLow
                             )
                         } else {
                             Icon(
                                 painter = painterResource(Res.drawable.clipboard),
-                                contentDescription = "Paste",
+                                contentDescription = stringResource(Res.string.id_paste),
                                 tint = if (enabled) whiteHigh else whiteLow
                             )
                         }

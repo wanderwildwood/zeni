@@ -1,5 +1,7 @@
 package com.blockstream.compose.components
 
+import blockstream_green.common.generated.resources.id_qr_code
+import blockstream_green.common.generated.resources.id_increase_qr_size
 import com.blockstream.compose.theme.NoDialogDim
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
@@ -150,13 +152,13 @@ fun LegacyGreenQR(
                         val padding = if (isJadeQR) 0.dp else 18.dp
                         Image(
                             painter = qrCodePainter,
-                            contentDescription = "QR",
+                            contentDescription = stringResource(Res.string.id_qr_code),
                             modifier = Modifier.fillMaxSize().padding(padding)
                         )
                     } else if (isVisible) {
                         Image(
                             painter = painterResource(Res.drawable.qr_code),
-                            contentDescription = "QR",
+                            contentDescription = stringResource(Res.string.id_qr_code),
                             colorFilter = ColorFilter.tint(green),
                             modifier = Modifier.align(Alignment.Center)
                         )
@@ -231,7 +233,7 @@ private fun BorderedQR(
             ) {
                 Image(
                     painter = qrCodePainter,
-                    contentDescription = null,
+                    contentDescription = stringResource(Res.string.id_increase_qr_size),
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(20.dp)
@@ -280,7 +282,7 @@ private fun QrFullscreenDialog(
             ) {
                 Image(
                     painter = qrCodePainter,
-                    contentDescription = "QR",
+                    contentDescription = stringResource(Res.string.id_qr_code),
                     modifier = Modifier
                         .fillMaxWidth()
                         .fillMaxHeight()

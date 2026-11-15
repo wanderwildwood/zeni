@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.receive
 
+import blockstream_green.common.generated.resources.id_generate_new_address
 import com.blockstream.compose.components.MmdSegmented
 import androidx.compose.foundation.layout.PaddingValues
 import com.blockstream.compose.components.GreenPagedColumn
@@ -466,7 +467,7 @@ fun ReceiveScreen(
                                     ) {
                                         Icon(
                                             painter = painterResource(Res.drawable.arrows_counter_clockwise),
-                                            contentDescription = "Refresh"
+                                            contentDescription = stringResource(Res.string.id_generate_new_address)
                                         )
                                     }
                                 }

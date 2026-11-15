@@ -108,7 +108,7 @@ fun RecoveryPhraseScreen(
                 GreenRow(padding = 0, space = 8, modifier = Modifier.padding(top = 8.dp)) {
                     Image(
                         painter = painterResource(Res.drawable.bip39_passphrase),
-                        contentDescription = "Lock",
+                        contentDescription = null,
                         colorFilter = ColorFilter.tint(green)
                     )
                     SelectionContainer {

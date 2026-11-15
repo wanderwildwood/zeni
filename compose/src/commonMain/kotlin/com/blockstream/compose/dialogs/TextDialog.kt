@@ -1,5 +1,8 @@
 package com.blockstream.compose.dialogs
 
+import blockstream_green.common.generated.resources.id_clear
+import blockstream_green.common.generated.resources.zeni_show_password
+import blockstream_green.common.generated.resources.zeni_hide_password
 import com.blockstream.compose.components.MmdTextField
 import com.blockstream.compose.theme.NoDialogDim
 import androidx.compose.foundation.clickable
@@ -154,14 +157,14 @@ fun TextDialog(
                             }) {
                                 Icon(
                                     painter = painterResource(if (passwordVisibility) Res.drawable.eye_slash else Res.drawable.eye),
-                                    contentDescription = "password visibility",
+                                    contentDescription = stringResource(if (passwordVisibility) Res.string.zeni_hide_password else Res.string.zeni_show_password),
                                 )
                             }
                         } else {
                             if (textFieldValueState.text.isEmpty()) {
                                 Icon(
                                     painterResource(Res.drawable.clipboard),
-                                    contentDescription = "clear text",
+                                    contentDescription = stringResource(Res.string.id_clear),
                                     modifier = Modifier
                                         .clickable {
                                             textFieldValueState = textFieldValueState.copy(
@@ -172,7 +175,7 @@ fun TextDialog(
                             } else {
                                 Icon(
                                     Icons.Default.Clear,
-                                    contentDescription = "clear text",
+                                    contentDescription = stringResource(Res.string.id_clear),
                                     modifier = Modifier
                                         .clickable {
                                             textFieldValueState =

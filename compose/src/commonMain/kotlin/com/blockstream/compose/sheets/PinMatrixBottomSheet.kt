@@ -1,5 +1,6 @@
 package com.blockstream.compose.sheets
 
+import blockstream_green.common.generated.resources.id_delete
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -77,7 +78,7 @@ fun PinMatrixBottomSheet(
                     }) {
                         Icon(
                             painter = painterResource(Res.drawable.backspace),
-                            contentDescription = "Backspace",
+                            contentDescription = stringResource(Res.string.id_delete),
                         )
                     }
                 }

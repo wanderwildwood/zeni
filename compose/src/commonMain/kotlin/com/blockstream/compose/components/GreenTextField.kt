@@ -1,5 +1,10 @@
 package com.blockstream.compose.components
 
+import blockstream_green.common.generated.resources.id_clear
+import blockstream_green.common.generated.resources.id_paste
+import org.jetbrains.compose.resources.stringResource
+import blockstream_green.common.generated.resources.Res
+import blockstream_green.common.generated.resources.id_scan_qr_code
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.heightIn
@@ -101,7 +106,7 @@ fun GreenTextField(
                         IconButton(modifier = Modifier.appTestTag("scan_button"), onClick = { onQrClick.invoke() }, enabled = enabled) {
                             Icon(
                                 imageVector = PhosphorIcons.Regular.QrCode,
-                                contentDescription = "Scan QR"
+                                contentDescription = stringResource(Res.string.id_scan_qr_code)
                             )
                         }
                     }
@@ -114,7 +119,7 @@ fun GreenTextField(
                         ) {
                             Icon(
                                 imageVector = PhosphorIcons.Regular.Clipboard,
-                                contentDescription = "Edit"
+                                contentDescription = stringResource(Res.string.id_paste)
                             )
                         }
                     }
@@ -122,7 +127,7 @@ fun GreenTextField(
                     IconButton(modifier = Modifier.appTestTag("clear_button"), onClick = { onValueChange("") }, enabled = enabled) {
                         Icon(
                             imageVector = PhosphorIcons.Regular.XCircle,
-                            contentDescription = "Clear"
+                            contentDescription = stringResource(Res.string.id_clear)
                         )
                     }
                 }

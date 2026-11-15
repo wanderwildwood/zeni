@@ -22,7 +22,7 @@ fun CaretRight(modifier: Modifier = Modifier, enabled: Boolean = true) {
         Icon(
             modifier = Modifier.align(Alignment.Center),
             imageVector = PhosphorIcons.Regular.CaretRight,
-            contentDescription = "Arrow",
+            contentDescription = null,
             tint = LocalContentColor.current.copy(alpha = if (enabled) 1f else 0.4f)
         )
     }

@@ -1,5 +1,7 @@
 package com.blockstream.compose.screens.addresses
 
+import blockstream_green.common.generated.resources.id_sign_message
+import blockstream_green.common.generated.resources.id_copy
 import com.blockstream.compose.components.DottedRule
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -250,7 +252,7 @@ fun AddressListItem(
                     onClick = onCopyClick
                 ) {
                     Icon(
-                        imageVector = PhosphorIcons.Regular.Copy, contentDescription = "Copy"
+                        imageVector = PhosphorIcons.Regular.Copy, contentDescription = stringResource(Res.string.id_copy)
                     )
                 }
                 onSignatureClick?.also {
@@ -259,7 +261,7 @@ fun AddressListItem(
                     ) {
                         Icon(
                             painter = painterResource(Res.drawable.signature),
-                            contentDescription = "Sign"
+                            contentDescription = stringResource(Res.string.id_sign_message)
                         )
                     }
                 }

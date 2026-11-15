@@ -1,5 +1,8 @@
 package com.blockstream.compose.components
 
+import org.jetbrains.compose.resources.stringResource
+import blockstream_green.common.generated.resources.Res
+import blockstream_green.common.generated.resources.id_copy
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -63,7 +66,7 @@ fun GreenAddress(
             if (showCopyIcon) {
                 Icon(
                     imageVector = PhosphorIcons.Regular.Copy,
-                    contentDescription = "Copy",
+                    contentDescription = stringResource(Res.string.id_copy),
                     tint = whiteHigh,
                     modifier = Modifier.align(Alignment.CenterVertically).padding(start = 8.dp)
                         .appTestTag("copy")

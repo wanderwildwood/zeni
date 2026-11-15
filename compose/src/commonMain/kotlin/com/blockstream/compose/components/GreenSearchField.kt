@@ -1,5 +1,7 @@
 package com.blockstream.compose.components
 
+import blockstream_green.common.generated.resources.id_clear
+import blockstream_green.common.generated.resources.id_paste
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -37,7 +39,7 @@ fun GreenSearchField(
         leadingIcon = {
             Icon(
                 painter = painterResource(Res.drawable.magnifying_glass),
-                contentDescription = "Search"
+                contentDescription = null
             )
         },
         trailingIcon = {
@@ -48,14 +50,14 @@ fun GreenSearchField(
                 ) {
                     Icon(
                         painter = painterResource(Res.drawable.clipboard),
-                        contentDescription = "Edit"
+                        contentDescription = stringResource(Res.string.id_paste)
                     )
                 }
             } else {
                 IconButton(onClick = { onValueChange("") }, enabled = enabled) {
                     Icon(
                         painter = painterResource(Res.drawable.x_circle),
-                        contentDescription = "Clear"
+                        contentDescription = stringResource(Res.string.id_clear)
                     )
                 }
             }

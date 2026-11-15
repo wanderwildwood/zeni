@@ -162,7 +162,7 @@ private fun BitcoinPrice(startPrice: Float, currentPrice: Float, currency: Strin
             Image(
                 modifier = Modifier.size(32.dp).padding(2.dp),
                 painter = painterResource(Res.drawable.bitcoin),
-                contentDescription = "bitcoin-icon"
+                contentDescription = null
             )
             Text(text = "Bitcoin", style = titleSmall)
         }
@@ -182,7 +182,7 @@ private fun BitcoinPrice(startPrice: Float, currentPrice: Float, currency: Strin
                     Icon(
                         modifier = Modifier.size(16.dp),
                         imageVector = trendIcon,
-                        contentDescription = "trend-icon",
+                        contentDescription = null,
                         tint = trendColor
                     )
                 }

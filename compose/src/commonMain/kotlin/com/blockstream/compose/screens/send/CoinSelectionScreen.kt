@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.send
 
+import blockstream_green.common.generated.resources.id_coin_details
 import com.blockstream.compose.components.MmdCheckbox
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
@@ -501,7 +502,7 @@ private fun CoinSelectionCard(
                 IconButton(onClick = onInfoClick) {
                     Icon(
                         painter = painterResource(Res.drawable.info),
-                        contentDescription = null,
+                        contentDescription = stringResource(Res.string.id_coin_details),
                         tint = whiteHigh
                     )
                 }

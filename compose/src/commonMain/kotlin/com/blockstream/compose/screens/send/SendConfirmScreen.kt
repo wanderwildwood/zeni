@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.send
 
+import blockstream_green.common.generated.resources.id_more_info
 import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Arrangement
@@ -331,7 +332,7 @@ private fun DataRow(
                     ) {
                         Icon(
                             painter = painterResource(Res.drawable.info),
-                            contentDescription = null,
+                            contentDescription = stringResource(Res.string.id_more_info),
                             tint = whiteMedium,
                             modifier = Modifier.size(16.dp)
                         )

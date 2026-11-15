@@ -1,5 +1,9 @@
 package com.blockstream.compose.screens.login
 
+import blockstream_green.common.generated.resources.id_tor
+import blockstream_green.common.generated.resources.id_login_with_biometrics
+import blockstream_green.common.generated.resources.zeni_show_password
+import blockstream_green.common.generated.resources.zeni_hide_password
 import com.blockstream.compose.components.MmdTextButton
 import androidx.compose.foundation.Image
 import com.blockstream.compose.components.NoPicture
@@ -238,7 +242,7 @@ fun LoginScreen(
                         AlphaPulse {
                             Image(
                                 painter = painterResource(Res.drawable.tor),
-                                contentDescription = "Tor"
+                                contentDescription = stringResource(Res.string.id_tor)
                             )
                         }
                     }
@@ -325,7 +329,7 @@ fun LoginScreen(
                                     } else {
                                         Image(
                                             painter = painterResource(if (viewModel.greenWallet.isWatchOnlyQr) Res.drawable.qr_code else Res.drawable.eye),
-                                            contentDescription = "Watch Only",
+                                            contentDescription = null,
                                             // colorFilter = ColorFilter.tint(green),
                                             alpha = 0.25f,
                                             modifier = Modifier
@@ -383,7 +387,7 @@ fun LoginScreen(
                                             }) {
                                                 Icon(
                                                     painter = painterResource(if (passwordVisibility) Res.drawable.eye_slash else Res.drawable.eye),
-                                                    contentDescription = "password visibility",
+                                                    contentDescription = stringResource(if (passwordVisibility) Res.string.zeni_hide_password else Res.string.zeni_show_password),
                                                 )
                                             }
                                         }
@@ -594,7 +598,7 @@ fun LoginScreen(
                                 Box(modifier = Modifier.fillMaxSize()) {
                                     Icon(
                                         imageVector = PhosphorIcons.Regular.Fingerprint,
-                                        contentDescription = "Fingerprint",
+                                        contentDescription = stringResource(Res.string.id_login_with_biometrics),
                                         modifier = Modifier
                                             .size(128.dp)
                                             .align(Alignment.Center)
@@ -607,7 +611,7 @@ fun LoginScreen(
 
                                 Image(
                                     painter = painterResource(if (viewModel.greenWallet.isWatchOnlyQr) Res.drawable.qr_code else Res.drawable.eye),
-                                    contentDescription = "Watch Only",
+                                    contentDescription = null,
                                     // colorFilter = ColorFilter.tint(green),
                                     alpha = 0.25f,
                                     modifier = Modifier

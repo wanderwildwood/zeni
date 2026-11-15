@@ -1,5 +1,8 @@
 package com.blockstream.compose.components
 
+import blockstream_green.common.generated.resources.id_my_wallets
+import blockstream_green.common.generated.resources.Res
+import blockstream_green.common.generated.resources.id_back
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.AnimatedVisibility
@@ -111,7 +114,7 @@ fun GreenTopAppBar(
                         }) {
                             Icon(
                                 imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                                contentDescription = "Back"
+                                contentDescription = stringResource(Res.string.id_back)
                             )
                         }
 
@@ -260,7 +263,7 @@ fun GreenTopAppBar(
                         ) {
                             Icon(
                                 imageVector = PhosphorIcons.Regular.Wallet,
-                                contentDescription = "Drawer Menu",
+                                contentDescription = stringResource(Res.string.id_my_wallets),
                                 tint = MaterialTheme.colorScheme.onPrimary,
                                 modifier = Modifier.size(16.dp)
                             )

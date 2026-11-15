@@ -1,6 +1,7 @@
 package com.blockstream.compose.components
 
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.selection.toggleable
+import androidx.compose.ui.semantics.Role
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -30,9 +31,8 @@ fun GreenSwitch(
         space = 16,
         padding = 0,
         modifier = Modifier
-            .clickable {
-                onCheckedChange.invoke(!checked)
-            }
+            // The whole row is the switch, so a screen reader hears its title and whether it is on.
+            .toggleable(value = checked, role = Role.Switch, onValueChange = onCheckedChange)
             .padding(horizontal = 16.dp, vertical = 6.dp)
             .then(modifier),
         verticalAlignment = Alignment.CenterVertically
@@ -67,7 +67,7 @@ fun GreenSwitch(
 
         MmdSwitch(
             checked = checked,
-            onCheckedChange = onCheckedChange,
+            onCheckedChange = null,
         )
     }
 }

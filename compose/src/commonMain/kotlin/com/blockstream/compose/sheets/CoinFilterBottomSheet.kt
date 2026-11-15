@@ -1,7 +1,8 @@
 package com.blockstream.compose.sheets
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.selection.toggleable
+import androidx.compose.ui.semantics.Role
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -134,7 +135,8 @@ private fun CoinFilterItem(
         border = BorderStroke(1.dp, if (isSelected) blueOutline else md_theme_outline),
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(onClick = onClick)
+            // A filter is on or off: a screen reader says which, not only its name.
+            .toggleable(value = isSelected, role = Role.Checkbox, onValueChange = { onClick() })
     ) {
         Row(
             modifier = Modifier.padding(horizontal = 16.dp, vertical = 14.dp),

@@ -1,5 +1,7 @@
 package com.blockstream.compose.components
 
+import blockstream_green.common.generated.resources.id_edit
+import blockstream_green.common.generated.resources.id_clear
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.animation.AnimatedVisibility
@@ -254,7 +256,7 @@ fun GreenAmountField(
                             IconButton(onClick = { onValueChange("") }, enabled = isEditable) {
                                 Icon(
                                     imageVector = PhosphorIcons.Regular.XCircle,
-                                    contentDescription = "Clear",
+                                    contentDescription = stringResource(Res.string.id_clear),
                                     modifier = Modifier.appTestTag("clear")
                                 )
                             }
@@ -327,7 +329,7 @@ fun GreenAmountField(
                             IconButton(onClick = { onEditClick() }) {
                                 Icon(
                                     painter = painterResource(Res.drawable.pencil_simple_line),
-                                    contentDescription = "Edit"
+                                    contentDescription = stringResource(Res.string.id_edit)
                                 )
                             }
                         }

@@ -1,5 +1,6 @@
 package com.blockstream.compose.components
 
+import blockstream_green.common.generated.resources.id_edit
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -143,7 +144,7 @@ fun GreenAsset(
                 ) {
                     Icon(
                         painter = painterResource(Res.drawable.pencil_simple_line),
-                        contentDescription = "Edit",
+                        contentDescription = stringResource(Res.string.id_edit),
                         modifier = Modifier.minimumInteractiveComponentSize()
                     )
                 }

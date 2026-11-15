@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.send
 
+import blockstream_green.common.generated.resources.id_edit_note
 import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
@@ -348,7 +349,7 @@ fun SendScreen(
                                 }) {
                                     Icon(
                                         painter = painterResource(Res.drawable.pencil_simple_line),
-                                        contentDescription = "Edit",
+                                        contentDescription = stringResource(Res.string.id_edit_note),
                                         modifier = Modifier.minimumInteractiveComponentSize()
                                     )
                                 }

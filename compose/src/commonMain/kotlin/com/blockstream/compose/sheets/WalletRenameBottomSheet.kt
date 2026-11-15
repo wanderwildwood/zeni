@@ -1,5 +1,6 @@
 package com.blockstream.compose.sheets
 
+import blockstream_green.common.generated.resources.id_clear
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
@@ -95,7 +96,7 @@ fun WalletRenameBottomSheet(
             trailingIcon = {
                 Icon(
                     Icons.Default.Clear,
-                    contentDescription = "clear text",
+                    contentDescription = stringResource(Res.string.id_clear),
                     modifier = Modifier
                         .clickable {
                             viewModel.name.value = ""

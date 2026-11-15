@@ -1,5 +1,10 @@
 package com.blockstream.compose.utils
 
+import blockstream_green.common.generated.resources.zeni_show_password
+import blockstream_green.common.generated.resources.zeni_hide_password
+import blockstream_green.common.generated.resources.id_clear
+import org.jetbrains.compose.resources.stringResource
+import blockstream_green.common.generated.resources.id_paste
 import androidx.compose.foundation.clickable
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
@@ -28,14 +33,14 @@ fun TextInputPaste(state: MutableStateFlow<String>, onValueChange: ((String) -> 
     if (value.isEmpty()) {
         Icon(
             painterResource(Res.drawable.clipboard),
-            contentDescription = "Paste text",
+            contentDescription = stringResource(Res.string.id_paste),
             modifier = Modifier.clickable {
                 val newValue = platformManager.getClipboard() ?: ""
                 state.value = newValue
                 onValueChange?.invoke(newValue)
             })
     } else {
-        Icon(Icons.Default.Clear, contentDescription = "Clear text", modifier = Modifier.clickable {
+        Icon(Icons.Default.Clear, contentDescription = stringResource(Res.string.id_clear), modifier = Modifier.clickable {
             state.value = ""
             onValueChange?.invoke("")
         })
@@ -47,7 +52,7 @@ fun TextInputClear(state: MutableStateFlow<String>) {
     val value by state.collectAsStateWithLifecycle()
 
     if (!value.isEmpty()) {
-        Icon(Icons.Default.Clear, contentDescription = "Clear text", modifier = Modifier.clickable {
+        Icon(Icons.Default.Clear, contentDescription = stringResource(Res.string.id_clear), modifier = Modifier.clickable {
             state.value = ""
         })
     }
@@ -60,7 +65,7 @@ fun TextInputPassword(passwordVisibility: MutableState<Boolean>) {
     }) {
         Icon(
             imageVector = if (passwordVisibility.value) PhosphorIcons.Regular.EyeSlash else PhosphorIcons.Regular.Eye,
-            contentDescription = "Password visibility toggle",
+            contentDescription = stringResource(if (passwordVisibility.value) Res.string.zeni_hide_password else Res.string.zeni_show_password),
         )
     }
 }

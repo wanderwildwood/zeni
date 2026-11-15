@@ -126,7 +126,7 @@ internal fun AnalyticsBottomSheet(
                     )
                     Icon(
                         imageVector = Icons.Default.ArrowDropDown,
-                        contentDescription = "Expand",
+                        contentDescription = null,
                         modifier = Modifier.rotate(rotation)
                     )
                 }

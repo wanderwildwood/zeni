@@ -1313,6 +1313,10 @@
     <string name="id_remove_wallet">Remove wallet</string>
     <string name="id_remove_wallet_tap_again">Remove wallet — tap again</string>
     <string name="zeni_delete_credentials_tap_again">Delete credentials — tap again</string>
+    <string name="zeni_show_password">Show password</string>
+    <string name="zeni_hide_password">Hide password</string>
+    <string name="zeni_shuffle_keys">Shuffle the keys</string>
+    <string name="zeni_flashlight">Flashlight</string>
     <string name="id_wallet_actions">Wallet actions</string>
     <string name="id_removing_wallet">Removing wallet…</string>
     <string name="id_rename">Rename</string>

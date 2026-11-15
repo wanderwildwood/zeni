@@ -1,5 +1,6 @@
 package com.blockstream.compose.components
 
+import blockstream_green.common.generated.resources.id_edit_fee
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -98,7 +99,7 @@ fun GreenNetworkFee(
                     }) {
                         Icon(
                             painter = painterResource(Res.drawable.pencil_simple_line),
-                            contentDescription = "Edit"
+                            contentDescription = stringResource(Res.string.id_edit_fee)
                         )
                     }
                 }

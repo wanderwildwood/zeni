@@ -5,6 +5,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import kotlinx.serialization.Serializable
 import blockstream_green.common.generated.resources.Res
+import blockstream_green.common.generated.resources.id_filter
 import blockstream_green.common.generated.resources.funnel_outline_active
 import blockstream_green.common.generated.resources.id_coin_selection
 import com.adamglin.PhosphorIcons
@@ -384,6 +385,7 @@ class CoinSelectionViewModel(
             imageVector = if (isActive) null else PhosphorIcons.Regular.Funnel,
             iconTint = if (isActive) Color.Unspecified else null,
             iconSize = 22.dp,
+            description = Res.string.id_filter,
             isMenuEntry = false,
             onClick = {
                 postEvent(LocalEvents.OpenFilters)

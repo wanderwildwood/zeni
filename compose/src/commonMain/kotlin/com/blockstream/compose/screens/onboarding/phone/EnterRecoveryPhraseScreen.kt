@@ -1,5 +1,6 @@
 package com.blockstream.compose.screens.onboarding.phone
 
+import blockstream_green.common.generated.resources.id_delete
 import com.blockstream.compose.components.MmdSegmented
 import com.blockstream.compose.components.GreenPagedColumn
 import androidx.compose.animation.fadeIn
@@ -497,7 +498,7 @@ fun Key(
         if (key == " ") {
             Icon(
                 painter = painterResource(Res.drawable.backspace),
-                contentDescription = "Expand",
+                contentDescription = stringResource(Res.string.id_delete),
             )
         } else {
             Text(

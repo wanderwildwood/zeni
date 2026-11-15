@@ -21,8 +21,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import com.blockstream.compose.components.EInkDialog
 import androidx.compose.foundation.layout.Box
@@ -87,9 +85,6 @@ fun DenominationExchangeDialog(
                         modifier = Modifier
                             .fillMaxWidth()
                             .menuAnchor()
-                            .semantics {
-                                contentDescription = "denomination_dropdown"
-                            }
                             .appTestTag("denomination_dropdown"),
                         readOnly = true,
                         value = selectedUnit,
@@ -141,9 +136,6 @@ fun DenominationExchangeDialog(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .menuAnchor()
-                                .semantics {
-                                    contentDescription = "exchange_dropdown"
-                                }
                                 .appTestTag("exchange_dropdown"),
                             readOnly = true,
                             value = selectedExchange,
