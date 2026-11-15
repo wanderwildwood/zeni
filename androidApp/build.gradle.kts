@@ -38,8 +38,8 @@ android {
     defaultConfig {
         minSdk = libs.versions.androidMinSdk.get().toInt()
         targetSdk = libs.versions.androidTargetSdk.get().toInt()
-        versionCode = 15
-        versionName = "0.1.14"
+        versionCode = 16
+        versionName = "0.1.15"
 
         base.archivesName = "zeni-v$versionName"
         proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
