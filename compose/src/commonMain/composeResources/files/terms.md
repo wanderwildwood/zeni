@@ -32,6 +32,8 @@ The app is provided as it is, with no warranty of any kind, as sections 15 and 1
 
 To read a balance and send a payment the app talks to servers run by others, chiefly Blockstream's Electrum and Green servers, unless you set your own. Their own terms and policies govern what they do. Which servers the app contacts, and when, is set out in the Privacy Policy.
 
+A donation through "feed the llamas" is voluntary and unlocks nothing: the app is the same with or without one.
+
 ## Changes
 
 If these terms change, they change in a new version of the app, with the date above. The terms of the license do not change.
