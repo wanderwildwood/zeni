@@ -1,5 +1,11 @@
 package com.blockstream.compose.components
 
+import androidx.compose.ui.state.ToggleableState
+import androidx.compose.ui.semantics.toggleableState
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.Role
+import blockstream_green.common.generated.resources.id_hide_amounts
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -39,9 +45,14 @@ fun WalletBalance(modifier: Modifier = Modifier, viewModel: IWalletBalance) {
             val hideAmounts by viewModel.hideAmounts.collectAsStateWithLifecycle()
             Icon(
                 painter = painterResource(if (hideAmounts) Res.drawable.eye_slash else Res.drawable.eye),
-                contentDescription = null,
+                contentDescription = stringResource(Res.string.id_hide_amounts),
                 modifier = Modifier
                     .appTestTag("eye_button")
+                    // A screen reader hears "Hide amounts" and whether it is on.
+                    .semantics {
+                        role = Role.Switch
+                        toggleableState = ToggleableState(hideAmounts)
+                    }
                     .noRippleClickable {
                         viewModel.postEvent(LocalEvents.ToggleHideAmounts)
                     }

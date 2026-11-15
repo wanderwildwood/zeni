@@ -1,5 +1,6 @@
 package com.blockstream.compose.components
 
+import blockstream_green.common.generated.resources.id_warning
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
@@ -245,7 +246,7 @@ fun GreenAccountCard(
             ) {
                 Image(
                     painter = painterResource(Res.drawable.shield_warning),
-                    contentDescription = null,
+                    contentDescription = stringResource(Res.string.id_warning),
                     modifier = Modifier
                         .noRippleClickable {
                             onWarningClick(account)
