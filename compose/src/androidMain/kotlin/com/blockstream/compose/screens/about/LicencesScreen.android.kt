@@ -78,7 +78,7 @@ actual fun LicencesScreen(viewModel: LegalViewModel) {
         HouseLicencesScreen(
             data = data,
             labels = labels,
-            onBack = { viewModel.postEvent(Events.NavigateBackUserAction) },
+            onBack = { viewModel.postEvent(Events.NavigateBack) },
             modifier = Modifier.fillMaxSize().padding(horizontal = 16.dp),
             showBackButton = false,
             showTitle = false,

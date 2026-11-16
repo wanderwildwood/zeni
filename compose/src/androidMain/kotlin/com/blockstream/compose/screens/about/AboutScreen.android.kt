@@ -87,7 +87,7 @@ actual fun AboutScreen(viewModel: AboutViewModelAbstract) {
         contact = stringResource(Res.string.about_contact_head),
         links = stringResource(Res.string.about_links_head),
     )
-    val close = { viewModel.postEvent(Events.NavigateBackUserAction) }
+    val close = { viewModel.postEvent(Events.NavigateBack) }
 
     SetupScreen(viewModel = viewModel, withPadding = false) {
         // zeni's labelSmall is Green's bold label (16 sp); the About reads it as body text, so the
