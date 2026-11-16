@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    No cleartext anywhere, and only the system's certificates are trusted. The app's own http
+    calls (mempool.space prices) are https. What the wallet library (GDK) reaches itself, the
+    Electrum server, Tor, and the PIN and firmware servers, it reaches on its own sockets with
+    its own TLS, so none of that passes through this file; the .onion addresses, which are http,
+    are used only with Tor on.
+-->
 <network-security-config>
-    <base-config cleartextTrafficPermitted="false" />
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
 </network-security-config>
