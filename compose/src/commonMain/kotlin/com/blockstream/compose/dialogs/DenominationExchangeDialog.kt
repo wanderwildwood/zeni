@@ -1,5 +1,6 @@
 package com.blockstream.compose.dialogs
 
+import com.blockstream.compose.components.DarkModeWindow
 import com.blockstream.compose.components.MmdTextField
 import com.blockstream.compose.theme.NoDialogDim
 import androidx.compose.foundation.BorderStroke
@@ -102,6 +103,7 @@ fun DenominationExchangeDialog(
                         shadowElevation = 0.dp,
                         border = BorderStroke(2.dp, Color.Black),
                     ) {
+                        DarkModeWindow()
                         viewModel.units.forEachIndexed { index, selectionOption ->
                             DropdownMenuItem(
                                 text = { Text(selectionOption) },
@@ -153,6 +155,7 @@ fun DenominationExchangeDialog(
                             shadowElevation = 0.dp,
                             border = BorderStroke(2.dp, Color.Black),
                         ) {
+                            DarkModeWindow()
                             exchangeAndCurrencies.forEachIndexed { index, selectionOption ->
                                 DropdownMenuItem(
                                     text = { Text(selectionOption) },

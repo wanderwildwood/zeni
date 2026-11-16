@@ -2,6 +2,7 @@
 
 package com.blockstream.compose.screens.settings
 
+import com.blockstream.compose.components.DarkModeWindow
 import com.blockstream.compose.components.MmdTextField
 import com.blockstream.compose.components.MmdSwitch
 import com.blockstream.compose.components.MmdCheckbox
@@ -398,6 +399,7 @@ fun AppSettingsScreen(
                                     expanded = screenLockExpanded,
                                     onDismissRequest = { screenLockExpanded = false },
                                 ) {
+                                    DarkModeWindow()
                                     screenLockSettings.forEachIndexed { index, selectionOption ->
                                         DropdownMenuItem(
                                             modifier = Modifier.appTestTag("screen_lock_option_$index"),

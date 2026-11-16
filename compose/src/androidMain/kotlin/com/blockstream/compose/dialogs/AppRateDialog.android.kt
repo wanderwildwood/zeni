@@ -1,5 +1,6 @@
 package com.blockstream.compose.dialogs
 
+import com.blockstream.compose.components.DarkWindow
 import android.app.Activity
 import android.view.LayoutInflater
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -61,6 +62,7 @@ actual fun AppRateDialog(
             onDismissRequest()
         }
     ) {
+        DarkWindow()
 
         HandleSideEffectDialog(viewModel, onDismiss = {
             onDismissRequest()

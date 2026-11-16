@@ -84,6 +84,7 @@ fun PopupMenu(modifier: Modifier = Modifier, state: PopupState, entries: List<Me
         shadowElevation = 0.dp,
         border = BorderStroke(2.dp, Color.Black),
     ) {
+        DarkModeWindow()
         entries.forEach {
             DropdownMenuItem(
                 text = { Text(it.title) },
