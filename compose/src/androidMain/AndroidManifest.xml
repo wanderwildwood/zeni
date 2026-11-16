@@ -10,6 +10,13 @@
             android:name=".ComposeUIActivity"
             android:exported="true" />
 
+        <!-- Starts dark mode before the first screen is drawn. Holds no data. Declared here, beside
+             its class, and merged into the app's manifest. -->
+        <provider
+            android:name=".components.DarkModeInit"
+            android:authorities="${applicationId}.darkmodeinit"
+            android:exported="false" />
+
     </application>
 
 </manifest>

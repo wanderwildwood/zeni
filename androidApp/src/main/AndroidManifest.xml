@@ -104,12 +104,6 @@
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id" />
 
-        <!-- Starts dark mode before the first screen is drawn. Holds no data. -->
-        <provider
-            android:name="com.blockstream.compose.components.DarkModeInit"
-            android:authorities="${applicationId}.darkmodeinit"
-            android:exported="false" />
-
         <activity
             android:name="com.blockstream.green.GreenActivity"
             android:screenOrientation="userPortrait"
