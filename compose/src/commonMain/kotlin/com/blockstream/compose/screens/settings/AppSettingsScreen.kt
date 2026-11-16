@@ -105,7 +105,6 @@ import com.blockstream.compose.glance.setLockScreenPriceOn
 import blockstream_green.common.generated.resources.zeni_price_on_lock_screen
 import blockstream_green.common.generated.resources.zeni_price_on_lock_screen_detail
 import blockstream_green.common.generated.resources.zeni_settings_dark
-import blockstream_green.common.generated.resources.zeni_settings_dark_note
 import com.blockstream.compose.screens.settings.components.SettingsItem
 import com.blockstream.compose.screens.settings.components.SettingsHeading
 import com.blockstream.compose.screens.settings.components.SettingsRowValue
@@ -357,7 +356,6 @@ fun AppSettingsScreen(
                 item(key = "dark") {
                     SettingSwitch(
                         title = stringResource(Res.string.zeni_settings_dark),
-                        subtitle = stringResource(Res.string.zeni_settings_dark_note),
                         checked = darkModeOn(),
                         onCheckedChange = { setDarkModeOn(it) },
                     )
