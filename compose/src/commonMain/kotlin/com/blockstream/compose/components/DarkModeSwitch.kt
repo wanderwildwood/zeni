@@ -19,3 +19,7 @@ expect fun Modifier.keepColorsInDark(): Modifier
 // At the top of a dialog's content, so its window is dark from its first frame.
 @Composable
 expect fun DarkModeWindow()
+
+// Just inside the theme: text-selection and cursor handles white while dark, so they show on the black page.
+@Composable
+expect fun DarkModeSelection(content: @Composable () -> Unit)

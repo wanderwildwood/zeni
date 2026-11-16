@@ -1,5 +1,6 @@
 package com.blockstream.compose.theme
 
+import com.blockstream.compose.components.DarkModeSelection
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
@@ -121,6 +122,6 @@ fun GreenTheme(isLight: Boolean = false, content: @Composable () -> Unit) {
         typography = GreenTypography(),
     ) {
         // One armed "tap again" row at a time in the window; a touch elsewhere disarms it.
-        ArmedScope(content = content)
+        DarkModeSelection { ArmedScope(content = content) }
     }
 }

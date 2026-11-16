@@ -17,3 +17,6 @@ actual fun Modifier.keepColorsInDark(): Modifier = keepColors()
 
 @Composable
 actual fun DarkModeWindow() = DarkWindow()
+
+@Composable
+actual fun DarkModeSelection(content: @Composable () -> Unit) = DarkSelection(content)
