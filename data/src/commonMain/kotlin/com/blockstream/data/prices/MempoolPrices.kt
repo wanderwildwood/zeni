@@ -33,6 +33,10 @@ object MempoolPrices {
     private const val LATEST_FRESH_MS = 5 * 60 * 1000L
     private const val HISTORY_FRESH_MS = 30 * 60 * 1000L
     private const val TIMEOUT_MS = 10_000L
+    /** After a failed fetch, how long before trying again: until then the cached rate answers at once. */
+    private const val RETRY_AFTER_MS = 60_000L
+    /** The oldest a rate is used at all: an older one gives no fiat value rather than a wrong one. */
+    private const val STALE_MS = 60 * 60 * 1000L
 
     private object Client : AppHttpClient()
 
@@ -41,6 +45,7 @@ object MempoolPrices {
 
     private var latest: Map<String, Double> = emptyMap()
     private var latestAt = 0L
+    private var latestFailedAt = 0L
     private val history = mutableMapOf<String, Pair<Long, List<Pair<Long, Double>>>>()
 
     private fun now() = Clock.System.now().toEpochMilliseconds()
@@ -54,13 +59,19 @@ object MempoolPrices {
     suspend fun rate(currency: String?, via: (suspend (String) -> JsonElement)?): Double? {
         val cur = currency?.uppercase()?.takeIf { it in CURRENCIES } ?: return null
         return latestMutex.withLock {
-            if (now() - latestAt > LATEST_FRESH_MS || latest[cur] == null) {
-                fetch(LATEST, via)?.let { parseLatest(it) }?.takeIf { it.isNotEmpty() }?.also {
-                    latest = it
+            val due = now() - latestAt > LATEST_FRESH_MS || latest[cur] == null
+            // A server that just failed is not asked again for a minute: every amount on screen
+            // asks for the rate, and each would otherwise wait out the timeout in turn.
+            if (due && now() - latestFailedAt > RETRY_AFTER_MS) {
+                val fresh = fetch(LATEST, via)?.let { parseLatest(it) }?.takeIf { it.isNotEmpty() }
+                if (fresh != null) {
+                    latest = fresh
                     latestAt = now()
+                } else {
+                    latestFailedAt = now()
                 }
             }
-            latest[cur]
+            latest[cur]?.takeIf { now() - latestAt <= STALE_MS }
         }
     }
 
