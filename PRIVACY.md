@@ -1,6 +1,6 @@
 # Bitcoin (zeni) — Privacy Policy
 
-Version 0.1.11. Last reviewed 8 November 2026.
+Last reviewed 17 November 2026.
 
 ## The short version
 
@@ -28,6 +28,8 @@ Every request below also shows the service your IP address, as any connection do
 - Another phone, over NFC, only while zeni's Receive screen is open on this phone or zeni is reading a tap: the payment request on that screen (an address and any amount), and nothing else. The phone must be unlocked. A tap only fills in Send; nothing is sent until you confirm and sign.
 
 The lock screen: with Glance (com.wanderwildwood.hitome, the author's lock-screen app) installed, and only if you switch on "The bitcoin price on the lock screen", the bitcoin price is handed to Glance and only to Glance. It is fetched from mempool.space when the lock screen is looked at and the last price is over half an hour old, and never while Tor or a proxy is on. A balance is never handed to Glance.
+
+Dark mode: with Home (com.wanderwildwood.iori, the author's launcher) installed, the app asks Home whether its dark mode switch is on, a yes or no, and sends nothing to it.
 
 Help links in the app open this app's help page on GitHub in your browser, and only when you press them. "View in explorer" opens the transaction or address on mempool.space in your browser, only when you press it. In Settings and in About, "feed the llamas" opens a donation page (square.link) and wanderthe.dev opens the author's website, likewise; in About, the source address and Blockstream Green's address open those projects' pages on GitHub. The sentence "Write to email@wanderthe.dev" in About, under How to contact us, opens your email app with a new message to that address, its subject the app's name and version; nothing is sent until you send it, and no logs or wallet data are attached. The app sends nothing to the donation page; if you give, the payment is handled on that page by Square, not by this app.
 
