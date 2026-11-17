@@ -69,6 +69,11 @@ class PriceOnLockScreen : GlanceProvider() {
                     runCatching { this.currency = Currency.getInstance(currency.uppercase()) }
                     maximumFractionDigits = 0
                 }
+                // The currency changed, or the price was turned off, while this was fetching:
+                // the answer is for the old one and is dropped.
+                val stillWanted = LockScreenPrice.on(context) &&
+                    (LockScreenPrice.currency(context).uppercase().takeIf { MempoolPrices.isSupported(it) } ?: "USD") == currency
+                if (!stillWanted) return@launch
                 val change = if (dayAgo > 0) (now - dayAgo) / dayAgo * 100 else 0.0
                 val text = context.getString(
                     R.string.zeni_lock_price_change,
