@@ -10,13 +10,13 @@
 
 <!-- if you can reliably reproduce the bug, list here the steps  -->
 
-### Expected behaviour
+### Expected behavior
 
 <!-- description of the expected behavior -->
 
-### Actual behaviour
+### Actual behavior
 
-<!-- explain what happened instead of the expected behaviour -->
+<!-- explain what happened instead of the expected behavior -->
 
 ### Screenshots
 
