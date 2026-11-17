@@ -44,7 +44,7 @@ this panel is a smear.
 signing in and from the device sheets. The words stay: *Turn on your hardware wallet and
 unlock it.*
 
-**Settings as ruled rows,** tab labels always shown, dialogs with a black rim instead of a dim
+**Settings as plain rows set apart by space,** tab labels always shown, dialogs with a black rim instead of a dim
 behind them, and only real hardware wallets in the Bluetooth list.
 
 ## Tap to pay
