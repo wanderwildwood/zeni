@@ -769,9 +769,13 @@ class GdkSession constructor(
                                 val ping = scope.async(start = CoroutineStart.UNDISPATCHED) {
                                     (networkBackend as GdkNetworkBackend).networkEvents.first()
                                 }
-                                networkBackend.connect(params)
-                                val event = withTimeoutOrNull(3_000) { ping.await() }
-                                ping.cancel()
+                                val event = try {
+                                    networkBackend.connect(params)
+                                    withTimeoutOrNull(3_000) { ping.await() }
+                                } finally {
+                                    // Also when connect throws: the watcher is not left waiting.
+                                    ping.cancel()
+                                }
                                 if (event != null && !event.isConnected) {
                                     unanswered.update { it + network }
                                 }
@@ -893,7 +897,10 @@ class GdkSession constructor(
      * the wallet does. For data that is no one's business but the user's (the price chart);
      * not for device traffic, which keeps [httpRequest] and its server checks.
      */
-    suspend fun plainGetJson(url: String): JsonElement = withContext(Dispatchers.IO) {
+    suspend fun plainGetJson(url: String): JsonElement = plainGetMutex.withLock { withContext(Dispatchers.IO) {
+        // One at a time: the first call on a new route disconnects and reconnects this session,
+        // which would pull it from under a second call running alongside (the chart and the
+        // rate load together).
         val settings = settingsManager.appSettings
         val route = settings.tor to (if (settings.proxyEnabled) settings.proxyUrl ?: "" else "")
         if (!isNetworkInitialized || plainGetRoute != route) {
@@ -905,7 +912,9 @@ class GdkSession constructor(
             putJsonArray("urls") { add(url) }
             put("accept", "json")
         })
-    }
+    } }
+
+    private val plainGetMutex = Mutex()
 
     override suspend fun httpRequest(
         method: String,
