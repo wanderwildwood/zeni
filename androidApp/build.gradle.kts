@@ -13,8 +13,6 @@ plugins {
 }
 
 // https://developer.android.com/studio/publish/app-signing#secure-key
-// Create a variable called keystorePropertiesFile, and initialize it to your
-// keystore.properties file, in the rootProject folder.
 // The house rule: a real key in signing/ (gitignored) signs release builds; without it a
 // release comes out unsigned. No fallback key.
 val signingPropertiesFile = rootProject.file("signing/signing.properties")
