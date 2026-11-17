@@ -123,7 +123,7 @@ class JadeInterface internal constructor(private val connection: JadeConnection)
                 // Is it a response to a request ?
                 if (response != null) {
                     // A proper response
-                    logger.i { "Response received: $response $json" }
+                    logger.d { "Response received: $response $json" }
                     return response
                 }
 

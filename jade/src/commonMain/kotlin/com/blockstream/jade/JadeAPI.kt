@@ -509,13 +509,13 @@ class JadeAPI internal constructor(
     ): JsonElement {
         // If it fails retry up to 3 times
         (0 until 3).forEach { attempt ->
-            logger.i { "Making gdk http request ($attempt): $httpRequest" }
+            logger.d { "Making gdk http request ($attempt): $httpRequest" }
 
             val response = httpRequest.params.let {
                 httpRequestHandler.httpRequest(it.toJsonElement())
             }
 
-            logger.i { "Received gdk http response: $response" }
+            logger.d { "Received gdk http response: $response" }
 
             response.jsonObject["body"]?.let {
                 return it
