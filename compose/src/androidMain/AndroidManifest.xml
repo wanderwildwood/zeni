@@ -6,9 +6,10 @@
     <uses-permission android:name="android.permission.CAMERA"/>
 
     <application>
+        <!-- zeni: upstream's component gallery, for developers only; no other app may open it. -->
         <activity
             android:name=".ComposeUIActivity"
-            android:exported="true" />
+            android:exported="false" />
 
         <!-- Starts dark mode before the first screen is drawn. Holds no data. Declared here, beside
              its class, and merged into the app's manifest. -->

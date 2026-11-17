@@ -326,7 +326,8 @@ class GreenActivity : AppCompatActivity() {
             mainViewModel.postEvent(Events.NavigateTo(NavigateDestinations.DeviceList(isJade = true)))
         } else if (intent?.action == OPEN_WALLET) {
 
-            intent.getStringExtra(WALLET)?.let { GreenJson.json.decodeFromString<GreenWallet>(it) }?.let { wallet ->
+            // zeni: a WALLET extra that is not one (sent by another app) is ignored, not a crash.
+            intent.getStringExtra(WALLET)?.let { runCatching { GreenJson.json.decodeFromString<GreenWallet>(it) }.getOrNull() }?.let { wallet ->
                 mainViewModel.navigate(
                     wallet = wallet, deviceId = intent.getStringExtra(DEVICE_ID)
                 )
@@ -334,9 +335,8 @@ class GreenActivity : AppCompatActivity() {
         } else if (intent?.action == NfcAdapter.ACTION_NDEF_DISCOVERED) {
             nfcPaymentUri(intent)?.let { sessionManager.pendingUri.value = it }
         } else if (intent?.action == HIDE_AMOUNTS) {
-            settingsManager.saveApplicationSettings(
-                settingsManager.getApplicationSettings().copy(hideAmounts = true)
-            )
+            // zeni: the shortcut that sent this is gone (GreenApplication), and any other app
+            // could send it; it changes nothing now.
         } else {
             // Handle Uri (BIP-21 or lightning)
             intent?.data?.let {
