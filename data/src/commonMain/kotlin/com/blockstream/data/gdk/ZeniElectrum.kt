@@ -1,11 +1,13 @@
 package com.blockstream.data.gdk
 
 import com.blockstream.data.gdk.data.Network
+import kotlinx.atomicfu.locks.ReentrantLock
+import kotlinx.atomicfu.locks.withLock
 
 /**
  * zeni: the Electrum servers used when nobody has typed one in App Settings. GDK takes one
  * server per network, so the backup is the app's: when the first doesn't answer GDK's ping on
- * connect, the session connects again to the next, and keeps it until the app is restarted.
+ * connect, the session connects again to the next, and keeps it until that one fails to answer.
  * A server typed in App Settings always wins.
  */
 object ZeniElectrum {
@@ -21,20 +23,26 @@ object ZeniElectrum {
     )
 
     private val chosen = mutableMapOf<String, Int>()
+    private val lock = ReentrantLock()
 
     fun primary(networkId: String): String? = servers[networkId]?.firstOrNull()
 
     /** The default server in use for this network now, or null if the network has none. */
-    fun current(networkId: String): String? = servers[networkId]?.let { it.getOrNull(chosen[networkId] ?: 0) ?: it.first() }
+    fun current(networkId: String): String? = lock.withLock {
+        servers[networkId]?.let { it.getOrNull(chosen[networkId] ?: 0) ?: it.first() }
+    }
 
-    /** Moves to the next default server; false when there is no other to try. */
+    /**
+     * Moves to the next default server, back round to the first after the last, so a backup
+     * that stops answering later (or was chosen only because the phone was offline) gives way
+     * to the first again; false when the network has no other server at all.
+     */
     fun advance(networkId: String): Boolean {
         val list = servers[networkId] ?: return false
-        val next = (chosen[networkId] ?: 0) + 1
-        if (next >= list.size) return false
-        chosen[networkId] = next
+        if (list.size < 2) return false
+        lock.withLock { chosen[networkId] = ((chosen[networkId] ?: 0) + 1) % list.size }
         return true
     }
 
-    fun reset() = chosen.clear()
+    fun reset() = lock.withLock { chosen.clear() }
 }

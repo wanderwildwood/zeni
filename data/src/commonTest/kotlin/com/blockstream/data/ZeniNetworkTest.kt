@@ -26,11 +26,11 @@ class ZeniNetworkTest {
     }
 
     @Test
-    fun electrum_backup_is_taken_once() {
+    fun electrum_backup_is_taken_and_gives_way_to_the_first_again() {
         assertTrue(ZeniElectrum.advance(Network.ElectrumMainnet))
         assertEquals("fulcrum.grey.pw:51002", ZeniElectrum.current(Network.ElectrumMainnet))
-        assertFalse(ZeniElectrum.advance(Network.ElectrumMainnet))
-        assertEquals("fulcrum.grey.pw:51002", ZeniElectrum.current(Network.ElectrumMainnet))
+        assertTrue(ZeniElectrum.advance(Network.ElectrumMainnet))
+        assertEquals("electrum.jhoenicke.de:50002", ZeniElectrum.current(Network.ElectrumMainnet))
         assertNull(ZeniElectrum.current(Network.GreenMainnet))
         assertEquals("blackie.c3-soft.com:57006", ZeniElectrum.current(Network.ElectrumTestnet))
         assertFalse(ZeniElectrum.advance(Network.ElectrumTestnet))
