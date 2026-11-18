@@ -8,8 +8,11 @@ import com.blockstream.data.database.wallet.LoginCredentials
 import com.blockstream.data.extensions.passwordPinData
 import com.blockstream.data.extensions.pinPinData
 import com.blockstream.utils.Loggable
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.withContext
 
 /**
  * When a fingerprint has been added to the phone since the last look, fingerprint unlock is
@@ -37,7 +40,13 @@ class DropFingerprintAfterNewEnrollmentUseCase(
      * fingerprint credentials go too, as they are about to be replaced, but it is not marked,
      * since the new one is made after the new fingerprint and has nothing to say.
      */
-    suspend operator fun invoke(settingUp: String? = null): Set<String> = mutex.withLock {
+    // The keystore calls block (binder, and key generation after a change), so they run off
+    // the main thread: the fingerprint login calls this from its view model.
+    suspend operator fun invoke(settingUp: String? = null): Set<String> = withContext(Dispatchers.IO) {
+        mutex.withLock { drop(settingUp) }
+    }
+
+    private suspend fun drop(settingUp: String?): Set<String> {
         if (!greenKeystore.biometricEnrollmentChanged()) return emptySet()
 
         val dropped = mutableSetOf<String>()
@@ -58,12 +67,14 @@ class DropFingerprintAfterNewEnrollmentUseCase(
         // Only once every wallet is done: a failure above leaves the change to be seen again.
         greenKeystore.acknowledgeBiometricEnrollment()
         logger.i { "A fingerprint was added: fingerprint unlock turned off for ${dropped.size} wallets with a PIN" }
-        dropped
+        return dropped
     }
 
     /** At app start: the fingerprints on the phone now are the ones to compare with, if nothing has been yet. */
-    suspend fun establishBaseline() = mutex.withLock {
-        greenKeystore.establishBiometricEnrollmentBaseline()
+    suspend fun establishBaseline() = withContext(Dispatchers.IO) {
+        mutex.withLock {
+            greenKeystore.establishBiometricEnrollmentBaseline()
+        }
     }
 
     companion object : Loggable() {
