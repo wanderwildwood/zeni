@@ -2,7 +2,7 @@
 #### A useful utility for QA
 ---
 
-QA Tester helps QA engineers to validate application behaviour the easy way.
+QA Tester helps QA engineers to validate application behavior the easy way.
 
 > QA Tester is not available in production builds
 
