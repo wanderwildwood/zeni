@@ -5,7 +5,62 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-## zeni [0.1.11] - not yet released
+## zeni [0.1.18] - 2026-11-18
+
+### Changed
+
+- A fingerprint added to the phone turns fingerprint unlock off for wallets that also have a PIN; they ask for the PIN and say why once at their next open. A wallet with no PIN keeps its fingerprint.
+- Other apps can no longer crash the wallet with a bad OPEN_WALLET, switch Hide amounts on, or open the developer gallery screen.
+- Over Tor or a proxy, price requests take turns; a failed price fetch waits a minute before the next try, and a rate more than an hour old is not used.
+- The backup Electrum server gives way to the first again when it stops answering.
+- Hardware-wallet replies and the PIN server exchange are logged only in debug builds.
+- Home's dark mode switch is trusted only from the real Home.
+
+## zeni [0.1.17] - 2026-11-17
+
+### Changed
+
+- Only the phone's system certificates are trusted.
+- Guava 33.7.2.
+- Glance counts an "and n more" line as n.
+
+## zeni [0.1.16] - 2026-11-16
+
+### Changed
+
+- About closes again with Close and Back; its Privacy, Terms and Licenses open as full pages.
+- Dark mode: dialogs, menus and selection handles follow it.
+
+## zeni [0.1.15] - 2026-11-15
+
+### Changed
+
+- Dark mode follows the phone's own dark setting where it has one.
+
+## zeni [0.1.14] - 2026-11-14
+
+### Added
+
+- Dark mode, white on black, with a switch in Settings; Home's one switch turns it on in every app.
+
+## zeni [0.1.13] - 2026-11-12
+
+### Changed
+
+- The set-up note in Device info is three plain lines.
+- The denomination dialog has the same menus as the rest of the app.
+- The top bar title is the house size and not bold.
+- The scrollbar ends above a floating button.
+
+## zeni [0.1.12] - 2026-11-08
+
+Includes 0.1.11, which was not released on its own.
+
+### Changed
+
+- Settings pages in the house style, with the scrollbar in place of the page arrows.
+
+## zeni [0.1.11] - not released on its own (shipped in 0.1.12)
 
 ### Removed
 
