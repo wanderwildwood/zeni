@@ -6,6 +6,13 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.widget.Toast
+import blockstream_green.common.generated.resources.Res
+import blockstream_green.common.generated.resources.zeni_no_app_can_open
+import blockstream_green.common.generated.resources.zeni_no_browser_address
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
+import org.jetbrains.compose.resources.StringResource
+import org.jetbrains.compose.resources.getString
 
 /**
  * Opens [url] in a real browser, and says so in plain words when there is none.
@@ -57,8 +64,17 @@ fun canReachBrowser(answer: String?, candidates: List<String?>): Boolean =
 fun isRealBrowser(packageName: String?): Boolean =
     packageName != null && packageName != "android" && !packageName.contains("webview_shell")
 
-/** Where a link is shown when there is no real browser: the address itself, so it can be typed in by hand. */
-fun noBrowserMessage(url: String): String = "No browser is installed. The address is $url."
+/**
+ * Says in a Toast that there is no browser, with the address itself, so it can be typed in by hand.
+ * The words come from the app's strings, which are read off the main thread first.
+ */
+fun noBrowserToast(context: Context, url: String) = toast(context, Res.string.zeni_no_browser_address, url)
+
+private fun toast(context: Context, text: StringResource, arg: String) {
+    MainScope().launch {
+        Toast.makeText(context, getString(text, arg), Toast.LENGTH_LONG).show()
+    }
+}
 
 /** Whether [url] is a web address (http or https) that the guarded opener must handle. */
 fun isWebUrl(url: String): Boolean = url.startsWith("https://", true) || url.startsWith("http://", true)
@@ -67,12 +83,12 @@ fun isWebUrl(url: String): Boolean = url.startsWith("https://", true) || url.sta
 class GuardedUriHandler(private val context: Context) : androidx.compose.ui.platform.UriHandler {
     override fun openUri(uri: String) {
         if (isWebUrl(uri)) {
-            openLink(context, uri, noBrowserMessage(uri))
+            openLink(context, uri, uri) { address -> noBrowserToast(context, address) }
         } else {
             try {
                 context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(uri)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
             } catch (_: ActivityNotFoundException) {
-                Toast.makeText(context, "No app can open $uri.", Toast.LENGTH_LONG).show()
+                toast(context, Res.string.zeni_no_app_can_open, uri)
             }
         }
     }

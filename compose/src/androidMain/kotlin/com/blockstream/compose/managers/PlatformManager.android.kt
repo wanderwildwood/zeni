@@ -181,7 +181,7 @@ actual class PlatformManager constructor(
         try {
             if (isWebUrl(url)) {
                 // Never a Custom Tab or the system's WebView shell: a real browser, or the address in a message.
-                openLink(context, url, noBrowserMessage(url))
+                openLink(context, url, url) { address -> noBrowserToast(context, address) }
             } else {
                 context.startActivity(Intent(Intent.ACTION_VIEW).also {
                     it.setData(Uri.parse(url))

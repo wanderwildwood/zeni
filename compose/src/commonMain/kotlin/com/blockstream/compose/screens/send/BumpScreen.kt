@@ -28,6 +28,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import blockstream_green.common.generated.resources.Res
+import blockstream_green.common.generated.resources.zeni_fee_rate_per_vbyte
 import blockstream_green.common.generated.resources.id_account
 import blockstream_green.common.generated.resources.id_address
 import blockstream_green.common.generated.resources.id_amount
@@ -105,7 +106,7 @@ fun BumpScreen(
                 keyboardType = KeyboardType.Decimal,
                 imeAction = ImeAction.Done
             ),
-            supportingText = "Fee rate per vbyte",
+            supportingText = stringResource(Res.string.zeni_fee_rate_per_vbyte),
             maxFractionDigits = FEE_RATE_DECIMALS
         ) { value ->
             customFeeDialog = null

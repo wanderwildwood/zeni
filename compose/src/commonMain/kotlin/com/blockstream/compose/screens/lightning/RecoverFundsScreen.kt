@@ -20,6 +20,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import blockstream_green.common.generated.resources.Res
+import blockstream_green.common.generated.resources.zeni_fee_rate_per_vbyte
 import blockstream_green.common.generated.resources.at
 import blockstream_green.common.generated.resources.id_amount_to_be_refunded
 import blockstream_green.common.generated.resources.id_fee_rate
@@ -87,7 +88,7 @@ fun RecoverFundsScreen(
                 keyboardType = KeyboardType.Number,
                 imeAction = ImeAction.Done
             ),
-            supportingText = "Fee rate per vbyte"
+            supportingText = stringResource(Res.string.zeni_fee_rate_per_vbyte)
         ) { value ->
             customFeeDialog = null
 

@@ -2,7 +2,6 @@ package com.blockstream.green.utils
 
 import com.blockstream.compose.managers.isRealBrowser
 import com.blockstream.compose.managers.isWebUrl
-import com.blockstream.compose.managers.noBrowserMessage
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -28,10 +27,5 @@ class LinkOpenerTest {
         assertTrue(isWebUrl("HTTP://example.org"))
         assertFalse(isWebUrl("mailto:email@wanderthe.dev"))
         assertFalse(isWebUrl("bitcoin:bc1q"))
-    }
-
-    @Test
-    fun theNoBrowserMessageCarriesTheAddress() {
-        assertTrue(noBrowserMessage("https://a.b/c").contains("https://a.b/c"))
     }
 }

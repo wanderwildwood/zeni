@@ -26,6 +26,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import blockstream_green.common.generated.resources.Res
+import blockstream_green.common.generated.resources.zeni_fee_rate_per_vbyte
 import blockstream_green.common.generated.resources.id_continue
 import blockstream_green.common.generated.resources.id_fee_rate
 import blockstream_green.common.generated.resources.id_have_a_stuck_swap
@@ -105,7 +106,7 @@ fun SwapScreen(
                 keyboardType = KeyboardType.Decimal,
                 imeAction = ImeAction.Done
             ),
-            supportingText = "Fee rate per vbyte",
+            supportingText = stringResource(Res.string.zeni_fee_rate_per_vbyte),
             maxFractionDigits = FEE_RATE_DECIMALS
         ) { value ->
             customFeeDialog = null
