@@ -194,7 +194,14 @@ class GreenActivity : AppCompatActivity() {
             }
         }
 
-        handleIntent(intent)
+        // zeni: an intent is acted on once. When the activity is recreated (a configuration
+        // change, or the app coming back after Android stopped it) or reopened from Recents, it
+        // comes back with the intent it was first started with, and a payment link or tag
+        // handled then would open Send again with the old request.
+        val isFromHistory = ((intent?.flags ?: 0) and Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0
+        if (savedInstanceState == null && !isFromHistory) {
+            handleIntent(intent)
+        }
 
         // Read only while resumed and not sharing an address of our own (see nfcReader).
         lifecycleScope.launch {
