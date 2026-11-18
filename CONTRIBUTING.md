@@ -1,30 +1,13 @@
-# Contributing to Blockstream App
+# Contributing
 
-Thank you for contributing to Blockstream App. Please follow these guidelines.
+Bitcoin is a fork of Blockstream's Green app, reshaped for the Mudita Kompakt and kept by one
+person. Blockstream has no part in it, so please send nothing about this fork to them.
 
-## Reporting issues
+- **A problem or an idea:** open an issue in this repository, and say what you did and what
+  you saw.
+- **A security problem:** not in a public issue; see [SECURITY.md](SECURITY.md).
+- **Code:** build it as the README says. Pull requests are read, but a short issue first saves
+  you the work if the change is not one this fork will take.
 
-Before opening an issue, make sure that:
-
-* the issue is reproducible on the latest master branch or the latest stable
-  release;
-* the issue is not already tracked;
-* no pending pull request already addresses the issue.
-
-## Reporting security vulnerabilities
-
-Do not open public issues for security vulnerabilities. Report them privately
-as described in [SECURITY.md](SECURITY.md).
-
-## Pull requests
-
-* Build the project as described in [BUILD.md](BUILD.md).
-* Make sure your changes pass the CI before opening a pull request.
-* Pull requests that change the GUI must include screenshots in the
-  description.
-
-## Translations
-
-Translations are managed on
-[Transifex](https://www.transifex.com/blockstream/blockstream-green/); please
-contribute translation fixes there rather than in pull requests.
+The code is GPL-3.0-only, as Blockstream publishes Green; anything you send comes under the same
+license.
