@@ -1211,7 +1211,7 @@
     <string name="zeni_no_browser">No browser is installed</string>
     <string name="zeni_feed_the_llamas">feed the llamas</string>
     <!-- The drawer About (shared-about HouseAbout) -->
-    <string name="zeni_about_what">A Bitcoin wallet whose keys stay on a hardware wallet, which signs over Bluetooth. Bitcoin only, with no Lightning, Liquid or swaps.</string>
+    <string name="zeni_about_what">A Bitcoin wallet for E Ink. Its keys stay on your hardware wallet, which signs over Bluetooth or USB, or encrypted on this phone for a wallet kept here. Bitcoin only, with no Lightning, Liquid or swaps.</string>
     <string name="zeni_about_credits_title">Credits</string>
     <string name="zeni_about_licence_line">This app is free software under the GNU General Public License, version 3 only. Copyright © wander wildwood for the changes in this fork, and © Blockstream Corporation Inc. and contributors for Blockstream Green, which it is based on. What it is built on keeps its own licenses, listed below.</string>
     <string name="about_feed_the_llamas">Feed the llamas</string>
