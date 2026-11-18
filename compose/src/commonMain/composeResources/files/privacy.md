@@ -51,7 +51,7 @@ NFC — tap to pay, as above.
 
 `POST_NOTIFICATIONS` — the app's status notifications.
 
-`USE_BIOMETRIC` and `USE_FINGERPRINT` — only if you choose to unlock with a fingerprint. The fingerprint itself never reaches the app. The key it unlocks is not destroyed when a fingerprint is added to the phone, so a fingerprint added later opens the wallet too: a wallet set up with a fingerprint and no PIN would otherwise be locked for good. Anyone who can add a fingerprint already knows the phone's own lock.
+`USE_BIOMETRIC` and `USE_FINGERPRINT` — only if you choose to unlock with a fingerprint. The fingerprint itself never reaches the app. When a fingerprint is added to the phone, every wallet that also has a PIN stops opening with a fingerprint and asks for its PIN; fingerprint unlock can then be turned on again under Security. A wallet set up with a fingerprint and no PIN keeps opening with a fingerprint, a new one included, since it would otherwise be locked for good. Anyone who can add a fingerprint already knows the phone's own lock.
 
 `FOREGROUND_SERVICE`, `WAKE_LOCK` and `RECEIVE_BOOT_COMPLETED` — declared by AndroidX WorkManager for its own scheduling.
 

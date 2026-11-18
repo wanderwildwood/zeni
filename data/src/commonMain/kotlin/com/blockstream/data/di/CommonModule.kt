@@ -2,6 +2,7 @@ package com.blockstream.data.di
 
 import com.blockstream.data.dataModule
 import com.blockstream.data.usecases.CheckRecoveryPhraseUseCase
+import com.blockstream.data.usecases.DropFingerprintAfterNewEnrollmentUseCase
 import com.blockstream.data.usecases.ResealKeystoreDataUseCase
 import com.blockstream.data.usecases.SetBiometricsUseCase
 import com.blockstream.data.usecases.SetPinUseCase
@@ -16,5 +17,6 @@ val commonModule = module {
     singleOf(::CheckRecoveryPhraseUseCase)
     singleOf(::SetBiometricsUseCase)
     singleOf(::ResealKeystoreDataUseCase)
+    singleOf(::DropFingerprintAfterNewEnrollmentUseCase)
     singleOf(::SetPinUseCase)
 }

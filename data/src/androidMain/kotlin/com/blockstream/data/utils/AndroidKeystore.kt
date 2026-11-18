@@ -81,7 +81,11 @@ class AndroidKeystore(val context: Context) : GreenKeystore {
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     @Throws(Exception::class)
-    fun initializeKeyStoreKey(keystoreAlias: String, isBiometric: Boolean) {
+    fun initializeKeyStoreKey(
+        keystoreAlias: String,
+        isBiometric: Boolean,
+        invalidatedByBiometricEnrollment: Boolean = false
+    ) {
         if (keyStoreKeyExists(keystoreAlias)) {
             throw KeyStoreException("KeyStore is already created for $keystoreAlias")
         }
@@ -121,7 +125,9 @@ class AndroidKeystore(val context: Context) : GreenKeystore {
                 builder.setUserAuthenticationValidityDurationSeconds(-1)
             }
 
-            builder.setInvalidatedByBiometricEnrollment(false)
+            // The wallets' key stays false: it is shared by every wallet, and one set up with a
+            // fingerprint and no PIN would be locked for good. Only the canary below is true.
+            builder.setInvalidatedByBiometricEnrollment(invalidatedByBiometricEnrollment)
         }
 
         keyGenerator.init(builder.build())
@@ -170,7 +176,45 @@ class AndroidKeystore(val context: Context) : GreenKeystore {
             initializeKeyStoreKey(BIOMETRICS_GCM_ALIAS, true)
         }
 
+        // Fingerprint unlock is being set up: from here on a fingerprint added later is seen.
+        if (!keyStoreKeyExists(ENROLLMENT_CANARY_ALIAS)) {
+            createEnrollmentCanary()
+        }
+
         return getEncryptionCipher(BIOMETRICS_GCM_ALIAS)
+    }
+
+    /**
+     * A key that seals nothing. Android destroys it when a fingerprint is added to the phone,
+     * which is how a new fingerprint is told apart from the ones there when fingerprint unlock
+     * was set up. The wallets' own key is never destroyed that way (see initializeKeyStoreKey).
+     */
+    override fun biometricEnrollmentChanged(): Boolean {
+        if (!keyStoreKeyExists(ENROLLMENT_CANARY_ALIAS)) {
+            createEnrollmentCanary()
+            return false
+        }
+        return try {
+            getEncryptionCipher(ENROLLMENT_CANARY_ALIAS)
+            false
+        } catch (e: Exception) {
+            // Taking a valid canary for a broken one only asks PIN wallets for their PIN.
+            !keyRemainsValid(e)
+        }
+    }
+
+    override fun acknowledgeBiometricEnrollment() {
+        deleteFromKeyStore(ENROLLMENT_CANARY_ALIAS)
+        createEnrollmentCanary()
+    }
+
+    private fun createEnrollmentCanary() {
+        try {
+            initializeKeyStoreKey(ENROLLMENT_CANARY_ALIAS, isBiometric = true, invalidatedByBiometricEnrollment = true)
+        } catch (e: Exception) {
+            // No fingerprint on the phone yet; made the next time one is.
+            logger.i { "Enrollment canary not made: ${e.message}" }
+        }
     }
 
     /**
@@ -285,6 +329,9 @@ class AndroidKeystore(val context: Context) : GreenKeystore {
         // v2: AES-256-GCM, used for everything written since 0.1.3.
         const val BASIC_GCM_ALIAS = "v2-basic"
         const val BIOMETRICS_GCM_ALIAS = "v2-biometrics"
+
+        // Seals nothing; destroyed by Android when a fingerprint is added (see biometricEnrollmentChanged).
+        const val ENROLLMENT_CANARY_ALIAS = "v2-enrollment-canary"
 
         private fun isGcmAlias(alias: String) = alias.startsWith("v2-")
         private fun gcmAliasOf(alias: String) = when (alias) {

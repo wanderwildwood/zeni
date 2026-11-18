@@ -4,6 +4,8 @@ import androidx.lifecycle.viewModelScope
 import blockstream_green.common.generated.resources.Res
 import blockstream_green.common.generated.resources.id_bip39_passphrase_login
 import blockstream_green.common.generated.resources.id_emergency_recovery_phrase
+import blockstream_green.common.generated.resources.id_fingerprint_added_enter_your_pin
+import blockstream_green.common.generated.resources.id_fingerprint_unlock_is_off
 import blockstream_green.common.generated.resources.id_help
 import blockstream_green.common.generated.resources.id_if_for_any_reason_you_cant
 import blockstream_green.common.generated.resources.id_invalid_pin_you_have_1d
@@ -57,6 +59,7 @@ import com.blockstream.data.extensions.isNotAuthorized
 import com.blockstream.data.extensions.isNotBlank
 import com.blockstream.data.extensions.lightningMnemonic
 import com.blockstream.data.extensions.logException
+import com.blockstream.data.usecases.DropFingerprintAfterNewEnrollmentUseCase
 import com.blockstream.data.extensions.mnemonic
 import com.blockstream.data.extensions.passwordPinData
 import com.blockstream.data.extensions.pinPinData
@@ -131,6 +134,7 @@ class LoginViewModel constructor(
     private val saveDerivedBoltzMnemonicUseCase: SaveDerivedBoltzMnemonicUseCase by inject()
     private val lightningNodeIdUseCase: LightningNodeIdUseCase by inject()
     private val enableHardwareWatchOnlyUseCase: EnableHardwareWatchOnlyUseCase by inject()
+    private val dropFingerprintAfterNewEnrollment: DropFingerprintAfterNewEnrollmentUseCase by inject()
     private var hwWatchOnlyChoiceDeferred: CompletableDeferred<Boolean>? = null
     private val setupDevelopmentEnv = SetupDevelopmentEnv() // Only for dev env
     override val bip39Passphrase = MutableStateFlow("")
@@ -278,11 +282,7 @@ class LoginViewModel constructor(
                     if ((autoLoginWallet) && !_initialAction.value && !greenWallet.askForBip39Passphrase) {
                         if (autoLoginWallet) {
                             biometricsCredentials.data()?.also { biometricsCredentials ->
-                                postSideEffect(
-                                    LocalSideEffects.LaunchBiometrics(
-                                        biometricsCredentials
-                                    )
-                                )
+                                launchBiometrics(biometricsCredentials)
                             }
 
                             loginHwWatchOnlyCredentials(it.hwWatchOnlyCredentials)
@@ -442,7 +442,7 @@ class LoginViewModel constructor(
 
             is LocalEvents.ClickBiometrics -> {
                 _biometricsCredentials.data()?.also {
-                    postSideEffect(LocalSideEffects.LaunchBiometrics(it))
+                    launchBiometrics(it)
                 } ?: _hwWatchOnlyCredentials.data()?.also {
                     postSideEffect(LocalSideEffects.LaunchUserPresence(it))
                 }
@@ -463,7 +463,7 @@ class LoginViewModel constructor(
                     if (it?.credential_type == CredentialType.KEYSTORE_HW_WATCHONLY_CREDENTIALS) {
                         loginHwWatchOnlyCredentials(it)
                     } else if (it?.credential_type == CredentialType.BIOMETRICS_WATCHONLY_CREDENTIALS) {
-                        postSideEffect(LocalSideEffects.LaunchBiometrics(it))
+                        launchBiometrics(it)
                     } else if (it?.credential_type == CredentialType.KEYSTORE_WATCHONLY_CREDENTIALS) {
                         postSideEffect(LocalSideEffects.LaunchUserPresence(it))
                     } else {
@@ -484,6 +484,26 @@ class LoginViewModel constructor(
         }
     }
 
+    /**
+     * Every fingerprint login goes through here. If a fingerprint was added to the phone since
+     * the last look, wallets with a PIN lose their fingerprint unlock first (never a wallet
+     * with no PIN), and this one, if it was among them, says so and waits for its PIN.
+     */
+    private fun launchBiometrics(loginCredentials: LoginCredentials) {
+        viewModelScope.launch(context = logException(countly)) {
+            if (greenWallet.id in dropFingerprintAfterNewEnrollment()) {
+                postSideEffect(
+                    SideEffects.Dialog(
+                        title = StringHolder.create(Res.string.id_fingerprint_unlock_is_off),
+                        message = StringHolder.create(Res.string.id_fingerprint_added_enter_your_pin)
+                    )
+                )
+                return@launch
+            }
+            postSideEffect(LocalSideEffects.LaunchBiometrics(loginCredentials))
+        }
+    }
+
     private fun setBip39Passphrase(passphrase: String, alwaysAsk: Boolean?) {
         bip39Passphrase.value = passphrase.trim()
         if (alwaysAsk != null) {
@@ -498,7 +518,7 @@ class LoginViewModel constructor(
         // and is always ask
         if (!_initialAction.value) {
             biometricsCredentials.data()?.let { biometricsCredentials ->
-                postSideEffect(LocalSideEffects.LaunchBiometrics(biometricsCredentials))
+                launchBiometrics(biometricsCredentials)
             }
         }
     }

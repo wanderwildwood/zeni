@@ -2158,4 +2158,6 @@
     <string name="id_swaps_are_temporarily_unavailable">Swaps are temporarily unavailable.</string>
     <string name="id_no_stuck_swaps_to_reset">No stuck swaps to reset</string>
     <string name="id_multisig_accounts_require_your_jade">Multisig accounts require your hardware wallet.\n\nFrom then on, this wallet can only be accessed with your hardware wallet connected — watch-only access with biometrics will be disabled.</string>
+    <string name="id_fingerprint_unlock_is_off">Fingerprint unlock is off</string>
+    <string name="id_fingerprint_added_enter_your_pin">A fingerprint was added to this phone, so this wallet no longer opens with a fingerprint. Enter your PIN, then turn Biometrics on again under Security.</string>
 </resources>

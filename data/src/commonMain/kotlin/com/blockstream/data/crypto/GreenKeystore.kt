@@ -18,4 +18,13 @@ interface GreenKeystore {
 
     /** Whether this data was sealed by the pre-0.1.3 AES-CBC key and should be re-sealed. */
     fun needsResealing(encryptedData: EncryptedData): Boolean = false
+
+    /**
+     * Whether a fingerprint was added to the phone (or every one removed) since the last
+     * [acknowledgeBiometricEnrollment]. False whenever it cannot be told.
+     */
+    fun biometricEnrollmentChanged(): Boolean = false
+
+    /** The change [biometricEnrollmentChanged] reported has been dealt with. */
+    fun acknowledgeBiometricEnrollment() {}
 }
