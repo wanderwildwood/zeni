@@ -33,15 +33,24 @@ object ZeniElectrum {
     }
 
     /**
-     * Moves to the next default server, back round to the first after the last, so a backup
-     * that stops answering later (or was chosen only because the phone was offline) gives way
-     * to the first again; false when the network has no other server at all.
+     * Moves past [failed], the server a connect just found not answering, to the next default
+     * server, back round to the first after the last, so a backup that stops answering later
+     * (or was chosen only because the phone was offline) gives way to the first again. When
+     * another session has already moved away from [failed], the choice is left as it is, so
+     * two sessions that both saw the same server fail don't send each other back to it.
+     * True when the server in use is now another than [failed]; false when the network has no
+     * other server at all.
      */
-    fun advance(networkId: String): Boolean {
+    fun advance(networkId: String, failed: String): Boolean {
         val list = servers[networkId] ?: return false
         if (list.size < 2) return false
-        lock.withLock { chosen[networkId] = ((chosen[networkId] ?: 0) + 1) % list.size }
-        return true
+        lock.withLock {
+            val index = chosen[networkId] ?: 0
+            if (list.getOrNull(index) == failed) {
+                chosen[networkId] = (index + 1) % list.size
+            }
+        }
+        return current(networkId) != failed
     }
 
     fun reset() = lock.withLock { chosen.clear() }

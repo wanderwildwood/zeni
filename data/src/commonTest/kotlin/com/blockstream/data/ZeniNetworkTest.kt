@@ -27,13 +27,21 @@ class ZeniNetworkTest {
 
     @Test
     fun electrum_backup_is_taken_and_gives_way_to_the_first_again() {
-        assertTrue(ZeniElectrum.advance(Network.ElectrumMainnet))
+        assertTrue(ZeniElectrum.advance(Network.ElectrumMainnet, "electrum.jhoenicke.de:50002"))
         assertEquals("fulcrum.grey.pw:51002", ZeniElectrum.current(Network.ElectrumMainnet))
-        assertTrue(ZeniElectrum.advance(Network.ElectrumMainnet))
+        assertTrue(ZeniElectrum.advance(Network.ElectrumMainnet, "fulcrum.grey.pw:51002"))
         assertEquals("electrum.jhoenicke.de:50002", ZeniElectrum.current(Network.ElectrumMainnet))
         assertNull(ZeniElectrum.current(Network.GreenMainnet))
         assertEquals("blackie.c3-soft.com:57006", ZeniElectrum.current(Network.ElectrumTestnet))
-        assertFalse(ZeniElectrum.advance(Network.ElectrumTestnet))
+        assertFalse(ZeniElectrum.advance(Network.ElectrumTestnet, "blackie.c3-soft.com:57006"))
+    }
+
+    @Test
+    fun two_sessions_that_saw_the_first_fail_both_end_on_the_backup() {
+        // Both sessions tried the first server and saw it not answer
+        assertTrue(ZeniElectrum.advance(Network.ElectrumMainnet, "electrum.jhoenicke.de:50002"))
+        assertTrue(ZeniElectrum.advance(Network.ElectrumMainnet, "electrum.jhoenicke.de:50002"))
+        assertEquals("fulcrum.grey.pw:51002", ZeniElectrum.current(Network.ElectrumMainnet))
     }
 
     @Test

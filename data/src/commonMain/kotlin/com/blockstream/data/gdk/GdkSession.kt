@@ -734,20 +734,21 @@ class GdkSession constructor(
     }
 
     suspend fun connect(network: Network, initNetworks: List<Network>? = null): List<Network> {
-        val unanswered = MutableStateFlow<List<Network>>(emptyList())
+        // Each network whose default server didn't answer, with the server that was tried
+        val unanswered = MutableStateFlow<List<Pair<Network, String>>>(emptyList())
         val connected = connectNetworks(network, initNetworks, unanswered)
 
         // zeni: GDK takes one Electrum server per network. When the default one didn't answer
         // GDK's ping, connect once more with the backup (ZeniElectrum), which then stays.
-        return if (unanswered.value.map { ZeniElectrum.advance(it.id) }.any { it }) {
-            logger.i { "Default Electrum server did not answer for ${unanswered.value.joinToString { it.id }}, trying the backup" }
+        return if (unanswered.value.map { (failed, url) -> ZeniElectrum.advance(failed.id, url) }.any { it }) {
+            logger.i { "Default Electrum server did not answer for ${unanswered.value.joinToString { it.first.id }}, trying the backup" }
             connectNetworks(network, initNetworks, MutableStateFlow(emptyList()))
         } else {
             connected
         }
     }
 
-    private suspend fun connectNetworks(network: Network, initNetworks: List<Network>?, unanswered: MutableStateFlow<List<Network>>): List<Network> {
+    private suspend fun connectNetworks(network: Network, initNetworks: List<Network>?, unanswered: MutableStateFlow<List<Pair<Network, String>>>): List<Network> {
         defaultNetworkOrNull = network
 
         disconnect()
@@ -777,7 +778,7 @@ class GdkSession constructor(
                                     ping.cancel()
                                 }
                                 if (event != null && !event.isConnected) {
-                                    unanswered.update { it + network }
+                                    params.electrumUrl?.let { url -> unanswered.update { it + (network to url) } }
                                 }
                             } else {
                                 networkBackend.connect(params)
