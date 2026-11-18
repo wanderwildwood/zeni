@@ -342,7 +342,8 @@ class GreenActivity : AppCompatActivity() {
                 lifecycleScope.launch {
                     val wallet = database.getWallet(walletId)
                         // A wallet open without being saved (a passphrase, a hardware wallet not remembered)
-                        ?: sessionManager.ephemeralWallets.value.find { it.id == walletId }
+                        // (the session's own wallet covers both kinds; ephemeralWallets holds no hardware ones)
+                        ?: sessionManager.getWalletSessionOrNull(walletId)?.ephemeralWallet
                     wallet?.let { mainViewModel.navigate(wallet = it, deviceId = deviceId) }
                 }
             }
