@@ -327,19 +327,27 @@ class GreenActivity : AppCompatActivity() {
         } else if (intent?.action == OPEN_WALLET) {
 
             // zeni: a WALLET extra that is not one (sent by another app) is ignored, not a crash.
-            intent.getStringExtra(WALLET)?.let { runCatching { GreenJson.json.decodeFromString<GreenWallet>(it) }.getOrNull() }?.let { wallet ->
-                mainViewModel.navigate(
-                    wallet = wallet, deviceId = intent.getStringExtra(DEVICE_ID)
-                )
+            // Only its id is taken: the wallet opened is the one this app holds under that id,
+            // never fields another app wrote, and an id it does not hold opens nothing.
+            val walletId = intent.getStringExtra(WALLET)?.let { runCatching { GreenJson.json.decodeFromString<GreenWallet>(it) }.getOrNull() }?.id
+            val deviceId = intent.getStringExtra(DEVICE_ID)
+            if (walletId != null) {
+                lifecycleScope.launch {
+                    val wallet = database.getWallet(walletId)
+                        // A wallet open without being saved (a passphrase, a hardware wallet not remembered)
+                        ?: sessionManager.ephemeralWallets.value.find { it.id == walletId }
+                    wallet?.let { mainViewModel.navigate(wallet = it, deviceId = deviceId) }
+                }
             }
         } else if (intent?.action == NfcAdapter.ACTION_NDEF_DISCOVERED) {
             nfcPaymentUri(intent)?.let { sessionManager.pendingUri.value = it }
         } else if (intent?.action == HIDE_AMOUNTS) {
             // zeni: the shortcut that sent this is gone (GreenApplication), and any other app
             // could send it; it changes nothing now.
-        } else {
-            // Handle Uri (BIP-21 or lightning)
-            intent?.data?.let {
+        } else if (intent?.action == Intent.ACTION_VIEW && intent.data?.scheme.equals("bitcoin", ignoreCase = true)) {
+            // A bitcoin: payment link (BIP-21). Any other data another app sends is not taken
+            // for an address.
+            intent.data?.let {
                 sessionManager.pendingUri.value = it.toString()
             }
         }
