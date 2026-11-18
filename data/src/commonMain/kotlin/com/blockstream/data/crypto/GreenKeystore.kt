@@ -21,10 +21,14 @@ interface GreenKeystore {
 
     /**
      * Whether a fingerprint was added to the phone (or every one removed) since the last
-     * [acknowledgeBiometricEnrollment]. False whenever it cannot be told.
+     * [acknowledgeBiometricEnrollment]. False when it has never been looked at before, true
+     * when what it was compared with has been lost.
      */
     fun biometricEnrollmentChanged(): Boolean = false
 
     /** The change [biometricEnrollmentChanged] reported has been dealt with. */
     fun acknowledgeBiometricEnrollment() {}
+
+    /** Takes the fingerprints on the phone now as the ones to compare with, if nothing has yet. */
+    fun establishBiometricEnrollmentBaseline() {}
 }

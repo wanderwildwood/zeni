@@ -25,4 +25,14 @@ class AndroidKeystoreKeyValidityTest {
     fun unknownErrorRetainsKey() {
         assertTrue(AndroidKeystore.keyRemainsValid(RuntimeException("OEM keystore quirk")))
     }
+
+    @Test
+    fun aCanaryGoneAfterItWasMadeCountsAsANewFingerprint() {
+        assertTrue(AndroidKeystore.missingCanaryMeansChange(baselineMade = true))
+    }
+
+    @Test
+    fun noCanaryEverMadeIsAFirstLookNotAChange() {
+        assertFalse(AndroidKeystore.missingCanaryMeansChange(baselineMade = false))
+    }
 }

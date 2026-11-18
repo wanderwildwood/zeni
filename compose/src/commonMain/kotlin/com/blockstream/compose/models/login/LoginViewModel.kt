@@ -514,6 +514,8 @@ class LoginViewModel constructor(
         if (!DropFingerprintAfterNewEnrollmentUseCase.isDropped(wallet.extras)) return@withLock
         wallet.extras = DropFingerprintAfterNewEnrollmentUseCase.clearDropped(wallet.extras)
         database.updateWallet(wallet)
+        // The copy this screen was opened with may carry the mark too; it must not write it back.
+        greenWallet.extras = DropFingerprintAfterNewEnrollmentUseCase.clearDropped(greenWallet.extras)
         postSideEffect(
             SideEffects.Dialog(
                 title = StringHolder.create(Res.string.id_fingerprint_unlock_is_off),
@@ -522,14 +524,25 @@ class LoginViewModel constructor(
         )
     }
 
+    /**
+     * Makes [change] to this screen's wallet and to a freshly read copy of its stored row, and
+     * stores that copy: a field another part of the app changed meanwhile (such as the mark
+     * [sayFingerprintDropped] takes off) is not overwritten with this screen's older value.
+     */
+    private suspend fun updateStoredWallet(change: (GreenWallet) -> Unit) {
+        change(greenWallet)
+        if (greenWallet.isEphemeral) return
+        database.getWallet(greenWallet.id)?.also {
+            change(it)
+            database.updateWallet(it)
+        }
+    }
+
     private fun setBip39Passphrase(passphrase: String, alwaysAsk: Boolean?) {
         bip39Passphrase.value = passphrase.trim()
         if (alwaysAsk != null) {
             viewModelScope.launch(context = logException(countly)) {
-                greenWallet.also {
-                    it.askForBip39Passphrase = alwaysAsk
-                    database.updateWallet(it)
-                }
+                updateStoredWallet { it.askForBip39Passphrase = alwaysAsk }
             }
         }
 
@@ -641,9 +654,8 @@ class LoginViewModel constructor(
                     }
 
                     if (greenWallet.extras?.hwWatchOnlyEnabled == null) {
-                        greenWallet.extras = (greenWallet.extras ?: WalletExtras()).copy(hwWatchOnlyEnabled = shouldEnableWatchOnly)
-                        if (!greenWallet.isEphemeral) {
-                            database.updateWallet(greenWallet)
+                        updateStoredWallet {
+                            it.extras = (it.extras ?: WalletExtras()).copy(hwWatchOnlyEnabled = shouldEnableWatchOnly)
                         }
                     }
 
@@ -861,12 +873,8 @@ class LoginViewModel constructor(
 
             // Migrate - add walletHashId
             if (greenWallet.xPubHashId != session.xPubHashId && session.xPubHashId.isNotBlank()) {
-                greenWallet.also {
-                    it.xPubHashId = session.xPubHashId ?: ""
-                    if (!it.isEphemeral) {
-                        database.updateWallet(it)
-                    }
-                }
+                val xPubHashId = session.xPubHashId ?: ""
+                updateStoredWallet { it.xPubHashId = xPubHashId }
             }
 
             // Reset counter

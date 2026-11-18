@@ -11,6 +11,7 @@ import androidx.lifecycle.ProcessLifecycleOwner
 import com.blockstream.data.di.ApplicationScope
 import com.blockstream.data.fcm.Firebase
 import com.blockstream.data.managers.LifecycleManager
+import com.blockstream.data.usecases.DropFingerprintAfterNewEnrollmentUseCase
 import com.blockstream.data.usecases.ResealKeystoreDataUseCase
 import com.blockstream.green.di.initKoinAndroid
 import com.blockstream.green.lifecycle.ActivityLifecycle
@@ -60,6 +61,16 @@ class GreenApplication : Application() {
                 logger.i { "Keystore: $n credentials re-sealed to AES-GCM" }
             } catch (e: Exception) {
                 logger.w { "Re-sealing keystore data failed: ${e.message}" }
+            }
+        }
+
+        // Fingerprints added from now on are seen, even before the first fingerprint login.
+        val dropFingerprintAfterNewEnrollment: DropFingerprintAfterNewEnrollmentUseCase = get()
+        applicationScope.launch {
+            try {
+                dropFingerprintAfterNewEnrollment.establishBaseline()
+            } catch (e: Exception) {
+                logger.w { "Fingerprint baseline not made: ${e.message}" }
             }
         }
 

@@ -11,6 +11,7 @@ import com.blockstream.data.gdk.GdkSession
 class SetBiometricsUseCase(
     private val database: Database,
     private val greenKeystore: GreenKeystore,
+    private val dropFingerprintAfterNewEnrollment: DropFingerprintAfterNewEnrollmentUseCase,
 ) {
 
     suspend operator fun invoke(
@@ -19,6 +20,11 @@ class SetBiometricsUseCase(
         wallet: GreenWallet
     ) {
         session.getCredentials().mnemonic?.also { mnemonic ->
+            // A fingerprint added since the last look is dealt with first, for the other
+            // wallets with a PIN, so that this new fingerprint unlock, made after it, is not
+            // turned off for it at the next fingerprint login.
+            dropFingerprintAfterNewEnrollment(settingUp = wallet.id)
+
             val encryptedData = greenKeystore.encryptData(cipher, mnemonic.encodeToByteArray())
 
             database.replaceLoginCredential(

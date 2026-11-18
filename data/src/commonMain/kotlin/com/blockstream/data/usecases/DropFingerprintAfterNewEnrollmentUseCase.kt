@@ -32,7 +32,12 @@ class DropFingerprintAfterNewEnrollmentUseCase(
 ) {
     private val mutex = Mutex()
 
-    suspend operator fun invoke(): Set<String> = mutex.withLock {
+    /**
+     * [settingUp] is the wallet whose fingerprint unlock is being set up right now: its old
+     * fingerprint credentials go too, as they are about to be replaced, but it is not marked,
+     * since the new one is made after the new fingerprint and has nothing to say.
+     */
+    suspend operator fun invoke(settingUp: String? = null): Set<String> = mutex.withLock {
         if (!greenKeystore.biometricEnrollmentChanged()) return emptySet()
 
         val dropped = mutableSetOf<String>()
@@ -41,9 +46,12 @@ class DropFingerprintAfterNewEnrollmentUseCase(
             for (credential in toDrop) {
                 database.deleteLoginCredentials(credential)
             }
-            if (toDrop.isNotEmpty()) {
-                wallet.extras = markDropped(wallet.extras)
-                database.updateWallet(wallet)
+            if (toDrop.isNotEmpty() && wallet.id != settingUp) {
+                // Read again just before writing, so the mark lands on the row as it is now.
+                database.getWallet(wallet.id)?.also {
+                    it.extras = markDropped(it.extras)
+                    database.updateWallet(it)
+                }
                 dropped += wallet.id
             }
         }
@@ -51,6 +59,11 @@ class DropFingerprintAfterNewEnrollmentUseCase(
         greenKeystore.acknowledgeBiometricEnrollment()
         logger.i { "A fingerprint was added: fingerprint unlock turned off for ${dropped.size} wallets with a PIN" }
         dropped
+    }
+
+    /** At app start: the fingerprints on the phone now are the ones to compare with, if nothing has been yet. */
+    suspend fun establishBaseline() = mutex.withLock {
+        greenKeystore.establishBiometricEnrollmentBaseline()
     }
 
     companion object : Loggable() {

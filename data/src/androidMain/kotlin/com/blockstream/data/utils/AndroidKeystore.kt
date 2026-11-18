@@ -177,9 +177,9 @@ class AndroidKeystore(val context: Context) : GreenKeystore {
         }
 
         // Fingerprint unlock is being set up: from here on a fingerprint added later is seen.
-        if (!keyStoreKeyExists(ENROLLMENT_CANARY_ALIAS)) {
-            createEnrollmentCanary()
-        }
+        // A canary already made, even one a new fingerprint has broken, is left for
+        // SetBiometricsUseCase to look at before the new fingerprint unlock is saved.
+        establishBiometricEnrollmentBaseline()
 
         return getEncryptionCipher(BIOMETRICS_GCM_ALIAS)
     }
@@ -191,9 +191,14 @@ class AndroidKeystore(val context: Context) : GreenKeystore {
      */
     override fun biometricEnrollmentChanged(): Boolean {
         if (!keyStoreKeyExists(ENROLLMENT_CANARY_ALIAS)) {
+            // A canary made once and gone since can no longer tell what changed: count it as
+            // a change, which only asks PIN wallets for their PIN. Never made: this is the
+            // first look, and the fingerprints there now are the ones to compare with.
+            if (missingCanaryMeansChange(baselineMade = keyStoreKeyExists(ENROLLMENT_BASELINE_ALIAS))) return true
             createEnrollmentCanary()
             return false
         }
+        markEnrollmentBaseline()
         return try {
             getEncryptionCipher(ENROLLMENT_CANARY_ALIAS)
             false
@@ -208,12 +213,35 @@ class AndroidKeystore(val context: Context) : GreenKeystore {
         createEnrollmentCanary()
     }
 
+    /**
+     * Made at app start, so that a fingerprint added after this version is installed is seen
+     * even when no fingerprint login has happened in between.
+     */
+    override fun establishBiometricEnrollmentBaseline() {
+        if (keyStoreKeyExists(ENROLLMENT_CANARY_ALIAS)) {
+            markEnrollmentBaseline()
+        } else if (biometricsKeyExists() && !keyStoreKeyExists(ENROLLMENT_BASELINE_ALIAS)) {
+            createEnrollmentCanary()
+        }
+    }
+
     private fun createEnrollmentCanary() {
         try {
             initializeKeyStoreKey(ENROLLMENT_CANARY_ALIAS, isBiometric = true, invalidatedByBiometricEnrollment = true)
+            markEnrollmentBaseline()
         } catch (e: Exception) {
             // No fingerprint on the phone yet; made the next time one is.
             logger.i { "Enrollment canary not made: ${e.message}" }
+        }
+    }
+
+    /** Remembers that a canary has been made, so that its disappearance counts as a change. */
+    private fun markEnrollmentBaseline() {
+        if (keyStoreKeyExists(ENROLLMENT_BASELINE_ALIAS)) return
+        try {
+            initializeKeyStoreKey(ENROLLMENT_BASELINE_ALIAS, isBiometric = false)
+        } catch (e: Exception) {
+            logger.i { "Enrollment baseline not marked: ${e.message}" }
         }
     }
 
@@ -315,6 +343,13 @@ class AndroidKeystore(val context: Context) : GreenKeystore {
             else -> true
         }
 
+        /**
+         * Whether a missing enrollment canary counts as a fingerprint change. Only once one
+         * has been made on this install: before that there is nothing to compare with.
+         */
+        @VisibleForTesting
+        fun missingCanaryMeansChange(baselineMade: Boolean): Boolean = baselineMade
+
         private const val TRANSFORMATION =
             "${KeyProperties.KEY_ALGORITHM_AES}/${KeyProperties.BLOCK_MODE_CBC}/${KeyProperties.ENCRYPTION_PADDING_PKCS7}"
         private const val GCM_TRANSFORMATION =
@@ -332,6 +367,9 @@ class AndroidKeystore(val context: Context) : GreenKeystore {
 
         // Seals nothing; destroyed by Android when a fingerprint is added (see biometricEnrollmentChanged).
         const val ENROLLMENT_CANARY_ALIAS = "v2-enrollment-canary"
+
+        // Seals nothing; its presence says a canary was made on this install.
+        const val ENROLLMENT_BASELINE_ALIAS = "v2-enrollment-baseline"
 
         private fun isGcmAlias(alias: String) = alias.startsWith("v2-")
         private fun gcmAliasOf(alias: String) = when (alias) {
