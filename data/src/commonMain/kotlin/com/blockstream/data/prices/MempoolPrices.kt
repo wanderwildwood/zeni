@@ -2,8 +2,17 @@ package com.blockstream.data.prices
 
 import com.blockstream.network.AppHttpClient
 import com.blockstream.network.NetworkResponse
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.NonCancellable
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.async
+import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
@@ -38,7 +47,17 @@ object MempoolPrices {
     /** The oldest a rate is used at all: an older one gives no fiat value rather than a wrong one. */
     private const val STALE_MS = 60 * 60 * 1000L
 
+    /** How long a request may go on in the background after its callers stopped waiting. */
+    private const val BACKGROUND_TIMEOUT_MS = 2 * 60 * 1000L
+
     private object Client : AppHttpClient()
+
+    /**
+     * Requests run here, not in the caller: over Tor or the proxy the first one waits for GDK
+     * to connect, which no cancellation reaches, so a caller waits out [TIMEOUT_MS] at most
+     * and the request goes on without it.
+     */
+    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
 
     private val latestMutex = Mutex()
     private val historyMutex = Mutex()
@@ -46,6 +65,8 @@ object MempoolPrices {
     private var latest: Map<String, Double> = emptyMap()
     private var latestAt = 0L
     private var latestFailedAt = 0L
+    /** The latest-prices request under way, shared by everyone asking meanwhile. */
+    private var latestJob: Deferred<Unit>? = null
     private val history = mutableMapOf<String, Pair<Long, List<Pair<Long, Double>>>>()
 
     private fun now() = Clock.System.now().toEpochMilliseconds()
@@ -58,20 +79,50 @@ object MempoolPrices {
     /** The latest price of one bitcoin in [currency], or null if it isn't known. */
     suspend fun rate(currency: String?, via: (suspend (String) -> JsonElement)?): Double? {
         val cur = currency?.uppercase()?.takeIf { it in CURRENCIES } ?: return null
-        return latestMutex.withLock {
+        // The lock is held only to read and write the cache, never across a request: every
+        // amount on screen asks for the rate, and none waits behind a slow one in turn.
+        val job = latestMutex.withLock {
             val due = now() - latestAt > LATEST_FRESH_MS || latest[cur] == null
-            // A server that just failed is not asked again for a minute: every amount on screen
-            // asks for the rate, and each would otherwise wait out the timeout in turn.
+            // A server that just failed is not asked again for a minute.
             if (due && now() - latestFailedAt > RETRY_AFTER_MS) {
-                val fresh = fetch(LATEST, via)?.let { parseLatest(it) }?.takeIf { it.isNotEmpty() }
-                if (fresh != null) {
-                    latest = fresh
-                    latestAt = now()
-                } else {
-                    latestFailedAt = now()
+                latestJob ?: scope.async { fetchLatest(via) }.also { latestJob = it }
+            } else {
+                null
+            }
+        }
+        if (job != null && withTimeoutOrNull(TIMEOUT_MS) { job.await() } == null) {
+            // Not answered in time: amounts go on without it, and for a minute no one waits
+            // again. The request itself goes on and fills the cache if it gets an answer.
+            latestMutex.withLock {
+                if (latestJob === job) latestFailedAt = now()
+            }
+        }
+        return latestMutex.withLock {
+            latest[cur]?.takeIf { now() - latestAt <= STALE_MS }
+        }
+    }
+
+    private suspend fun fetchLatest(via: (suspend (String) -> JsonElement)?) {
+        val self = currentCoroutineContext()[Job]
+        var fresh: Map<String, Double>? = null
+        try {
+            fresh = withTimeoutOrNull(BACKGROUND_TIMEOUT_MS) { request(LATEST, via) }
+                ?.let { parseLatest(it) }?.takeIf { it.isNotEmpty() }
+        } finally {
+            withContext(NonCancellable) {
+                latestMutex.withLock {
+                    // A request from before a reset says nothing.
+                    if (latestJob !== self) return@withLock
+                    val answer = fresh
+                    if (answer != null) {
+                        latest = answer
+                        latestAt = now()
+                    } else {
+                        latestFailedAt = now()
+                    }
+                    latestJob = null
                 }
             }
-            latest[cur]?.takeIf { now() - latestAt <= STALE_MS }
         }
     }
 
@@ -87,20 +138,33 @@ object MempoolPrices {
         }
     }
 
-    private suspend fun fetch(url: String, via: (suspend (String) -> JsonElement)?): JsonElement? =
-        withTimeoutOrNull(TIMEOUT_MS) {
-            try {
-                if (via != null) {
-                    // GDK's http_request answers {"body": …} or {"error": …}
-                    via(url).jsonObject["body"]
-                } else {
-                    (Client.get<JsonElement>(url) as? NetworkResponse.Success)?.data
-                }
-            } catch (e: Exception) {
-                if (e is kotlinx.coroutines.CancellationException) throw e
-                null
+    /** One request, waited for [TIMEOUT_MS] at most; it goes on in the background after that. */
+    private suspend fun fetch(url: String, via: (suspend (String) -> JsonElement)?): JsonElement? {
+        val job = scope.async { withTimeoutOrNull(BACKGROUND_TIMEOUT_MS) { request(url, via) } }
+        return withTimeoutOrNull(TIMEOUT_MS) { job.await() }
+    }
+
+    private suspend fun request(url: String, via: (suspend (String) -> JsonElement)?): JsonElement? =
+        try {
+            if (via != null) {
+                // GDK's http_request answers {"body": …} or {"error": …}
+                via(url).jsonObject["body"]
+            } else {
+                (Client.get<JsonElement>(url) as? NetworkResponse.Success)?.data
             }
+        } catch (e: Exception) {
+            if (e is kotlinx.coroutines.CancellationException) throw e
+            null
         }
+
+    /** Forgets every price and request, for tests. */
+    internal fun reset() {
+        latest = emptyMap()
+        latestAt = 0L
+        latestFailedAt = 0L
+        latestJob = null
+        history.clear()
+    }
 
     internal fun parseLatest(json: JsonElement): Map<String, Double> =
         (json as? JsonObject)?.let { obj ->
