@@ -46,8 +46,17 @@ class Bip39PassphraseViewModel(greenWallet: GreenWallet, passphrase: String) :
         when (event) {
             is Events.Continue -> {
                 viewModelScope.launch(context = logException(countly)) {
-                    greenWallet.askForBip39Passphrase = isAlwaysAsk.value
-                    database.updateWallet(greenWallet)
+                    val alwaysAsk = isAlwaysAsk.value
+                    greenWallet.askForBip39Passphrase = alwaysAsk
+                    // Only this one field is written, on the row as it is now: this sheet's copy
+                    // of the wallet can be older than the database (a fingerprint mark cleared
+                    // while the sheet was open), and an ephemeral wallet has no row.
+                    if (!greenWallet.isEphemeral) {
+                        database.getWallet(greenWallet.id)?.also {
+                            it.askForBip39Passphrase = alwaysAsk
+                            database.updateWallet(it)
+                        }
+                    }
 
                     postSideEffect(LocalSideEffects.SetBip39Passphrase(passphrase = passphrase.value))
                     postSideEffect(SideEffects.Dismiss)
