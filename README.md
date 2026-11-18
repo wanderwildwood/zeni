@@ -36,9 +36,10 @@ What is mine is how it looks on this screen, and what it leaves out.
 on-chain singlesig wallet. Its default Electrum server, its prices and its explorer links are
 public services not run by the wallet's original maker (see Privacy).
 
-**One appearance.** Black and white, Lato in place of Inter, solid text, a plain price chart.
-No animations: every transition and every Rive drawing is gone, because a moving picture on
-this panel is a smear.
+**Black and white**, Lato in place of Inter, solid text, a plain price chart. Dark mode is a
+switch in Settings, and the app also follows the phone's own dark setting. No animations:
+every transition and every Rive drawing is gone, because a moving picture on this panel is a
+smear.
 
 **No pictures in setup.** The device drawings and the hardware-wallet pitch are gone from setup, from
 signing in and from the device sheets. The words stay: *Turn on your hardware wallet and
