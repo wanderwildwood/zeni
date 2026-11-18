@@ -203,6 +203,8 @@ class NotificationManagerAndroid constructor(
 
         val logoutIntent = PendingIntent.getBroadcast(
             context, requestCode(wallet), Intent(ACTION_LOGOUT).also {
+                // To this app alone: the wallet's id is no other app's business.
+                it.setPackage(context.packageName)
                 it.putExtra(WALLET_ID, wallet.id)
             }, PendingIntent.FLAG_IMMUTABLE
         )
