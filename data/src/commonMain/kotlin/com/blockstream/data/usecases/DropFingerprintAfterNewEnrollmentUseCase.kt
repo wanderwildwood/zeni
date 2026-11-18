@@ -2,6 +2,7 @@ package com.blockstream.data.usecases
 
 import com.blockstream.data.crypto.GreenKeystore
 import com.blockstream.data.data.CredentialType
+import com.blockstream.data.data.WalletExtras
 import com.blockstream.data.database.Database
 import com.blockstream.data.database.wallet.LoginCredentials
 import com.blockstream.data.extensions.passwordPinData
@@ -20,6 +21,9 @@ import kotlinx.coroutines.sync.withLock
  * wallet set up with a fingerprint and no PIN has nothing else to open it with. Such a wallet
  * keeps its fingerprint unlock whatever happens here.
  *
+ * Each wallet whose fingerprint unlock was turned off is marked ([WalletExtras.fingerprintDropped])
+ * so that it says why at its own next open, and the mark is taken off once it has.
+ *
  * Returns the ids of the wallets whose fingerprint unlock was turned off.
  */
 class DropFingerprintAfterNewEnrollmentUseCase(
@@ -37,7 +41,11 @@ class DropFingerprintAfterNewEnrollmentUseCase(
             for (credential in toDrop) {
                 database.deleteLoginCredentials(credential)
             }
-            if (toDrop.isNotEmpty()) dropped += wallet.id
+            if (toDrop.isNotEmpty()) {
+                wallet.extras = markDropped(wallet.extras)
+                database.updateWallet(wallet)
+                dropped += wallet.id
+            }
         }
         // Only once every wallet is done: a failure above leaves the change to be seen again.
         greenKeystore.acknowledgeBiometricEnrollment()
@@ -51,6 +59,14 @@ class DropFingerprintAfterNewEnrollmentUseCase(
             CredentialType.BIOMETRICS_MNEMONIC,
             CredentialType.BIOMETRICS_WATCHONLY_CREDENTIALS,
         )
+
+        fun markDropped(extras: WalletExtras?): WalletExtras =
+            (extras ?: WalletExtras()).copy(fingerprintDropped = true)
+
+        fun clearDropped(extras: WalletExtras?): WalletExtras =
+            (extras ?: WalletExtras()).copy(fingerprintDropped = null)
+
+        fun isDropped(extras: WalletExtras?): Boolean = extras?.fingerprintDropped == true
 
         /**
          * One wallet's fingerprint credentials, if it has a PIN or password that still opens it;

@@ -7,7 +7,9 @@ import kotlinx.serialization.Serializable
 data class WalletExtras(
     val totalBalanceInFiat: Boolean = false,
     val lightningNodeId: String? = null,
-    val hwWatchOnlyEnabled: Boolean? = null
+    val hwWatchOnlyEnabled: Boolean? = null,
+    /** Fingerprint unlock was turned off because a fingerprint was added; said once at the next open. */
+    val fingerprintDropped: Boolean? = null,
 ) : GreenJson<WalletExtras>() {
     override fun kSerializer() = serializer()
 

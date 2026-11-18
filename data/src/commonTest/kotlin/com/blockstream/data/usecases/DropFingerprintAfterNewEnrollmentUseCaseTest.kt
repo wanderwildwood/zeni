@@ -4,8 +4,12 @@ import com.blockstream.data.crypto.GreenKeystore
 import com.blockstream.data.crypto.PlatformCipher
 import com.blockstream.data.data.CredentialType
 import com.blockstream.data.data.EncryptedData
+import com.blockstream.data.data.WalletExtras
 import com.blockstream.data.extensions.createLoginCredentials
+import com.blockstream.data.usecases.DropFingerprintAfterNewEnrollmentUseCase.Companion.clearDropped
 import com.blockstream.data.usecases.DropFingerprintAfterNewEnrollmentUseCase.Companion.fingerprintCredentialsToDrop
+import com.blockstream.data.usecases.DropFingerprintAfterNewEnrollmentUseCase.Companion.isDropped
+import com.blockstream.data.usecases.DropFingerprintAfterNewEnrollmentUseCase.Companion.markDropped
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -69,5 +73,23 @@ class DropFingerprintAfterNewEnrollmentUseCaseTest {
             override fun isBiometricEnrolled() = true
         }
         assertFalse(keystore.biometricEnrollmentChanged())
+    }
+
+    @Test
+    fun aDroppedWalletIsMarkedUntilItHasSaidSo() {
+        assertFalse(isDropped(null))
+        val marked = markDropped(WalletExtras(totalBalanceInFiat = true, lightningNodeId = "node"))
+        assertTrue(isDropped(marked))
+        // The wallet's other extras are kept through the mark and its clearing.
+        assertEquals(WalletExtras(totalBalanceInFiat = true, lightningNodeId = "node"), clearDropped(marked))
+        assertFalse(isDropped(clearDropped(marked)))
+        assertTrue(isDropped(markDropped(null)))
+    }
+
+    @Test
+    fun theMarkIsKeptWhereTheWalletIsStored() {
+        assertTrue(isDropped(WalletExtras.fromString(markDropped(null).toJson())))
+        // Extras written before the mark existed read as unmarked.
+        assertFalse(isDropped(WalletExtras.fromString("""{"totalBalanceInFiat":false,"lightningNodeId":null,"hwWatchOnlyEnabled":null}""")))
     }
 }

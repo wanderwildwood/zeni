@@ -88,6 +88,8 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import org.jetbrains.compose.resources.getString
 import org.koin.core.component.inject
@@ -135,6 +137,7 @@ class LoginViewModel constructor(
     private val lightningNodeIdUseCase: LightningNodeIdUseCase by inject()
     private val enableHardwareWatchOnlyUseCase: EnableHardwareWatchOnlyUseCase by inject()
     private val dropFingerprintAfterNewEnrollment: DropFingerprintAfterNewEnrollmentUseCase by inject()
+    private val fingerprintNotice = Mutex()
     private var hwWatchOnlyChoiceDeferred: CompletableDeferred<Boolean>? = null
     private val setupDevelopmentEnv = SetupDevelopmentEnv() // Only for dev env
     override val bip39Passphrase = MutableStateFlow("")
@@ -265,6 +268,9 @@ class LoginViewModel constructor(
             deviceOrNull?.let {
                 loginWithDevice()
             }
+
+            // Said once, if this wallet lost its fingerprint unlock while another was being opened.
+            viewModelScope.launch(context = logException(countly)) { sayFingerprintDropped() }
 
             var handleFirstTime = true
             // Beware as this will fire new values if eg. you change a login credential
@@ -492,16 +498,28 @@ class LoginViewModel constructor(
     private fun launchBiometrics(loginCredentials: LoginCredentials) {
         viewModelScope.launch(context = logException(countly)) {
             if (greenWallet.id in dropFingerprintAfterNewEnrollment()) {
-                postSideEffect(
-                    SideEffects.Dialog(
-                        title = StringHolder.create(Res.string.id_fingerprint_unlock_is_off),
-                        message = StringHolder.create(Res.string.id_fingerprint_added_enter_your_pin)
-                    )
-                )
+                sayFingerprintDropped()
                 return@launch
             }
             postSideEffect(LocalSideEffects.LaunchBiometrics(loginCredentials))
         }
+    }
+
+    /**
+     * A wallet whose fingerprint unlock was turned off for a new fingerprint, here or while
+     * another wallet was opened, says why once, at its own next open, and the mark is taken off.
+     */
+    private suspend fun sayFingerprintDropped() = fingerprintNotice.withLock {
+        val wallet = database.getWallet(greenWallet.id) ?: return@withLock
+        if (!DropFingerprintAfterNewEnrollmentUseCase.isDropped(wallet.extras)) return@withLock
+        wallet.extras = DropFingerprintAfterNewEnrollmentUseCase.clearDropped(wallet.extras)
+        database.updateWallet(wallet)
+        postSideEffect(
+            SideEffects.Dialog(
+                title = StringHolder.create(Res.string.id_fingerprint_unlock_is_off),
+                message = StringHolder.create(Res.string.id_fingerprint_added_enter_your_pin)
+            )
+        )
     }
 
     private fun setBip39Passphrase(passphrase: String, alwaysAsk: Boolean?) {
