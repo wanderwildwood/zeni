@@ -88,6 +88,8 @@ private val SecureScreens = listOf(
     NavigateDestinations.RecoveryCheck::class,
     NavigateDestinations.RecoveryWords::class,
     NavigateDestinations.RecoveryPhrase::class,
+    // Where a phone wallet is restored: the whole phrase is typed and shown here.
+    NavigateDestinations.EnterRecoveryPhrase::class,
     NavigateDestinations.Login::class,
     NavigateDestinations.SetPin::class,
     NavigateDestinations.ChangePin::class,
