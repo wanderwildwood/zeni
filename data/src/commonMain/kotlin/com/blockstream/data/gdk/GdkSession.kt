@@ -892,20 +892,31 @@ class GdkSession constructor(
 
     private var plainGetRoute: Pair<Boolean, String>? = null
 
+    /** Tor and the proxy as they are now: what a connect made now goes through. */
+    private fun httpRoute(): Pair<Boolean, String> {
+        val settings = settingsManager.appSettings
+        return settings.tor to (if (settings.proxyEnabled) settings.proxyUrl ?: "" else "")
+    }
+
+    /** Called with [httpSessionMutex] held: (re)connects this session and notes the route it took. */
+    private suspend fun prepareHttpRequestLocked() {
+        plainGetRoute = null
+        val route = httpRoute()
+        prepareHttpRequest()
+        plainGetRoute = route
+    }
+
     /**
      * zeni: a GET through GDK's own HTTP client, so it goes over Tor or the proxy the same way
      * the wallet does. For data that is no one's business but the user's (the price chart);
      * not for device traffic, which keeps [httpRequest] and its server checks.
      */
-    suspend fun plainGetJson(url: String): JsonElement = plainGetMutex.withLock { withContext(Dispatchers.IO) {
-        // One at a time: the first call on a new route disconnects and reconnects this session,
-        // which would pull it from under a second call running alongside (the chart and the
-        // rate load together).
-        val settings = settingsManager.appSettings
-        val route = settings.tor to (if (settings.proxyEnabled) settings.proxyUrl ?: "" else "")
-        if (!isNetworkInitialized || plainGetRoute != route) {
-            prepareHttpRequest()
-            plainGetRoute = route
+    suspend fun plainGetJson(url: String): JsonElement = httpSessionMutex.withLock { withContext(Dispatchers.IO) {
+        // One at a time, and never alongside a hardware wallet's request on this same session:
+        // the first call on a new route disconnects and reconnects it, which would pull it from
+        // under the other (the chart and the rate load together; a Jade unlocks meanwhile).
+        if (!isNetworkInitialized || plainGetRoute != httpRoute()) {
+            prepareHttpRequestLocked()
         }
         gdkNetworkBackend(defaultNetwork).httpRequest(buildJsonObject {
             put("method", "GET")
@@ -914,7 +925,11 @@ class GdkSession constructor(
         })
     } }
 
-    private val plainGetMutex = Mutex()
+    /**
+     * Held around every connect of this session for HTTP and every request made on it, by
+     * [plainGetJson], [httpRequest] and [rsaVerify] alike, so that none disconnects it under another.
+     */
+    private val httpSessionMutex = Mutex()
 
     override suspend fun httpRequest(
         method: String,
@@ -959,7 +974,9 @@ class GdkSession constructor(
 
     override suspend fun httpRequest(details: JsonElement): JsonElement {
         if (!isNetworkInitialized) {
-            prepareHttpRequest()
+            httpSessionMutex.withLock {
+                if (!isNetworkInitialized) prepareHttpRequestLocked()
+            }
         }
 
         val urlValidator = requireNotNull(sessionManager.httpRequestUrlValidator) { "httpRequestUrlValidator must be registered before device HTTP requests" }
@@ -981,7 +998,7 @@ class GdkSession constructor(
         if (!settingsManager.appSettings.tor && urls.filter { it.isNotBlank() }.all { it.contains(".onion") }) {
             if (urlValidator.torWarning()) {
                 // reconnect to enable tor
-                prepareHttpRequest()
+                httpSessionMutex.withLock { prepareHttpRequestLocked() }
             }
         }
 
@@ -1000,7 +1017,7 @@ class GdkSession constructor(
             }
         }
 
-        return gdkNetworkBackend(defaultNetwork).httpRequest(details).also {
+        return httpSessionMutex.withLock { gdkNetworkBackend(defaultNetwork).httpRequest(details) }.also {
             if (urls.find { it.contains("/set_pin") } != null) {
                 countly.jadeInitialize()
             }
@@ -2485,13 +2502,13 @@ class GdkSession constructor(
     ): CreateTransaction =
         gdkNetworkBackend(network).completeSwapTransaction(params, twoFactorResolver)
 
-    suspend fun rsaVerify(params: RsaVerifyParams): RsaVerify {
+    suspend fun rsaVerify(params: RsaVerifyParams): RsaVerify = httpSessionMutex.withLock {
         // TODO clean it
         if (!isNetworkInitialized) {
-            prepareHttpRequest()
+            prepareHttpRequestLocked()
         }
 
-        return gdkNetworkBackend(defaultNetwork).rsaVerify(params)
+        gdkNetworkBackend(defaultNetwork).rsaVerify(params)
     }
 
     suspend fun signMessage(
