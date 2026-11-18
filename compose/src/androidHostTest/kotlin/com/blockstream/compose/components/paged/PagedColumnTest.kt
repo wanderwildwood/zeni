@@ -128,4 +128,69 @@ class PagedColumnTest {
         assertEquals(Turn.By(700), forward(p))
         assertNull(p.foot)
     }
+
+    @Test
+    fun aListThatGotShorterUnderThePageIsStranded() {
+        // Level's Settings: on the page that opened with "Forget calibration", which then went.
+        // Only the blank tail is left (no rows), or the row is still there with no height.
+        assertTrue(stranded(page(700, 8)))
+        assertTrue(stranded(page(700, 8, Triple(7, 0, 0))))
+        // Not the first page, nor a page that still shows a row, nor an empty list.
+        assertFalse(stranded(page(700, 8, Triple(7, 0, 240))))
+        assertFalse(stranded(page(700, 8, Triple(6, -40, 0), Triple(7, 0, 120))))
+        assertFalse(stranded(page(700, 8, Triple(0, 0, 0), Triple(1, 0, 0))))
+        assertFalse(stranded(page(700, 0)))
+        // With the cut row shown the list ends flush by itself.
+        assertFalse(stranded(cutPage(700, 8)))
+    }
+
+    @Test
+    fun theLastRealPageIsNotStrandedAndTurnsNoFurther() {
+        // Where the list comes back to: the last row on the foot, a whole row at the top.
+        val p = page(700, 8, Triple(4, 0, 160), Triple(5, 160, 400), Triple(6, 400, 420), Triple(7, 420, 700))
+        assertFalse(stranded(p))
+        assertTrue(p.atEnd)
+        assertEquals(Turn.None, forward(p))
+        assertTrue(p.pages)
+    }
+
+    @Test
+    fun aListThatGrowsUnderItsBarIsLaidOutAgainWithoutIt() {
+        // Wallet's Settings: the keyboard closes and the page is taller again.
+        assertTrue(recheckBar(barShown = true, wasWidth = 440, wasHeight = 380, width = 440, height = 640))
+        // Turned sideways, wider.
+        assertTrue(recheckBar(barShown = true, wasWidth = 440, wasHeight = 640, width = 760, height = 360))
+        // No bar: nothing to take back.
+        assertFalse(recheckBar(barShown = false, wasWidth = 440, wasHeight = 380, width = 480, height = 640))
+        // Shrinking (the keyboard coming up, or the bar arriving) leaves the bar as it is decided.
+        assertFalse(recheckBar(barShown = true, wasWidth = 480, wasHeight = 640, width = 440, height = 640))
+        assertFalse(recheckBar(barShown = true, wasWidth = 440, wasHeight = 640, width = 440, height = 380))
+        // The same size again, and the first layout of all (no size before it).
+        assertFalse(recheckBar(barShown = true, wasWidth = 440, wasHeight = 640, width = 440, height = 640))
+        assertFalse(recheckBar(barShown = true, wasWidth = 0, wasHeight = 0, width = 440, height = 640))
+    }
+
+    @Test
+    fun aTapOnTheBarJumpsToTheRowUnderIt() {
+        // 100 rows, 10 whole on a page, a bar 1000 px tall: the slider is 100 px, its middle comes to the tap.
+        assertEquals(0, jumpTarget(50f, 1000, 10, 100))
+        assertEquals(45, jumpTarget(500f, 1000, 10, 100))
+        assertEquals(95, jumpTarget(1000f, 1000, 10, 100))
+        // Above the top and past the foot stay on the list.
+        assertEquals(0, jumpTarget(-20f, 1000, 10, 100))
+        assertEquals(99, jumpTarget(1400f, 1000, 10, 100))
+        // No rows, or no bar yet: nowhere to go.
+        assertNull(jumpTarget(500f, 1000, 1, 0))
+        assertNull(jumpTarget(500f, 0, 10, 100))
+    }
+
+    @Test
+    fun aTapAfterATurnUsesThePageAsItIsNow() {
+        // The same tap with the same count lands elsewhere once fewer rows are whole on the page:
+        // the handler is given the page as it is at the tap, not as it was when the bar was drawn.
+        val before = jumpTarget(500f, 1000, 10, 100)
+        val after = jumpTarget(500f, 1000, 2, 100)
+        assertEquals(45, before)
+        assertEquals(49, after)
+    }
 }
