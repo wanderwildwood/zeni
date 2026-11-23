@@ -189,7 +189,8 @@ fun AppSettingsScreen(
         // zeni: the price on Glance's lock-screen panel, off until switched on. Shown only
         // while Glance is on the phone, or while the switch is already on so it can go off.
         var priceOnLockScreen by remember { mutableStateOf(lockScreenPriceOn()) }
-        val showPriceOnLockScreen = remember { glanceInstalled() || priceOnLockScreen }
+        val glanceHere = remember { glanceInstalled() }
+        val showPriceOnLockScreen = remember { glanceHere || priceOnLockScreen }
 
         var showLanguagePicker by remember { mutableStateOf(false) }
         val languageValue = locale?.let { locales[it] } ?: stringResource(Res.string.id_system_default)
